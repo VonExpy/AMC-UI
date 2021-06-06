@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+html, body {
+    height: 100%;
+}
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+    background: rgb(0,74,110);
+    background: -moz-linear-gradient(-45deg,  rgba(0,74,110,1) 0%, rgba(73,116,99,1) 100%);
+    background: -webkit-linear-gradient(-45deg,  rgba(0,74,110,1) 0%,rgba(73,116,99,1) 100%);
+    background: linear-gradient(135deg,  rgba(0,74,110,1) 0%,rgba(73,116,99,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004a6e', endColorstr='#497463',GradientType=1 );
+    &::before {
+        background-image: url(../../assets/bg_login.png);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        content: '';
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
+    &.noscroll {
+        overflow: hidden;
+    }
+}
