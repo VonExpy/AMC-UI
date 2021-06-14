@@ -1,0 +1,87 @@
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/colors";
+
+nav.nav_container {
+    background: $menu-bg;
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .nav {
+        display: flex;
+        height: 85px;
+        &_item {
+            @include flex-row-stretch;
+            flex-grow:1;
+            flex-basis: 0;
+            position: relative;
+            justify-content: center;
+            cursor: pointer;
+            // width: 100%;
+            min-width: 0;
+            padding: 0px 15px;
+            position: relative;
+            &_icon {
+                align-self: center;
+                margin: 0 7px 0 0;
+                img {
+                    max-height: 30px;
+                    max-width: 30px;
+                }
+            }
+            &_text {
+                align-self: center;
+                color: $menu-links;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1.4;
+                @include text-overflow;
+                i {
+                    font-size: 14px;
+                    color: $secondary;
+                    font-style: normal;
+                    display: block;
+                    @include text-overflow;
+                }
+            }
+            &::before, &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 1px;
+            }
+            &::before {
+                left: 0px;
+                background-color: $menu-border-left;
+                opacity: .35;
+            }
+            &::after {
+                right: 0px;
+                background-color: $menu-border-right;
+                opacity: .63;
+            }
+            &:first-child::before {
+                display: none;
+            }
+            &:last-child::after {
+                display: none;
+            }
+        }
+        .nav_item {
+            -webkit-transition: background-color 100ms ease-in;
+            -moz-transition: background-color 100ms ease-in;
+            -ms-transition: background-color 100ms ease-in;
+            -o-transition: background-color 100ms ease-in;
+            transition: background-color 100ms ease-in;
+            &.active, &:hover {
+                background-color: $menu-bgactive;
+                border-top: 5px solid $menu-brdactive;
+                border-bottom: 5px solid transparent;
+                .nav_item_text {
+                    color: $menu-active;
+                }
+            }
+        }
+    }
+}
