@@ -1,6 +1,6 @@
 @import 'variables';
 @import 'global';
-// @import 'scrollbar';
+@import 'scrollbar';
 @import 'mixins';
 @import 'colors';
 
@@ -14,22 +14,4 @@
     border-radius: 20px 20px 0 0;
     overflow: hidden;
     box-shadow: 0px 0px 20px rgb(0 0 0 / 15%);
-}
-.mCSB_inside > .mCSB_container {
-    margin-right: 0px !important;
-}
-.mCSB_scrollTools {
-    width: 6px !important;
-    .mCSB_draggerRail {
-        visibility: hidden;
-    }
-}
-.mCSB_scrollTools .mCSB_draggerContainer {
-    background: rgb(35 35 35 / 20%);
-}
-.mCS-autoHide > .mCustomScrollBox > .mCSB_scrollTools, .mCS-autoHide > .mCustomScrollBox ~ .mCSB_scrollTools {
-    opacity: .35 !important;
-}
-.mCustomScrollbar > .mCustomScrollBox > .mCSB_scrollTools.mCSB_scrollTools_onDrag, .mCustomScrollbar > .mCustomScrollBox ~ .mCSB_scrollTools.mCSB_scrollTools_onDrag, .mCustomScrollBox:hover > .mCSB_scrollTools, .mCustomScrollBox:hover ~ .mCSB_scrollTools, .mCS-autoHide:hover > .mCustomScrollBox > .mCSB_scrollTools, .mCS-autoHide:hover > .mCustomScrollBox ~ .mCSB_scrollTools {
-    opacity: 1 !important;
 }
