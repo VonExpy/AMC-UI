@@ -1,9 +1,9 @@
-$grid__bp: 1300;
+$grid__bp: 1366;
 $grid__cols: 12;
 $grid__paddings: 5;
 $grid__margins: 5;
 .container {
-  max-width: $grid__bp * 1px;
+  max-width: 100%;
   margin: 0 auto;
   &--fluid {
     margin: 0;
