@@ -67,7 +67,7 @@
             height: calc(100% - 6px);
             padding: 0px 30px 0 0;
             &:first-child {
-                background-color: #ffffff;
+                background: transparent linear-gradient(90deg, #ffffff 0%, #FFFFFF00 100%) 0% 0% no-repeat padding-box;
                 z-index: 1;
                 min-width: 40px;
                 padding-left: 20px;
@@ -147,7 +147,7 @@
         box-shadow: 0px 0px 8px rgb(0 0 0 / 18%);
         &__search {
             @include flex-row-center;
-            padding: 18px 15px 15px;
+            padding: 12px 15px 12px;
             justify-content: space-between;
             border-bottom: solid 1px $border-color;
             .search {
@@ -201,7 +201,7 @@
         }
         &__filters {
             @include flex-row-center;
-            padding: 15px;
+            padding: 12px 15px;
             justify-content: space-between;
             border-bottom: solid 1px $border-color;
             .sort__by {
@@ -342,9 +342,14 @@
             }
         }
     }
-    .users__details {
-        @include flex-column-stretch;
-        max-width: 400px;
-        width: 100%; 
+    .user__con {
+        @include flex-row-stretch;
+        justify-content: stretch;
+        width: 100%;
+        > * {
+            @include flex-row-stretch;
+            justify-content: stretch;
+            flex: auto;
+        }
     }
 }

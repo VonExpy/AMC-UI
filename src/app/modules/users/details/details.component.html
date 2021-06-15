@@ -1,1 +1,36 @@
-<p>details works!</p>
+<div class="user__info">
+    <div class="user__info-detials">
+        <div class="profile__img">
+            <span class="pic">
+                <img src="../../../../assets/profile_pic.jpg" />
+            </span>
+            <span class="badge bottom-center"></span>
+        </div>
+        <div class="profile__info__con">
+            <!-- <div class="details"> -->
+                <div class="name">Juan Anderson</div>
+                <div class="email-role">
+                    <span>Admin</span>
+                    <span class="divider">.</span>
+                    <a class="email" href="mailto: jaunanderson@domainname.com">jaunanderson@domainname.com</a>
+                    <span class="copy"></span>
+                </div>
+                <div class="contact">
+                    <span class="phone">(999) 999 9999</span>
+                    <span class="divider">.</span>
+                    <span class="location">3137 Catalina Ranch Road Leander, Williamson County, TX, 78641</span>
+                </div>
+            <!-- </div> -->
+        </div>
+        <div class="profile__events">
+            <ng-toggle [disabled]="config.disabled" [width]="config.width" [height]="config.height" [margin]="config.margin" [labels]="config.labels" [color]="config.color" [switchColor]="config.switchColor" [fontColor]="config.fontColor" [fontSize]="config.fontSize"></ng-toggle>
+        </div>
+    </div>
+    <div class="user__info-earnings">
+        
+    </div>
+    <div class="user__info-section tabs-container" malihu-scrollbar
+    [scrollbarOptions]="scrollbarOptions">
+        
+    </div>
+</div>
