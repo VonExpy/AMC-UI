@@ -1,0 +1,22 @@
+@import './colors';
+
+.chip {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: $white;
+    border: none;
+    &.account-manager {
+        background: $account-manager;
+    }
+    &.business-owner {
+        background: $business-owner;
+    }
+    &.admin {
+        background: $admin;
+    }
+    &.agent {
+        background: $agent;
+    }
+}

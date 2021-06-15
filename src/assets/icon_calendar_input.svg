@@ -1,0 +1,77 @@
+<svg id="calendar" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Group_4105" data-name="Group 4105">
+    <g id="Group_4104" data-name="Group 4104">
+      <path id="Path_4379" data-name="Path 4379" d="M17.656,1.563h-.937V0H15.156V1.563H4.844V0H3.281V1.563H2.344A2.346,2.346,0,0,0,0,3.906v13.75A2.346,2.346,0,0,0,2.344,20H17.656A2.346,2.346,0,0,0,20,17.656V3.906A2.346,2.346,0,0,0,17.656,1.563Zm.781,16.094a.782.782,0,0,1-.781.781H2.344a.782.782,0,0,1-.781-.781V7.344H18.438Zm0-11.875H1.563V3.906a.782.782,0,0,1,.781-.781h.938V4.688H4.844V3.125H15.156V4.688h1.563V3.125h.938a.782.782,0,0,1,.781.781Z" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4107" data-name="Group 4107" transform="translate(2.945 8.992)">
+    <g id="Group_4106" data-name="Group 4106" transform="translate(0 0)">
+      <rect id="Rectangle_211" data-name="Rectangle 211" width="2" height="2" transform="translate(0.055 0.009)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4109" data-name="Group 4109" transform="translate(6.08 8.992)">
+    <g id="Group_4108" data-name="Group 4108" transform="translate(0 0)">
+      <rect id="Rectangle_212" data-name="Rectangle 212" width="2" height="2" transform="translate(-0.081 0.009)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4111" data-name="Group 4111" transform="translate(9.216 8.992)">
+    <g id="Group_4110" data-name="Group 4110" transform="translate(0 0)">
+      <rect id="Rectangle_213" data-name="Rectangle 213" width="2" height="2" transform="translate(-0.216 0.009)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4113" data-name="Group 4113" transform="translate(12.352 8.992)">
+    <g id="Group_4112" data-name="Group 4112" transform="translate(0 0)">
+      <rect id="Rectangle_214" data-name="Rectangle 214" width="2" height="2" transform="translate(-0.352 0.009)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4115" data-name="Group 4115" transform="translate(15.487 8.992)">
+    <g id="Group_4114" data-name="Group 4114" transform="translate(0 0)">
+      <rect id="Rectangle_215" data-name="Rectangle 215" width="2" height="2" transform="translate(-0.487 0.009)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4117" data-name="Group 4117" transform="translate(2.945 12.128)">
+    <g id="Group_4116" data-name="Group 4116" transform="translate(0 0)">
+      <rect id="Rectangle_216" data-name="Rectangle 216" width="2" height="2" transform="translate(0.055 -0.128)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4119" data-name="Group 4119" transform="translate(6.08 12.128)">
+    <g id="Group_4118" data-name="Group 4118" transform="translate(0 0)">
+      <rect id="Rectangle_217" data-name="Rectangle 217" width="2" height="2" transform="translate(-0.081 -0.128)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4121" data-name="Group 4121" transform="translate(9.216 12.128)">
+    <g id="Group_4120" data-name="Group 4120" transform="translate(0 0)">
+      <rect id="Rectangle_218" data-name="Rectangle 218" width="2" height="2" transform="translate(-0.216 -0.128)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4123" data-name="Group 4123" transform="translate(12.352 12.128)">
+    <g id="Group_4122" data-name="Group 4122" transform="translate(0 0)">
+      <rect id="Rectangle_219" data-name="Rectangle 219" width="2" height="2" transform="translate(-0.352 -0.128)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4125" data-name="Group 4125" transform="translate(2.945 15.263)">
+    <g id="Group_4124" data-name="Group 4124" transform="translate(0 0)">
+      <rect id="Rectangle_220" data-name="Rectangle 220" width="2" height="2" transform="translate(0.055 -0.263)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4127" data-name="Group 4127" transform="translate(6.08 15.263)">
+    <g id="Group_4126" data-name="Group 4126" transform="translate(0 0)">
+      <rect id="Rectangle_221" data-name="Rectangle 221" width="2" height="2" transform="translate(-0.081 -0.263)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4129" data-name="Group 4129" transform="translate(9.216 15.263)">
+    <g id="Group_4128" data-name="Group 4128" transform="translate(0 0)">
+      <rect id="Rectangle_222" data-name="Rectangle 222" width="2" height="2" transform="translate(-0.216 -0.263)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4131" data-name="Group 4131" transform="translate(12.352 15.263)">
+    <g id="Group_4130" data-name="Group 4130" transform="translate(0 0)">
+      <rect id="Rectangle_223" data-name="Rectangle 223" width="2" height="2" transform="translate(-0.352 -0.263)" fill="#a4bbc1"/>
+    </g>
+  </g>
+  <g id="Group_4133" data-name="Group 4133" transform="translate(15.487 12.128)">
+    <g id="Group_4132" data-name="Group 4132" transform="translate(0 0)">
+      <rect id="Rectangle_224" data-name="Rectangle 224" width="2" height="2" transform="translate(-0.487 -0.128)" fill="#a4bbc1"/>
+    </g>
+  </g>
+</svg>

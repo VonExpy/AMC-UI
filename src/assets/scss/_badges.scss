@@ -21,4 +21,8 @@
         background: $danger;
         color: $white;
     }
+    &.badge-primary {
+        background: $badge-primary;
+        color: $white;
+    }
 }

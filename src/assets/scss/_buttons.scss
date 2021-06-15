@@ -1,0 +1,33 @@
+@import 'colors';
+
+.button {
+    padding: 8px 12px;
+    border-radius: 18px;
+    min-height: 32px;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    align-items: center;
+    line-height: 1;
+    cursor: pointer;
+    &-primary {
+        background: $primary;
+        color: $white;
+    } 
+    &-gradient {
+        background: transparent linear-gradient(105deg, #167EAF 0%, #6D9874 100%) 0% 0% no-repeat padding-box;
+        color: $white;
+        padding: 5px 15px 5px 5px;
+    }
+    &.has-icon {
+        // padding-left: 5px;
+        span {
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 6px;
+            img {
+                display: block;
+            }
+        }
+    }
+}

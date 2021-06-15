@@ -1,11 +1,13 @@
 $primary:           #004A6E;
 $secondary:         #6A8991;
+$extras:            #00A1ED;
 $info:              #96FFA8;
 $danger:            #FF304C;
-$formfield:         #fafafa;
 $white:             #ffffff;
 $black:             #000000;
-
+$bg-content:        #f9f9f9;
+$divider:           #A4BBC1;
+$border-color:      #c2dce2;
 
 // Menu Colors ()
 $menu-bg:             rgb(242 242 242 / 90%);
@@ -15,3 +17,34 @@ $menu-border-right: #ffffff;
 $menu-active:       #248875;
 $menu-bgactive:     #f9f9f9;
 $menu-brdactive:    #61A75F;
+
+
+// Extra Badge Colora ()
+$badge-primary:     #248875;
+
+
+// Form Fields
+
+$formfield:         #fafafa;
+$formfield-dark:    #232323;
+
+// User Module Colors
+$name:              #11282E;
+$email:             #00A1ED;
+$orders:            #6A8991;
+$orders-closed:     #45AA56;
+$orders-open:       #1E7DAF;
+$email:             #1E7DAF;
+
+// User Status ()
+$online:            #67DD6C;
+$offline:           #C6C6C6;
+$away:              #11282E;
+$busy:              #11282E;
+
+
+// Chips/Roles
+$account-manager:  #80AC8F;
+$business-owner:   #6E99CB;
+$admin:            #9A7BBE;
+$agent:            #80AC8F;

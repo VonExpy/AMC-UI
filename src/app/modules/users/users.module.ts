@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LandingComponent } from './landing/landing.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
-
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 
 @NgModule({
@@ -13,7 +14,16 @@ import { DetailsComponent } from './details/details.component';
     DetailsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RoundProgressModule,
+    NgCircleProgressModule.forRoot({
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+    })
   ]
 })
 export class UsersModule { }
