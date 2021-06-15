@@ -13,4 +13,15 @@ export class LandingComponent implements OnInit {
     console.log(this.data)
   }
 
+  public scrollbarOptions = {
+    theme: 'dark-3',
+    // theme: 'minimal-dark',
+    autoHideScrollbar: true,
+    scrollButtons: { enable: false }
+  };
+  scrollButtons = { enable: false }
+  statistics: boolean = true;
+  showstatistics() {
+    this.statistics = !this.statistics;
+  };
 }

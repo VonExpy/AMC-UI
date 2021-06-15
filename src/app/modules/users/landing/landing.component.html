@@ -1,5 +1,5 @@
 <div class="app__content">
-    <div class="statistics" id="user__statistics">
+    <div class="statistics" id="user__statistics" *ngIf="statistics">
         <div class="statistics__total">
             <span class="text">Total Users</span>
             <span class="count">280</span>
@@ -131,7 +131,7 @@
                     <input type="search" placeholder="Search Users" />
                 </div>
                 <div class="actions">
-                    <button class="button button-gradient has-icon">
+                    <button class="button button-gradient has-icon" (click)="showstatistics()">
                         <span class="icon">
                             <img src="../../../../assets/icon_add.svg" />
                         </span>
@@ -153,7 +153,8 @@
                 </div>
             </div>
             <div class="users__con__lists">
-                <div class="users__list">
+                <div class="users__list" malihu-scrollbar
+                [scrollbarOptions]="scrollbarOptions">
                     <div class="user_item">
                         <div class="user_item_avatar">
                             <span class="pic"><img src="../../../../assets/profile_pic.jpg" /></span>
@@ -181,7 +182,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="user_item">
+                    <div class="user_item active">
                         <div class="user_item_avatar">
                             <span class="pic"><img src="../../../../assets/AvatarMaker.png" /></span>
                             <span class="status offline"></span>

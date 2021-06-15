@@ -5,7 +5,7 @@ import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
-
+import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
   ],
   imports: [
     CommonModule,
+    MalihuScrollbarModule.forRoot(),
     RoundProgressModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
