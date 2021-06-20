@@ -11,7 +11,7 @@
         &-detials {
             @include flex-row-center;
             padding: 10px 20px 11px;
-            border-bottom: solid 1px #c2dce2;
+            border-bottom: solid 1px $border-color;
             .profile__img {
                 .pic {
                     width: 84px;
@@ -71,14 +71,12 @@
                     padding: 0px 10px;
                 }
             }
-            .profile__events {
-
-            }
         }
         &-earnings {
             @include flex-row-center;
         }
         &-section {
+            background-color: $white;
             @include flex-row-stretch;
             flex: 1;
             justify-content: stretch;

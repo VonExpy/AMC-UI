@@ -25,6 +25,7 @@
     &-primary {
         background-color: $primary;
         color: $white;
+        border: solid 1px $primary;
         &-outline {
             background-color: transparent;
             border: solid 1px $primary;
@@ -33,6 +34,7 @@
     } 
     &-secondary {
         background-color: $secondary;
+        border: solid 1px $secondary;
         color: $white;
     } 
     &-secondary-outline {

@@ -2,25 +2,6 @@
 @import 'colors';
 
 // form styles
-.title-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: solid 1px $form-heading-border;
-    padding: .5rem 0;
-    margin: .25rem 0 2rem;
-    h3 {
-        font-weight: 400;
-        font-size: 18px;
-        color: $form-heading;
-        margin: 0px;
-        padding: 0px;
-        @include text-overflow;
-    }
-    .right__section {
-        
-    }
-}
 .f-group {
     display: flex;
     flex-direction: column;
@@ -67,8 +48,8 @@
             padding: 0px;
             height: 26px;
             line-height: 25px;
+            color: $black;
         }
-        
         input::-webkit-input-placeholder {
             color: $formfield-dark;
             opacity: .5;
@@ -93,6 +74,21 @@
             opacity: .5;
             font-size: 14px;
             font-weight: 300;
+        }
+    }
+}
+.readonly {
+    .required {
+        display: none;
+    }
+    .f-field {
+        border-bottom: none;
+        > * {
+            display: none;
+        }
+        > input {
+            display: block;
+            pointer-events: none;
         }
     }
 }

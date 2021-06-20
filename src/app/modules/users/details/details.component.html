@@ -26,50 +26,228 @@
             <ng-toggle [disabled]="config.disabled" [width]="config.width" [height]="config.height" [margin]="config.margin" [labels]="config.labels" [color]="config.color" [switchColor]="config.switchColor" [fontColor]="config.fontColor" [fontSize]="config.fontSize"></ng-toggle>
         </div>
     </div>
-    <div class="user__info-earnings">
-        <div class="container">
-            
+    <div class="user__info-earnings user__stats flex-row-center">
+        <div class="user__stat">
+            <div class="icon">
+                <img src="../../../../assets/icon_location.svg" />
+            </div>
+            <div class="text">
+                <span class="label">Earnings</span>
+                <span class="value">$2,495</span>
+            </div>
+        </div>
+        <div class="user__stat">
+            <div class="icon">
+                <img src="../../../../assets/icon_location.svg" />
+            </div>
+            <div class="text">
+                <span class="label">Expenses</span>
+                <span class="value">$2,495</span>
+            </div>
+        </div>
+        <div class="user__stat">
+            <div class="icon">
+                <img src="../../../../assets/icon_location.svg" />
+            </div>
+            <div class="text">
+                <span class="label">Net Earnings</span>
+                <span class="value">$2,495</span>
+            </div>
+        </div>
+        <div class="user__stat">
+            <div class="icon">
+                <img src="../../../../assets/icon_location.svg" />
+            </div>
+            <div class="text">
+                <span class="label">Open Orders</span>
+                <span class="value">$2,495</span>
+            </div>
+        </div>
+        <div class="user__stat">
+            <div class="icon">
+                <img src="../../../../assets/icon_location.svg" />
+            </div>
+            <div class="text">
+                <span class="label">Closed Orders</span>
+                <span class="value">$2,495</span>
+            </div>
         </div>
     </div>
-    <div class="user__info-section tabs-container" malihu-scrollbar
-    [scrollbarOptions]="scrollbarOptions">
-        <div class="form px-6 py-5">
-            <div class="title-heading">
-                <h3>Organisation Information</h3>
-                <div class="flex-row-center">
-                    <button class="btn btn-sm btn-secondary-outline">Cancel</button>
-                    <button class="btn btn-sm">Edit</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="f-group">
-                        <label>First Name <span class="required">*</span></label>
-                        <div class="f-field">
-                            <input type="text" placeholder="First Name" />
-                        </div>
-                        <!-- <div class="f-field-value">
-                            Arun Sameer
-                        </div> -->
+    <div class="user__info-section">
+    <div class="tabs__container">
+        <div class="tabs" malihu-scrollbar [scrollbarOptions]="scrollbarOptionsx">
+            <ul>
+                <li class="tab-link active">Personal Info</li>
+                <li class="tab-link">Organisation</li>
+                <li class="tab-link">Orders</li>
+                <li class="tab-link">Clients</li>
+                <li class="tab-link">Job Types & Fee</li>
+                <li class="tab-link">Coverage</li>
+                <li class="tab-link">Fee Structure</li>
+                <li class="tab-link">Products & Vendors</li>
+            </ul>
+        </div>
+        <div class="tab__content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+            <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
+                <div class="title-heading">
+                    <h3>Profile Information</h3>
+                    <div class="flex-row-center">
+                        <button class="btn btn-sm btn-secondary-outline" (click)="editform()" *ngIf="edit">Cancel</button>
+                        <button class="btn btn-sm" (click)="editform()" *ngIf="edit">Update</button>
+                        <button class="btn btn-sm" (click)="editform()" *ngIf="!edit">Edit</button>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>Middle Name <span class="required">*</span></label>
-                        <div class="f-field">
-                            <input type="text" placeholder="Middle Name" />
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>First Name <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="First Name" value="Arun Sameer" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                Arun Sameer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>Middle Name <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="Middle Name" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>Last Name <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="Last Name" value="Koduri" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                Koduri
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>Last Name <span class="required">*</span></label>
-                        <div class="f-field">
-                            <input type="text" placeholder="Last Name" />
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>Role <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="ex: manager, Agent, Delivery" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                Manager
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>Email <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="ex. test@test.com" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                test@test.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>Mobile <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="Ex. 1234567890" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                (123) 456 7890
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>Middle Name <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="Ex. 1234567890" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                (123) 456 7890
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title-heading">
+                    <h3>Mailing Address</h3>
+                    <div class="flex-row-center">
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color" [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize"></ng-toggle>
+                        <small class="label ml-3">Use Company/Assignment Address</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>Address <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="Address" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                3440 Ranch Trails
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>City <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="City" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                Cedar Park
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>County <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="County" value="Williamson County" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                Williamson County
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>State <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="state" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                TX
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>Zipcode <span class="required">*</span></label>
+                            <div class="f-field" *ngIf="edit">
+                                <input type="text" placeholder="Zipcode" />
+                            </div>
+                            <div class="f-field-value" *ngIf="!edit">
+                                78613
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </div>
