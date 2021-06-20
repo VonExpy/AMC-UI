@@ -1,5 +1,8 @@
 @import '../../../../assets/scss/mixins'; 
 @import '../../../../assets/scss/colors';  
+@import '../../../../assets/scss/form';  
+@import '../../../../assets/scss/buttons';  
+@import '../../../../assets/scss/utilities';  
 
     .user__info {
         @include flex-column-stretch;
@@ -50,10 +53,12 @@
                         display: inline-block;
                         &.phone {
                             background: url(../../../../assets/icon_phone.svg) no-repeat center left;
+                            background-size: auto 13px;
                             padding-left: 18px;
                         }
                         &.location {
                             background: url(../../../../assets/icon_location.svg) no-repeat center left;
+                            background-size: auto 13px;
                             padding-left: 15px;
                         }
                     }
@@ -77,5 +82,6 @@
             @include flex-row-stretch;
             flex: 1;
             justify-content: stretch;
+            min-height: 0;
         }
     }

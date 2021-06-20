@@ -1,7 +1,7 @@
 $grid__bp: 1366;
 $grid__cols: 12;
-$grid__paddings: 5;
-$grid__margins: 5;
+$grid__paddings: 8;
+$grid__margins: 8;
 .container {
   max-width: 100%;
   margin: 0 auto;
@@ -10,14 +10,21 @@ $grid__margins: 5;
     max-width: 100%;
   }
 }
-.amc-row {
+.row {
     display: flex;
     flex-wrap: wrap;
-    width: calc(100% + 15px);
+    width: calc(100% + 30px);
     margin-left: -15px;
     margin-right: -15px;
     [class*='col-'] {
         box-sizing: border-box;
+    }
+    .col {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     @for $i from 1 through $grid__cols {
         .col-#{$i} {
@@ -32,6 +39,10 @@ $grid__margins: 5;
     &.no-space {
         margin-left: 0px;
         margin-right: 0px;
+        .col {
+            padding-left: 0;
+            padding-right: 0;
+        }
         @for $i from 1 through $grid__cols {
             .col-#{$i} {
                 flex-basis: (100 / ($grid__cols / $i) ) * 1%;
@@ -42,51 +53,51 @@ $grid__margins: 5;
     }
 }
 /* box Model - margin, padding */
-@for $i from 1 through $grid__paddings {
+@for $i from 0 through $grid__paddings {
     .p-#{$i} {
-        padding: #{$i}rem;
+        padding: #{$i * .25}rem;
     }
     .px-#{$i} {
-        padding-left: #{$i}rem;
-        padding-right: #{$i}rem;
+        padding-left: #{$i * .25}rem;
+        padding-right: #{$i * .25}rem;
     }
     .py-#{$i} {
-        padding-top: #{$i}rem;
-        padding-bottom: #{$i}rem;
+        padding-top: #{$i * .25}rem;
+        padding-bottom: #{$i * .25}rem;
     }
     .pt-#{$i} {
-        padding-top: #{$i}rem;
+        padding-top: #{$i * .25}rem;
     }
     .pl-#{$i} {
-        padding-left: #{$i}rem;
+        padding-left: #{$i * .25}rem;
     }
     .pr-#{$i} {
-        padding-right: #{$i}rem;
+        padding-right: #{$i * .25}rem;
     }
     .pb-#{$i} {
-        padding-bottom: #{$i}rem;
+        padding-bottom: #{$i * .25}rem;
     }
     .m-#{$i} {
-        margin: #{$i}rem;
+        margin: #{$i * .25}rem;
     }
     .mx-#{$i} {
-        margin-left: #{$i}rem;
-        margin-right: #{$i}rem;
+        margin-left: #{$i * .25}rem;
+        margin-right: #{$i * .25}rem;
     }
     .my-#{$i} {
-        margin-top: #{$i}rem;
-        margin-bottom: #{$i}rem;
+        margin-top: #{$i * .25}rem;
+        margin-bottom: #{$i * .25}rem;
     }
     .mt-#{$i} {
-        margin-top: #{$i}rem;
+        margin-top: #{$i * .25}rem;
     }
     .ml-#{$i} {
-        margin-left: #{$i}rem;
+        margin-left: #{$i * .25}rem;
     }
     .mr-#{$i} {
-        margin-right: #{$i}rem;
+        margin-right: #{$i * .25}rem;
     }
     .mb-#{$i} {
-        margin-bottom: #{$i}rem;
+        margin-bottom: #{$i * .25}rem;
     }
 }

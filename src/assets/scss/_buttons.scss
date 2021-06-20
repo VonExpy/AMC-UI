@@ -1,18 +1,44 @@
 @import 'colors';
 
-.button {
-    padding: 8px 12px;
+.btn {
+    padding: 8px 24px;
     border-radius: 18px;
     min-height: 32px;
     display: flex;
     flex-direction: row;
     border: none;
     align-items: center;
-    line-height: 1;
+    justify-content: center;
+    margin: 0px 1px;
+    // line-height: 1;
     cursor: pointer;
+    background-color: $btn-default;
+    color: $btn-text-default;
+    letter-spacing: .5px;
+    min-width: 80px;
+    text-align: center;
+    &-sm {
+        padding: 8px 20px;
+        min-height: 24px;
+        font-size: 12px;
+    }
     &-primary {
-        background: $primary;
+        background-color: $primary;
         color: $white;
+        &-outline {
+            background-color: transparent;
+            border: solid 1px $primary;
+            color: $primary;
+        } 
+    } 
+    &-secondary {
+        background-color: $secondary;
+        color: $white;
+    } 
+    &-secondary-outline {
+        background-color: transparent;
+        border: solid 1px $secondary;
+        color: $secondary;
     } 
     &-gradient {
         background: transparent linear-gradient(105deg, #167EAF 0%, #6D9874 100%) 0% 0% no-repeat padding-box;

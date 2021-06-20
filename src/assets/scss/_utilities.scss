@@ -1,0 +1,32 @@
+@import 'mixins';
+
+// Flex common classses
+.flex {
+    display: flex;
+    &-column {
+        flex-direction: column
+    }
+}
+.flex-row-center {
+    @include flex-row-center;
+}
+.flex-row-stretch {
+    @include flex-row-stretch;
+}
+.flex-column-center {
+    @include flex-column-center;
+}
+.flex-column-stretch {
+    @include flex-column-stretch;
+}
+
+
+
+
+
+
+
+// text classes
+.text-truncate {
+    @include text-overflow;
+}
