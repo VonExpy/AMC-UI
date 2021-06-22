@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { UsersModule } from './modules/users/users.module';
+import { AmcPanelComponent } from './amc-panel/amc-panel.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UsersModule } from './modules/users/users.module';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    NavigationComponent
+    NavigationComponent,
+    AmcPanelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/colors';
+.amc__app {
+    height: 100%;
+    @include flex-column-stretch;
+    .amc__content {
+        @include flex-column-stretch;
+        flex: 1;
+        background: $menu-bg;
+        position: relative;
+        // [app-*] {
+        //     height: 100%;
+        // }
+    }
+}

@@ -7,6 +7,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 import { NgToggleModule } from 'ng-toggle-button';
+import { UsersRoutingModule } from './users-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { NgToggleModule } from 'ng-toggle-button';
     MalihuScrollbarModule.forRoot(),
     RoundProgressModule,
     NgToggleModule,
+    UsersRoutingModule,
+    SharedModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,

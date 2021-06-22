@@ -77,9 +77,9 @@
     <div class="tabs__container">
         <div class="tabs" malihu-scrollbar [scrollbarOptions]="scrollbarOptionsx">
             <ul>
-                <li class="tab-link active">Personal Info</li>
+                <li class="tab-link active" routerLink="profile">Personal Info</li>
                 <li class="tab-link">Organisation</li>
-                <li class="tab-link">Orders</li>
+                <li class="tab-link" routerLink="orders">Orders</li>
                 <li class="tab-link">Clients</li>
                 <li class="tab-link">Job Types & Fee</li>
                 <li class="tab-link">Coverage</li>
@@ -88,7 +88,8 @@
             </ul>
         </div>
         <div class="tab__content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
-            <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
+            <router-outlet></router-outlet>
+            <!-- <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
                 <div class="title-heading">
                     <h3>Profile Information</h3>
                     <div class="flex-row-center">
@@ -246,7 +247,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     </div>
