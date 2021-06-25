@@ -6,23 +6,37 @@ import { DetailsComponent } from './details/details.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
-import { NgToggleModule } from 'ng-toggle-button';
 import { UsersRoutingModule } from './users-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { OrdersComponent } from './orders/orders.component';
+import { ProfileComponent } from './profile/profile.component';
+import { OrganisationComponent } from './organisation/organisation.component';
+import { ClientsComponent } from './clients/clients.component';
+import { JobtypesComponent } from './jobtypes/jobtypes.component';
+import { CoverageComponent } from './coverage/coverage.component';
+import { FeeStructureComponent } from './fee-structure/fee-structure.component';
+import { ProductsVendorsComponent } from './products-vendors/products-vendors.component';
 
 @NgModule({
   declarations: [
     LandingComponent,
     ListComponent,
-    DetailsComponent
+    DetailsComponent,
+    ProfileComponent,
+    OrdersComponent,
+    OrganisationComponent,
+    ClientsComponent,
+    JobtypesComponent,
+    CoverageComponent,
+    FeeStructureComponent,
+    ProductsVendorsComponent
   ],
   imports: [
     CommonModule,
+    SharedModule,
     MalihuScrollbarModule.forRoot(),
     RoundProgressModule,
-    NgToggleModule,
     UsersRoutingModule,
-    SharedModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,

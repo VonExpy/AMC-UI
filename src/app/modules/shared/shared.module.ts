@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedComponent } from './components/shared/shared.component';
-import { OrdersComponent } from './components/orders/orders.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { NgToggleModule } from 'ng-toggle-button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     SharedComponent,
-    OrdersComponent,
-    ProfileComponent,
     SideNavComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgToggleModule,
+    ReactiveFormsModule
   ],
-  exports: [OrdersComponent,ProfileComponent,SideNavComponent]
+  exports: [SideNavComponent,NgToggleModule,ReactiveFormsModule]
 })
 export class SharedModule { }

@@ -16,6 +16,7 @@
         text-transform: uppercase;
         padding-bottom: 3px;
         .required {
+            content: '*';
             color: $danger;
         }
     }

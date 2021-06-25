@@ -1,0 +1,187 @@
+<!-- <p>profile works!</p>
+<button (click)="openSideNav()" type="button">open sidenav</button> -->
+
+<div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
+        <div class="title-heading">
+            <h3>Profile Information</h3>
+            <div class="flex-row-center">
+                <button class="btn btn-sm btn-secondary-outline" (click)="editform()" *ngIf="edit">Cancel</button>
+                <button class="btn btn-sm" type="submit" *ngIf="edit">Update</button>
+                <button class="btn btn-sm" (click)="editform()" *ngIf="!edit">Edit</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="f-group">
+                    <label>First Name <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="First Name" formControlName="firstName" />
+                        <div *ngIf="submitted && f.firstName.errors" class="error">
+                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.firstName.value}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="f-group">
+                    <label>Middle Name <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="Middle Name" formControlName="middleName" />
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.middleName.value}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="f-group">
+                    <label>Last Name <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="Last Name" formControlName="lastName" />
+                        <div *ngIf="submitted && f.lastName.errors" class="error">
+                            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.lastName.value}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="f-group">
+                    <label>Role <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="ex: manager, Agent, Delivery" formControlName="role" />
+                        <div *ngIf="submitted && f.role.errors" class="error">
+                            <div *ngIf="f.role.errors.required">Role is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.role.value}}
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="f-group">
+                    <label>Email <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="ex. test@test.com" formControlName="email" />
+                        <div *ngIf="submitted && f.email.errors" class="error">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.pattern">Please enter Valid Name</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.email.value}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="f-group">
+                    <label>Mobile <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="Ex. 1234567890" formControlName="phone" />
+                        <div *ngIf="submitted && f.phone.errors" class="error">
+                            <div *ngIf="f.phone.errors.required">Phone is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.phone.value}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="title-heading">
+            <h3>Mailing Address</h3>
+            <div class="flex-row-center">
+                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                </ng-toggle>
+                <small class="label ml-3">Use Company/Assignment Address</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="f-group">
+                    <label>Address <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="Address" formControlName="street" />
+                        <div *ngIf="submitted && f.street.errors" class="error">
+                            <div *ngIf="f.street.errors.required">Address is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.street.value}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="f-group">
+                    <label>City <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="City" formControlName="city" />
+                        <div *ngIf="submitted && f.city.errors" class="error">
+                            <div *ngIf="f.city.errors.required">City is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.city.value}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="f-group">
+                    <label>County <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="County" formControlName="county" />
+                        <div *ngIf="submitted && f.county.errors" class="error">
+                            <div *ngIf="f.county.errors.required">County is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.county.value}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="f-group">
+                    <label>State <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="state" formControlName="state" />
+                        <div *ngIf="submitted && f.state.errors" class="error">
+                            <div *ngIf="f.state.errors.required">State is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.state.value}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="f-group">
+                    <label>Zipcode <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="Zipcode" formControlName="zipcode" />
+                        <div *ngIf="submitted && f.zipcode.errors" class="error">
+                            <div *ngIf="f.zipcode.errors.required">Zipcode is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.zipcode.value}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
