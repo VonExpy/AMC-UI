@@ -61,12 +61,12 @@ nav.nav_container {
                 background-color: $menu-border-right;
                 opacity: .63;
             }
-            &:first-child::before {
-                display: none;
-            }
-            &:last-child::after {
-                display: none;
-            }
+            // &:first-child::before {
+            //     display: none;
+            // }
+            // &:last-child::after {
+            //     display: none;
+            // }
         }
         .nav_item {
             -webkit-transition: background-color 100ms ease-in;
