@@ -12,7 +12,7 @@ header {
         @include flex-row-center;
         height: 100%;
         &__logo {
-            padding: 0px 20px;
+            padding: 0px 20px 0px 0px;
             @include flex-row-center; 
             img {
                 height: 32px;
@@ -74,7 +74,7 @@ header {
             font-weight: 300;
             font-size: .767rem;
             .section {
-                padding: 0px 20px;
+                padding: 0px 0px 0px 20px;
                 border-left: 1px solid rgb(53 135 149 / 50%);
                 &.nbrd {
                     border: none;

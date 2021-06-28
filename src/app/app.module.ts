@@ -13,6 +13,7 @@ import { UsersModule } from './modules/users/users.module';
 import { AmcPanelComponent } from './amc-panel/amc-panel.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { SharedService } from './modules/shared/services/shared.service';
+import { RegisterComponent } from './modules/register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SharedService } from './modules/shared/services/shared.service';
     AboutComponent,
     ContactComponent,
     NavigationComponent,
-    AmcPanelComponent
+    AmcPanelComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

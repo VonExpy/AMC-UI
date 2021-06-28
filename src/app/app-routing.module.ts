@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AmcPanelComponent } from './amc-panel/amc-panel.component';
+import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () =>
-      import('./modules/login/login.module').then((m) => m.LoginModule),
+    component: LoginComponent,
   },
   {
     path: '',

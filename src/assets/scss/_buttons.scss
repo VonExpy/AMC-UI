@@ -58,4 +58,20 @@
             }
         }
     }
+    &.only-icon {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        padding: 6px 5px 5px;
+        line-height: 32px;
+        text-align: center;
+        max-height: 30px;
+        min-height: 30px;
+        margin: 0px 0px 2px 2px;
+        text-align: center;
+        > * {
+            margin: 0 !important;
+            display: inline-block;
+        }
+    }
 }

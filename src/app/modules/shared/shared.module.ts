@@ -13,7 +13,8 @@ import { SliderComponent } from './components/slider/slider.component';
   imports: [
     CommonModule,
     NgToggleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgToggleModule
   ],
   exports: [NgToggleModule,ReactiveFormsModule,SliderComponent]
 })
