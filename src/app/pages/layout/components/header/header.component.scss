@@ -5,6 +5,8 @@
 header {
     @include flex-row-stretch;
     height: 76px;
+    position: relative;
+    z-index: 2;
     // .container {
     //     @include flex-row-stretch;
     // }
@@ -74,8 +76,9 @@ header {
             font-weight: 300;
             font-size: .767rem;
             .section {
-                padding: 0px 0px 0px 20px;
+                padding: 0px 20px 0px 20px;
                 border-left: 1px solid rgb(53 135 149 / 50%);
+                position: relative;
                 &.nbrd {
                     border: none;
                 }
@@ -168,7 +171,188 @@ header {
                 &.calender {
                     cursor: pointer;
                 }
+                &.active, &:hover {
+                    background: rgba(255,255,255, .10);
+                }
             }
         }
+        .list__content {
+            position: absolute;
+            display: none;
+            top: 100%;
+            right: 0;
+            width: 360px;
+            background-color: #ffffff;
+            color: $black;
+            box-shadow: 1px 2px 6px rgb(0 0 0 / 22%);
+            border-radius: 0px 0px 5px 5px;
+            .heading {
+                @include flex-row-center;
+                justify-content: space-between;
+                padding: 10px 15px;
+                min-height: 40px;
+                border-bottom: solid 1px $list-divider;
+                .title {
+                    @include flex-row-center;
+                }
+                h4 {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+                .status {
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 100px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 8px;
+                    &.online {
+                        background-color: $list-online;
+                    }
+                    &.offline {
+                        background-color: $list-offline;
+                    }
+                    &.away {
+                        background-color: $list-away;
+                    }
+                }
+                
+            }
+            .lsits {
+                .list-item {
+                    @include flex-row-center;
+                    justify-content: space-between;
+                    padding: 12px 15px;
+                    border-bottom: solid 1px $list-divider;
+                    min-height: 28px;
+                    .avatar {
+                        background-color: $list-icon;
+                        width: 32px;
+                        min-width: 32px;
+                        height: 32px;
+                        border-radius: 100px;
+                        overflow: hidden;
+                        border: solid 3px $list-icon;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        img {
+                            width: 28px;
+                            height: 28px;
+                        }
+                    }
+                }
+                .details {
+                    @include flex-column-stretch;
+                    flex: auto;
+                    min-width: 0;
+                    padding: 0px 0px 0px 10px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $list-text;
+                    cursor: pointer;
+                    strong {
+                        font-weight: 500;
+                    }
+                    .text {
+                        @include text-overflow;
+                        &.name {
+                            font-size: 16px;
+                        }
+                    }
+                    .assigned {
+                        @include text-overflow;
+                    }
+                }
+            }
+            .time-status {
+                min-width: 76px;
+                text-align: right;
+                font-size: 12px;
+                color: $black;
+                .status-icon {
+                    width: 8px;
+                    height: 8px;
+                    margin-left: 5px;
+                    display: inline-block;
+                    background: $list-unread;
+                    border-radius: 10px;
+                    vertical-align: middle;
+                }
+                img {
+                    max-height: 16px;
+                    display: inline-block;
+                }
+            }
+            .footer {
+                @include flex-row-center;
+                min-height: 44px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .link {
+                color: $list-unread;
+                cursor: pointer;
+                margin: 0px 1px;
+            }
+        }
+        .active {
+            .list__content {
+                display: block;
+            }
+        }
+        .profile {
+            .list__content {
+                width: 340px;
+                .heading {
+                    .title {
+                    }
+                }
+                .lsits {
+                    .list-item {
+                        .avatar {
+                            width: 28px;
+                            min-width: 28px;
+                            height: 28px;
+                            border: none;
+                            img {
+                                width: 12px;
+                                height: 12px;
+                            }
+                            &.profile {
+                                width: 85px;
+                                min-width: 85px;
+                                height: 85px;
+                                img {
+                                    width: 85px;
+                                    height: 85px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .footer {
+                    color: $list-text;
+                    font-size: 12px;
+                    opacity: .6;
+                }
+                .link {
+                    color: $list-text;
+                    cursor: pointer;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0px 5px;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    .logout {
+        color: $danger;
     }
 }

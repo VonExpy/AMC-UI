@@ -1,3 +1,4 @@
+@import "../../assets/scss/colors";
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
 html, body {
     height: 100%;
@@ -39,5 +40,21 @@ body {
     }
     img {
         display: block;
+    }
+}
+
+.more-actions {
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    width: 26px;
+    cursor: pointer;
+    span {
+        background-color: $more-actions;
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 20px;
+        margin: 1px;
     }
 }
