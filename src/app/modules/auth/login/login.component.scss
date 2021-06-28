@@ -2,157 +2,69 @@
 @import '../../../../assets/scss/form';
 @import '../../../../assets/scss/colors';
 @import '../../../../assets/scss/buttons';
-.amc__app {
+
+.login__container {
     @include flex-column-stretch;
-    height: 100%;
-    background-image: url(../../../../assets/bg_login.png);
-    background-position: top center;
+    justify-content: space-between;
+    background-color: $bg-login;
+    box-shadow: 0px 14px 32px #1E2E2758;
+    border-radius: 20px 0px 0px 20px;
+    padding: 1.8rem 2rem;
+    margin-right: -20px;
+    min-height: 280px;
+    background-image: url(../../../../assets/img_login.png);
     background-repeat: no-repeat;
-    background-size: cover;
-    .amc__content {
-        flex: 1;
-        @include flex-column-stretch;
-        justify-content: space-between;
-    }
-    header {
-        @include flex-row-stretch;
-        height: 76px;
-        .header {
-            @include flex-row-stretch;
-            height: 100%;
-            align-items: center;
-            justify-content: flex-start;
-            &__logo {
-                @include flex-row-center; 
-                img {
-                    height: 32px;
-                    display: inline-block;
-                }
+    background-position: calc(100% - 14px) calc(100% - 5px);
+    background-size: 115px auto;
+    .login__heading {
+        font-size: 18px;
+        font-weight: 300;
+        color: $secondary;
+        .heading {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 26px;
+            font-weight: 300;
+            color: $secondary;
+            span {
+                color: $login-heading;
             }
         }
-    }
-    footer {
-        @include flex-row-stretch;
-        height: 76px;
-        .footer {
-            @include flex-row-stretch;
-            height: 100%;
-            align-items: center;
-            justify-content: flex-start;
-            &__content {
-                @include flex-row-center; 
-                color: #fff;
-                font-size: 12px;
-                letter-spacing: 1px;
-                .divider {
-                    display: inline-block;
-                    vertical-align: middle;
-                    margin: 0px 5px;
-                }
-                a {
-                    color: #fff;
-                    text-decoration: none;
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
+        span {
+
         }
     }
-    .main__container {
-        @include flex-row-center;
-        justify-content: space-between;
-        .welcome_text {
-            color: $white;
-            line-height: 1.2;
-            .text {
-                font-size: 20px;
-                font-weight: 300;
-                opacity: .8;
-                padding-bottom: 2px;
-                &__large {
-                    font-size: 28px;
-                    font-weight: 400;
-                    padding-bottom: 2px;
-                }
-            }
-            .tagline {
-                font-size: 18px;
-                font-weight: 500;
-                padding-top: 4px;
-                span {
-                    margin-right: 5px;
-                    &:nth-child(1) {
-                        color: $tagline-1;
-                    }
-                    &:nth-child(2) {
-                        color: $tagline-2;
-                    }
-                    &:nth-child(3) {
-                        color: $tagline-3;
-                    }
-                }
-            }
-            
-        }
-        .login__container {
-            @include flex-column-stretch;
-            justify-content: space-between;
-            background-color: $bg-login;
-            box-shadow: 0px 14px 32px #1E2E2758;
-            border-radius: 20px 0px 0px 20px;
-            padding: 1.8rem 2rem;
-            margin-right: -20px;
-            min-height: 240px;
-            background-image: url(../../../../assets/img_login.png);
-            background-repeat: no-repeat;
-            background-position: calc(100% - 14px) calc(100% - 5px);
-            background-size: 115px auto;
-            .login__heading {
-                font-size: 18px;
-                font-weight: 400;
-                color: $secondary;
-                .heading {
-                    margin: 0;
-                    padding: 0;
-                    list-style: none;
-                    font-size: 26px;
-                    font-weight: 300;
-                    color: $secondary;
-                    span {
-                        color: $login-heading;
-                    }
-                }
-            }
-            label {
-                font-size: 16px;
-                padding-bottom: 0px;
-            }
-            input {
-                min-width: 300px;
-                font-size: 20px;
-            }
-            input::-webkit-input-placeholder,
-            input::-moz-placeholder,
-            input:-ms-input-placeholder,
-            input:-moz-placeholder {
-                opacity: .3;
-                font-size: 16px;
-            }
-            .helper__text {
-                font-size: 14px;
-                color: $secondary;
-                line-height: 1.4;
-                .link {
-                    font-weight: 500;
-                    cursor: pointer;
-                    color: $login-link;
-                    text-decoration: none;
-                    font-size: 15px;
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
+    .login__form {
+        padding: 25px 0;
+    }
+    label {
+        font-size: 16px;
+        padding-bottom: 0px;
+    }
+    input {
+        min-width: 300px;
+        font-size: 20px;
+    }
+    input::-webkit-input-placeholder,
+    input::-moz-placeholder,
+    input:-ms-input-placeholder,
+    input:-moz-placeholder {
+        opacity: .3;
+        font-size: 16px;
+    }
+    .helper__text {
+        font-size: 14px;
+        color: $secondary;
+        line-height: 1.4;
+        .link {
+            font-weight: 500;
+            cursor: pointer;
+            color: $login-link;
+            text-decoration: none;
+            font-size: 15px;
+            &:hover {
+                text-decoration: underline;
             }
         }
     }
