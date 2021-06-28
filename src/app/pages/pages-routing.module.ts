@@ -10,26 +10,26 @@ const routes: Routes = [
         {
           path: 'dashboard',
           loadChildren: () =>
-            import('../modules/dashboard/dashboard.module').then((m) => m.DashboardModule),
-        //   canActivate: [AuthGuard]
+          import('../modules/dashboard/dashboard.module').then((m) => m.DashboardModule),
+          //canActivate: [AuthGuard]
         },
         {
           path: 'clients',
           loadChildren: () =>
-            import('../modules/clients/clients.module').then((m) => m.ClientsModule),
+          import('../modules/clients/clients.module').then((m) => m.ClientsModule),
         //   canActivate: [AuthGuard]
         },
         {
           path: 'users',
           loadChildren: () =>
-            import('../modules/users/users.module').then((m) => m.UsersModule),
+          import('../modules/users/users.module').then((m) => m.UsersModule),
         //   canActivate: [AuthGuard]
         },
         {
           path: 'orders',
           loadChildren: () =>
-            import('../modules/orders/orders.module').then((m) => m.OrdersModule),
-        //   canActivate: [AuthGuard]
+          import('../modules/orders/orders.module').then((m) => m.OrdersModule),
+         //   canActivate: [AuthGuard]
         },
         {
           path: '',
@@ -46,7 +46,7 @@ const routes: Routes = [
   ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class PagesRoutingModule {}

@@ -4,6 +4,10 @@ import { LayoutComponent } from './layout/layout.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { NavigationComponent } from './layout/components/navigation/navigation.component';
 import { HeaderComponent } from './layout/components/header/header.component';
+import { ContactComponent } from './layout/components/contact/contact.component';
+import { FooterComponent } from './layout/components/footer/footer.component';
+import { HomeComponent } from './layout/components/home/home.component';
+import { AboutComponent } from './layout/components/about/about.component';
 
 
 
@@ -11,7 +15,11 @@ import { HeaderComponent } from './layout/components/header/header.component';
   declarations: [
     LayoutComponent,
     NavigationComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContactComponent,
+    FooterComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,
