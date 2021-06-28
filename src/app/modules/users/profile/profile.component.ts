@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../../shared/services/shared.service';
+import { CoverageComponent } from '../coverage/coverage.component';
 
 @Component({
   selector: 'app-profile',
@@ -90,7 +91,7 @@ export class ProfileComponent implements OnInit {
   }
 
   openSideNav() {
-    this.sharedService.sideNav("open");
+    this.sharedService.sideNav({action:'open',component:CoverageComponent});
   }
 
   initProfileForm() {
