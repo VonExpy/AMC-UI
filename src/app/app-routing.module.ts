@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AmcPanelComponent } from './amc-panel/amc-panel.component';
-import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
+  // {
+  //   path: '',
+  //   // canActivate: [AuthGuard],
+  //   loadChildren: () =>
+  //     import('./pages/layout.module').then((m) => m.LayoutModule),
+  // },
   {
     path: '',
     component: AmcPanelComponent,
@@ -37,4 +43,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
