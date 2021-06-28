@@ -15,8 +15,11 @@
         color: $form-label;
         text-transform: uppercase;
         padding-bottom: 3px;
-        .required {
-            color: $danger;
+        &.required {
+            &::after {
+                content: '*';
+                color: $danger;
+            }
         }
     }
     .error {

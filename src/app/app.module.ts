@@ -11,6 +11,8 @@ import { ContactComponent } from './contact/contact.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { UsersModule } from './modules/users/users.module';
 import { AmcPanelComponent } from './amc-panel/amc-panel.component';
+import { SharedModule } from './modules/shared/shared.module';
+import { SharedService } from './modules/shared/services/shared.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import { AmcPanelComponent } from './amc-panel/amc-panel.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UsersModule
+    UsersModule,
+    SharedModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
