@@ -52,7 +52,10 @@
         span {
             vertical-align: middle;
             display: inline-block;
-            margin-right: 6px;
+            margin-left: 6px;
+            &.left {
+                margin-right: 6px;
+            }
             img {
                 display: block;
             }
