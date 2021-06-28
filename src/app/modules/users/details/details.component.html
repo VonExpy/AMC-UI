@@ -78,16 +78,17 @@
         <div class="tabs" malihu-scrollbar [scrollbarOptions]="scrollbarOptionsx">
             <ul>
                 <li class="tab-link active" routerLink="profile">Personal Info</li>
-                <li class="tab-link">Organisation</li>
+                <li class="tab-link" routerLink="organisation">Organisation</li>
                 <li class="tab-link" routerLink="orders">Orders</li>
-                <li class="tab-link">Clients</li>
-                <li class="tab-link">Job Types & Fee</li>
-                <li class="tab-link">Coverage</li>
-                <li class="tab-link">Fee Structure</li>
-                <li class="tab-link">Products & Vendors</li>
+                <li class="tab-link" routerLink="clients">Clients</li>
+                <li class="tab-link" routerLink="jobtypes">Job Types & Fee</li>
+                <li class="tab-link" routerLink="coverage">Coverage</li>
+                <li class="tab-link" routerLink="fee-structure">Fee Structure</li>
+                <li class="tab-link" routerLink="products-vendors">Products & Vendors</li>
             </ul>
         </div>
         <div class="tab__content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+            <app-slider></app-slider>
             <router-outlet></router-outlet>
         </div>
     </div>
