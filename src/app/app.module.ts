@@ -6,12 +6,10 @@ import { AppComponent } from './app.component';
 import { UsersModule } from './modules/users/users.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { SharedService } from './modules/shared/services/shared.service';
-import { RegisterComponent } from './modules/register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RegisterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

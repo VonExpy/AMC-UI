@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  action: any = ''
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  doAction(action: String) {
+    if (this.action === action) {
+      this.action = ''
+    } else {
+      this.action = action
+    }
   }
 
 }

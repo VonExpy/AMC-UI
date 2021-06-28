@@ -25,8 +25,8 @@
                         <img src="../../../../../assets/icon-question.svg" />
                     </span>
                 </div>
-                <div class="section only__icon messages">
-                    <span class="icon has-badge">
+                <div class="section only__icon messages" [ngClass]="{'active': action == 'messages' }">
+                    <span class="icon has-badge" (click)="doAction('messages')">
                         <img src="../../../../../assets/icon-messanger.svg" />
                         <span class="badge badge-info">3</span>
                     </span>
@@ -132,8 +132,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="section only__icon notifications">
-                    <span class="icon has-badge">
+                <div class="section only__icon notifications" [ngClass]="{'active': action == 'notifications' }" >
+                    <span class="icon has-badge" (click)="doAction('notifications')">
                         <img src="../../../../../assets/icon-notification.svg" />
                         <span class="badge badge-alert">3</span>
                     </span>
@@ -239,17 +239,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="section profile">
+                <div class="section profile" [ngClass]="{'active': action == 'profile' }">
                     <div class="profile__details">
                         <span class="name">Veera Arun Sameer John</span>
                         <span class="role">Business Owner</span>
                     </div>
-                    <div class="profile__pic">
+                    <div class="profile__pic"  (click)="doAction('profile')">
                         <span class="pic">
                             <img src="../../../../../assets/AvatarMaker.png" />
                         </span>
                     </div>
-                    <div class="profile__dots">
+                    <div class="profile__dots"  (click)="doAction('profile')">
                         <span></span>
                         <span></span>
                         <span></span>
