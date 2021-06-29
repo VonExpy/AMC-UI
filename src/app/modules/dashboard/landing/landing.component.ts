@@ -12,4 +12,9 @@ export class LandingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public scrollbarOptions = {
+    theme: 'dark-3',
+    autoHideScrollbar: true,
+    scrollButtons: { enable: false }
+  };
 }

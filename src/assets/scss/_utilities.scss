@@ -6,6 +6,9 @@
     &-column {
         flex-direction: column
     }
+    &-justify-between {
+        justify-content: space-between
+    }
 }
 .flex-row-center {
     @include flex-row-center;
@@ -24,7 +27,6 @@
     justify-content: flex-end;
     align-items: center
 }
-
 
 
 

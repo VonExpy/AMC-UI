@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { LandingComponent } from './landing/landing.component';
@@ -17,7 +18,8 @@ import { CalendarComponent } from './calendar/calendar.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    MalihuScrollbarModule.forRoot()
   ]
 })
 export class DashboardModule { }

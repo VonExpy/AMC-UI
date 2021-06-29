@@ -1,0 +1,39 @@
+
+@import '../../../../assets/scss/grid';
+
+.app__content {
+     padding: 0;
+     background: #F9F9F9;
+ }
+ .scroll__container {
+     display: flex;
+     height: 100%;
+     .dashboard__content {
+        display: flex;
+        .left__content {
+            width: 100%;
+            flex: 1;
+        }
+        .right__content {
+            max-width: 360px;
+            width: 360px;
+        }
+     }
+ }
+
+h2 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #304950;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #6A8991;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
