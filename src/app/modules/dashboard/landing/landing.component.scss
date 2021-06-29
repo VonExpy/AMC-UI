@@ -1,5 +1,7 @@
 
 @import '../../../../assets/scss/grid';
+@import '../../../../assets/scss/colors';
+@import '../../../../assets/scss/utilities';
 
 .app__content {
      padding: 0;
@@ -8,15 +10,18 @@
  .scroll__container {
      display: flex;
      height: 100%;
+     box-sizing: border-box;
      .dashboard__content {
         display: flex;
         .left__content {
             width: 100%;
             flex: 1;
+            padding: 0px 1rem;
         }
         .right__content {
-            max-width: 360px;
-            width: 360px;
+            max-width: 400px;
+            width: 400px;
+            padding: 1.5rem 1.5rem;
         }
      }
  }
@@ -36,4 +41,95 @@ h4 {
     margin: 0;
     padding: 0;
     line-height: 1;
+}
+.widget {
+    &-item {
+        border-radius: 5px;
+        background: #ffffff;
+        box-shadow: 0px 0px 8px rgb(0 0 0 / 12%);
+        overflow: hidden;
+    }
+    &-head {
+        display: flex;
+        justify-content: space-between;
+        .actions {
+            font-size: 13px;
+        }
+    }
+    &-items {
+        .widget-item {
+            margin-bottom: 10px;
+            .icon {
+                padding: 6px 0 10px 6px;
+                &.small {
+                    img {
+                        height: 22px;
+                        padding-left: 6px;
+                    }
+                }
+                &.tasks {
+                    width: 4px;
+                    max-width: 4px;
+                    padding: 0px;
+                    span {
+                        height: 100%;
+                        width: 100%;
+                        display: inline-block;
+                    }
+                }
+                .unread {
+                    width: 8px;
+                    height: 8px;
+                    margin-left: 5px;
+                    display: inline-block;
+                    background: $list-unread;
+                    border-radius: 10px;
+                    vertical-align: middle;
+                }
+            }
+            .status {
+                font-size: 13px;
+                padding: 10px;
+                text-align: right;
+            }
+            .details {
+                padding: 10px 10px;
+                font-size: 14px;
+                flex: 1;
+                color: $widget-secondary;
+                &.primary {
+                    color: $widget-primary;
+                }
+                strong {
+                    font-weight: 500;
+                }
+                .helper-text {
+                    padding-top: 5px;
+                    display: block;
+                    font-size: 12px;
+                    line-height: 1.2;
+                    color: $widget-secondary;
+                }
+            }
+        }
+    }
+    &#create {
+        .item-details {
+            text-align: center;
+            justify-content: center;
+            padding: 1rem 2px;
+            .icon {
+                img {
+                    height: 32px;
+                    display: inline-block;
+                }
+            }
+            .text {
+                font-size: 14px;
+                color: #0A62AC;
+                padding-top: 7px;
+                text-transform: uppercase;
+            }
+        }
+    }
 }

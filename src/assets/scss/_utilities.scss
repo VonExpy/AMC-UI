@@ -1,15 +1,7 @@
 @import 'mixins';
+@import 'colors';
 
 // Flex common classses
-.flex {
-    display: flex;
-    &-column {
-        flex-direction: column
-    }
-    &-justify-between {
-        justify-content: space-between
-    }
-}
 .flex-row-center {
     @include flex-row-center;
 }
@@ -28,6 +20,18 @@
     align-items: center
 }
 
+.flex {
+    display: flex;
+    &-column {
+        flex-direction: column
+    }
+    &-justify-between {
+        justify-content: space-between
+    }
+    &-justify-evenly {
+        justify-content: space-evenly
+    }
+}
 
 
 
@@ -36,4 +40,20 @@
 // text classes
 .text-truncate {
     @include text-overflow;
+}
+
+// Roles/Status Colors / Backgrounds / Opacity
+$opacitylevels: (75, 50, 25, 10);
+@each $name, $color in $status-colors {
+    .txt-#{$name} {
+        color: $color;
+    }
+    .bg-#{$name} {
+        background: $color;
+    }
+    @each $level in $opacitylevels {
+        .bg-#{$name}-#{$level} {
+            @include rgba-background($color, $level / 100);
+        }
+    }
 }

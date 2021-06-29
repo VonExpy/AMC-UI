@@ -60,7 +60,18 @@ $account-manager:  #80AC8F;
 $business-owner:   #6E99CB;
 $admin:            #9A7BBE;
 $agent:            #80AC8F;
+$review:           #AF7C1C;
+$assigned:         #A977AA;
+$accepted:         #45AA56;
 
+// Orders/Status
+$status-colors: (
+    primary:      #52A5D9,
+    secondary:    #248875,
+    warning:      #D09D2B,
+    success:      #41AD7D,
+    danger:       #D88383
+);
 
 // Tabs
 
@@ -77,15 +88,15 @@ $tagline-1:         #74D2FF;
 $tagline-2:         #96FFA8;
 $tagline-3:         #74D2FF;
 $login-heading:     #248875;
-$login-link:     #248875; 
+$login-link:        #248875; 
 
 
 // Header List Boxes
 $list-heading:        #2C3D41;
 $list-divider:          rgb(106 137 145 / 20%);
-$list-icon:          rgb(164 187 193 / 20%);
+$list-icon:             rgb(164 187 193 / 20%);
 $list-unread:          #00A1ED;
-$list-text:         #6A8991;
+$list-text:         #030303;
 $list-online:         #67DD6C;
 $list-offline:         #ff0000;
 $list-away:         #bbc700;
@@ -97,6 +108,10 @@ $table-head: #6A8991;
 $table-cell: #293F45;
 $table-border:rgb(106 137 145 / 50%);
 
+
+// Widget Headings
+$widget-primary: #0A62AC;
+$widget-secondary: #6A8991;
 
 // Extras
 $more-actions:           #A4BBC1;

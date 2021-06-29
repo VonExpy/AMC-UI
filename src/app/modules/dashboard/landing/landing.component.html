@@ -1,13 +1,15 @@
 <div class="app__content">
-    <div class="scroll__container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+    <div class="scroll__container pt-2" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
         <div class="dashboard__content">
             <div class="left__content"></div>
             <div class="right__content">
                 <h2 class="pb-5">Things you can do</h2>
-                <div class="widget" id="create">
-                    <h4 class="pb-1">CREATE</h4>
+                <div class="widget mb-8" id="create">
+                    <div class="widget-head pb-2">
+                        <h4>CREATE</h4>
+                    </div>
                     <div class="widget-item">
-                        <div class="flex flex-justify-between">
+                        <div class="flex flex-justify-evenly">
                             <div class="item-details">
                                 <div class="icon">
                                     <img src="../../../../assets/icon-orders.png" />
@@ -18,7 +20,15 @@
                             </div>
                             <div class="item-details">
                                 <div class="icon">
-                                    <img src="../../../../assets/icon_users.png" />
+                                    <img src="../../../../assets/icon-clients.png" />
+                                </div>
+                                <div class="text">
+                                    Clients
+                                </div>
+                            </div>
+                            <div class="item-details">
+                                <div class="icon">
+                                    <img src="../../../../assets/icon-users.png" />
                                 </div>
                                 <div class="text">
                                     Users
@@ -26,15 +36,7 @@
                             </div>
                             <div class="item-details">
                                 <div class="icon">
-                                    <img src="../../../../assets/icon-orders.png" />
-                                </div>
-                                <div class="text">
-                                    Order
-                                </div>
-                            </div>
-                            <div class="item-details">
-                                <div class="icon">
-                                    <img src="../../../../assets/icon_accounts.png" />
+                                    <img src="../../../../assets/icon-accounts.png" />
                                 </div>
                                 <div class="text">
                                     Invoice
@@ -47,6 +49,164 @@
                                 <div class="text">
                                     Task
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget mb-5" id="recent-orders">
+                    <div class="widget-head pb-2">
+                        <h4>RECENTLY ACCESSED ORDERS</h4>
+                    </div>
+                    <div class="widget-items">
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between">
+                                <div class="details primary">EA-4-21-6732</div>
+                                <div class="status txt-primary">New</div>
+                            </div>
+                        </div>
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between">
+                                <div class="details primary">EA-4-21-6732</div>
+                                <div class="status txt-warning">UNASSIGNED</div>
+                            </div>
+                        </div>
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between">
+                                <div class="details primary">EA-4-21-6732</div>
+                                <div class="status txt-success">Assigned</div>
+                            </div>
+                        </div>
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between">
+                                <div class="details primary">EA-4-21-6732</div>
+                                <div class="status txt-danger">Canceled</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget mb-5" id="messages">
+                    <div class="widget-head pb-2">
+                        <h4>Messages From</h4>
+                    </div>
+                    <div class="widget-items">
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between">
+                                <div class="icon">
+                                    <span class="unread"></span>
+                                </div>
+                                <div class="details primary">
+                                    <strong>EA-4-21-6732</strong>
+                                    <span class="helper-text">3137 Catalina Ranch Road <br />Leander Williamson County
+                                        TX 78641</span>
+                                </div>
+                                <div class="status txt-danger">Status</div>
+                            </div>
+                        </div>
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between">
+                                <div class="icon">
+                                    <span class="unread"></span>
+                                </div>
+                                <div class="details primary">
+                                    <strong>EA-4-21-6732</strong>
+                                    <span class="helper-text">3137 Catalina Ranch Road <br />Leander Williamson County
+                                        TX 78641</span>
+                                </div>
+                                <div class="status txt-danger">Status</div>
+                            </div>
+                        </div>
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between">
+                                <div class="icon">
+                                    <span class="unread"></span>
+                                </div>
+                                <div class="details primary">
+                                    <strong>EA-4-21-6732</strong>
+                                    <span class="helper-text">3137 Catalina Ranch Road <br />Leander Williamson County
+                                        TX 78641</span>
+                                </div>
+                                <div class="status txt-danger">Status</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget mb-5" id="todaystasks">
+                    <div class="widget-head pb-2">
+                        <h4>Today’s tasks</h4>
+                        <div class="actions">
+                            <span class="link txt-primary">Create Task</span>
+                        </div>
+                    </div>
+                    <div class="widget-items">
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between bg-danger-10">
+                                <div class="icon tasks">
+                                    <span class="bg-danger"></span>
+                                </div>
+                                <div class="details">
+                                    Follow up with Manager on new account up..
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between bg-warning-10">
+                                <div class="icon tasks">
+                                    <span class="bg-warning"></span>
+                                </div>
+                                <div class="details">
+                                    Follow up with Manager on new account up..
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between bg-success-10">
+                                <div class="icon tasks">
+                                    <span class="bg-success"></span>
+                                </div>
+                                <div class="details">
+                                    Follow up with Manager on new account up..
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-item">
+                            <div class="flex flex-justify-between bg-danger-10">
+                                <div class="icon tasks">
+                                    <span class="bg-danger"></span>
+                                </div>
+                                <div class="details">
+                                    Follow up with Manager on new account up..
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget mb-5" id="todaystasks">
+                    <div class="widget-head pb-2">
+                        <h4>ACTIVITY</h4>
+                    </div>
+                    <div class="widget-items">
+                        <div class="widget-item">
+                            <div class="flex-row-center flex-justify-between">
+                                <div class="icon small">
+                                    <img src="../../assets/icon_orders.png" />
+                                </div>
+                                <div class="details">
+                                    Order: <strong>SWM-21-3-2593</strong> status updated to <span class="txt-primary">Unassigned</span> by <strong>Varma
+                                        Ram</strong>
+                                </div>
+                                <div class="status txt-primary">10 Mins</div>
+                            </div>
+                        </div>
+                        <div class="widget-item">
+                            <div class="flex-row-center flex-justify-between">
+                                <div class="icon small">
+                                    <img src="../../assets/icon-clients.png" />
+                                </div>
+                                <div class="details">
+                                    Order: <strong>SWM-21-3-2593</strong> status updated to <span class="txt-primary">Unassigned</span> by <strong>Varma
+                                        Ram</strong>
+                                </div>
+                                <div class="status txt-primary">Yesterday</div>
                             </div>
                         </div>
                     </div>
