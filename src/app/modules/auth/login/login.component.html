@@ -1,19 +1,37 @@
 <div class="login__container">
     <div class="login__heading">
-        <h2 class="heading"><span>Sign in</span></h2>
-        <span>to your account</span>
+        <h2 class="heading">{{stepper ? 'Good Evening, ' : ''}}<span>{{stepper ? f.email.value : 'Sign in'}}</span></h2>
+        <span>{{stepper ? 'Welcome back to your account' :'to your account'}}</span>
     </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
     <div class="login__form">
         <div class="row">
             <div class="col">
-                <div class="f-group">
+                <div class="f-group" *ngIf="!stepper">
                     <label class="required">User ID</label>
                     <div class="f-field has-icon">
-                        <input type="text" placeholder="Enter your Email ID" />
-                        <div class="error">
-                            <div>User ID is required</div>
+                        <input type="text" placeholder="Enter your Email ID" formControlName="email"/>
+                        <div *ngIf="submitted && f.email.errors" class="error">
+                            <div *ngIf="f.email.errors.required">User ID is required</div>
+                            <div *ngIf="f.email.errors.pattern">Please enter valid email</div>
                         </div>
-                        <button class="btn btn-gradient has-icon only-icon">
+                        <button class="btn btn-gradient has-icon only-icon" type="submit">
+                            <span class="icon">
+                                <img src="../../../../assets/icon_login_arrow.svg" />
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="f-group" *ngIf="stepper">
+                    <label class="required">Password</label>
+                    <div class="f-field has-icon">
+                        <input type="text" placeholder="Enter your Password" formControlName="password"/>
+                        <div *ngIf="submitted && f.password.errors" class="error">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+                            </div>
+                        </div>
+                        <button class="btn btn-gradient has-icon only-icon" type="submit">
                             <span class="icon">
                                 <img src="../../../../assets/icon_login_arrow.svg" />
                             </span>
@@ -23,10 +41,11 @@
             </div>
         </div>
     </div>
+    </form>
     <div class="helper__text">
         <div class="text">
-            Don’t have an account?
+          {{stepper ? 'Forgot Password?' : 'Don’t have an account?'}}
         </div>
-        <a href="#"  routerLink="/auth/register" class="link">Sing Up</a>
+        <a href="#"  [routerLink]="stepper ? '/auth/forgot-password' : '/auth/register'" class="link">{{stepper ? 'Reset' : 'Sing Up'}}</a>
     </div>
 </div>

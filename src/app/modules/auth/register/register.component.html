@@ -1,32 +1,198 @@
 <div class="login__container">
-    <div class="login__heading">
-        <h2 class="heading"><span>Sign Up</span></h2>
-        <span>Few steps to register your account</span>
+    <div class="login__heading" [ngSwitch]="formType">
+        <ng-container *ngSwitchCase="'emailForm'">
+            <h2 class="heading"><span>Sign Up</span></h2>
+            <span>Few steps to register your account</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'accountForm'">
+            <h2 class="heading"><span>Welcome</span></h2>
+            <span>Creating Account With {{e.email.value}}</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'detailsForm'">
+            <h2 class="heading"><span>Hey! {{a.firstName.value}}</span></h2>
+            <span>Let us know more about you</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'successPage'">
+            <h2 class="heading"><span>Congratulations {{a.firstName.value}}!</span></h2>
+            <span>Your account has been created successfully</span>
+        </ng-container>
     </div>
-    <div class="login__form">
-        <div class="row">
-            <div class="col">
-                <div class="f-group">
-                    <label class="required">Your email id (user id)</label>
-                    <div class="f-field has-icon">
-                        <input type="text" placeholder="Enter your Email ID" />
-                        <div class="error">
-                            <div>User ID is required</div>
+    <ng-container [ngSwitch]="formType">
+        <div class="login__form">
+            <ng-container *ngSwitchCase="'emailForm'">
+                <form [formGroup]="emailForm" (ngSubmit)="onSubmit(emailForm,'emailForm')">
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label class="required">YOUR EMAIL ID (USER ID)</label>
+                                <div class="f-field has-icon">
+                                    <input type="text" placeholder="Enter your Email ID" formControlName="email" />
+                                    <div *ngIf="submitted && e.email.errors" class="error">
+                                        <div *ngIf="e.email.errors.required">User ID is required</div>
+                                        <div *ngIf="e.email.errors.pattern">Please enter valid email</div>
+                                    </div>
+                                    <button class="btn btn-gradient has-icon only-icon" type="submit">
+                                        <span class="icon">
+                                            <img src="../../../../assets/icon_login_arrow.svg" />
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <button class="btn btn-gradient has-icon only-icon">
-                            <span class="icon">
-                                <img src="../../../../assets/icon_login_arrow.svg" />
-                            </span>
-                        </button>
                     </div>
+                </form>
+            </ng-container>
+            <ng-container *ngSwitchCase="'accountForm'">
+                <form [formGroup]="accountForm" (ngSubmit)="onSubmit(accountForm,'accountForm')">
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label class="required">FIRST NAME</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter your firs name" formControlName="firstName" />
+                                    <div *ngIf="submitted && a.firstName.errors" class="error">
+                                        <div *ngIf="a.firstName.errors.required">first name is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label class="required">LAST NAME</label>
+                                <div class="f-field has-icon">
+                                    <input type="text" placeholder="Enter your last name" formControlName="lastName" />
+                                    <div *ngIf="submitted && a.lastName.errors" class="error">
+                                        <div *ngIf="a.lastName.errors.required">last name is required</div>
+                                    </div>
+                                    <button class="btn btn-gradient has-icon only-icon">
+                                        <span class="icon">
+                                            <img src="../../../../assets/icon_login_arrow.svg" />
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </ng-container>
+            <ng-container *ngSwitchCase="'detailsForm'">
+                <form [formGroup]="detailsForm">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label class="required">PHONE NUMBER</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter Your Contact Number"
+                                        formControlName="phoneNumber" />
+                                    <div *ngIf="submitted && d.phoneNumber.errors" class="error">
+                                        <div *ngIf="d.phoneNumber.errors.required">phone number is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label class="required">LICENSE NUMBER</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter Your License Number"
+                                        formControlName="licenseNumber" />
+                                    <div *ngIf="submitted && d.licenseNumber.errors" class="error">
+                                        <div *ngIf="d.licenseNumber.errors.required">license number is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label class="required">REFERRED BY</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter Referred By" formControlName="referredBy" />
+                                    <div *ngIf="submitted && d.referredBy.errors" class="error">
+                                        <div *ngIf="d.referredBy.errors.required">referred by is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label class="required">CREATE PASSWORD</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter Your Password" formControlName="password" />
+                                    <div *ngIf="submitted && d.password.errors" class="error">
+                                        <div *ngIf="d.password.errors.required">password is required</div>
+                                        <div *ngIf="d.password.errors.minlength">Password must be at least 6 characters
+                                        </div>
+                                        <div  *ngIf="d.password.hasError('passwordStrength')">
+                                            {{d.password.errors['passwordStrength']}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label class="required">CONFIRM PASSWORD</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter your Confirm Password"
+                                        formControlName="confirmPassword" />
+                                    <div *ngIf="submitted && d.confirmPassword.errors" class="error">
+                                        <div *ngIf="d.confirmPassword.errors.required">confirm password is required
+                                        </div>
+                                        <div *ngIf="d.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </ng-container>
+        </div>
+    </ng-container>
+
+    <div class="helper__text" [ngSwitch]="formType">
+        <ng-container *ngSwitchCase="'emailForm'">
+            <div class="text">
+                Already have an account?
+            </div>
+            <a href="#" routerLink="/auth/login" class="link">Login</a>
+        </ng-container>
+        <ng-container *ngSwitchCase="'accountForm'">
+            <div class="text">
+                Entered incorrect email id?
+            </div>
+            <a href="javascript:;" (click)="formType = 'emailForm'" class="link">Start Over</a>
+        </ng-container>
+        <ng-container *ngSwitchCase="'detailsForm'">
+            <div class="row">
+                <div class="col-8 flex flex-justify-between">
+                    <div class="text">
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                            [fontSize]="toggle.fontSize">
+                        </ng-toggle>
+                        I Agree the terms and conditions
+                    </div>
+                    <button class="btn btn-gradient has-icon right" (click)="onSubmit(detailsForm, 'detailsForm')">
+                        Submit
+                        <span class="icon">
+                            <img src="../../../../assets/icon_login_arrow.svg" />
+                        </span>
+                    </button>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="helper__text">
-        <div class="text">
-            Already have an account?
-        </div>
-        <a href="#" routerLink="/auth/login" class="link">Sing Up</a>
+        </ng-container>
+        <ng-container *ngSwitchCase="'successPage'">
+            <button class="btn btn-gradient has-icon" routerLink="/auth/login">
+                Login
+                <span class="icon">
+                    <img src="../../../../assets/icon_login_arrow.svg" />
+                </span>
+            </button>
+        </ng-container>
     </div>
 </div>
