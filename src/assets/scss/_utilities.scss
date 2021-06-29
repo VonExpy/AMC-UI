@@ -19,6 +19,11 @@
 .flex-column-stretch {
     @include flex-column-stretch;
 }
+.flex-justify-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center
+}
 
 
 

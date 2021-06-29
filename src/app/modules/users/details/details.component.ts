@@ -81,4 +81,9 @@ export class DetailsComponent implements OnInit {
     autoHideScrollbar: true,
     scrollButtons: { enable: false }
   };
+
+  
+  myCallback = (e: any) => {
+    console.log(e)
+  }
 }

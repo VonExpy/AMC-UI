@@ -6,7 +6,7 @@ header {
     @include flex-row-stretch;
     height: 76px;
     position: relative;
-    z-index: 2;
+    z-index: 10;
     // .container {
     //     @include flex-row-stretch;
     // }
