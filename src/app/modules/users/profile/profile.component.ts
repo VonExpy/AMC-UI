@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { SharedService } from '../../shared/services/shared.service';
-import { CoverageComponent } from '../coverage/coverage.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +7,7 @@ import { CoverageComponent } from '../coverage/coverage.component';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  constructor(private sharedService: SharedService, private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) { }
   profileForm!: FormGroup;
   submitted = false;
   edit: any = false;
@@ -90,10 +88,6 @@ export class ProfileComponent implements OnInit {
     this.edit = !this.edit;
   }
 
-  openSideNav() {
-    this.sharedService.sideNav({action:'open',component:CoverageComponent});
-  }
-
   initProfileForm() {
     this.profileForm = this.fb.group({
       firstName: ['Arun Sameer', Validators.required],
@@ -104,12 +98,12 @@ export class ProfileComponent implements OnInit {
         Validators.required,
         Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
       ])],
-      phone:['', Validators.required],
-      street:['', Validators.required],
-      city:['', Validators.required],
-      county:['', Validators.required],
-      state:['', Validators.required],
-      zipcode:['', Validators.required],
+      phone: ['', Validators.required],
+      street: ['', Validators.required],
+      city: ['', Validators.required],
+      county: ['', Validators.required],
+      state: ['', Validators.required],
+      zipcode: ['', Validators.required],
     });
   }
 
@@ -121,7 +115,7 @@ export class ProfileComponent implements OnInit {
     console.log('hit')
     // stop here if form is invalid
     if (form.invalid) {
-        return;
+      return;
     }
     console.log(form.value, 'form value')
   }

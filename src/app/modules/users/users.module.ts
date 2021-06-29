@@ -16,6 +16,7 @@ import { JobtypesComponent } from './jobtypes/jobtypes.component';
 import { CoverageComponent } from './coverage/coverage.component';
 import { FeeStructureComponent } from './fee-structure/fee-structure.component';
 import { ProductsVendorsComponent } from './products-vendors/products-vendors.component';
+import { AddFormComponent } from './fee-structure/add-form/add-form.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductsVendorsComponent } from './products-vendors/products-vendors.co
     JobtypesComponent,
     CoverageComponent,
     FeeStructureComponent,
-    ProductsVendorsComponent
+    ProductsVendorsComponent,
+    AddFormComponent
   ],
   imports: [
     CommonModule,

@@ -15,7 +15,7 @@ export class SliderComponent implements OnInit {
   ngOnInit(): void {
     this.sharedService.customObservable.subscribe((res) => {
       if (res.action == 'open') {
-        this.openNav(res.component)
+        this.openNav(res)
       } else if (res.action == 'close') {
         this.closeNav()
       }
@@ -27,10 +27,10 @@ export class SliderComponent implements OnInit {
     this.mySidenav.nativeElement.style.width = "0"
   }
 
-  openNav(component:any) {
-    this.mySidenav.nativeElement.style.width = "300px"
+  openNav(res:any) {
+    this.mySidenav.nativeElement.style.width = res.width
     this.entry.clear();
-    const factory = this.resolver.resolveComponentFactory(component);
+    const factory = this.resolver.resolveComponentFactory(res.component);
     this.entry.createComponent(factory);
   }
 }
