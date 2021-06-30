@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~11.2.12",
     "@angular/platform-browser-dynamic": "~11.2.12",
     "@angular/router": "~11.2.12",
+    "@swimlane/ngx-datatable": "^19.0.0",
     "angular-svg-round-progressbar": "^6.0.1",
     "ng-circle-progress": "^1.6.0",
     "ng-toggle-button": "^0.1.5",

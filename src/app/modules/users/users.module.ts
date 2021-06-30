@@ -17,6 +17,7 @@ import { CoverageComponent } from './coverage/coverage.component';
 import { FeeStructureComponent } from './fee-structure/fee-structure.component';
 import { ProductsVendorsComponent } from './products-vendors/products-vendors.component';
 import { AddFormComponent } from './fee-structure/add-form/add-form.component';
+import { MockServerResultsService } from './orders/paging/mock-server-results-service';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AddFormComponent } from './fee-structure/add-form/add-form.component';
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
     })
-  ]
+  ],
+  providers:[MockServerResultsService]
 })
 export class UsersModule { }
