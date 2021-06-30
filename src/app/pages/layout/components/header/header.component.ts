@@ -13,11 +13,6 @@ export class HeaderComponent implements OnInit {
   }
 
   doAction(action: String) {
-    if (this.action === action) {
-      this.action = ''
-    } else {
       this.action = action
-    }
   }
-
 }
