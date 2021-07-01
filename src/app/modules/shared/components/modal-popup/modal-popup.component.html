@@ -1,0 +1,16 @@
+<div class="vx-modal" [hidden]="!(modalDetails.action == 'open')">
+    <div class="vx-modal-dialog vx-modal-{{modalDetails.size ? modalDetails.size :'md'}}">
+        <div class="vx-modal-content">
+            <div class="vx-modal-header">
+             {{modalDetails.heading}}
+             <button type="button" class="btn btn-info" (click)="closeModal()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="vx-modal-body">
+                <div #viewContainerRef>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
