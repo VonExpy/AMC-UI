@@ -9,7 +9,7 @@ export class SharedService {
   customObservable = this.customSubject.asObservable();
   constructor() { }
 
-  sideNav(value:any){
+  customData(value:any){
     this.customSubject.next(value);
   }
 }

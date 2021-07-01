@@ -5,11 +5,13 @@ import { NgToggleModule } from 'ng-toggle-button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SliderComponent } from './components/slider/slider.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ModalPopupComponent } from './components/modal-popup/modal-popup.component';
 
 @NgModule({
   declarations: [
     SharedComponent,
-    SliderComponent
+    SliderComponent,
+    ModalPopupComponent
   ],
   imports: [
     CommonModule,
@@ -18,6 +20,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     NgToggleModule,
     NgxDatatableModule
   ],
-  exports: [NgToggleModule,ReactiveFormsModule,SliderComponent,NgxDatatableModule]
+  exports: [NgToggleModule,ReactiveFormsModule,SliderComponent,NgxDatatableModule,ModalPopupComponent]
 })
 export class SharedModule { }

@@ -46,6 +46,10 @@ export class FeeStructureComponent implements OnInit {
 
   
   openSideNav() {
-    this.sharedService.sideNav({action:'open',component:AddFormComponent, width:"500px"});
+    this.sharedService.customData({action:'open',component:AddFormComponent, width:"500px"});
+  }
+
+  openModal(){
+    this.sharedService.customData({action:'open',component:AddFormComponent,size:'sm',heading:'Sample Heading'})
   }
 }
