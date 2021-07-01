@@ -1,7 +1,23 @@
 <div class="app__content">
     <div class="scroll__container pt-2" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
         <div class="dashboard__content">
-            <div class="left__content"></div>
+            <div class="left__content">
+                <div class="row">
+                    <!-- radial -->
+                    <div class="col"><app-solid-guage></app-solid-guage></div>
+                    <!-- circle graphs -->
+                    <div class="col">2</div>
+                    <!-- donught -->
+                    <div class="col-6">
+                        <app-doughnut-chart></app-doughnut-chart>
+                    </div>
+                    <!-- bar chart -->
+                    <div class="col-6">
+                        <app-bar-chart></app-bar-chart>
+                    </div>
+                </div>
+
+            </div>
             <div class="right__content">
                 <h2 class="pb-5">Things you can do</h2>
                 <div class="widget mb-8" id="create">

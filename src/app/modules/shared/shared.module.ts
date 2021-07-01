@@ -7,20 +7,30 @@ import { SliderComponent } from './components/slider/slider.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ModalPopupComponent } from './components/modal-popup/modal-popup.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ChartsModule } from 'ng2-charts';
+import { SolidGuageComponent } from './components/charts/solid-guage/solid-guage.component';
+import { AutoCompleteComponent } from './components/auto-complete/auto-complete.component';
+import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
+import { DoughnutChartComponent } from './components/charts/doughnut-chart/doughnut-chart.component';
 
 @NgModule({
   declarations: [
     SharedComponent,
     SliderComponent,
     ModalPopupComponent,
-    LoaderComponent
+    LoaderComponent,
+    AutoCompleteComponent,
+    SolidGuageComponent,
+    BarChartComponent,
+    DoughnutChartComponent
   ],
   imports: [
     CommonModule,
     NgToggleModule,
     ReactiveFormsModule,
     NgToggleModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    ChartsModule
   ],
   exports: [
     NgToggleModule,
@@ -28,7 +38,11 @@ import { LoaderComponent } from './components/loader/loader.component';
     SliderComponent,
     NgxDatatableModule,
     ModalPopupComponent,
-    LoaderComponent
+    LoaderComponent,
+    SolidGuageComponent,
+    BarChartComponent,
+    ChartsModule,
+    DoughnutChartComponent
   ]
 })
 export class SharedModule { }

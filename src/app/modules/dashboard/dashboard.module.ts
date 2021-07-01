@@ -7,6 +7,7 @@ import { LandingComponent } from './landing/landing.component';
 import { ChartOneComponent } from './components/chart-one/chart-one.component';
 import { ChartTwoComponent } from './components/chart-two/chart-two.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { CalendarComponent } from './calendar/calendar.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     DashboardRoutingModule,
     MalihuScrollbarModule.forRoot()
   ]

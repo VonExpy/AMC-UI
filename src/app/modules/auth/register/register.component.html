@@ -121,12 +121,13 @@
                             <div class="f-group">
                                 <label class="required">CREATE PASSWORD</label>
                                 <div class="f-field">
-                                    <input type="password" placeholder="Enter Your Password" formControlName="password" />
+                                    <input type="password" placeholder="Enter Your Password"
+                                        formControlName="password" />
                                     <div *ngIf="submitted && d.password.errors" class="error">
                                         <div *ngIf="d.password.errors.required">password is required</div>
                                         <div *ngIf="d.password.errors.minlength">Password must be at least 6 characters
                                         </div>
-                                        <div  *ngIf="d.password.hasError('passwordStrength')">
+                                        <div *ngIf="d.password.hasError('passwordStrength')">
                                             {{d.password.errors['passwordStrength']}}
                                         </div>
                                     </div>
@@ -175,13 +176,10 @@
                             [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
                             [fontSize]="toggle.fontSize">
                         </ng-toggle>
-                        I Agree the terms and conditions
+                        I Agree the <a href="javascript:;">terms and conditions</a>
                     </div>
-                    <button class="btn btn-gradient has-icon right" (click)="onSubmit(detailsForm, 'detailsForm')">
+                    <button class="btn btn-info right" (click)="formType = 'accountForm'">
                         Back
-                        <span class="icon">
-                            <img src="../../../../assets/icon_login_arrow.svg" />
-                        </span>
                     </button>
                     <button class="btn btn-gradient has-icon right" (click)="onSubmit(detailsForm, 'detailsForm')">
                         Submit
