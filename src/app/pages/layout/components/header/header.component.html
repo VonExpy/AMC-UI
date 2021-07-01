@@ -25,9 +25,8 @@
                         <img src="../../../../../assets/icon-question.svg" />
                     </span>
                 </div>
-                <div class="section only__icon messages" [ngClass]="{'active': action == 'messages' }"
-                    (mouseout)="action = ''" (mouseover)="doAction('messages')">
-                    <span class="icon has-badge">
+                <div class="section only__icon messages" [ngClass]="{'active': action == 'messages' }">
+                    <span class="icon has-badge" (mouseout)="action = ''" (mouseover)="action='messages'">
                         <img src="../../../../../assets/icon-messanger.svg" />
                         <span class="badge badge-info">3</span>
                     </span>
@@ -133,9 +132,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="section only__icon notifications" [ngClass]="{'active': action == 'notifications' }" 
-                (mouseout)="action = ''" (mouseover)="doAction('notifications')">
-                    <span class="icon has-badge">
+                <div class="section only__icon notifications" [ngClass]="{'active': action == 'notifications' }">
+                    <span class="icon has-badge" (mouseout)="action = ''" (mouseover)="action='notifications'">
                         <img src="../../../../../assets/icon-notification.svg" />
                         <span class="badge badge-alert">3</span>
                     </span>
@@ -241,18 +239,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="section profile" [ngClass]="{'active': action == 'profile' }"
-                (mouseout)="action = ''" (mouseover)="doAction('profile')">
+                <div class="section profile" [ngClass]="{'active': action == 'profile' }">
                     <div class="profile__details">
                         <span class="name">Veera Arun Sameer John</span>
                         <span class="role">Business Owner</span>
                     </div>
                     <div class="profile__pic">
-                        <span class="pic">
+                        <span class="pic" (mouseout)="action = ''" (mouseover)="action = 'profile'">
                             <img src="../../../../../assets/AvatarMaker.png" />
                         </span>
                     </div>
-                    <div class="profile__dots">
+                    <div class="profile__dots" (mouseout)="action = ''" (mouseover)="action = 'profile'">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -333,19 +330,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="list-item" routerLink="/auth/login" >
+                            <div class="list-item" routerLink="/auth/login">
                                 <div class="avatar">
                                     <img src="../../assets/icon_flag_appraiser.svg">
                                 </div>
                                 <div class="details">
-                                    <div class="text logout" >
+                                    <div class="text logout">
                                         Log Out
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
-                            <span class="link">Privacy Policy</span> • <span class="link">Terms</span> • AMC Panel © 2021
+                            <span class="link">Privacy Policy</span> • <span class="link">Terms</span> • AMC Panel ©
+                            2021
                         </div>
                     </div>
                 </div>

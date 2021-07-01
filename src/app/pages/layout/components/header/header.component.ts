@@ -11,8 +11,4 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  doAction(action: String) {
-      this.action = action
-  }
 }
