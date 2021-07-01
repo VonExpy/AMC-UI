@@ -6,12 +6,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SliderComponent } from './components/slider/slider.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ModalPopupComponent } from './components/modal-popup/modal-popup.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
     SharedComponent,
     SliderComponent,
-    ModalPopupComponent
+    ModalPopupComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,13 @@ import { ModalPopupComponent } from './components/modal-popup/modal-popup.compon
     NgToggleModule,
     NgxDatatableModule
   ],
-  exports: [NgToggleModule,ReactiveFormsModule,SliderComponent,NgxDatatableModule,ModalPopupComponent]
+  exports: [
+    NgToggleModule,
+    ReactiveFormsModule,
+    SliderComponent,
+    NgxDatatableModule,
+    ModalPopupComponent,
+    LoaderComponent
+  ]
 })
 export class SharedModule { }

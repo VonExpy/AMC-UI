@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { UsersModule } from './modules/users/users.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { SharedService } from './modules/shared/services/shared.service';
+import { LoaderService } from './modules/shared/services/loader.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptor } from './modules/shared/services/interceptors/loader-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { SharedService } from './modules/shared/services/shared.service';
     UsersModule,
     SharedModule
   ],
-  providers: [SharedService],
+  providers: [SharedService,
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
