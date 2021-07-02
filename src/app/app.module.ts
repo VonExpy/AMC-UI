@@ -9,6 +9,8 @@ import { SharedService } from './modules/shared/services/shared.service';
 import { LoaderService } from './modules/shared/services/loader.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from './modules/shared/services/interceptors/loader-interceptor.service';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,11 @@ import { LoaderInterceptor } from './modules/shared/services/interceptors/loader
     BrowserModule,
     AppRoutingModule,
     UsersModule,
-    SharedModule
+    SharedModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.GOOGLE_MAP_API_KEY,
+      libraries: ['places', 'drawing']
+    }),
   ],
   providers: [SharedService,
     LoaderService,

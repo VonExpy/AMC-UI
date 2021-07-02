@@ -1,1 +1,7 @@
-<p>auto-complete works!</p>
+<div class="f-group">
+    <label>Find Address <span class="required">*</span></label>
+    <div class="f-field">
+        <input type="text"  (keydown.enter)="$event.preventDefault()"
+        autocorrect="off" autocapitalize="off" spellcheck="off" #addresstext autocomplete="off" />
+    </div>
+</div>

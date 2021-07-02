@@ -107,6 +107,18 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+
+  //google auto complete address
+  getAddress(address: any) {
+    this.profileForm.patchValue({
+      street: address.street,
+      city: address.city,
+      county: address.county,
+      state: address.state,
+      zipcode: address.zipcode
+    })
+  }
+
   get f() { return this.profileForm.controls; }
 
   onSubmit(form: FormGroup) {
@@ -117,6 +129,7 @@ export class ProfileComponent implements OnInit {
     if (form.invalid) {
       return;
     }
+    this.edit = false
     console.log(form.value, 'form value')
   }
 

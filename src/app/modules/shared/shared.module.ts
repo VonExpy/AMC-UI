@@ -42,7 +42,8 @@ import { DoughnutChartComponent } from './components/charts/doughnut-chart/dough
     SolidGuageComponent,
     BarChartComponent,
     ChartsModule,
-    DoughnutChartComponent
+    DoughnutChartComponent,
+    AutoCompleteComponent
   ]
 })
 export class SharedModule { }
