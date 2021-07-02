@@ -116,4 +116,11 @@ export class OrdersComponent implements OnInit {
       unchecked: "#ffffff"
     }
   };
+  
+  public scrollbarOptions = {
+    theme: 'dark-3',
+    // theme: 'minimal-dark',
+    autoHideScrollbar: true,
+    scrollButtons: { enable: false }
+  };
 }

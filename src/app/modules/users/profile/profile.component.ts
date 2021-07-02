@@ -69,7 +69,6 @@ export class ProfileComponent implements OnInit {
   };
   public scrollbarOptions = {
     theme: 'dark-3',
-    // theme: 'minimal-dark',
     autoHideScrollbar: true,
     scrollButtons: { enable: false }
   };

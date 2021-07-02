@@ -19,8 +19,8 @@
             padding: 0px 1rem;
         }
         .right__content {
-            max-width: 400px;
-            width: 400px;
+            max-width: 360px;
+            width: 360px;
             padding: 1.5rem 1.5rem;
         }
      }
@@ -52,6 +52,9 @@ h4 {
     &-head {
         display: flex;
         justify-content: space-between;
+        h4 {
+            text-transform: uppercase;
+        }
         .actions {
             font-size: 13px;
         }
@@ -130,6 +133,23 @@ h4 {
                 padding-top: 7px;
                 text-transform: uppercase;
             }
+        }
+    }
+    &.small {
+        .widget-head {
+            h4 {
+                font-size: 14px;
+            }
+        }
+    }
+}
+#orders__client {
+    .widget-item {
+        border-radius: 30px;
+        margin-bottom: 5px;
+        .icon, .details, .status {
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
     }
 }

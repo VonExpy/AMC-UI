@@ -1,1 +1,42 @@
-<p>clients works!</p>
+<div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+    <div class="px-5 py-1">
+        <div class="title-heading mb-2">
+            <div class="flex-row-center">
+                <button class="btn btn-transparent btn-sm has-icon only-icon" type="button">
+                    <span class="icon">
+                        <img src="../../../../assets/icon_dashboard.png" />
+                    </span>
+                </button>
+                <button class="btn ml-4 btn-transparent btn-sm has-icon only-icon" type="button">
+                    <span class="icon">
+                        <img src="../../../../assets/icon_dashboard.png" />
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table class="noindent">
+                    <thead>
+                        <tr>
+                            <th align="left">Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Created</th>
+                            <th>Contact Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of data">
+                            <td>Velocity Credit Unit</td>
+                            <td>johnsmith@domainnam.com</td>
+                            <td>(345) 234 3456</td>
+                            <td>04/30/2021 20:10 by <span class="txt-primary"> Varma, Ram</span></td>
+                            <td>Reyan Verma</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
