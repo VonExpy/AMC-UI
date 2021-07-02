@@ -13,6 +13,10 @@
 }
 .flex-column-stretch {
     @include flex-column-stretch;
+    height: 100%;
+    > div {
+        flex: auto;
+    }
 }
 .flex-justify-right {
     display: flex;
