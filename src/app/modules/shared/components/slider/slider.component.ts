@@ -25,6 +25,7 @@ export class SliderComponent implements OnInit {
 
   closeNav() {
     // this.mySidenav.nativeElement.addClass = "0"
+    console.log('close')
     this.mySidenav.nativeElement.classList.add('closepanel');
     this.mySidenav.nativeElement.classList.remove('openpanel');
   }
