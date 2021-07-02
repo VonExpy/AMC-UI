@@ -1,6 +1,6 @@
 <div>
   <!-- [externalSorting]="true"  -->
-  <ngx-datatable class="material striped" style="height: 300px;" [rows]="rows" [columnMode]="ColumnMode.force"
+  <ngx-datatable class="material striped" style="height: 100%;" [rows]="rows" [columnMode]="ColumnMode.force"
     [headerHeight]="50" [loadingIndicator]="isLoading > 0" [scrollbarV]="true" [footerHeight]="50" [rowHeight]="50"
     [externalPaging]="true" [count]="totalElements" [offset]="pageNumber" (page)="setPage($event)">
     <ngx-datatable-column name="File#" prop="file" [resizeable]="false" [flexGrow]="1">

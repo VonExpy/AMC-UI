@@ -24,11 +24,14 @@ export class SliderComponent implements OnInit {
   }
 
   closeNav() {
-    this.mySidenav.nativeElement.style.width = "0"
+    // this.mySidenav.nativeElement.addClass = "0"
+    this.mySidenav.nativeElement.classList.add('closepanel');
+    this.mySidenav.nativeElement.classList.remove('openpanel');
   }
 
   openNav(res:any) {
-    this.mySidenav.nativeElement.style.width = res.width
+    // this.mySidenav.nativeElement.style.width = res.width
+    this.mySidenav.nativeElement.classList.add('openpanel');
     this.entry.clear();
     const factory = this.resolver.resolveComponentFactory(res.component);
     this.entry.createComponent(factory);

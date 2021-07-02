@@ -1,1 +1,54 @@
-<p>organisation works!</p>
+<div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
+        <div class="title-heading">
+            <h3>Organisation Information</h3>
+            <div class="flex-row-center">
+                <button class="btn btn-sm btn-secondary-outline" (click)="editform()" *ngIf="edit">Cancel</button>
+                <button class="btn btn-sm" type="submit" *ngIf="edit">Update</button>
+                <button class="btn btn-sm" (click)="editform()" *ngIf="!edit">Edit</button>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <div class="f-group">
+                    <label>First Name <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="First Name" formControlName="firstName" />
+                        <div *ngIf="submitted && f.firstName.errors" class="error">
+                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.firstName.value}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="f-group">
+                    <label>Middle Name <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="Middle Name" formControlName="middleName" />
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.middleName.value}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="f-group">
+                    <label>Last Name <span class="required">*</span></label>
+                    <div class="f-field" *ngIf="edit">
+                        <input type="text" placeholder="Last Name" formControlName="lastName" />
+                        <div *ngIf="submitted && f.lastName.errors" class="error">
+                            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="f-field-value" *ngIf="!edit">
+                        {{f.lastName.value}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -6,7 +6,7 @@
 
     .user__info {
         @include flex-column-stretch;
-        
+        position: relative;
         width: 100%; 
         &-detials {
             @include flex-row-center;

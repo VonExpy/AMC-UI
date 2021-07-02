@@ -44,6 +44,11 @@ export class FeeStructureComponent implements OnInit {
     }
   };
 
+  public scrollbarOptions = {
+    theme: 'dark-3',
+    autoHideScrollbar: true,
+    scrollButtons: { enable: false }
+  };
   
   openSideNav() {
     this.sharedService.customData({action:'open',component:AddFormComponent, width:"500px"});
