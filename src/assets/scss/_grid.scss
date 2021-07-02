@@ -14,6 +14,7 @@ $grid__margins: 8;
     display: flex;
     flex-wrap: wrap;
     width: calc(100% + 30px);
+    max-width: calc(100% + 30px);
     margin-left: -15px;
     margin-right: -15px;
     [class*='col-'] {
@@ -29,6 +30,7 @@ $grid__margins: 8;
     @for $i from 1 through $grid__cols {
         .col-#{$i} {
             flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+            max-width: (100 / ($grid__cols / $i) ) * 1%;
             padding-left: 15px;
             padding-right: 15px;
         }
@@ -39,6 +41,8 @@ $grid__margins: 8;
     &.no-space {
         margin-left: 0px;
         margin-right: 0px;
+        width: calc(100% + 0px);
+        max-width: calc(100% + 0px);
         .col {
             padding-left: 0;
             padding-right: 0;
@@ -46,6 +50,7 @@ $grid__margins: 8;
         @for $i from 1 through $grid__cols {
             .col-#{$i} {
                 flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+                width: (100 / ($grid__cols / $i) ) * 1%;
                 padding-left: 0px;
                 padding-right: 0px;
             }
