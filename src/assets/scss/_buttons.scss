@@ -22,6 +22,16 @@
         min-height: 24px;
         font-size: 12px;
     }
+    &-transparent {
+        background-color: transparent;
+        color: $white;
+        border: solid 1px transparent;
+        &-outline {
+            background-color: transparent;
+            border: solid 1px transparent;
+            color: transparent;
+        } 
+    } 
     &-primary {
         background-color: $primary;
         color: $white;
