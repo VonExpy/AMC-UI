@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../../shared/services/shared.service';
 import { CoverageComponent } from '../coverage/coverage.component';
 
@@ -11,7 +11,7 @@ import { CoverageComponent } from '../coverage/coverage.component';
 export class OrganisationComponent implements OnInit {
 
   constructor(private sharedService: SharedService, private fb: FormBuilder) { }
-  profileForm!: FormGroup;
+  orgForm!: FormGroup;
   submitted = false;
   edit: any = false;
   config = {
@@ -76,13 +76,6 @@ export class OrganisationComponent implements OnInit {
     autoHideScrollbar: true,
     scrollButtons: { enable: false }
   };
-  public scrollbarOptionsx = {
-    // theme: 'dark-3',
-    theme: 'minimal-dark',
-    autoHideScrollbar: true,
-    scrollButtons: { enable: false }
-  };
-
   ngOnInit(): void {
     this.initProfileForm()
   }
@@ -96,25 +89,64 @@ export class OrganisationComponent implements OnInit {
   }
 
   initProfileForm() {
-    this.profileForm = this.fb.group({
-      firstName: ['Arun Sameer', Validators.required],
-      middleName: '',
-      lastName: ['Koduri', Validators.required],
-      role: ['Koduri', Validators.required],
-      email: ['', Validators.compose([
+    this.orgForm = this.fb.group({
+      orgName: ['Vonexpy Softech LLC', Validators.required],
+      email: ['test@gmail.com', Validators.compose([
         Validators.required,
         Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
       ])],
-      phone:['', Validators.required],
-      street:['', Validators.required],
-      city:['', Validators.required],
-      county:['', Validators.required],
-      state:['', Validators.required],
-      zipcode:['', Validators.required],
+      fax: ['', Validators.required],
+      ein: ['', Validators.required],
+      phone: ['', Validators.required],
+      street: ['', Validators.required],
+      city: ['', Validators.required],
+      county: ['', Validators.required],
+      state: ['', Validators.required],
+      zipcode: ['', Validators.required],
+      contactName: ['', Validators.required],
+      contactPhone: ['', Validators.required],
+      contactEmail: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
+      ])],
+      bankDetails: new FormArray([this.bankDetailsForm()])
     });
   }
 
-  get f() { return this.profileForm.controls; }
+  // initialization of bankDetails
+  bankDetailsForm() {
+    return this.fb.group({
+      accountType: ['', Validators.required],
+      bankName: ['', Validators.required],
+      routingNumber: ['', Validators.required],
+      accountNumber: ['', Validators.required]
+    })
+  }
+
+  // Add new form
+  add() {
+    this.t.push(this.bankDetailsForm())
+  }
+
+  delete(i: number) {
+    this.t.removeAt(i)
+  }
+
+  // this.t.removeAt(i);
+
+  //google auto complete address
+  getAddress(address: any) {
+    this.orgForm.patchValue({
+      street: address.street,
+      city: address.city,
+      county: address.county,
+      state: address.state,
+      zipcode: address.zipcode
+    })
+  }
+
+  get f() { return this.orgForm.controls; }
+  get t() { return this.f.bankDetails as FormArray; }
 
   onSubmit(form: FormGroup) {
     this.submitted = true;
@@ -122,7 +154,7 @@ export class OrganisationComponent implements OnInit {
     console.log('hit')
     // stop here if form is invalid
     if (form.invalid) {
-        return;
+      return;
     }
     console.log(form.value, 'form value')
   }

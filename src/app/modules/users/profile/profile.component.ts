@@ -73,12 +73,6 @@ export class ProfileComponent implements OnInit {
     autoHideScrollbar: true,
     scrollButtons: { enable: false }
   };
-  public scrollbarOptionsx = {
-    // theme: 'dark-3',
-    theme: 'minimal-dark',
-    autoHideScrollbar: true,
-    scrollButtons: { enable: false }
-  };
 
   ngOnInit(): void {
     this.initProfileForm()
