@@ -12,6 +12,10 @@ import { SolidGuageComponent } from './components/charts/solid-guage/solid-guage
 import { AutoCompleteComponent } from './components/auto-complete/auto-complete.component';
 import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
 import { DoughnutChartComponent } from './components/charts/doughnut-chart/doughnut-chart.component';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -28,6 +32,8 @@ import { DoughnutChartComponent } from './components/charts/doughnut-chart/dough
     CommonModule,
     NgToggleModule,
     ReactiveFormsModule,
+    AngularMultiSelectModule,
+    FormsModule,
     NgToggleModule,
     NgxDatatableModule,
     ChartsModule
@@ -43,7 +49,9 @@ import { DoughnutChartComponent } from './components/charts/doughnut-chart/dough
     BarChartComponent,
     ChartsModule,
     DoughnutChartComponent,
-    AutoCompleteComponent
+    AutoCompleteComponent,
+    AngularMultiSelectModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

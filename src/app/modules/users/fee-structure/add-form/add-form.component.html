@@ -1,13 +1,27 @@
-<div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+<form class="modal modal-container" [formGroup]="orgForm">
+    <div class="modal-title">
+        <h4 class="heading">Add Fee Structure</h4>
+    </div>
+    <div class="modal-body">
+        <div class="px-5 py-4">
+            <div class="row">
+                <div class="col-6">
+                    <angular2-multiselect [data]="dropdownList" formControlName="county"  [settings]="dropdownSettings"></angular2-multiselect>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer flex-justify-right">
+            <button class="btn btn-sm btn-secondary-outline">Reset</button>
+            <button class="btn btn-sm ml-3">Submit</button>
+    </div>
+</form>
+
+<!-- <div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
     <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
         <form [formGroup]="orgForm" (ngSubmit)="onSubmit(orgForm)">
             <div class="title-heading">
                 <h3>Organisation Information</h3>
-                <!-- <div class="flex-row-center">
-                    <button class="btn btn-sm btn-secondary-outline" (click)="editform()" *ngIf="edit">Cancel</button>
-                    <button class="btn btn-sm" type="submit" *ngIf="edit">Update</button>
-                    <button class="btn btn-sm" (click)="editform()" *ngIf="!edit">Edit</button>
-                </div> -->
             </div>
 
             <div class="row">
@@ -221,77 +235,6 @@
                     <button class="btn btn-info" (click)="add()" type="button">Add</button>
                 </div>
             </div>
-            <ng-container formArrayName="bankDetails">
-                <ng-container *ngFor="let bank of t['controls'];let i=index">
-                    <div class="row" [formGroupName]="i">
-                        <div class="col">
-                            <div class="f-group">
-                                <label>ACCOUNT TYPE <span class="required">*</span></label>
-                                <div class="f-field" *ngIf="edit">
-                                    <input type="text" placeholder="Select Account Type"
-                                        formControlName="accountType" />
-                                    <!-- <div *ngIf="submitted && bank.controls.accountType.errors" class="error">
-                                        <div *ngIf="bank.controls.accountType.errors.required">Account Type is required</div>
-                                    </div> -->
-                                </div>
-                                <div class="f-field-value" *ngIf="!edit">
-                                    <!-- {{f.accountType.value}} -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="f-group">
-                                <label>BANK NAME <span class="required">*</span></label>
-                                <div class="f-field" *ngIf="edit">
-                                    <input type="text" placeholder="Enter Bank Name" formControlName="bankName" />
-                                    <!-- <div *ngIf="submitted && f.city.errors" class="error">
-                                        <div *ngIf="f.city.errors.required">City is required</div>
-                                    </div> -->
-                                </div>
-                                <div class="f-field-value" *ngIf="!edit">
-                                    <!-- {{f.bankName.value}} -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="f-group">
-                                <label>ROUTING NUMBER <span class="required">*</span></label>
-                                <div class="f-field" *ngIf="edit">
-                                    <input type="text" placeholder="Enter Routing Number"
-                                        formControlName="routingNumber" />
-                                    <!-- <div *ngIf="submitted && f.routingNumber.errors" class="error">
-                                        <div *ngIf="f.routingNumber.errors.required">Routing Number is required</div>
-                                    </div> -->
-                                </div>
-                                <div class="f-field-value" *ngIf="!edit">
-                                    <!-- {{f.routingNumber.value}} -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="f-group">
-                                <label>ACCOUNT NUMBER <span class="required">*</span></label>
-                                <div class="f-field" *ngIf="edit">
-                                    <input type="text" placeholder="Account Number" formControlName="accountNumber" />
-                                    <!-- <div *ngIf="submitted && f.accountNumber.errors" class="error">
-                                        <div *ngIf="f.accountNumber.errors.required">Account Number is required</div>
-                                    </div> -->
-                                </div>
-                                <div class="f-field-value" *ngIf="!edit">
-                                    <!-- {{f.accountNumber.value}} -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1" *ngIf="edit">
-                            <div class="icon" *ngIf="i > 0" (click)="delete(i)">
-                                <img src="../../../../assets/icon_delete.svg" />
-                            </div>
-                        </div>
-                    </div>
-                </ng-container>
-
-            </ng-container>
-
         </form>
     </div>
-</div>
+</div> -->

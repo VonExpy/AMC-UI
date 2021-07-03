@@ -69,12 +69,6 @@ export class AddFormComponent implements OnInit {
       unchecked: "#ffffff"
     }
   };
-  public scrollbarOptions = {
-    theme: 'dark-3',
-    // theme: 'minimal-dark',
-    autoHideScrollbar: true,
-    scrollButtons: { enable: false }
-  };
   ngOnInit(): void {
     this.initProfileForm()
   }
@@ -158,4 +152,27 @@ export class AddFormComponent implements OnInit {
     console.log(form.value, 'form value')
   }
 
+
+
+  // Add Fee Structure Code
+  dropdownSettings = {
+    singleSelection: true,
+    text: "Select Countries",
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    enableSearchFilter: true,
+    tagToBody: false
+  };
+  dropdownList = [
+    { "id": 1, "itemName": "India" },
+    { "id": 2, "itemName": "Singapore" },
+    { "id": 3, "itemName": "Australia" },
+    { "id": 4, "itemName": "Canada" },
+    { "id": 5, "itemName": "South Korea" },
+    { "id": 6, "itemName": "Germany" },
+    { "id": 7, "itemName": "France" },
+    { "id": 8, "itemName": "Russia" },
+    { "id": 9, "itemName": "Italy" },
+    { "id": 10, "itemName": "Sweden" }
+  ];
 }

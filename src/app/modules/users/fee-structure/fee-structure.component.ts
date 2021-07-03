@@ -55,6 +55,6 @@ export class FeeStructureComponent implements OnInit {
   }
 
   openModal(){
-    this.sharedService.customData({action:'open',component:AddFormComponent,size:'sm',heading:'Sample Heading'})
+    this.sharedService.customData({action:'open',component:AddFormComponent, size:'sm',heading:'Sample Heading'})
   }
 }
