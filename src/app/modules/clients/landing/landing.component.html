@@ -1,1 +1,173 @@
-<p>landing works!</p>
+<div class="app__content">
+    <div class="statistics" id="user__statistics" *ngIf="statistics">
+        <div class="statistics__total">
+            <span class="text">Total Clients</span>
+            <span class="count">280</span>
+        </div>
+        <div class="statistics__users">
+            <div class="statistics__user">
+                <div class="progress_bar">
+                    <round-progress [current]="169" [max]="250" [color]="'#75BC80'" [background]="'#ccd3df'"
+                        [radius]="23" [stroke]="3" [semicircle]="false" [rounded]="true" [clockwise]="true"
+                        [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
+                    </round-progress>
+                    <span class="count">169</span>
+                </div>
+                <span class="label">Active</span>
+            </div>
+            <div class="statistics__user">
+                <div class="progress_bar">
+                    <round-progress [current]="169" [max]="250" [color]="'#E09191'" [background]="'#ccd3df'"
+                        [radius]="23" [stroke]="3" [semicircle]="false" [rounded]="true" [clockwise]="true"
+                        [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
+                    </round-progress>
+                    <span class="count">169</span>
+                </div>
+                <span class="label">In Active</span>
+            </div>
+            <div class="statistics__user">
+                <div class="progress_bar">
+                    <round-progress [current]="169" [max]="250" [color]="'#9A7BBE'" [background]="'#ccd3df'"
+                        [radius]="23" [stroke]="3" [semicircle]="false" [rounded]="true" [clockwise]="true"
+                        [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
+                    </round-progress>
+                    <span class="count">169</span>
+                </div>
+                <span class="label">Admin</span>
+            </div>
+            <div class="statistics__user">
+                <div class="progress_bar">
+                    <round-progress [current]="169" [max]="250" [color]="'#D5A96D'" [background]="'#ccd3df'"
+                        [radius]="23" [stroke]="3" [semicircle]="false" [rounded]="true" [clockwise]="true"
+                        [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
+                    </round-progress>
+                    <span class="count">169</span>
+                </div>
+                <span class="label">Agents</span>
+            </div>
+        </div>
+    </div>
+    <div class="users" id="users__container">
+        <div class="users__con">
+            <div class="users__con__search">
+                <div class="search">
+                    <span class="icon">
+                        <img src="../../assets/icon-search.svg" />
+                    </span>
+                    <input type="search" placeholder="Search Users" />
+                </div>
+                <div class="actions">
+                    <button class="btn btn-gradient has-icon" (click)="showstatistics()">
+                        <span class="icon left">
+                            <img src="../../../../assets/icon_add.svg" />
+                        </span>
+                        Add Client
+                    </button>
+                </div>
+            </div>
+            <div class="users__con__filters">
+                <div class="sort__by">
+                    <label>Sort by</label>
+                    <select>
+                        <option>Business Name</option>
+                    </select>
+                </div>
+                <div class="actions">
+                    <span class="icon">
+                        <img src="../../../../assets/icon_filter.svg" />
+                    </span>
+                </div>
+            </div>
+            <div class="users__con__lists">
+                <div class="users__list" id="users__list" malihu-scrollbar
+                    [scrollbarOptions]="staticService.scrollbarOptions">
+                    <div class="user_item">
+                        <div class="user_item_avatar">
+                            <span class="pic"><img src="../../../../assets/profile_pic.jpg" /></span>
+                            <span class="status online"></span>
+                        </div>
+                        <div class="user_item_details">
+                            <div class="user_item_sec">
+                                <span class="name">Seattle Mortgage Inc</span>
+                                <span class="chip account-manager">Lender</span>
+                            </div>
+                            <div class="user_item_sec">
+                                <a class="email" href="mailto:CraigPrice@domainname.com">Santhosh AM</a>
+                                <span class="address">TX, 77771</span>
+                            </div>
+                            <div class="user_item_sec orders">
+                                <div class="title">Orders</div>
+                                <div class="counts">
+                                    <span class="label">Open : </span>
+                                    <span class="count open">20</span>
+                                </div>
+                                <div class="counts">
+                                    <span class="label">Closed : </span>
+                                    <span class="count closed">10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="user_item active">
+                        <div class="user_item_avatar">
+                            <span class="pic"><img src="../../../../assets/profile_pic.jpg" /></span>
+                            <span class="status online"></span>
+                        </div>
+                        <div class="user_item_details">
+                            <div class="user_item_sec">
+                                <span class="name">Seattle Mortgage Inc</span>
+                                <span class="chip account-manager">Lender</span>
+                            </div>
+                            <div class="user_item_sec">
+                                <a class="email" href="mailto:CraigPrice@domainname.com">Santhosh AM</a>
+                                <span class="address">TX, 77771</span>
+                            </div>
+                            <div class="user_item_sec orders">
+                                <div class="title">Orders</div>
+                                <div class="counts">
+                                    <span class="label">Open : </span>
+                                    <span class="count open">20</span>
+                                </div>
+                                <div class="counts">
+                                    <span class="label">Closed : </span>
+                                    <span class="count closed">10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="user_item">
+                        <div class="user_item_avatar">
+                            <span class="pic"><img src="../../../../assets/profile_pic.jpg" /></span>
+                            <span class="status online"></span>
+                        </div>
+                        <div class="user_item_details">
+                            <div class="user_item_sec">
+                                <span class="name">Craig Prices</span>
+                                <span class="chip admin">Admin</span>
+                            </div>
+                            <div class="user_item_sec">
+                                <a class="email" href="mailto:CraigPrice@domainname.com">CraigPrice@domainname.com</a>
+                                <span class="address">TX, 77771</span>
+                            </div>
+                            <div class="user_item_sec orders">
+                                <div class="title">Orders</div>
+                                <div class="counts">
+                                    <span class="label">Open : </span>
+                                    <span class="count open">20</span>
+                                </div>
+                                <div class="counts">
+                                    <span class="label">Closed : </span>
+                                    <span class="count closed">10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <app-list *ngFor="let item of data"></app-list>
+                </div>
+            </div>
+        </div>
+        <div class="user__con">
+            <app-details></app-details>
+        </div>
+    </div>
+</div>

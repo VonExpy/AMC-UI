@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StaticMasterService } from '../../shared/services/static-master.service';
 
 @Component({
   selector: 'app-details',
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  edit: any = false;
+  toggle:any = {}
+  constructor(private staticService: StaticMasterService) { 
+    this.toggle = this.staticService.toggle('user')
+  }
 
-  constructor() { }
-
+  editform() {
+    this.edit = !this.edit;
+  }
   ngOnInit(): void {
   }
 
