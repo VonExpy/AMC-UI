@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from 'src/app/_helpers/must-match.validator';
 import { PasswordStrengthValidator } from 'src/app/_helpers/password-strength.validators';
+import { StaticMasterService } from '../../shared/services/static-master.service';
 
 @Component({
   selector: 'app-register',
@@ -14,35 +15,10 @@ export class RegisterComponent implements OnInit {
   detailsForm!: FormGroup
   submitted = false
   formType = 'emailForm'
-  toggle = {
-    value: true,
-    name: "test",
-    disabled: false,
-    height: 18,
-    width: 35,
-    margin: 1,
-    fontSize: 13,
-    speed: 300,
-    color: {
-      checked: "#1B6E3F",
-      unchecked: "#cccccc"
-    },
-    switchColor: {
-      checked: "#F8F8F8",
-      unchecked: "#F8F8F8"
-    },
-    labels: {
-      unchecked: "",
-      checked: ""
-    },
-    checkedLabel: "",
-    uncheckedLabel: "",
-    fontColor: {
-      checked: "#fafafa",
-      unchecked: "#ffffff"
-    }
-  };
-  constructor(private fb: FormBuilder) { }
+  toggle:any = {}
+  constructor(private fb: FormBuilder, private staticService:StaticMasterService) { 
+    this.toggle = this.staticService.toggle('register')
+  }
 
   ngOnInit(): void {
     this.initEmailForm()

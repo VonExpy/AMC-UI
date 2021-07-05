@@ -17,7 +17,7 @@ export class ModalPopupComponent implements OnInit {
     private resolver: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
-    this.sharedService.customObservable.subscribe((res) => {
+    this.sharedService.modalObservable.subscribe((res) => {
       console.log(res,'res')
       this.modalDetails = res
       if (res.action == 'open') {

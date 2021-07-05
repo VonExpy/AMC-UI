@@ -23,9 +23,11 @@
             <!-- </div> -->
         </div>
         <div class="profile__events">
-            <ng-toggle [disabled]="config.disabled" [width]="config.width" [height]="config.height"
-                [margin]="config.margin" [labels]="config.labels" [color]="config.color"
-                [switchColor]="config.switchColor" [fontColor]="config.fontColor" [fontSize]="config.fontSize">
+            <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                [height]="toggle.height" [margin]="toggle.margin"
+                [labels]="toggle.labels" [color]="toggle.color"
+                [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                [fontSize]="toggle.fontSize">
             </ng-toggle>
         </div>
     </div>
@@ -91,7 +93,7 @@
                 </ul>
             </div>
             <div class="tab__content">
-            <!-- <div class="tab__content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions"> -->
+                <!-- <div class="tab__content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions"> -->
                 <router-outlet></router-outlet>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StaticMasterService } from '../../shared/services/static-master.service';
 
 @Component({
   selector: 'app-jobtypes',
@@ -7,14 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobtypesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public staticService:StaticMasterService) { }
   data = [0,1,2,3,4,5,6,7,8,9,10]
   ngOnInit(): void {
   }
- 
-  public scrollbarOptions = {
-    theme: 'dark-3',
-    autoHideScrollbar: true,
-    scrollButtons: { enable: false }
-  };
+
 }

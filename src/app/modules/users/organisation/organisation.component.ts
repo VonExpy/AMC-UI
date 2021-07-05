@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../../shared/services/shared.service';
+import { StaticMasterService } from '../../shared/services/static-master.service';
 import { CoverageComponent } from '../coverage/coverage.component';
 
 @Component({
@@ -10,85 +11,20 @@ import { CoverageComponent } from '../coverage/coverage.component';
 })
 export class OrganisationComponent implements OnInit {
 
-  constructor(private sharedService: SharedService, private fb: FormBuilder) { }
+  constructor(private sharedService: SharedService,
+    private fb: FormBuilder, public staticService: StaticMasterService) { }
   orgForm!: FormGroup;
   submitted = false;
   edit: any = false;
-  config = {
-    value: true,
-    name: "test",
-    disabled: false,
-    height: 25,
-    width: 75,
-    margin: 2,
-    fontSize: 13,
-    speed: 300,
-    color: {
-      checked: "#1B6E3F",
-      unchecked: "#cccccc"
-    },
-    switchColor: {
-      checked: "#F8F8F8",
-      unchecked: "#F8F8F8"
-    },
-    labels: {
-      unchecked: "",
-      checked: "Active"
-    },
-    checkedLabel: "",
-    uncheckedLabel: "",
-    fontColor: {
-      checked: "#fafafa",
-      unchecked: "#ffffff"
-    }
-  };
-  toggle = {
-    value: true,
-    name: "test",
-    disabled: false,
-    height: 18,
-    width: 35,
-    margin: 1,
-    fontSize: 13,
-    speed: 300,
-    color: {
-      checked: "#1B6E3F",
-      unchecked: "#cccccc"
-    },
-    switchColor: {
-      checked: "#F8F8F8",
-      unchecked: "#F8F8F8"
-    },
-    labels: {
-      unchecked: "",
-      checked: ""
-    },
-    checkedLabel: "",
-    uncheckedLabel: "",
-    fontColor: {
-      checked: "#fafafa",
-      unchecked: "#ffffff"
-    }
-  };
-  public scrollbarOptions = {
-    theme: 'dark-3',
-    // theme: 'minimal-dark',
-    autoHideScrollbar: true,
-    scrollButtons: { enable: false }
-  };
   ngOnInit(): void {
-    this.initProfileForm()
+    this.initOrgForm()
   }
 
   editform() {
     this.edit = !this.edit;
   }
-
-  openSideNav() {
-    // this.sharedService.sideNav({action:'open',component:CoverageComponent});
-  }
-
-  initProfileForm() {
+  
+  initOrgForm() {
     this.orgForm = this.fb.group({
       orgName: ['Vonexpy Softech LLC', Validators.required],
       email: ['test@gmail.com', Validators.compose([

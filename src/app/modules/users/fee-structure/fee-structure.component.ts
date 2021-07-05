@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../shared/services/shared.service';
+import { StaticMasterService } from '../../shared/services/static-master.service';
 import { AddFormComponent } from './add-form/add-form.component';
 
 @Component({
@@ -8,53 +9,20 @@ import { AddFormComponent } from './add-form/add-form.component';
   styleUrls: ['./fee-structure.component.scss']
 })
 export class FeeStructureComponent implements OnInit {
-
-  constructor(private sharedService:SharedService) { }
-  data = [0,1,2,3,4,5,6,7,8,9,10]
+  toggle: any = {}
+  constructor(private sharedService: SharedService, public staticService: StaticMasterService) {
+    this.toggle = this.staticService.toggle('fee')
+  }
+  data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   ngOnInit(): void {
   }
 
-  toggle = {
-    value: true,
-    name: "test",
-    disabled: false,
-    height: 24,
-    width: 55,
-    margin: 1,
-    fontSize: 12,
-    speed: 300,
-    color: {
-      checked: "#1B6E3F",
-      unchecked: "#A4BBC1"
-    },
-    switchColor: {
-      checked: "#F8F8F8",
-      unchecked: "#F8F8F8"
-    },
-    labels: {
-      unchecked: "No",
-      checked: "Yes"
-    },
-    checkedLabel: "",
-    uncheckedLabel: "",
-    fontColor: {
-      checked: "#fafafa",
-      unchecked: "#ffffff"
-    }
-  };
-
-  public scrollbarOptions = {
-    theme: 'dark-3',
-    autoHideScrollbar: true,
-    scrollButtons: { enable: false }
-  };
-  
   openSideNav() {
-    this.sharedService.customData({action:'open',component:AddFormComponent, width:"500px"});
+    this.sharedService.sideNav({ action: 'open', component: AddFormComponent, width: "500px" });
   }
 
-  openModal(){
-    this.sharedService.customData({action:'open',component:AddFormComponent, size:'sm',heading:'Sample Heading'})
+  openModal() {
+    this.sharedService.modal({ action: 'open', component: AddFormComponent, size: 'sm', heading: 'Sample Heading' })
   }
 }

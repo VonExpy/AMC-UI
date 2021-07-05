@@ -1,4 +1,4 @@
-<div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+<div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="staticService.scrollbarOptions">
     <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
         <form [formGroup]="orgForm" (ngSubmit)="onSubmit(orgForm)">
             <div class="title-heading">

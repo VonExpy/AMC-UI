@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StaticMasterService } from '../../shared/services/static-master.service';
 
 @Component({
   selector: 'app-landing',
@@ -7,16 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(public staticService:StaticMasterService) { }
   data: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  scrollbarOptions: any;
   ngOnInit(): void {
-    this.scrollbarOptions = {
-      theme: 'dark-3',
-      // theme: 'minimal-dark',
-      autoHideScrollbar: true,
-      scrollButtons: { enable: false }
-    };
   }
   scrollButtons = { enable: false }
   statistics: boolean = false;
