@@ -14,6 +14,8 @@ import { BarChartComponent } from './components/charts/bar-chart/bar-chart.compo
 import { DoughnutChartComponent } from './components/charts/doughnut-chart/doughnut-chart.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { FormsModule } from '@angular/forms';
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
+import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 
 
 
@@ -36,7 +38,9 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     NgToggleModule,
     NgxDatatableModule,
-    ChartsModule
+    ChartsModule,
+    RoundProgressModule,
+    MalihuScrollbarModule.forRoot()
   ],
   exports: [
     NgToggleModule,
@@ -51,7 +55,9 @@ import { FormsModule } from '@angular/forms';
     DoughnutChartComponent,
     AutoCompleteComponent,
     AngularMultiSelectModule,
-    FormsModule
+    FormsModule,
+    RoundProgressModule,
+    MalihuScrollbarModule
   ]
 })
 export class SharedModule { }

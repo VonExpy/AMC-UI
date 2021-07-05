@@ -12,7 +12,6 @@ export class LandingComponent implements OnInit {
   data: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   ngOnInit(): void {
   }
-  scrollButtons = { enable: false }
   statistics: boolean = false;
   showstatistics() {
     this.statistics = !this.statistics;

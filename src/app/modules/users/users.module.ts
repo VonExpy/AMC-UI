@@ -4,8 +4,6 @@ import { LandingComponent } from './landing/landing.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { RoundProgressModule } from 'angular-svg-round-progressbar';
-import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 import { UsersRoutingModule } from './users-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { OrdersComponent } from './orders/orders.component';
@@ -37,8 +35,6 @@ import { MockServerResultsService } from './orders/paging/mock-server-results-se
   imports: [
     CommonModule,
     SharedModule,
-    MalihuScrollbarModule.forRoot(),
-    RoundProgressModule,
     UsersRoutingModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
