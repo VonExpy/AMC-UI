@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/modules/shared/services/shared.service';
+import { StaticMasterService } from '../../../shared/services/static-master.service';
 
 @Component({
   selector: 'app-add-form',
@@ -9,7 +10,9 @@ import { SharedService } from 'src/app/modules/shared/services/shared.service';
 })
 export class AddFormComponent implements OnInit {
 
-  constructor(private sharedService: SharedService, private fb: FormBuilder) { }
+  constructor(private staticService: StaticMasterService, private sharedService: SharedService, private fb: FormBuilder) {
+    this.toggle = this.staticService.toggle('yesorno')
+  }
   orgForm!: FormGroup;
   submitted = false;
   edit: any = true;
@@ -41,34 +44,7 @@ export class AddFormComponent implements OnInit {
       unchecked: "#ffffff"
     }
   };
-  toggle = {
-    value: true,
-    name: "test",
-    disabled: false,
-    height: 18,
-    width: 35,
-    margin: 1,
-    fontSize: 13,
-    speed: 300,
-    color: {
-      checked: "#1B6E3F",
-      unchecked: "#cccccc"
-    },
-    switchColor: {
-      checked: "#F8F8F8",
-      unchecked: "#F8F8F8"
-    },
-    labels: {
-      unchecked: "",
-      checked: ""
-    },
-    checkedLabel: "",
-    uncheckedLabel: "",
-    fontColor: {
-      checked: "#fafafa",
-      unchecked: "#ffffff"
-    }
-  };
+  toggle:any = {}
   ngOnInit(): void {
     this.initProfileForm()
   }

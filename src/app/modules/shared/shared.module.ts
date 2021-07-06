@@ -12,7 +12,7 @@ import { SolidGuageComponent } from './components/charts/solid-guage/solid-guage
 import { AutoCompleteComponent } from './components/auto-complete/auto-complete.component';
 import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
 import { DoughnutChartComponent } from './components/charts/doughnut-chart/doughnut-chart.component';
-import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
@@ -44,7 +44,7 @@ FullCalendarModule.registerPlugins([
     CommonModule,
     NgToggleModule,
     ReactiveFormsModule,
-    AngularMultiSelectModule,
+    NgSelectModule,
     FormsModule,
     NgToggleModule,
     NgxDatatableModule,
@@ -65,7 +65,7 @@ FullCalendarModule.registerPlugins([
     ChartsModule,
     DoughnutChartComponent,
     AutoCompleteComponent,
-    AngularMultiSelectModule,
+    NgSelectModule,
     FormsModule,
     RoundProgressModule,
     MalihuScrollbarModule,
