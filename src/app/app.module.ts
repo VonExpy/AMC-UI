@@ -11,7 +11,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from './modules/shared/services/interceptors/loader-interceptor.service';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from 'src/environments/environment';
-
 @NgModule({
   declarations: [
     AppComponent
