@@ -11,6 +11,7 @@ import { PaymentsComponent } from './payments/payments.component';
 import { ClientsEmployeeComponent } from './clients-employee/clients-employee.component';
 import { SharedModule } from '../shared/shared.module';
 import { ListComponent } from './list/list.component';
+import { ClientCalendarComponent } from './client-calendar/client-calendar.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ListComponent } from './list/list.component';
     AppraisersComponent,
     PaymentsComponent,
     ClientsEmployeeComponent,
-    ListComponent
+    ListComponent,
+    ClientCalendarComponent
   ],
   imports: [
     CommonModule,

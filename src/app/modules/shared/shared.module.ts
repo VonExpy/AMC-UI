@@ -16,6 +16,16 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+
+FullCalendarModule.registerPlugins([ 
+  interactionPlugin,
+  dayGridPlugin,
+  timeGridPlugin
+]);
 
 
 
@@ -40,7 +50,8 @@ import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
     NgxDatatableModule,
     ChartsModule,
     RoundProgressModule,
-    MalihuScrollbarModule.forRoot()
+    MalihuScrollbarModule.forRoot(),
+    FullCalendarModule
   ],
   exports: [
     NgToggleModule,
@@ -57,7 +68,8 @@ import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
     NgSelectModule,
     FormsModule,
     RoundProgressModule,
-    MalihuScrollbarModule
+    MalihuScrollbarModule,
+    FullCalendarModule
   ]
 })
 export class SharedModule { }

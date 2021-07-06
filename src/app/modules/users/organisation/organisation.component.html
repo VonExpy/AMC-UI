@@ -222,20 +222,20 @@
                 </div>
             </div>
             <ng-container formArrayName="bankDetails">
-                <ng-container *ngFor="let bank of t['controls'];let i=index">
-                    <div class="row" [formGroupName]="i">
+                <ng-container *ngFor="let bank of t['controls'];let i=index" [formGroupName]="i">
+                    <div class="row">
                         <div class="col">
                             <div class="f-group">
                                 <label>ACCOUNT TYPE <span class="required">*</span></label>
                                 <div class="f-field" *ngIf="edit">
                                     <input type="text" placeholder="Select Account Type"
                                         formControlName="accountType" />
-                                    <!-- <div *ngIf="submitted && bank.controls.accountType.errors" class="error">
-                                        <div *ngIf="bank.controls.accountType.errors.required">Account Type is required</div>
-                                    </div> -->
+                                    <div *ngIf="submitted && bank.get('accountType')?.errors" class="error">
+                                        <div *ngIf="bank.get('accountType')?.errors?.required">Account Type is required</div>
+                                    </div>
                                 </div>
                                 <div class="f-field-value" *ngIf="!edit">
-                                    <!-- {{f.accountType.value}} -->
+                                    {{bank.value.accountType}}
                                 </div>
                             </div>
                         </div>
@@ -244,12 +244,12 @@
                                 <label>BANK NAME <span class="required">*</span></label>
                                 <div class="f-field" *ngIf="edit">
                                     <input type="text" placeholder="Enter Bank Name" formControlName="bankName" />
-                                    <!-- <div *ngIf="submitted && f.city.errors" class="error">
-                                        <div *ngIf="f.city.errors.required">City is required</div>
-                                    </div> -->
+                                    <div *ngIf="submitted && bank.get('bankName')?.errors" class="error">
+                                        <div *ngIf="bank.get('bankName')?.errors?.required">Bank Name is required</div>
+                                    </div>
                                 </div>
                                 <div class="f-field-value" *ngIf="!edit">
-                                    <!-- {{f.bankName.value}} -->
+                                    {{bank.value.bankName}}
                                 </div>
                             </div>
                         </div>
@@ -259,12 +259,12 @@
                                 <div class="f-field" *ngIf="edit">
                                     <input type="text" placeholder="Enter Routing Number"
                                         formControlName="routingNumber" />
-                                    <!-- <div *ngIf="submitted && f.routingNumber.errors" class="error">
-                                        <div *ngIf="f.routingNumber.errors.required">Routing Number is required</div>
-                                    </div> -->
+                                        <div *ngIf="submitted && bank.get('routingNumber')?.errors" class="error">
+                                            <div *ngIf="bank.get('routingNumber')?.errors?.required">Routing Number is required</div>
+                                        </div>
                                 </div>
                                 <div class="f-field-value" *ngIf="!edit">
-                                    <!-- {{f.routingNumber.value}} -->
+                                    {{bank.value.routingNumber}}
                                 </div>
                             </div>
                         </div>
@@ -273,12 +273,12 @@
                                 <label>ACCOUNT NUMBER <span class="required">*</span></label>
                                 <div class="f-field" *ngIf="edit">
                                     <input type="text" placeholder="Account Number" formControlName="accountNumber" />
-                                    <!-- <div *ngIf="submitted && f.accountNumber.errors" class="error">
-                                        <div *ngIf="f.accountNumber.errors.required">Account Number is required</div>
-                                    </div> -->
+                                    <div *ngIf="submitted && bank.get('accountNumber')?.errors" class="error">
+                                        <div *ngIf="bank.get('accountNumber')?.errors?.required">Account Number is required</div>
+                                    </div>
                                 </div>
                                 <div class="f-field-value" *ngIf="!edit">
-                                    <!-- {{f.accountNumber.value}} -->
+                                    {{bank.value.accountNumber}}
                                 </div>
                             </div>
                         </div>

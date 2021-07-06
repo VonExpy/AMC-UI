@@ -86,7 +86,6 @@ export class OrganisationComponent implements OnInit {
 
   onSubmit(form: FormGroup) {
     this.submitted = true;
-
     console.log('hit')
     // stop here if form is invalid
     if (form.invalid) {
