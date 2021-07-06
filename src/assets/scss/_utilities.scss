@@ -51,6 +51,12 @@
 .text-truncate {
     @include text-overflow;
 }
+.text-right {
+    text-align: right;
+}
+.text-justify {
+    text-align: justify;
+}
 
 // Roles/Status Colors / Backgrounds / Opacity
 $opacitylevels: (75, 50, 25, 10);

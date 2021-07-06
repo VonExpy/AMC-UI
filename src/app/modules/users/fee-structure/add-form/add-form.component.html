@@ -2,239 +2,215 @@
     <div class="modal-title">
         <h4 class="heading">Add Fee Structure</h4>
     </div>
-    <div class="modal-body">
-        <div class="px-5 py-4">
+    <div class="modal-body" malihu-scrollbar>
+        <div class="px-8 py-8">
             <div class="row">
                 <div class="col-6">
-                    <angular2-multiselect [data]="dropdownList" formControlName="county"  [settings]="dropdownSettings"></angular2-multiselect>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer flex-justify-right">
-            <button class="btn btn-sm btn-secondary-outline">Reset</button>
-            <button class="btn btn-sm ml-3">Submit</button>
-    </div>
-</form>
-
-<!-- <div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
-    <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
-        <form [formGroup]="orgForm" (ngSubmit)="onSubmit(orgForm)">
-            <div class="title-heading">
-                <h3>Organisation Information</h3>
-            </div>
-
-            <div class="row">
-                <div class="col-4">
                     <div class="f-group">
-                        <label>ORGANISATION NAME <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Organisation Name" formControlName="orgName" />
+                        <label class="required">Fee Structure name</label>
+                        <div class="f-field">
+                            <ng-select [items]="dropdownList" 
+                                bindLabel="itemName" 
+                                bindValue="id"
+                                placeholder="Enter Your Fee Structure Name"
+                                [multiple]="true"
+                                appendTo="body"
+                                [maxSelectedItems]="4"
+                                formControlName="county">
+                            </ng-select>
                             <div *ngIf="submitted && f.orgName.errors" class="error">
                                 <div *ngIf="f.orgName.errors.required">Organisation Name is required</div>
                             </div>
                         </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.orgName.value}}
-                        </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-4 offset-2">
                     <div class="f-group">
-                        <label>EMAIL <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Email" formControlName="email" />
-                            <div *ngIf="submitted && f.email.errors" class="error">
-                                <div *ngIf="f.email.errors.required">Email is required</div>
-                                <div *ngIf="f.email.errors.pattern">Please enter Valid Name</div>
+                        <label>IS ACTIVE</label>
+                        <div class="f-field nob">
+                            <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                [height]="toggle.height" [margin]="toggle.margin"
+                                [labels]="toggle.labels" [color]="toggle.color"
+                                [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                                [fontSize]="toggle.fontSize">
+                            </ng-toggle>
+                            <div *ngIf="submitted && f.orgName.errors" class="error">
+                                <div *ngIf="f.orgName.errors.required">Organisation Name is required</div>
                             </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.email.value}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>FAX <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Fax Number" formControlName="fax" />
-                            <div *ngIf="submitted && f.fax.errors" class="error">
-                                <div *ngIf="f.fax.errors.required">Fax is required</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.fax.value}}
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>EIN <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter EIN Number" formControlName="ein" />
-                            <div *ngIf="submitted && f.ein.errors" class="error">
-                                <div *ngIf="f.ein.errors.required">EIN is required</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.ein.value}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>PHONE <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Phone Number" formControlName="phone" />
-                            <div *ngIf="submitted && f.phone.errors" class="error">
-                                <div *ngIf="f.phone.errors.required">Phone is required</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.phone.value}}
-                        </div>
-                    </div>
-                </div>
+            <div class="table__form f-group">
+                <table>
+                    <thead>
+                        <tr class="row no-space">
+                            <th class="col-6"><label>Fee Structure name</label></th>
+                            <th class="col-3 text-right"><label>AppRaiser Fee ($)</label></th>
+                            <th class="col-3 text-right"><label>Company Fee ($)</label></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row no-space">
+                            <th class="col-6">
+                                <div class="f-field-value">
+                                    ValueAdd-Exterior
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="row no-space">
+                            <th class="col-6">
+                                <div class="f-field-value">
+                                    ValueAdd-Exterior
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="row no-space">
+                            <th class="col-6">
+                                <div class="f-field-value">
+                                    ValueAdd-Exterior
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="row no-space">
+                            <th class="col-6">
+                                <div class="f-field-value">
+                                    ValueAdd-Exterior
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="row no-space">
+                            <th class="col-6">
+                                <div class="f-field-value">
+                                    ValueAdd-Exterior
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="row no-space">
+                            <th class="col-6">
+                                <div class="f-field-value">
+                                    ValueAdd-Exterior
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="row no-space">
+                            <th class="col-6">
+                                <div class="f-field-value">
+                                    ValueAdd-Exterior
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="row no-space">
+                            <th class="col-6">
+                                <div class="f-field-value">
+                                    ValueAdd-Exterior
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="row no-space">
+                            <th class="col-6">
+                                <div class="f-field-value">
+                                    ValueAdd-Exterior
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                            <th class="col-3">
+                                <div class="f-field">
+                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                </div>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="title-heading">
-                <h3>Address</h3>
-            </div>
-            <div class="col-4" *ngIf="edit">
-                <app-auto-complete (setAddress)="getAddress($event)" adressType="geocode">
-                </app-auto-complete>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>Address <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Address" formControlName="street" />
-                            <div *ngIf="submitted && f.street.errors" class="error">
-                                <div *ngIf="f.street.errors.required">Address is required</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.street.value}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>City <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="City" formControlName="city" />
-                            <div *ngIf="submitted && f.city.errors" class="error">
-                                <div *ngIf="f.city.errors.required">City is required</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.city.value}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>County <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="County" formControlName="county" />
-                            <div *ngIf="submitted && f.county.errors" class="error">
-                                <div *ngIf="f.county.errors.required">County is required</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.county.value}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>State <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="state" formControlName="state" />
-                            <div *ngIf="submitted && f.state.errors" class="error">
-                                <div *ngIf="f.state.errors.required">State is required</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.state.value}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>Zipcode <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Zipcode" formControlName="zipcode" />
-                            <div *ngIf="submitted && f.zipcode.errors" class="error">
-                                <div *ngIf="f.zipcode.errors.required">Zipcode is required</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.zipcode.value}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="title-heading">
-                <h3>Contact Info</h3>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>NAME <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Contact Name" formControlName="contactName" />
-                            <div *ngIf="submitted && f.contactName.errors" class="error">
-                                <div *ngIf="f.contactName.errors.required">Contact Name is required</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.contactName.value}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>PHONE <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Contact Phone Number"
-                                formControlName="contactPhone" />
-                            <div *ngIf="submitted && f.contactPhone.errors" class="error">
-                                <div *ngIf="f.contactPhone.errors.required">Contact Phone is required</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.contactPhone.value}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>EMAIL <span class="required">*</span></label>
-                        <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Contact Email" formControlName="contactEmail" />
-                            <div *ngIf="submitted && f.contactEmail.errors" class="error">
-                                <div *ngIf="f.contactEmail.errors.required">Contact Email is required</div>
-                                <div *ngIf="f.contactEmail.errors.pattern">Please enter valid email</div>
-                            </div>
-                        </div>
-                        <div class="f-field-value" *ngIf="!edit">
-                            {{f.contactEmail.value}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="title-heading">
-                <h3>Bank Details</h3>
-                <div class="flex-row-center" *ngIf="edit">
-                    <button class="btn btn-info" (click)="add()" type="button">Add</button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
-</div> -->
+    <div class="modal-footer flex-justify-right">
+            <button class="btn btn-secondary-outline">Reset</button>
+            <button class="btn ml-2">Add</button>
+    </div>
+</form>

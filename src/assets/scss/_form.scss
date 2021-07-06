@@ -15,9 +15,12 @@
         color: $form-label;
         text-transform: uppercase;
         padding-bottom: 3px;
-        .required {
-            content: '*';
+        &.required::after {
+            content: ' *';
             color: $danger;
+        }
+        .required {
+            display: none;
         }
     }
     .error {
@@ -33,6 +36,12 @@
         align-items: center;
         width: 100%;
         border-bottom: solid 1px $form-border;
+        &.nob {
+            border-bottom: none;
+        }
+        &.right {
+            text-align: right;
+        }
         &-value,
         input[type='text'],
         input[type='tel'],
@@ -50,6 +59,9 @@
             height: 26px;
             line-height: 25px;
             color: $black;
+            &.right {
+                text-align: right;
+            }
         }
         input::-webkit-input-placeholder {
             color: $formfield-dark;
@@ -79,9 +91,9 @@
     }
 }
 .readonly {
-    .required {
-        display: none;
-    }
+    // .required {
+    //     display: none;
+    // }
     .f-field {
         border-bottom: none;
         > * {

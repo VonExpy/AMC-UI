@@ -4,16 +4,19 @@
 @import 'mixins';
 @import 'colors';
 @import 'reset';
+@import 'buttons';  
 @import 'grid';
 
 .app__content {
     @include flex-column-stretch;
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
     background: $white;
     width: 100%;
-    border-radius: 20px 20px 0 0;
+    min-height: 0;
+    height: calc(100% - 1px);
+    border-radius: 15px 15px 0 0;
     overflow: hidden;
     box-shadow: 0px 0px 20px rgb(0 0 0 / 15%);
 }
@@ -25,4 +28,80 @@
 .sticky {
     position: sticky !important;
     top: 0;
+}
+
+/* Ng Select Design  */
+ng-select {
+    &.ng-select {
+        width: 100%;
+        .ng-select-container {
+            border: none;
+            height: auto;
+            min-height: 26px;
+            box-shadow: none !important;
+            .ng-arrow-wrapper {
+                padding-right: 0px;
+            }
+            .ng-value-container {
+                padding-top: 0 !important;
+                padding-left: 0 !important;
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 23px;
+                color: $black;
+            }
+            .ng-placeholder {
+                top: 3px !important;
+                color: $formfield-dark !important;
+                opacity: .5;
+                font-size: 14px;
+                font-weight: 300;
+                padding-left: 0px !important;
+            }
+            .ng-input {
+                padding-left: 0px !important;
+            }
+            .ng-clear-wrapper {
+                display: none;
+            }
+            .ng-value {
+                border: solid 1px #D0F0FA;
+                background-color: #EAF8FF !important;
+                border-radius: 25px !important;
+                display: flex;
+                line-height: 20px;
+                font-size: 13px !important;
+                font-weight: 500;
+                padding: 0px 5px;
+                margin-bottom: 2px !important;
+                margin-right: 2px !important;
+                .ng-value-label {
+                    order: 1;
+                }
+                .ng-value-icon {
+                    order: 2;
+                    border: 0px !important;
+                    color: $danger;
+                    font-size: 22px;
+                    font-weight: 300;
+                    margin: 0;
+                    padding: 0 1px 0 1px !important;
+                }
+            }
+        }
+    }
+}
+.ng-dropdown-panel-items {
+    .ng-option {
+        padding: 6px 10px;
+        font-size: 14px;
+        span {
+            font-weight: 400;
+        }
+        &-selected {
+            span {
+                font-weight: 500 !important;
+            }
+        }
+    }
 }
