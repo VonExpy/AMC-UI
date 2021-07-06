@@ -19,10 +19,12 @@ import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 import { FullCalendarModule } from '@fullcalendar/angular'; 
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
-  dayGridPlugin
+  dayGridPlugin,
+  timeGridPlugin
 ]);
 
 
