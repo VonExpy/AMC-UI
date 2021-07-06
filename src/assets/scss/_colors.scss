@@ -3,6 +3,7 @@ $secondary:         #6A8991;
 $extras:            #00A1ED;
 $info:              #96FFA8;
 $danger:            #FF304C;
+$success:             #41AD7D;
 $white:             #ffffff;
 $black:             #000000;
 $bg-content:        #f9f9f9;
@@ -56,13 +57,15 @@ $busy:              #11282E;
 
 
 // Chips/Roles
-$account-manager:  #80AC8F;
-$business-owner:   #6E99CB;
-$admin:            #9A7BBE;
-$agent:            #80AC8F;
-$review:           #AF7C1C;
-$assigned:         #A977AA;
-$accepted:         #45AA56;
+$chips: (
+    account-manager:  #80AC8F,
+    business-owner:   #6E99CB,
+    admin:            #9A7BBE,
+    agent:            #80AC8F,
+    inreview:           #AF7C1C,
+    assigned:         #A977AA,
+    accepted:         #45AA56
+);
 
 // Orders/Status
 $status-colors: (
@@ -71,7 +74,8 @@ $status-colors: (
     warning:      #D09D2B,
     success:      #41AD7D,
     danger:       #D88383,
-    dark:       #F8F8F8B3
+    dark:         #232323,
+    white:        #ffffff
 );
 
 // Modal
@@ -117,6 +121,7 @@ $table-border:rgb(106 137 145 / 50%);
 // Widget Headings
 $widget-primary: #0A62AC;
 $widget-secondary: #6A8991;
+$widget-active: #45AA56;
 
 // Extras
 $more-actions:           #A4BBC1;

@@ -20,6 +20,8 @@ $grid__margins: 8;
     margin-right: -15px;
     [class*='col-'] {
         box-sizing: border-box;
+        flex: auto;
+        min-height: 0;
     }
     .col {
         flex-basis: 0;
@@ -44,12 +46,12 @@ $grid__margins: 8;
         margin-right: 0px;
         width: calc(100% + 0px);
         max-width: calc(100% + 0px);
-        .col {
+        > .col {
             padding-left: 0;
             padding-right: 0;
         }
         @for $i from 1 through $grid__cols {
-            .col-#{$i} {
+            > .col-#{$i} {
                 flex-basis: (100 / ($grid__cols / $i) ) * 1%;
                 width: (100 / ($grid__cols / $i) ) * 1%;
                 padding-left: 0px;

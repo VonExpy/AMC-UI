@@ -10,7 +10,7 @@ import { Label } from 'ng2-charts';
 export class SolidGuageComponent implements OnInit {
     // Radar
     public radarChartOptions: RadialChartOptions = {
-      responsive: true,
+      responsive: false,
     };
     public radarChartLabels: Label[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
   

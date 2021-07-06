@@ -1,9 +1,68 @@
-<div style="display: block;">
-    <canvas baseChart
+<div class="row no-space">
+    <div class="col-6 graph">
+      <canvas baseChart
       [datasets]="radarChartData"
       [options]="radarChartOptions"
       [labels]="radarChartLabels"
+      [legend]="false"
       [chartType]="radarChartType">
     </canvas>
-  </div>
+    </div>
+    <div class="col-6 amc-legends">
+      <div class="row no-space">
+        <div class="col-6">
+          <div class="amc-legend">
+            <span class="count bg-primary">100</span>
+            <span class="text txt-primary">New Orders</span>
+          </div>
+          <div class="amc-legend">
+            <span class="count bg-secondary">2</span>
+            <span class="text txt-secondary">New Orders</span>
+          </div>
+          <div class="amc-legend">
+            <span class="count bg-dark">100</span>
+            <span class="text txt-dark">New Orders</span>
+          </div>
+          <div class="amc-legend">
+            <span class="count bg-warning">23</span>
+            <span class="text txt-warning">New Orders</span>
+          </div>
+          <div class="amc-legend">
+            <span class="count bg-success">100</span>
+            <span class="text txt-success">New Orders</span>
+          </div>
+          <div class="amc-legend">
+            <span class="count bg-danger">100</span>
+            <span class="text txt-danger">New Orders</span>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="amc-legend">
+            <span class="count bg-warning">23</span>
+            <span class="text txt-warning">New Orders</span>
+          </div>
+          <div class="amc-legend">
+            <span class="count bg-success">100</span>
+            <span class="text txt-success">New Orders</span>
+          </div>
+          <div class="amc-legend">
+            <span class="count bg-danger">100</span>
+            <span class="text txt-danger">New Orders</span>
+          </div>
+          <div class="amc-legend">
+            <span class="count bg-primary">100</span>
+            <span class="text txt-primary">New Orders</span>
+          </div>
+          <div class="amc-legend">
+            <span class="count bg-secondary">2</span>
+            <span class="text txt-secondary">New Orders</span>
+          </div>
+          <div class="amc-legend">
+            <span class="count bg-dark">100</span>
+            <span class="text txt-dark">New Orders</span>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
   

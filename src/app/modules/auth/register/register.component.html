@@ -169,7 +169,7 @@
         </ng-container>
         <ng-container *ngSwitchCase="'detailsForm'">
             <div class="row">
-                <div class="col-8 flex flex-justify-between">
+                <div class="col-4">
                     <div class="text">
                         <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
                             [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
@@ -178,7 +178,9 @@
                         </ng-toggle>
                         I Agree the <a href="javascript:;">terms and conditions</a>
                     </div>
-                    <button class="btn btn-gradient right" (click)="formType = 'accountForm'">
+                </div>
+                <div class="col-4 flex flex-justify-right">
+                    <button class="btn btn-secondary-outline" (click)="formType = 'accountForm'">
                         Back
                     </button>
                     <button class="btn btn-gradient has-icon right" (click)="onSubmit(detailsForm, 'detailsForm')">
@@ -191,7 +193,7 @@
             </div>
         </ng-container>
         <ng-container *ngSwitchCase="'successPage'">
-            <button class="btn btn-gradient has-icon" routerLink="/auth/login">
+            <button class="btn mt-5 btn-gradient has-icon" routerLink="/auth/login">
                 Login
                 <span class="icon">
                     <img src="../../../../assets/icon_login_arrow.svg" />

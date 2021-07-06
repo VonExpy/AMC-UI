@@ -6,6 +6,7 @@
 @import 'reset';
 @import 'buttons';  
 @import 'grid';
+@import 'utilities';
 
 .app__content {
     @include flex-column-stretch;

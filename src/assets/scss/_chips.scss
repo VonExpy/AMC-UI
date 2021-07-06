@@ -7,16 +7,14 @@
     border-radius: 20px;
     color: $white;
     border: none;
-    &.account-manager {
-        background: $account-manager;
+    white-space: nowrap;
+    line-height: 1;
+    &.small {
+        padding: 2px 5px;
     }
-    &.business-owner {
-        background: $business-owner;
-    }
-    &.admin {
-        background: $admin;
-    }
-    &.agent {
-        background: $agent;
+    @each $name, $color in $chips {
+        &.#{$name} {
+            background: $color;
+        }
     }
 }

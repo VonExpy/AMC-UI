@@ -1,8 +1,28 @@
-<div style="display: block;">
+<div class="row no-space">
+  <div class="col-12">
+    <span class="count txt-primary">$ 12,20,038.00</span>
+  </div>
+  <div class="col-7">
     <canvas baseChart 
       [data]="doughnutChartData"
+      [legend]="false"
       [labels]="doughnutChartLabels"
       [chartType]="doughnutChartType">
     </canvas>
+  </div>    
+  <div class="col-4">
+    <div class="legends">
+      <div class="legend">
+        <span class="line bg-warning"></span>
+        <span class="label">Net-Profit</span>
+        <span class="count txt-warning">$1,30,800.00</span>
+      </div>
+      <div class="legend">
+        <span class="line bg-danger"></span>
+        <span class="label">Net-Profit</span>
+        <span class="count txt-danger">$1,30,800.00</span>
+      </div>
+    </div>
   </div>
+</div>
   

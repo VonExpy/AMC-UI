@@ -7,6 +7,9 @@
 }
 .flex-row-stretch {
     @include flex-row-stretch;
+    > div {
+        flex: auto;
+    }
 }
 .flex-column-center {
     @include flex-column-center;
@@ -16,6 +19,9 @@
     height: 100%;
     > div {
         flex: auto;
+        &.flex1 {
+            flex: 1;
+        }
     }
 }
 .flex-justify-right {
@@ -59,7 +65,7 @@
 }
 
 // Roles/Status Colors / Backgrounds / Opacity
-$opacitylevels: (75, 50, 25, 10);
+$opacitylevels: (75, 50, 25, 10, 5);
 @each $name, $color in $status-colors {
     .txt-#{$name} {
         color: $color;
@@ -72,4 +78,18 @@ $opacitylevels: (75, 50, 25, 10);
             @include rgba-background($color, $level / 100);
         }
     }
+}
+
+//* Borders *//
+.brd-b {
+    border-bottom: solid 1px $border-color;
+}
+.brd-t {
+    border-top: solid 1px $border-color;
+}
+.brd-l {
+    border-left: solid 1px $border-color;
+}
+.brd-r {
+    border-right: solid 1px $border-color;
 }

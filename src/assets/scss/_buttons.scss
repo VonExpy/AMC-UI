@@ -70,6 +70,9 @@
                 display: block;
             }
         }
+        &.right {
+            padding-right: 5px;
+        }
     }
     &.only-icon {
         width: 30px;

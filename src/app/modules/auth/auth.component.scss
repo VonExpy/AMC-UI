@@ -14,6 +14,12 @@
         @include flex-column-stretch;
         justify-content: space-between;
     }
+    .amc__content {
+        .container {
+            max-width: 100%;
+            padding: 0;
+        }
+    }
     header {
         @include flex-row-stretch;
         height: 76px;

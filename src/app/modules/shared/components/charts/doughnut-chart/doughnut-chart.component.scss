@@ -1,0 +1,27 @@
+@import '../../../../../../assets/scss/colors';
+    .count {
+        display: block;
+        font-size: 26px;
+        padding: 0px 0px 24px 10px;
+        
+    }
+
+    .legends {
+        .line {
+            display: block;
+            width: 80px;
+            height: 2px;
+        }
+        .label {
+            color: $secondary;
+            font-size: 15px;
+            font-weight: 400;
+            padding: 5px 0;
+        }
+        .count {
+            font-size: 20px;
+            font-weight: 500;
+            padding-left: 0px;
+        }
+
+    }

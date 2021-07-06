@@ -12,11 +12,41 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="row no-space">
+                        <div class="row no-space brd-b">
                             <div class="col-8">
-                                <app-solid-guage></app-solid-guage>
+                                <div class="flex flex-column-stretch">
+                                    <div class="orders-statistics brd-b">
+                                        <div class="order active">
+                                            <span class="label">Active Orders</span>
+                                            <span class="count">238</span>
+                                            <span class="amount">$ 2203.00</span>
+                                        </div>
+                                        <div class="order">
+                                            <span class="label">Daily</span>
+                                            <span class="count">12</span>
+                                            <span class="amount">$ 543</span>
+                                        </div>
+                                        <div class="order">
+                                            <span class="label">Weekly</span>
+                                            <span class="count">25</span>
+                                            <span class="amount">$ 543</span>
+                                        </div>
+                                        <div class="order">
+                                            <span class="label">Monthly</span>
+                                            <span class="count">134</span>
+                                            <span class="amount">$ 543</span>
+                                        </div>
+                                    </div>
+                                    <div class="graph-container pl-2">
+                                        <h3 class="mb-5 mt-0">orders by status</h3>
+                                        <app-solid-guage></app-solid-guage>
+                                    </div>
+                                    <div class="viewall py-3 brd-t">
+                                        <span class="link">View All Orders</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-4 bg-dark">
+                            <div class="col-4 bg-dark-5">
                                 <div class="widget mx-4 my-5 small mb-2" id="recent-orders">
                                     <div class="widget-head pb-2">
                                         <h4>Orders by Client</h4>
@@ -58,6 +88,15 @@
                                                     <img src="../../assets/icon_users.png" />
                                                 </div>
                                                 <div class="details primary">Discover </div>
+                                                <div class="status txt-success"><strong class="pr-2">16</strong></div>
+                                            </div>
+                                        </div>
+                                        <div class="widget-item">
+                                            <div class="flex-row-center flex-justify-between">
+                                                <div class="icon small">
+                                                    <img src="../../assets/icon_orders.png" />
+                                                </div>
+                                                <div class="details primary">Attom Lenders </div>
                                                 <div class="status txt-success"><strong class="pr-2">16</strong></div>
                                             </div>
                                         </div>
@@ -104,21 +143,118 @@
                                                 <div class="status txt-success"><strong class="pr-2">16</strong></div>
                                             </div>
                                         </div>
+                                        <div class="widget-item">
+                                            <div class="flex-row-center flex-justify-between">
+                                                <div class="icon small">
+                                                    <img src="../../assets/icon_orders.png" />
+                                                </div>
+                                                <div class="details primary">Attom Lenders </div>
+                                                <div class="status txt-success"><strong class="pr-2">16</strong></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row no-space">
-                            <div class="col-5">
-                                <app-doughnut-chart></app-doughnut-chart>
+                            <div class="col-6 bg-dark-5">
+                                <div class="graph-container py-4 px-2">
+                                    <h3 class="mb-0">Revenue</h3>
+                                    <app-doughnut-chart></app-doughnut-chart>
+                                </div>
                             </div>
-                            <div class="col-7 bg-dark-50">
-                                
-                                <app-bar-chart></app-bar-chart>
+                            <div class="col-6 bg-white-10">
+                                <div class="graph-container p-5">
+                                    <app-bar-chart></app-bar-chart>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer"></div>
+                </div>
+                <div class="row mt-4 no-space">
+                    <div class="tabs__container mt-4 mb-8" id="orders_tabs">
+                        <div class="tabs">
+                            <ul>
+                                <li class="tab-link active">Due date orders</li>
+                                <li class="tab-link">Rush orders</li>
+                            </ul> 
+                            <div class="link">
+                                View All
+                            </div>
+                        </div>
+                        <div class="tab__content">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="card">
+                                        <div class="card-title flex flex-justify-between">
+                                            <div class="chip small assigned">Assigned</div>
+                                            <div class="value">1004 URAR</div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="date">20 APR 2021</div>
+                                            <div class="sonumber">SWM-21-3-2593</div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <span class="address">
+                                                3137 Catalina Ranch Road Leander Williamson County TX 78641
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="card">
+                                        <div class="card-title flex flex-justify-between">
+                                            <div class="chip small accepted">Accepted</div>
+                                            <div class="value">1004 URAR</div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="date">20 APR 2021</div>
+                                            <div class="sonumber">SWM-21-3-2593</div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <span class="address">
+                                                3137 Catalina Ranch Road Leander Williamson County TX 78641
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="card">
+                                        <div class="card-title flex flex-justify-between">
+                                            <div class="chip small inreview">In Review</div>
+                                            <div class="value">1004 URAR</div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="date">20 APR 2021</div>
+                                            <div class="sonumber">SWM-21-3-2593</div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <span class="address">
+                                                3137 Catalina Ranch Road Leander Williamson County TX 78641
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="card">
+                                        <div class="card-title flex flex-justify-between">
+                                            <div class="chip small assigned">Assigned</div>
+                                            <div class="value">1004 URAR</div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="date">20 APR 2021</div>
+                                            <div class="sonumber">SWM-21-3-2593</div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <span class="address">
+                                                3137 Catalina Ranch Road Leander Williamson County TX 78641
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="right__content">
