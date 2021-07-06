@@ -12,6 +12,11 @@ import { ClientsEmployeeComponent } from './clients-employee/clients-employee.co
 import { SharedModule } from '../shared/shared.module';
 import { ListComponent } from './list/list.component';
 import { ClientCalendarComponent } from './client-calendar/client-calendar.component';
+import { EditAppraisersComponent } from './appraisers/edit-appraisers/edit-appraisers.component';
+import { EditPaymentsComponent } from './payments/edit-payments/edit-payments.component';
+import { AddFormComponent } from './clients-employee/add-form/add-form.component';
+import { ProductManagementComponent } from './product-management/product-management.component';
+import { EditProductsComponent } from './product-management/edit-products/edit-products.component';
 
 
 @NgModule({
@@ -25,7 +30,12 @@ import { ClientCalendarComponent } from './client-calendar/client-calendar.compo
     PaymentsComponent,
     ClientsEmployeeComponent,
     ListComponent,
-    ClientCalendarComponent
+    ClientCalendarComponent,
+    EditAppraisersComponent,
+    EditPaymentsComponent,
+    AddFormComponent,
+    ProductManagementComponent,
+    EditProductsComponent
   ],
   imports: [
     CommonModule,

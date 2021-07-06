@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../../shared/services/shared.service';
+import { EditPaymentsComponent } from './edit-payments/edit-payments.component';
 
 @Component({
   selector: 'app-payments',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sharedService:SharedService) { }
 
   ngOnInit(): void {
+  }
+
+  openSideNav() {
+    this.sharedService.sideNav({ action: 'open', component: EditPaymentsComponent, width: "500px" });
   }
 
 }

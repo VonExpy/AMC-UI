@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../../shared/services/shared.service';
+import { EditAppraisersComponent } from './edit-appraisers/edit-appraisers.component';
 
 @Component({
   selector: 'app-appraisers',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppraisersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sharedService:SharedService) { }
 
   ngOnInit(): void {
+  }
+
+  openSideNav() {
+    this.sharedService.sideNav({ action: 'open', component: EditAppraisersComponent, width: "500px" });
   }
 
 }

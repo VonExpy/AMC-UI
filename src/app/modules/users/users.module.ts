@@ -16,6 +16,8 @@ import { FeeStructureComponent } from './fee-structure/fee-structure.component';
 import { ProductsVendorsComponent } from './products-vendors/products-vendors.component';
 import { AddFormComponent } from './fee-structure/add-form/add-form.component';
 import { MockServerResultsService } from './orders/paging/mock-server-results-service';
+import { AddZipcodesComponent } from './coverage/add-zipcodes/add-zipcodes.component';
+import { AddProductsComponent } from './products-vendors/add-products/add-products.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { MockServerResultsService } from './orders/paging/mock-server-results-se
     CoverageComponent,
     FeeStructureComponent,
     ProductsVendorsComponent,
-    AddFormComponent
+    AddFormComponent,
+    AddZipcodesComponent,
+    AddProductsComponent
   ],
   imports: [
     CommonModule,

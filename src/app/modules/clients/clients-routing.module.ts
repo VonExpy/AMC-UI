@@ -7,6 +7,7 @@ import { IntegrationDetailsComponent } from './integration-details/integration-d
 import { LandingComponent } from './landing/landing.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { ProductManagementComponent } from './product-management/product-management.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'clients-employee',
         component: ClientsEmployeeComponent,
+      },
+      {
+        path: 'product-management',
+        component: ProductManagementComponent,
       },
       {
         path: '',

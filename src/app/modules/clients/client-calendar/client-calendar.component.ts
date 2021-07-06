@@ -20,6 +20,7 @@ export class ClientCalendarComponent implements OnInit {
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
+      themeSystem: 'bootstrap',
       dateClick: this.onDateClick.bind(this),
       events: this.Events
     };
