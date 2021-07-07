@@ -1,1 +1,83 @@
-<p>integration-details works!</p>
+<div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="staticService.scrollbarOptions">
+    <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
+        <form [formGroup]="integrationForm" (ngSubmit)="onSubmit(integrationForm)">
+            <div class="title-heading">
+                <h3>UCDP Details</h3>
+                <div class="flex-row-center">
+                    <button class="btn btn-sm btn-secondary-outline" (click)="editform()" *ngIf="edit">Cancel</button>
+                    <button class="btn btn-sm" type="submit" *ngIf="edit">Update</button>
+                    <button class="btn btn-sm" (click)="editform()" *ngIf="!edit">Edit</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>UCDP ENABLED</label>
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                            [fontSize]="toggle.fontSize">
+                        </ng-toggle>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>UCDP BUSINESS UNIT NUMBER</label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter UCDP Business Unit Number"
+                                formControlName="ucdpBusinessNumber" />
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.ucdpBusinessNumber.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>FRE IDENTIFICATION NUMBER</label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter FRE Identification Number"
+                                formControlName="freIdNumber" />
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.freIdNumber.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>FNM SELLER NUMBER</label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter FNM Seller Number"
+                                formControlName="fnmSellerNumber" />
+                            <div *ngIf="submitted && f.fnmSellerNumber.errors" class="error">
+                                <div *ngIf="f.fnmSellerNumber.errors.required">FNM Seller Number is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.fnmSellerNumber.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title-heading">
+                <h3>EAD DETAILS</h3>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>EAD ENABLED</label>
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color" [value]="false"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                            [fontSize]="toggle.fontSize">
+                        </ng-toggle>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

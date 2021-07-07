@@ -11,8 +11,7 @@ import { CoverageComponent } from '../coverage/coverage.component';
 })
 export class OrganisationComponent implements OnInit {
 
-  constructor(private sharedService: SharedService,
-    private fb: FormBuilder, public staticService: StaticMasterService) { }
+  constructor(private fb: FormBuilder, public staticService: StaticMasterService) { }
   orgForm!: FormGroup;
   submitted = false;
   edit: any = false;

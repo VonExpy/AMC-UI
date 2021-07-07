@@ -1,1 +1,241 @@
-<p>client-details works!</p>
+<div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="staticService.scrollbarOptions">
+    <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
+        <form [formGroup]="clientForm" (ngSubmit)="onSubmit(clientForm)">
+            <div class="title-heading">
+                <h3>Basic Details</h3>
+                <div class="flex-row-center">
+                    <button class="btn btn-sm btn-secondary-outline" (click)="editform()" *ngIf="edit">Cancel</button>
+                    <button class="btn btn-sm" type="submit" *ngIf="edit">Update</button>
+                    <button class="btn btn-sm" (click)="editform()" *ngIf="!edit">Edit</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>NAME <span class="required">*</span></label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Name" formControlName="name" />
+                            <div *ngIf="submitted && f.name.errors" class="error">
+                                <div *ngIf="f.name.errors.required">Name is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.name.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>TYPE</label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Select Type" formControlName="type" />
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.type.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>STATUS</label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Select Status" formControlName="status" />
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.status.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>PHONE <span class="required">*</span></label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Phone Number" formControlName="phone" />
+                            <div *ngIf="submitted && f.phone.errors" class="error">
+                                <div *ngIf="f.phone.errors.required">Phone is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.phone.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>FAX <span class="required">*</span></label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Fax Number" formControlName="fax" />
+                            <div *ngIf="submitted && f.fax.errors" class="error">
+                                <div *ngIf="f.fax.errors.required">Fax is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.fax.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4" *ngIf="edit">
+                <app-auto-complete (setAddress)="getAddress($event)" adressType="geocode">
+                </app-auto-complete>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>ADDRESS <span class="required">*</span></label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Address" formControlName="street" />
+                            <div *ngIf="submitted && f.street.errors" class="error">
+                                <div *ngIf="f.street.errors.required">Address is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.street.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>CITY <span class="required">*</span></label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="City" formControlName="city" />
+                            <div *ngIf="submitted && f.city.errors" class="error">
+                                <div *ngIf="f.city.errors.required">City is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.city.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>COUNTY <span class="required">*</span></label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="County" formControlName="county" />
+                            <div *ngIf="submitted && f.county.errors" class="error">
+                                <div *ngIf="f.county.errors.required">County is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.county.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>STATE <span class="required">*</span></label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter State" formControlName="state" />
+                            <div *ngIf="submitted && f.state.errors" class="error">
+                                <div *ngIf="f.state.errors.required">State is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.state.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>ZIP CODE <span class="required">*</span></label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Zip Code" formControlName="zipcode" />
+                            <div *ngIf="submitted && f.zipcode.errors" class="error">
+                                <div *ngIf="f.zipcode.errors.required">Zip is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.zipcode.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title-heading">
+                <h3>Emails</h3>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>APPRAISAL DELIVERY EMAIL ADDRESS<span class="required">*</span></label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Delivery Email Address"
+                                formControlName="appraisalDelEmail" />
+                            <div *ngIf="submitted && f.appraisalDelEmail.errors" class="error">
+                                <div *ngIf="f.appraisalDelEmail.errors.required">Email is required</div>
+                                <div *ngIf="f.appraisalDelEmail.errors.pattern">Please enter Valid Email</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.appraisalDelEmail.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>COMPLETED APPRAISAL EMAIL 1</label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Completed Appraisal Email 1"
+                                formControlName="completedAppEmail" />
+                            <div *ngIf="submitted && f.completedAppEmail.errors" class="error">
+                                <div *ngIf="f.completedAppEmail.errors.pattern">Please enter Valid Email</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.completedAppEmail.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>COMPLETED APPRAISAL EMAIL 2</label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Completed Appraisal Email 2"
+                                formControlName="completedAppEmailTwo" />
+                            <div *ngIf="submitted && f.completedAppEmailTwo.errors" class="error">
+                                <div *ngIf="f.completedAppEmailTwo.errors.pattern">Please enter Valid Email</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.completedAppEmailTwo.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title-heading">
+                <h3>AMC Account Manager</h3>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>AMC ACCOUNT MANAGER<span class="required">*</span></label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Select AMC Manager" formControlName="amcManger" />
+                            <div *ngIf="submitted && f.amcManger.errors" class="error">
+                                <div *ngIf="f.amcManger.errors.required">Select AMC Manager</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.amcManger.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>CONTACT PERSON</label>
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                            [fontSize]="toggle.fontSize">
+                        </ng-toggle>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
