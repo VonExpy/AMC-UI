@@ -1,1 +1,75 @@
-<p>add-form works!</p>
+<form class="modal modal-container">
+    <div class="modal-title">
+        <h4 class="heading">Client Information - Add</h4>
+    </div>
+    <div class="modal-body" malihu-scrollbar>
+        <div class="px-8 py-8">
+            <form [formGroup]="clientForm" (ngSubmit)="onSubmit(clientForm)">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>Account Type <span class="required">*</span></label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Select Account Type" formControlName="accountType" />
+                                <div *ngIf="submitted && f.accountType.errors" class="error">
+                                    <div *ngIf="f.accountType.errors.required">Account Type is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>First Name <span class="required">*</span></label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter First Name" formControlName="firstName" />
+                                <div *ngIf="submitted && f.firstName.errors" class="error">
+                                    <div *ngIf="f.firstName.errors.required">Firts Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>Last Name <span class="required">*</span></label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Last Name" formControlName="lastName" />
+                                <div *ngIf="submitted && f.lastName.errors" class="error">
+                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="f-group">
+                            <label>EMAIL <span class="required">*</span></label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Email" formControlName="email" />
+                                <div *ngIf="submitted && f.email.errors" class="error">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.pattern">Please enter Valid Name</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>PHONE <span class="required">*</span></label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Phone Number" formControlName="phone" />
+                                <div *ngIf="submitted && f.phone.errors" class="error">
+                                    <div *ngIf="f.phone.errors.required">Phone is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer flex-justify-right">
+        <button class="btn btn-secondary-outline">Reset</button>
+        <button class="btn ml-2">Add</button>
+    </div>
+</form>

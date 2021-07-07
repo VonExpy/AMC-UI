@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../shared/services/shared.service';
+import { StaticMasterService } from '../../shared/services/static-master.service';
 import { AddFormComponent } from './add-form/add-form.component';
 
 @Component({
@@ -8,14 +9,20 @@ import { AddFormComponent } from './add-form/add-form.component';
   styleUrls: ['./clients-employee.component.scss']
 })
 export class ClientsEmployeeComponent implements OnInit {
-
-  constructor(private sharedService:SharedService) { }
+  data = [0, 1, 2]
+  toggle: any = {}
+  constructor(private sharedService: SharedService, public staticService: StaticMasterService) {
+    this.toggle = this.staticService.toggle('profile')
+  }
 
   ngOnInit(): void {
   }
 
-  openSideNav() {
-    this.sharedService.sideNav({ action: 'open', component: AddFormComponent, width: "500px" });
+  openSideNav(formAction: any, data: any) {
+    this.sharedService.sideNav({
+      action: 'open', component: AddFormComponent, width: "500px", formAction, data: formAction == 'Edit' ?
+        data : ''
+    });
   }
 
 }

@@ -1,2 +1,52 @@
-<p>clients-employee works!</p>
-<button class="btn btn-sm" type="button" (click)="openSideNav()">Add</button>
+<div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="staticService.scrollbarOptions">
+    <div class="form px-5 py-1">
+        <div class="title-heading">
+            <h3>Employee Management</h3>
+            <div class="flex-row-center">
+                <button class="btn btn-sm" (click)="openSideNav('Add','')">Add</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table class="noindent">
+                    <thead>
+                        <tr>
+                            <th align="left">NAME</th>
+                            <th>EMAIL</th>
+                            <th>PHONE</th>
+                            <th>ROLE</th>
+                            <th>ONBOARDED ON</th>
+                            <th>LAST SEEN</th>
+                            <th>STATUS</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of data">
+                            <td>John Smith</td>
+                            <td>johnsmith@domainnam.com</td>
+                            <td>(345) 234 3456</td>
+                            <td>General</td>
+                            <td>MM/DD/YYYY</td>
+                            <td>MM/DD/YYYY</td>
+                            <td>
+                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                                    [value]="false" [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                                    [fontSize]="toggle.fontSize">
+                                </ng-toggle>
+                            </td>
+                            <td>
+                                <button class="btn ml-4 btn-transparent btn-sm has-icon only-icon" type="button" (click)="openSideNav('Edit',d)">
+                                    <span class="icon">
+                                        <img src="../../../../assets/icon_edit.svg" />
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
