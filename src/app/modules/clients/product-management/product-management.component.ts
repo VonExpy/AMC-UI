@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../shared/services/shared.service';
+import { StaticMasterService } from '../../shared/services/static-master.service';
 import { EditProductsComponent } from './edit-products/edit-products.component';
 
 @Component({
@@ -8,8 +9,14 @@ import { EditProductsComponent } from './edit-products/edit-products.component';
   styleUrls: ['./product-management.component.scss']
 })
 export class ProductManagementComponent implements OnInit {
-
-  constructor(private sharedService:SharedService) { }
+  data = [
+    { name: 'ValueAdd-Exterior', instruction: 'Lorem ipsum, dolor sit amet consectetur adipisicing.', opt: true },
+    { name: 'ValueAdd-Interior', instruction: 'Lorem ipsum, dolor sit amet consectetur adipisicing.', opt: false }
+  ]
+  toggle: any = {}
+  constructor(private sharedService: SharedService, public staticService: StaticMasterService) {
+    this.toggle = this.staticService.toggle('profile')
+  }
 
   ngOnInit(): void {
   }

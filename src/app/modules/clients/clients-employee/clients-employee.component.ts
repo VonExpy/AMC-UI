@@ -9,7 +9,7 @@ import { AddFormComponent } from './add-form/add-form.component';
   styleUrls: ['./clients-employee.component.scss']
 })
 export class ClientsEmployeeComponent implements OnInit {
-  data = [0, 1, 2]
+  data = [{name:'John Smith',email:'johnsmith@domainnam.com',phone:'(345) 234 3456',role:'General'}]
   toggle: any = {}
   constructor(private sharedService: SharedService, public staticService: StaticMasterService) {
     this.toggle = this.staticService.toggle('profile')
