@@ -20,6 +20,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import { GlobalSearchComponent } from './components/global-search/global-search.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -38,7 +39,8 @@ FullCalendarModule.registerPlugins([
     AutoCompleteComponent,
     SolidGuageComponent,
     BarChartComponent,
-    DoughnutChartComponent
+    DoughnutChartComponent,
+    GlobalSearchComponent
   ],
   imports: [
     CommonModule,
@@ -69,7 +71,8 @@ FullCalendarModule.registerPlugins([
     FormsModule,
     RoundProgressModule,
     MalihuScrollbarModule,
-    FullCalendarModule
+    FullCalendarModule,
+    GlobalSearchComponent
   ]
 })
 export class SharedModule { }
