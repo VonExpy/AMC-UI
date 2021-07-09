@@ -1,1 +1,55 @@
-<p>add-form works!</p>
+<form class="modal modal-container">
+    <div class="modal-title">
+        <h4 class="heading">Add Job Type & Fee</h4>
+    </div>
+    <div class="modal-body" malihu-scrollbar>
+        <div class="px-8 py-8">
+          <div class="row">
+              <div class="col">
+                  <div class="f-group">
+                      <label>
+                        Indicate which product you offer by entering a fee next to product. Include an explanation of additional
+                        fees, along with your refund policies, in your fee notes.
+                      </label>
+                  </div>
+              </div>
+          </div>
+          
+            <div class="row">
+                <div class="col">
+                    <div class="f-group">
+                        <label class="required">Jobtype</label>
+                        <div class="f-field">
+                            <ng-select [items]="[]" bindLabel="itemName" bindValue="id" placeholder="Select">
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label class="required">FEE ($)</label>
+                        <div class="f-field">
+                            <input type="text" placeholder="Please Enter" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="f-group">
+                        <label class="required">Notes</label>
+                        <div class="f-field">
+                            <input type="text" placeholder="Please Enter Your Notes" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer flex-justify-right">
+        <button class="btn btn-secondary-outline">Cancel</button>
+        <button class="btn ml-2">Add</button>
+    </div>
+</form>

@@ -18,6 +18,7 @@ import { AddFormComponent } from './fee-structure/add-form/add-form.component';
 import { MockServerResultsService } from './orders/paging/mock-server-results-service';
 import { AddZipcodesComponent } from './coverage/add-zipcodes/add-zipcodes.component';
 import { AddProductsComponent } from './products-vendors/add-products/add-products.component';
+import { AddJobtypeFormComponent } from './jobtypes/add-form/add-form.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AddProductsComponent } from './products-vendors/add-products/add-produc
     CoverageComponent,
     FeeStructureComponent,
     ProductsVendorsComponent,
+    AddJobtypeFormComponent,
     AddFormComponent,
     AddZipcodesComponent,
     AddProductsComponent
