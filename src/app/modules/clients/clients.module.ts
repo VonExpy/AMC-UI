@@ -17,6 +17,12 @@ import { EditPaymentsComponent } from './payments/edit-payments/edit-payments.co
 import { AddFormComponent } from './clients-employee/add-form/add-form.component';
 import { ProductManagementComponent } from './product-management/product-management.component';
 import { EditProductsComponent } from './product-management/edit-products/edit-products.component';
+import { GeneralInstructionsComponent } from './general-instructions/general-instructions.component';
+import { UpdateInstructionsComponent } from './general-instructions/update-instructions/update-instructions.component';
+import { NotesRemainderComponent } from './notes-remainder/notes-remainder.component';
+import { AddNotesRemindersComponent } from './notes-remainder/add-notes-reminders/add-notes-reminders.component';
+import { ManageNotificationsComponent } from './manage-notifications/manage-notifications.component';
+import { EditNotificationsComponent } from './manage-notifications/edit-notifications/edit-notifications.component';
 
 
 @NgModule({
@@ -35,7 +41,13 @@ import { EditProductsComponent } from './product-management/edit-products/edit-p
     EditPaymentsComponent,
     AddFormComponent,
     ProductManagementComponent,
-    EditProductsComponent
+    EditProductsComponent,
+    GeneralInstructionsComponent,
+    UpdateInstructionsComponent,
+    NotesRemainderComponent,
+    AddNotesRemindersComponent,
+    ManageNotificationsComponent,
+    EditNotificationsComponent
   ],
   imports: [
     CommonModule,

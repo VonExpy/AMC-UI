@@ -7,8 +7,7 @@ export class TooltipDirective {
   @Input('tooltip') tooltipTitle!: string;
   @Input() placement!: string;
   @Input() delay!: any;
-  tooltip!: HTMLElement ;
-  // 호스트 요소와 tooltip 요소 간의 거리
+  tooltip!: any ;
   offset = 10;
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
@@ -57,15 +56,9 @@ export class TooltipDirective {
   }
 
   setPosition() {
-    // 호스트 요소의 사이즈와 위치 정보
     const hostPos = this.el.nativeElement.getBoundingClientRect();
 
-    // tooltip 요소의 사이즈와 위치 정보
     const tooltipPos = this.tooltip.getBoundingClientRect();
-
-    // window의 scroll top
-    // getBoundingClientRect 메소드는 viewport에서의 상대적인 위치를 반환한다.
-    // 스크롤이 발생한 경우, tooltip 요소의 top에 세로 스크롤 좌표값을 반영하여야 한다.
     const scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     let top, left;
@@ -89,8 +82,6 @@ export class TooltipDirective {
       top = hostPos.top + (hostPos.height - tooltipPos.height) / 2;
       left = hostPos.right + this.offset;
     }
-
-    // 스크롤이 발생한 경우, tooltip 요소의 top에 세로 스크롤 좌표값을 반영하여야 한다.
     this.renderer.setStyle(this.tooltip, 'top', `${top + scrollPos}px`);
     this.renderer.setStyle(this.tooltip, 'left', `${left}px`);
   }
