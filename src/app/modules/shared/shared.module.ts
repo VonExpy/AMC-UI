@@ -21,6 +21,8 @@ import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { GlobalSearchComponent } from './components/global-search/global-search.component';
+import { QuillEditorComponent } from './components/quill-editor/quill-editor.component';
+import { QuillModule } from 'ngx-quill'
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -40,7 +42,8 @@ FullCalendarModule.registerPlugins([
     SolidGuageComponent,
     BarChartComponent,
     DoughnutChartComponent,
-    GlobalSearchComponent
+    GlobalSearchComponent,
+    QuillEditorComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +56,8 @@ FullCalendarModule.registerPlugins([
     ChartsModule,
     RoundProgressModule,
     MalihuScrollbarModule.forRoot(),
-    FullCalendarModule
+    FullCalendarModule,
+    QuillModule.forRoot()
   ],
   exports: [
     NgToggleModule,
@@ -72,7 +76,8 @@ FullCalendarModule.registerPlugins([
     RoundProgressModule,
     MalihuScrollbarModule,
     FullCalendarModule,
-    GlobalSearchComponent
+    GlobalSearchComponent,
+    QuillEditorComponent
   ]
 })
 export class SharedModule { }

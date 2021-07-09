@@ -1,0 +1,76 @@
+<quill-editor [styles]="{height: '300px'}">
+    <div quill-editor-toolbar>
+        <span class="ql-formats">
+            <button class="ql-bold" title="'Bold'"></button>
+            <button class="ql-italic" title="'Italic'"></button>
+            <button class="ql-underline" title="'Underline'"></button>
+            <button class="ql-strike" title="'Strike'"></button>
+        </span>
+        <span class="ql-formats">
+            <button class="ql-blockquote" title="'Blockquote'"></button>
+            <button class="ql-code-block" title="'CodeBlock'"></button>
+        </span>
+        <span class="ql-formats">
+            <button class="ql-header" value="1" title="'HeaderFont-1'"></button>
+            <button class="ql-header" value="2" title="'HeaderFont-2'"></button>
+        </span>
+        <span class="ql-formats">
+            <button type="button" class="ql-list" title="'Ordered'" value="ordered">
+            </button>
+            <button type="button" class="ql-list" title="'Bullet'" value="bullet">
+            </button>
+        </span>
+        <span class="ql-formats">
+            <button type="button" class="ql-script" title="Sub" value="sub">
+            </button>
+            <button type="button" class="ql-script" title="Super" value="super">
+            </button>
+        </span>
+        <span class="ql-formats">
+            <button type="button" class="ql-indent" value="-1">
+            </button>
+            <button type="button" class="ql-indent" value="+1">
+            </button></span>
+        <span class="ql-formats">
+            <button type="button" class="ql-direction" value="rtl">
+            </button></span>
+        <span class="ql-formats">
+            <span class="ql-size ql-picker">
+                <span class="ql-picker-label" tabindex="0" role="button" aria-expanded="false"
+                    aria-controls="ql-picker-options-0"><svg viewBox="0 0 18 18">
+                        <polygon class="ql-stroke" points="7 11 9 13 11 11 7 11">
+                        </polygon>
+                        <polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon>
+                    </svg></span><span class="ql-picker-options" aria-hidden="true" tabindex="-1"
+                    id="ql-picker-options-0"><span tabindex="0" role="button" class="ql-picker-item"
+                        data-value="small"></span><span tabindex="0" role="button"
+                        class="ql-picker-item ql-selected"></span><span tabindex="0" role="button"
+                        class="ql-picker-item" data-value="large"></span><span tabindex="0" role="button"
+                        class="ql-picker-item" data-value="huge"></span></span></span><select class="ql-size"
+                style="display: none;">
+                <option value="small"></option>
+                <option selected="selected"></option>
+                <option value="large"></option>
+                <option value="huge"></option>
+            </select></span>
+        <span class="ql-formats">
+            <select class="ql-font">
+                <option selected="selected"></option>
+                <option value="arial">Arial</option>
+                <option value="serif"></option>
+                <option value="monospace"></option>
+                <option value="mirza">Mirza</option>
+                <option value="roboto">Roboto</option>
+            </select></span>
+        <span class="ql-formats">
+            <select class="ql-align" title="'Aligment'">
+                <option selected></option>
+                <option value="center"></option>
+                <option value="right"></option>
+                <option value="justify"></option>
+            </select>
+        </span>
+        <span class="ql-formats"><button type="button" class="ql-clean">
+            </button></span>
+    </div>
+</quill-editor>
