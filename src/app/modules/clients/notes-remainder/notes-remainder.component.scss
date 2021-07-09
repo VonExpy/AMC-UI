@@ -1,3 +1,54 @@
 @import '../../../../assets/scss/buttons';
 @import '../../../../assets/scss/utilities';
 @import '../../../../assets/scss/tables';
+
+
+.notes__container {
+    padding: .75rem 1rem;
+    .note {
+        .details {
+            padding: 0;
+            margin-bottom: 16px;
+            display: flex;
+            width: 100%;
+            position: relative;
+            .content {
+                flex: auto;
+                padding: .5rem .75rem;
+            }
+            .actions {
+                display: none;
+                align-items: center;
+                padding: .5rem .75rem;
+                img {
+                    cursor: pointer;
+                    max-height: 14px;
+                }
+            }
+            &.active, &:hover {
+                background: #F7F9FA;
+                border: 1px solid #DEE5ED;
+                &::before {
+                    top: 13px;
+                    position: absolute;
+                    content: "";
+                    width: 6px;
+                    height: 6px;
+                    background: #F7F9FA;
+                    border-color: #DEE5ED;
+                    border-style: solid;
+                    border-width: 1px;
+                    left: -5px;
+                    transform: rotate(45deg);
+                }
+                .content {
+                    background: #F7F9FA;
+                    position: relative;
+                }
+                .actions {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

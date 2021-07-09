@@ -3,20 +3,29 @@
         <h4 class="heading">Edit</h4>
     </div>
     <div class="modal-body" malihu-scrollbar>
-
         <div class="px-8 py-8">
             <form>
                 <div class="row mb-8">
                     <div class="col-8">
-                        <div class="row">
-                            <div class="col" *ngFor="let option of options">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [value]="option.value" [labels]="toggle.labels"
-                                    [color]="toggle.color" [switchColor]="toggle.switchColor"
-                                    [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                                <small class="label ml-3">{{option.label}}</small>
+                        <div class="f-group fee-schedule">
+                            <label class="required">Company Fee Schedule</label>
+                            <div class="f-field nob">
+                                <div class="row">
+                                    <div class="col" *ngFor="let option of options">
+                                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                                            [margin]="toggle.margin" [value]="option.value" [labels]="toggle.labels" [color]="toggle.color"
+                                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                        </ng-toggle>
+                                        <small class="label ml-3">{{option.label}}</small>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label class="required">Company Fee Schedule</label>
+                            <div class="f-field-value">Bruce </div>
                         </div>
                     </div>
                 </div>

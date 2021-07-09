@@ -1,3 +1,11 @@
 @import '../../../../assets/scss/buttons';
 @import '../../../../assets/scss/utilities';
 @import '../../../../assets/scss/tables';
+@import '../../../../assets/scss/form';
+
+.fee-schedule {
+    label {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+}

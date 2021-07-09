@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class StaticMasterService {
   public scrollbarOptions = {
     theme: 'dark-3',
-    // theme: 'minimal-dark',
     autoHideScrollbar: true,
     scrollButtons: { enable: false }
   };
@@ -44,36 +43,36 @@ export class StaticMasterService {
             unchecked: "#ffffff"
           }
         };
-        case 'fee':
-            return {
-              value: true,
-              name: "test",
-              disabled: false,
-              height: 24,
-              width: 55,
-              margin: 1,
-              fontSize: 12,
-              speed: 300,
-              color: {
-                checked: "#1B6E3F",
-                unchecked: "#A4BBC1"
-              },
-              switchColor: {
-                checked: "#F8F8F8",
-                unchecked: "#F8F8F8"
-              },
-              labels: {
-                unchecked: "No",
-                checked: "Yes"
-              },
-              checkedLabel: "",
-              uncheckedLabel: "",
-              fontColor: {
-                checked: "#fafafa",
-                unchecked: "#ffffff"
-              }
-            };
-        case 'yesorno':
+      case 'fee':
+          return {
+            value: true,
+            name: "test",
+            disabled: false,
+            height: 24,
+            width: 55,
+            margin: 1,
+            fontSize: 12,
+            speed: 300,
+            color: {
+              checked: "#1B6E3F",
+              unchecked: "#A4BBC1"
+            },
+            switchColor: {
+              checked: "#F8F8F8",
+              unchecked: "#F8F8F8"
+            },
+            labels: {
+              unchecked: "No",
+              checked: "Yes"
+            },
+            checkedLabel: "",
+            uncheckedLabel: "",
+            fontColor: {
+              checked: "#fafafa",
+              unchecked: "#ffffff"
+            }
+          };
+      case 'yesorno':
             return {
               value: true,
               name: "test",

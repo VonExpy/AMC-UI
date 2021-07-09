@@ -206,20 +206,6 @@
             padding: 12px 15px;
             justify-content: space-between;
             border-bottom: solid 1px $border-color;
-            .sort__by {
-                font-size: 16px;
-                color: $secondary;
-                label {
-                    margin-right: 8px;
-                    font-weight: 300;
-                }
-                select {
-                    border: none;
-                    font-size: 16px;
-                    color: $secondary;
-                    outline: none
-                }
-            }
         }
         &__lists {
             @include flex-row-stretch;

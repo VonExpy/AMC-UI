@@ -16,7 +16,7 @@ export class ProductManagementComponent implements OnInit {
   toggle: any = {}
   constructor(private sharedService: SharedService, public staticService: StaticMasterService) {
     this.toggle = this.staticService.toggle('profile')
-  }
+  } 
 
   ngOnInit(): void {
   }

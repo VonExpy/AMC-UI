@@ -1,4 +1,40 @@
-.container{
+@import '../../../../assets/scss/colors';
+.calendar__holder{
     flex-grow: 1;
-    padding: 3em;
+    ::ng-deep {
+        .fc-header-toolbar {
+            .fc-toolbar-title {
+                font-weight: 500;
+                font-size: 1.2rem;
+            }
+        }
+        .fc-button, .fc-button-primary {
+            background-color: transparent;
+            border: 1px solid #d8d8d8;
+            color: #6f6f6f;
+            padding: 6px 12px !important;
+            font-size: .867em;
+            text-transform: capitalize;
+            outline: none !important;
+            box-shadow: none !important;
+            &.fc-button-active, &:hover {
+                background-color: $primary !important;
+            }
+        }
+        .fc table {
+            font-size: .8967em;
+            border-color: #eaeaea !important;
+            th, td {
+                border-color: #eaeaea !important;
+            }
+        }
+        .fc-col-header {
+            th {
+                font-weight: 500;
+                .fc-col-header-cell-cushion {
+                    padding: 8px 5px;
+                }
+            }
+        }
+    }
 }

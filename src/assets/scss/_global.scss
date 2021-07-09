@@ -103,15 +103,137 @@ body {
     }
 }
 
+/* Widgets */
+
+.widget {
+    &-item {
+        border-radius: 5px;
+        background: #ffffff;
+        box-shadow: 0px 0px 8px rgb(0 0 0 / 12%);
+        overflow: hidden;
+    }
+    &-head {
+        display: flex;
+        justify-content: space-between;
+        h4 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #6A8991;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+        }
+        .actions {
+            font-size: 13px;
+        }
+    }
+    &-items {
+        .widget-item {
+            margin-bottom: 10px;
+            .icon {
+                padding: 6px 0 10px 6px;
+                &.small {
+                    img {
+                        height: 22px;
+                        padding-left: 6px;
+                    }
+                }
+                &.tasks {
+                    width: 4px;
+                    max-width: 4px;
+                    padding: 0px;
+                    span {
+                        height: 100%;
+                        width: 100%;
+                        display: inline-block;
+                    }
+                }
+                .unread {
+                    width: 8px;
+                    height: 8px;
+                    margin-left: 5px;
+                    display: inline-block;
+                    background: $list-unread;
+                    border-radius: 10px;
+                    vertical-align: middle;
+                }
+            }
+            .status {
+                font-size: 13px;
+                padding: 10px;
+                text-align: right;
+            }
+            .details {
+                padding: 10px 10px;
+                font-size: 14px;
+                flex: 1;
+                color: $widget-secondary;
+                &.primary {
+                    color: $widget-primary;
+                }
+                strong {
+                    font-weight: 500;
+                }
+                .helper-text {
+                    padding-top: 5px;
+                    display: block;
+                    font-size: 12px;
+                    line-height: 1.2;
+                    color: $widget-secondary;
+                }
+            }
+        }
+    }
+    &#create {
+        .item-details {
+            text-align: center;
+            justify-content: center;
+            padding: 1rem 2px;
+            .icon {
+                img {
+                    height: 32px;
+                    display: inline-block;
+                }
+            }
+            .text {
+                font-size: 14px;
+                color: #0A62AC;
+                padding-top: 7px;
+                text-transform: uppercase;
+            }
+        }
+    }
+    &.small {
+        .widget-head {
+            h4 {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+// Sort By
+
+.sort__by {
+    font-size: 16px;
+    color: $secondary;
+    label {
+        margin-right: 8px;
+        font-weight: 300;
+    }
+    select {
+        border: none;
+        font-size: 16px;
+        color: $secondary;
+        outline: none
+    }
+}
+
 /* Tabs or Inner Routing */
 .tabs__container {
     background-color:  $tabs-container;
     width: 100%;
     @include flex-column-stretch;
-    .link {
-        color: $extras;
-        font-size: 14px;
-    }
     .tabs {
         margin: 0;
         padding: 0;
@@ -180,6 +302,133 @@ body {
     }
 }
 
+// Statistics
+
+.orders-statistics {
+    display: flex;
+    flex: content;
+    justify-content: space-between;
+    padding: 1rem 1.2rem .75rem;
+    margin: 0 0 20px;
+    max-height: 80px;
+    .order {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.3;
+        margin-right: 20px;
+        .label {
+            text-transform: uppercase;
+            font-size: 14px;
+            color: $widget-secondary;
+        }
+        .count {
+            font-size: 24px;
+        }
+        .amount {
+            font-size: 12px;
+            color: $widget-secondary;
+        }
+        &.active {
+            .label {
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .count {
+                font-size: 32px;
+                color: $widget-active;
+            }
+        }
+    }
+}
+
+// Notes
+.notes__container {
+    padding: .75rem;
+    width: 100%;
+    box-sizing: border-box;
+    .note {
+        display: flex;
+        justify-content: stretch;
+        justify-items: stretch;
+        .avatar {
+            margin: 0 10px 0 0;
+            min-height: 0;
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                background: $border-color;
+                width: 1px;
+                top: 0;
+                bottom: 0;
+            }
+            .icon {
+                width: 34px;
+                height: 34px;
+                display: block;
+                border: solid 1px $border-color;
+                border-radius: 100px;
+                overflow: hidden;
+                position: relative;
+                img {
+                    width: 100%;
+                    min-height: 100%;
+                }
+            }
+            &.only-icon {
+                width: 18px;
+                padding-top: 5px;
+                &::before {
+                    display: none;
+                }
+                .icon {
+                    width: 18px;
+                    height: 18px;
+                    border: none;
+                    border-radius: none;
+                    display: flex;
+                    align-items: center;
+                    img {
+                        max-width: 14px;
+                        min-height: 4px;
+                    }
+                }
+            }
+            &.no-icon {
+                margin-left: 28px;
+            }
+        }
+        .details {
+            padding: .5rem;
+            flex: auto;
+            border: solid 1px transparent;
+            .date {
+                font-size: 11px;
+                padding-bottom: 6px;
+                color: $secondary;
+                strong {
+                    font-weight: 500;
+                }
+            }
+            .text {
+                font-size: 14px;
+                line-height: 18px;
+                color: $primary;
+            }
+            
+        }
+
+        &:last-child {
+            .avatar {
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
 
 .title-heading {
     display: flex;
@@ -226,4 +475,9 @@ strong {
 }
 .hgt100 {
     height: 100%;
+}
+
+.link {
+    color: $extras;
+    font-size: 14px;
 }

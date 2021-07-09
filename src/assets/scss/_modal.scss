@@ -11,6 +11,7 @@
         box-sizing: border-box;
         min-height: 60px;
         border-bottom: solid 1px $modal-border;
+        justify-content: space-between;
         .heading {
             font-weight: 500;
             font-size: 18px;

@@ -7,6 +7,7 @@
     flex-direction: column;
     margin-bottom: 30px;
     position: relative;
+    width: 100%;
     &-row {
         flex-direction: column;
     }
@@ -63,32 +64,48 @@
                 text-align: right;
             }
         }
-        input::-webkit-input-placeholder {
+        input::-webkit-input-placeholder,
+        textarea::-webkit-input-placeholder {
             color: $formfield-dark;
             opacity: .5;
             font-size: 14px;
             font-weight: 300;
             text-overflow: ellipsis;
         }
-        input::-moz-placeholder {
+        input::-moz-placeholder,
+        textarea::-moz-placeholder {
             color: $formfield-dark;
             opacity: .5;
             font-size: 14px;
             font-weight: 300;
         }
-        input:-ms-input-placeholder {
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder {
             color: $formfield-dark;
             opacity: .5;
             font-size: 14px;
             font-weight: 300;
         }
-        input:-moz-placeholder {
+        input:-moz-placeholder,
+        textarea:-moz-placeholder {
             color: $formfield-dark;
             opacity: .5;
             font-size: 14px;
             font-weight: 300;
+        }
+        textarea {
+            width: 100%;
+            border: none;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 0px;
+            min-height: 80px;
+            line-height: 25px;
+            color: $black;
+            font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
         }
     }
+    
 }
 .readonly {
     // .required {

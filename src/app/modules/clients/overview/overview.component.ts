@@ -8,9 +8,12 @@ import { StaticMasterService } from '../../shared/services/static-master.service
 })
 export class OverviewComponent implements OnInit {
 
+  toggle:any = {}
+
   constructor(public staticService:StaticMasterService) { }
 
   ngOnInit(): void {
+    this.toggle = this.staticService.toggle('')
   }
 
 }
