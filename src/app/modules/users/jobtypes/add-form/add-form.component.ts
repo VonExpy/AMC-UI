@@ -5,8 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './add-form.component.html',
   styleUrls: ['./add-form.component.scss']
 })
-export class AddFormComponent implements OnInit {
-
+export class AddJobtypeFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {

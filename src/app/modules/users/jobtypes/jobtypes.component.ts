@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../shared/services/shared.service';
 import { StaticMasterService } from '../../shared/services/static-master.service';
-import { AddFormComponent } from './add-form/add-form.component';
+import { AddJobtypeFormComponent } from './add-form/add-form.component';
 
 @Component({
   selector: 'app-jobtypes',
@@ -17,7 +17,7 @@ export class JobtypesComponent implements OnInit {
   }
 
   openSideNav() {
-    this.sharedService.sideNav({ action: 'open', component: AddFormComponent, width: "500px" });
+    this.sharedService.sideNav({ action: 'open', component: AddJobtypeFormComponent, width: "500px" });
   }
 
 }
