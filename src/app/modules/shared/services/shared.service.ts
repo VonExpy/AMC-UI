@@ -8,6 +8,7 @@ export class SharedService {
   //side nav
   private customSubject = new Subject<any>();
   customObservable = this.customSubject.asObservable();
+  selectedItem:any
 
   //modal popup
   private modalSubject = new Subject<any>();

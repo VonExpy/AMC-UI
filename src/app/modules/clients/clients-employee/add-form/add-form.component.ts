@@ -10,7 +10,10 @@ import { SharedService } from 'src/app/modules/shared/services/shared.service';
 export class AddFormComponent implements OnInit {
   clientForm!: FormGroup;
   submitted = false;
-  constructor(private fb: FormBuilder, private sharedService: SharedService) { }
+  item:any = {}
+  constructor(private fb: FormBuilder, private sharedService: SharedService) {
+     this.item = this.sharedService.selectedItem 
+  }
 
   ngOnInit(): void {
     this.initclientForm()
@@ -40,6 +43,10 @@ export class AddFormComponent implements OnInit {
       return;
     }
     console.log(form.value, 'form value')
+  }
+
+  isEmptyObject(obj:object) {
+    return Object.keys(obj).length;
   }
 
 }

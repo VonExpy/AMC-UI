@@ -1,6 +1,6 @@
 <form class="modal modal-container">
     <div class="modal-title">
-        <h4 class="heading">Client Information - Add</h4>
+        <h4 class="heading">{{isEmptyObject(item) ? 'Client Information - Edit' : 'Create Employee'}}</h4>
     </div>
     <div class="modal-body" malihu-scrollbar>
         <div class="px-8 py-8">
@@ -70,6 +70,7 @@
     </div>
     <div class="modal-footer flex-justify-right">
         <button class="btn btn-secondary-outline">Reset</button>
-        <button class="btn ml-2">Add</button>
+        <button class="btn ml-2" *ngIf="!isEmptyObject(item)">Add</button>
+        <button class="btn ml-2" *ngIf="isEmptyObject(item)">Update</button>
     </div>
 </form>

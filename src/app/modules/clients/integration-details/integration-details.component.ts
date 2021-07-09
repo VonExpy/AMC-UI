@@ -27,9 +27,13 @@ export class IntegrationDetailsComponent implements OnInit {
 
   initIntegrationForm() {
     this.integrationForm = this.fb.group({
+      isUCDP:[true],
+      isEAD:[false],
       ucdpBusinessNumber: ['1234'],
       freIdNumber: ['4567896'],
       fnmSellerNumber: ['5455454545'],
+      eadpBusinessNumber:['1234'],
+      fhaIdNumber:['ABCDER']
     });
   }
 
