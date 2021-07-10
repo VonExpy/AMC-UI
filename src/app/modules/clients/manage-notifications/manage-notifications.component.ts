@@ -12,8 +12,9 @@ export class ManageNotificationsComponent implements OnInit {
 
 
   constructor(private sharedService: SharedService, public staticService: StaticMasterService) { }
-
+  toggle:any = {}
   ngOnInit(): void {
+    this.toggle = this.staticService.toggle('')
   }
 
   openSideNav() {

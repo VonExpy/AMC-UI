@@ -3,12 +3,21 @@
 @import '../../../../assets/scss/form';  
 @import '../../../../assets/scss/buttons';  
 @import '../../../../assets/scss/utilities';  
+@import '../../../../assets/scss/badges';  
 
     .user__info {
         @include flex-column-stretch;
         position: relative;
         width: 100%; 
         &-detials {
+            .role-bar {
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+            }
+            position: relative;
             @include flex-row-center;
             padding: 10px 20px 11px;
             border-bottom: solid 1px $border-color;
