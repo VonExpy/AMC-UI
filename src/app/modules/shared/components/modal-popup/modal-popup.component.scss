@@ -1,0 +1,83 @@
+@import '../../../../../assets/scss/colors';
+.vx-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: rgba(0,0,0,.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    .vx-modal-dialog {
+        width: 100%;
+        max-width: 800px;
+        height: 100%;
+        max-height: 50%;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+        transform: translate(0px, -130%);
+        // transition: transform 300ms cubic-bezier(0.18,0.89,0.43, 1.05);
+        animation: popslide 300ms cubic-bezier(0.18,0.89,0.43, 1.05);
+    }
+    &.show {
+        display: flex;
+        .vx-modal-dialog {
+            transition-delay: 1s;
+            transform: translate(0px, 0%);
+        }
+    }
+    &.hide {
+        display: none;
+        .vx-modal-dialog {
+            transition-delay: 1s;
+            transform: translate(0px, -130%);
+        }
+    }
+    .vx-modal-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        .vx-modal-header {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.2rem;
+            box-sizing: border-box;
+            min-height: 60px;
+            border-bottom: solid 1px $border-color;
+            justify-content: space-between;
+            .heading {
+                font-weight: 500;
+                font-size: 18px;
+                margin: 0;
+                padding: 0;
+                color: #248875;
+            }
+            button {
+                color: $primary;
+                font-size: 2rem;
+            }
+        }
+        .vx-modal-body {
+            flex: auto;
+            min-height: 0;
+            > button {
+                position: absolute;
+                right: 12px;
+                top: 12px;
+                color: $primary;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+@keyframes popslide {
+    0% {
+        transform: translate(0px, -130%);
+    }
+    100% {
+        transform: translate(0px, 0%);
+    }
+}

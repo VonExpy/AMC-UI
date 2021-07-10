@@ -1,15 +1,18 @@
-<div class="vx-modal" [hidden]="!(modalDetails.action == 'open')">
-    <div class="vx-modal-dialog vx-modal-{{modalDetails.size ? modalDetails.size :'md'}}">
+<div class="vx-modal {{modalDetails.action === 'open' ? 'show':'hide'}}">
+    <div class="vx-modal-dialog vx-modal-{{modalDetails.size ? modalDetails.size :'medium'}}">
         <div class="vx-modal-content">
-            <div class="vx-modal-header">
-             {{modalDetails.heading}}
-             <button type="button" class="btn btn-info" (click)="closeModal()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
+            <div class="vx-modal-header" *ngIf="modalDetails.heading !== ''">
+                <h4 class="heading">{{modalDetails.heading}}</h4>
+                <button type="button" class="btn btn-transparent only-icon" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
             <div class="vx-modal-body">
-                <div #viewContainerRef>
-                </div>
+                <button type="button" class="btn btn-transparent only-icon" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <ng-container #viewContainerRef>
+                </ng-container>
             </div>
         </div>
     </div>

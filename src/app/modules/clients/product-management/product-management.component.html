@@ -13,6 +13,7 @@
                         <tr>
                             <th align="left">SERVICE</th>
                             <th>INSTRUCTIONS</th>
+                            <th></th>
                             <th>OPT IN/OUT</th>
                         </tr>
                     </thead>
@@ -20,6 +21,7 @@
                         <tr *ngFor="let d of data">
                             <td>{{d.name}}</td>
                             <td>{{d.instruction}}</td>
+                            <td><span class="icon"><img width="16px" src="../../../../assets/icon_edit.svg" /></span></td>
                             <td>
                                 <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
                                     [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
