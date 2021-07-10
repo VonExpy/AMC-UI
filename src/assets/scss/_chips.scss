@@ -9,6 +9,7 @@
     border: none;
     white-space: nowrap;
     line-height: 1;
+    display: inline-block;
     &.small {
         padding: 2px 5px;
     }
@@ -16,5 +17,10 @@
         &.#{$name} {
             background: $color;
         }
+    }
+    &.default {
+        color: #293F45;
+        border: solid 1px #BDD8E0;
+        padding: 10px 12px;
     }
 }

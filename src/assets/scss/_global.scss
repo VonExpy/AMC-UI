@@ -436,7 +436,7 @@ body {
     justify-content: space-between;
     border-bottom: solid 1px $form-heading-border;
     padding: .5rem 0;
-    margin: .25rem 0 2rem;
+    margin: .25rem 0 1.5rem;
     h3 {
         font-weight: 400;
         font-size: 18px;
@@ -480,4 +480,15 @@ strong {
 .link {
     color: $extras;
     font-size: 14px;
+}
+
+
+.text-content {
+ p, li {
+     font-size: 14px;
+     line-height: 1.4;
+ }
+ h1,h2,h3,h4,h5,h6, strong, b {
+     font-weight: 500;
+ }
 }

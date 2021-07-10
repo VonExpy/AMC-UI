@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StaticMasterService } from 'src/app/modules/shared/services/static-master.service';
 
 @Component({
   selector: 'app-add-notes-reminders',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNotesRemindersComponent implements OnInit {
 
-  constructor() { }
+  toggle: any = {}
+  constructor(private staticService: StaticMasterService) { 
+    this.toggle = this.staticService.toggle('')
+  }
 
   ngOnInit(): void {
   }

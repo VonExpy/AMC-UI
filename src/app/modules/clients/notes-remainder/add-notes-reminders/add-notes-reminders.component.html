@@ -4,7 +4,49 @@
     </div>
     <div class="modal-body" malihu-scrollbar>
         <div class="px-8 py-8">
-           content
+           <div class="row">
+            <div class="col-12">
+                <div class="f-group">
+                    <label>TYPE NOTES</label>
+                    <div class="f-field">
+                        <textarea rows="5" placeholder="Enter your notes"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="f-group f-group-row flex-row-center">
+                    <label class="mr-5"><span class="icon left"><img src="../../../../../assets/icon_alarm_grey.svg"/></span> Set Reminder</label>
+                    <div class="f-field pb-1 nob">
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                        </ng-toggle>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="f-group">
+                    <label>PICK DATE</label>
+                    <div class="f-field">
+                        <input type="text" placeholder="MM / DD /. YYYY" />
+                        <span class="icon">
+                            <img src="../../../../../assets/icon_calendar_input.svg" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="f-group">
+                    <label>PICK TIME</label>
+                    <div class="f-field has-icon">
+                        <input type="text" placeholder="Hh : Mm : Sc AM" />
+                        <span class="icon">
+                            <img src="../../../../../assets/icon_reschedule.svg" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+           </div>
         </div>
     </div>
     <div class="modal-footer flex-justify-right">
