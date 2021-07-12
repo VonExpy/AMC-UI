@@ -16,8 +16,10 @@ export class RegisterComponent implements OnInit {
   submitted = false
   formType = 'emailForm'
   toggle:any = {}
+  referredByList: { name: string; id: string; }[];
   constructor(private fb: FormBuilder, private staticService:StaticMasterService) { 
     this.toggle = this.staticService.toggle('register')
+    this.referredByList = this.staticService.referredByList
   }
 
   ngOnInit(): void {
@@ -54,7 +56,7 @@ export class RegisterComponent implements OnInit {
       licenseNumber: ['', Validators.compose([
         Validators.required
       ])],
-      referredBy: ['', Validators.compose([
+      referredBy: [null, Validators.compose([
         Validators.required
       ])],
       password: ['', Validators.compose([

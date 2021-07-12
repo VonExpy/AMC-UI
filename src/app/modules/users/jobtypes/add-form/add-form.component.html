@@ -20,7 +20,8 @@
                     <div class="f-group">
                         <label class="required">Jobtype</label>
                         <div class="f-field">
-                            <ng-select [items]="[]" bindLabel="itemName" bindValue="id" placeholder="Select">
+                            <ng-select [items]="staticService.jobTypes" bindLabel="name" bindValue="value"
+                            [multiple]="true"  placeholder="Select">
                             </ng-select>
                         </div>
                     </div>

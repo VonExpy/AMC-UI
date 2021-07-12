@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StaticMasterService } from 'src/app/modules/shared/services/static-master.service';
 
 @Component({
   selector: 'app-add-form',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-form.component.scss']
 })
 export class AddJobtypeFormComponent implements OnInit {
-  constructor() { }
+  constructor(public staticService:StaticMasterService) { }
 
   ngOnInit(): void {
   }
