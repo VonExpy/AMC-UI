@@ -23,6 +23,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import { GlobalSearchComponent } from './components/global-search/global-search.component';
 import { QuillEditorComponent } from './components/quill-editor/quill-editor.component';
 import { QuillModule } from 'ngx-quill'
+import { AccordionDirective } from 'src/app/_helpers/accordion.directive';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -43,7 +44,8 @@ FullCalendarModule.registerPlugins([
     BarChartComponent,
     DoughnutChartComponent,
     GlobalSearchComponent,
-    QuillEditorComponent
+    QuillEditorComponent,
+    AccordionDirective
   ],
   imports: [
     CommonModule,
@@ -77,7 +79,8 @@ FullCalendarModule.registerPlugins([
     MalihuScrollbarModule,
     FullCalendarModule,
     GlobalSearchComponent,
-    QuillEditorComponent
+    QuillEditorComponent,
+    AccordionDirective
   ]
 })
 export class SharedModule { }

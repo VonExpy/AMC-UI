@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../shared/services/shared.service';
+import { StaticMasterService } from '../../shared/services/static-master.service';
 import { AddProductsComponent } from './add-products/add-products.component';
 
 @Component({
@@ -9,7 +10,7 @@ import { AddProductsComponent } from './add-products/add-products.component';
 })
 export class ProductsVendorsComponent implements OnInit {
 
-  constructor(private sharedService: SharedService) { }
+  constructor(private sharedService: SharedService,public staticService: StaticMasterService) { }
 
   ngOnInit(): void {
   }
