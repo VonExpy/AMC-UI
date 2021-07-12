@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/modules/shared/services/shared.service';
 import { StaticMasterService } from '../../../shared/services/static-master.service';
+import { LoaderService } from '../../../shared/services/loader.service';
 
 @Component({
   selector: 'app-add-form',
@@ -10,7 +11,7 @@ import { StaticMasterService } from '../../../shared/services/static-master.serv
 })
 export class AddFormComponent implements OnInit {
 
-  constructor(private staticService: StaticMasterService, private sharedService: SharedService, private fb: FormBuilder) {
+  constructor(private loaderService: LoaderService, private staticService: StaticMasterService, private sharedService: SharedService, private fb: FormBuilder) {
     this.toggle = this.staticService.toggle('yesorno')
   }
   orgForm!: FormGroup;
@@ -46,7 +47,11 @@ export class AddFormComponent implements OnInit {
   };
   toggle:any = {}
   ngOnInit(): void {
-    this.initProfileForm()
+    this.initProfileForm();
+    this.loaderService.isLoading.next(true);
+    setTimeout(() => {
+      this.loaderService.isLoading.next(false);
+    }, 3000)
   }
 
   editform() {

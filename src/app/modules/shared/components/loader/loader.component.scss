@@ -1,21 +1,40 @@
 .loading-spinner{    
-    background-color: #0000001f;
+    background-color: rgba(0,0,0,.8);
     position: absolute;
     width: 100%;
     top: 0px;
     left: 0px;
     height: 100vh;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
-    display: grid;
-    z-index: 9;
+    display: flex;
+    z-index: 9999;
 }
 
-.loading-spinner img{
-    align-self: end;
+.spinner {
+    background: url(../../../../../assets/amc-spinner.png) no-repeat center center;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    animation: rotate 1.4s ease-in-out infinite;
+    filter: brightness(0) invert(1);
 }
 
 .loading-message{
     text-align: center;
-    align-self: start;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 1rem;
+    color: #ffffff;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
