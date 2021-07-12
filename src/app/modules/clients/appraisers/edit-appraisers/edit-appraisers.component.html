@@ -1,1 +1,75 @@
-<p>edit-appraisers works!</p>
+<form class="modal modal-container" [formGroup]="appraisalForm">
+    <div class="modal-title">
+        <h4 class="heading">Edit</h4>
+    </div>
+    <div class="modal-body" malihu-scrollbar>
+        <div class="px-8 py-8">
+            <div class="row">
+                <div class="col">
+                    <h5>APPRAISAL COMPANIES</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="f-group">
+                        <label class="required">APPRAISAL COMPANIES</label>
+                        <div class="f-field">
+                            <ng-select [items]="appraiserCompanies"  bindLabel="name" bindValue="id"
+                            placeholder="Enter Appraisal Company" [multiple]="true" formControlName="appComps" 
+                                appendTo="body" [maxSelectedItems]="4">
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5>PREFERRED APPRAISERS</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="f-group">
+                        <label class="required">COMPANIES</label>
+                        <div class="f-field">
+                            <ng-select [items]="appraiserCompanies" bindLabel="name" bindValue="id" placeholder="Enter Company" [multiple]="true"
+                                appendTo="body" [maxSelectedItems]="4"  formControlName="appComps">
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="f-group">
+                        <label class="required">PREFERRED APPRAISERS</label>
+                        <div class="f-field">
+                            <ng-select [items]="appraiserCompanies" bindLabel="name" bindValue="id" formControlName="appComps" placeholder="Enter Preferred Appraisers" [multiple]="true"
+                                appendTo="body" [maxSelectedItems]="4">
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5>EXCLUSION LIST</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="f-group">
+                        <label class="required">EXCLUSION LIST</label>
+                        <div class="f-field">
+                            <ng-select [items]="appraiserCompanies" bindLabel="name" bindValue="id" formControlName="appComps" placeholder="Enter Exclusion Appraiser" [multiple]="true"
+                                appendTo="body" [maxSelectedItems]="4">
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer flex-justify-right">
+        <button class="btn btn-secondary-outline">Cancel</button>
+        <button class="btn ml-2">Update</button>
+    </div>
+</form>
