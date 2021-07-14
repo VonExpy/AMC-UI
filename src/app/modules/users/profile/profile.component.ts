@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'; 
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StaticMasterService } from '../../shared/services/static-master.service';
 
@@ -11,8 +11,9 @@ export class ProfileComponent implements OnInit {
   profileForm!: FormGroup;
   submitted = false;
   edit: any = false;
-  toggle:any = {}
-  constructor(private fb: FormBuilder,private staticService:StaticMasterService) { 
+  toggle: any = {}
+  constructor(private fb: FormBuilder, private staticService: StaticMasterService,
+    private cd: ChangeDetectorRef) {
     this.toggle = this.staticService.toggle('profile')
   }
   ngOnInit(): void {
@@ -25,15 +26,25 @@ export class ProfileComponent implements OnInit {
 
   initProfileForm() {
     this.profileForm = this.fb.group({
-      firstName: ['Arun Sameer', Validators.required],
-      middleName: '',
-      lastName: ['Koduri', Validators.required],
+      firstName: ['Arun Sameer', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z ]*$')
+      ])],
+      middleName: ['', Validators.compose([
+        Validators.pattern('^[a-zA-Z ]*$')
+      ])],
+      lastName: ['Sameer', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z ]*$')
+      ])],
       role: ['Koduri', Validators.required],
       email: ['', Validators.compose([
         Validators.required,
         Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
       ])],
-      phone: ['', Validators.required],
+      phone: ['', Validators.compose([
+        Validators.required
+      ])],
       street: ['', Validators.required],
       city: ['', Validators.required],
       county: ['', Validators.required],
@@ -52,6 +63,7 @@ export class ProfileComponent implements OnInit {
       state: address.state,
       zipcode: address.zipcode
     })
+    this.cd.detectChanges()
   }
 
   get f() { return this.profileForm.controls; }

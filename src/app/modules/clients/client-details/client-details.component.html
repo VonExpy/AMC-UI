@@ -18,6 +18,7 @@
                             <input type="text" placeholder="Enter Name" formControlName="name" />
                             <div *ngIf="submitted && f.name.errors" class="error">
                                 <div *ngIf="f.name.errors.required">Name is required</div>
+                                <div *ngIf="f.name.errors.pattern">Invalid</div>
                             </div>
                         </div>
                         <div class="f-field-value" *ngIf="!edit">
@@ -53,9 +54,10 @@
                     <div class="f-group">
                         <label>PHONE <span class="required">*</span></label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Phone Number" formControlName="phone" />
+                            <input type="text" mask="(000) 000-0000" placeholder="Enter Phone Number" formControlName="phone" />
                             <div *ngIf="submitted && f.phone.errors" class="error">
                                 <div *ngIf="f.phone.errors.required">Phone is required</div>
+                                <div *ngIf="f.phone.errors.mask">Please enter valid phone</div>
                             </div>
                         </div>
                         <div class="f-field-value" *ngIf="!edit">
@@ -67,9 +69,10 @@
                     <div class="f-group">
                         <label>FAX <span class="required">*</span></label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Fax Number" formControlName="fax" />
+                            <input type="text" mask="(000) 000-0000" placeholder="Enter Fax Number" formControlName="fax" />
                             <div *ngIf="submitted && f.fax.errors" class="error">
                                 <div *ngIf="f.fax.errors.required">Fax is required</div>
+                                <div *ngIf="f.fax.errors.mask">Please enter valid fax</div>
                             </div>
                         </div>
                         <div class="f-field-value" *ngIf="!edit">
@@ -228,7 +231,7 @@
                 <div class="col-4">
                     <div class="f-group">
                         <label>CONTACT PERSON</label>
-                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                        <ng-toggle [disabled]="!edit" [width]="toggle.width" [height]="toggle.height"
                             [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
                             [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
                             [fontSize]="toggle.fontSize">

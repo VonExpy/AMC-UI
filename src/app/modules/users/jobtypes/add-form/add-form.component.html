@@ -21,7 +21,7 @@
                         <label class="required">Jobtype</label>
                         <div class="f-field">
                             <ng-select [items]="staticService.jobTypes" bindLabel="name" bindValue="value"
-                            [multiple]="true"  placeholder="Select">
+                                [multiple]="true" placeholder="Select" appendTo="body">
                             </ng-select>
                         </div>
                     </div>
@@ -32,7 +32,8 @@
                     <div class="f-group">
                         <label class="required">FEE ($)</label>
                         <div class="f-field">
-                            <input type="text" placeholder="Please Enter" />
+                            <input type="text" placeholder="Please Enter" mask="separator.2" prefix="$"
+                                thousandSeparator="," />
                         </div>
                     </div>
                 </div>

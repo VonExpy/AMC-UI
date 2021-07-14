@@ -44,9 +44,11 @@
                     <div class="f-group">
                         <label>FAX <span class="required">*</span></label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Fax Number" formControlName="fax" />
+                            <input type="text" placeholder="Enter Fax Number" formControlName="fax"
+                                mask="(000) 000-0000" />
                             <div *ngIf="submitted && f.fax.errors" class="error">
                                 <div *ngIf="f.fax.errors.required">Fax is required</div>
+                                <div *ngIf="f.fax.errors.mask">Please enter valid fax</div>
                             </div>
                         </div>
                         <div class="f-field-value" *ngIf="!edit">
@@ -74,9 +76,11 @@
                     <div class="f-group">
                         <label>PHONE <span class="required">*</span></label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Phone Number" formControlName="phone" />
+                            <input type="text" placeholder="Enter Phone Number" formControlName="phone"
+                                mask="(000) 000-0000" />
                             <div *ngIf="submitted && f.phone.errors" class="error">
                                 <div *ngIf="f.phone.errors.required">Phone is required</div>
+                                <div *ngIf="f.phone.errors.mask">Please enter valid phone</div>
                             </div>
                         </div>
                         <div class="f-field-value" *ngIf="!edit">
@@ -188,10 +192,11 @@
                     <div class="f-group">
                         <label>PHONE <span class="required">*</span></label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Contact Phone Number"
-                                formControlName="contactPhone" />
+                            <input type="text" placeholder="Enter Contact Phone Number" formControlName="contactPhone"
+                                mask="(000) 000-0000" />
                             <div *ngIf="submitted && f.contactPhone.errors" class="error">
                                 <div *ngIf="f.contactPhone.errors.required">Contact Phone is required</div>
+                                <div *ngIf="f.contactPhone.errors.mask">Please enter valid phone</div>
                             </div>
                         </div>
                         <div class="f-field-value" *ngIf="!edit">
@@ -228,10 +233,14 @@
                             <div class="f-group">
                                 <label>ACCOUNT TYPE <span class="required">*</span></label>
                                 <div class="f-field" *ngIf="edit">
-                                    <input type="text" placeholder="Select Account Type"
-                                        formControlName="accountType" />
+                                    <ng-select [items]="accountTypes" bindLabel="name" bindValue="id"
+                                        formControlName="accountType" placeholder="Select Account Type"
+                                        appendTo="body"
+                                        autocomplete="none">
+                                    </ng-select>
                                     <div *ngIf="submitted && bank.get('accountType')?.errors" class="error">
-                                        <div *ngIf="bank.get('accountType')?.errors?.required">Account Type is required</div>
+                                        <div *ngIf="bank.get('accountType')?.errors?.required">Account Type is required
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="f-field-value" *ngIf="!edit">
@@ -259,9 +268,10 @@
                                 <div class="f-field" *ngIf="edit">
                                     <input type="text" placeholder="Enter Routing Number"
                                         formControlName="routingNumber" />
-                                        <div *ngIf="submitted && bank.get('routingNumber')?.errors" class="error">
-                                            <div *ngIf="bank.get('routingNumber')?.errors?.required">Routing Number is required</div>
-                                        </div>
+                                    <div *ngIf="submitted && bank.get('routingNumber')?.errors" class="error">
+                                        <div *ngIf="bank.get('routingNumber')?.errors?.required">Routing Number is
+                                            required</div>
+                                    </div>
                                 </div>
                                 <div class="f-field-value" *ngIf="!edit">
                                     {{bank.value.routingNumber}}
@@ -274,7 +284,8 @@
                                 <div class="f-field" *ngIf="edit">
                                     <input type="text" placeholder="Account Number" formControlName="accountNumber" />
                                     <div *ngIf="submitted && bank.get('accountNumber')?.errors" class="error">
-                                        <div *ngIf="bank.get('accountNumber')?.errors?.required">Account Number is required</div>
+                                        <div *ngIf="bank.get('accountNumber')?.errors?.required">Account Number is
+                                            required</div>
                                     </div>
                                 </div>
                                 <div class="f-field-value" *ngIf="!edit">

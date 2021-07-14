@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StaticMasterService } from '../../shared/services/static-master.service';
 
@@ -12,7 +12,7 @@ export class ClientDetailsComponent implements OnInit {
   submitted = false;
   edit: any = false;
   toggle: any = {}
-  constructor(private fb: FormBuilder, public staticService: StaticMasterService) {
+  constructor(private fb: FormBuilder, public staticService: StaticMasterService, private cd:ChangeDetectorRef) {
     this.toggle = this.staticService.toggle('profile')
   }
 
@@ -27,7 +27,11 @@ export class ClientDetailsComponent implements OnInit {
 
   initClientForm() {
     this.clientForm = this.fb.group({
-      name: ['Seattle Mortgage Inc', Validators.required],
+      name: ['Seattle Mortgage Inc',Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z ]*$'),
+        Validators.maxLength(100),
+      ])],
       type: ['Lender'],
       status: ['Active'],
       phone: ['(435) 435-3454', Validators.required],
@@ -63,6 +67,7 @@ export class ClientDetailsComponent implements OnInit {
       state: address.state,
       zipcode: address.zipcode
     })
+    this.cd.detectChanges()
   }
 
   get f() { return this.clientForm.controls; }

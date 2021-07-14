@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedService } from '../../shared/services/shared.service';
 import { StaticMasterService } from '../../shared/services/static-master.service';
@@ -10,8 +10,11 @@ import { CoverageComponent } from '../coverage/coverage.component';
   styleUrls: ['./organisation.component.scss']
 })
 export class OrganisationComponent implements OnInit {
-
-  constructor(private fb: FormBuilder, public staticService: StaticMasterService) { }
+  accountTypes = [
+    { name: 'Current', id: '1' },
+    { name: 'Savings', id: '2' }
+  ]
+  constructor(private fb: FormBuilder, public staticService: StaticMasterService, private cd:ChangeDetectorRef) { }
   orgForm!: FormGroup;
   submitted = false;
   edit: any = false;
@@ -51,7 +54,7 @@ export class OrganisationComponent implements OnInit {
   // initialization of bankDetails
   bankDetailsForm() {
     return this.fb.group({
-      accountType: ['', Validators.required],
+      accountType: [null, Validators.required],
       bankName: ['', Validators.required],
       routingNumber: ['', Validators.required],
       accountNumber: ['', Validators.required]
@@ -78,6 +81,7 @@ export class OrganisationComponent implements OnInit {
       state: address.state,
       zipcode: address.zipcode
     })
+    this.cd.detectChanges()
   }
 
   get f() { return this.orgForm.controls; }

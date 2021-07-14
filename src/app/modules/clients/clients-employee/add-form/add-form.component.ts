@@ -10,9 +10,9 @@ import { SharedService } from 'src/app/modules/shared/services/shared.service';
 export class AddFormComponent implements OnInit {
   clientForm!: FormGroup;
   submitted = false;
-  item:any = {}
+  item: any = {}
   constructor(private fb: FormBuilder, private sharedService: SharedService) {
-     this.item = this.sharedService.selectedItem 
+    this.item = this.sharedService.selectedItem
   }
 
   ngOnInit(): void {
@@ -21,8 +21,16 @@ export class AddFormComponent implements OnInit {
 
   initclientForm() {
     this.clientForm = this.fb.group({
-      firstName: ['john', Validators.required],
-      lastName: ['smith', Validators.required],
+      firstName: ['john', Validators.compose([
+        Validators.required,
+         Validators.pattern('^[a-zA-Z ]*$'),
+        Validators.maxLength(100),
+      ])],
+      lastName: ['smith', Validators.compose([
+        Validators.required,
+         Validators.pattern('^[a-zA-Z ]*$'),
+        Validators.maxLength(100),
+      ]),],
       accountType: ['General', Validators.required],
       email: ['test@gmail.com', Validators.compose([
         Validators.required,
@@ -45,8 +53,12 @@ export class AddFormComponent implements OnInit {
     console.log(form.value, 'form value')
   }
 
-  isEmptyObject(obj:object) {
+  isEmptyObject(obj: object) {
     return Object.keys(obj).length;
+  }
+
+  closeSlider(){
+    this.sharedService.sideNav({action: 'close'})
   }
 
 }

@@ -24,6 +24,7 @@
                                 <input type="text" placeholder="Enter First Name" formControlName="firstName" />
                                 <div *ngIf="submitted && f.firstName.errors" class="error">
                                     <div *ngIf="f.firstName.errors.required">Firts Name is required</div>
+                                    <div *ngIf="f.firstName.errors.pattern">Invalid</div>
                                 </div>
                             </div>
                         </div>
@@ -35,6 +36,7 @@
                                 <input type="text" placeholder="Enter Last Name" formControlName="lastName" />
                                 <div *ngIf="submitted && f.lastName.errors" class="error">
                                     <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                    <div *ngIf="f.lastName.errors.pattern">Invalid</div>
                                 </div>
                             </div>
                         </div>
@@ -57,9 +59,11 @@
                         <div class="f-group">
                             <label>PHONE <span class="required">*</span></label>
                             <div class="f-field">
-                                <input type="text" placeholder="Enter Phone Number" formControlName="phone" />
+                                <input type="text" placeholder="Enter Phone Number" formControlName="phone" 
+                                mask="(000) 000-0000"/>
                                 <div *ngIf="submitted && f.phone.errors" class="error">
                                     <div *ngIf="f.phone.errors.required">Phone is required</div>
+                                    <div *ngIf="f.phone.errors.mask">Please enter valid phone</div>
                                 </div>
                             </div>
                         </div>
@@ -69,8 +73,8 @@
         </div>
     </div>
     <div class="modal-footer flex-justify-right">
-        <button class="btn btn-secondary-outline">Reset</button>
-        <button class="btn ml-2" *ngIf="!isEmptyObject(item)">Add</button>
-        <button class="btn ml-2" *ngIf="isEmptyObject(item)">Update</button>
+        <button class="btn btn-secondary-outline" (click)="closeSlider()">Reset</button>
+        <button class="btn ml-2" *ngIf="!isEmptyObject(item)" (click)="onSubmit(clientForm)">Add</button>
+        <button class="btn ml-2" *ngIf="isEmptyObject(item)" (click)="onSubmit(clientForm)">Update</button>
     </div>
 </form>

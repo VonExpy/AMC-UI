@@ -24,6 +24,8 @@ import { GlobalSearchComponent } from './components/global-search/global-search.
 import { QuillEditorComponent } from './components/quill-editor/quill-editor.component';
 import { QuillModule } from 'ngx-quill'
 import { AccordionDirective } from 'src/app/_helpers/accordion.directive';
+import { PhoneMaskDirective } from 'src/app/_helpers/phone-mask.directive';
+import { NgxMaskModule } from 'ngx-mask'
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -45,7 +47,8 @@ FullCalendarModule.registerPlugins([
     DoughnutChartComponent,
     GlobalSearchComponent,
     QuillEditorComponent,
-    AccordionDirective
+    AccordionDirective,
+    PhoneMaskDirective
   ],
   imports: [
     CommonModule,
@@ -59,7 +62,8 @@ FullCalendarModule.registerPlugins([
     RoundProgressModule,
     MalihuScrollbarModule.forRoot(),
     FullCalendarModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    NgxMaskModule.forRoot()
   ],
   exports: [
     NgToggleModule,
@@ -80,7 +84,9 @@ FullCalendarModule.registerPlugins([
     FullCalendarModule,
     GlobalSearchComponent,
     QuillEditorComponent,
-    AccordionDirective
+    AccordionDirective,
+    PhoneMaskDirective,
+    NgxMaskModule
   ]
 })
 export class SharedModule { }

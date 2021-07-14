@@ -17,6 +17,7 @@
                             <input type="text" placeholder="First Name" formControlName="firstName" />
                             <div *ngIf="submitted && f.firstName.errors" class="error">
                                 <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                <div *ngIf="f.firstName.errors.pattern">Invalid</div>
                             </div>
                         </div>
                         <div class="f-field-value" *ngIf="!edit">
@@ -29,6 +30,9 @@
                         <label>Middle Name <span class="required">*</span></label>
                         <div class="f-field" *ngIf="edit">
                             <input type="text" placeholder="Middle Name" formControlName="middleName" />
+                            <div *ngIf="submitted && f.middleName.errors" class="error">
+                                <div *ngIf="f.middleName.errors.pattern">Invalid</div>
+                            </div>
                         </div>
                         <div class="f-field-value" *ngIf="!edit">
                             {{f.middleName.value}}
@@ -42,6 +46,7 @@
                             <input type="text" placeholder="Last Name" formControlName="lastName" />
                             <div *ngIf="submitted && f.lastName.errors" class="error">
                                 <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                <div *ngIf="f.lastName.errors.pattern">Invalid</div>
                             </div>
                         </div>
                         <div class="f-field-value" *ngIf="!edit">
@@ -84,9 +89,11 @@
                     <div class="f-group">
                         <label>Mobile <span class="required">*</span></label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Ex. 1234567890" formControlName="phone" />
+                            <input type="text" mask="(000) 000-0000" placeholder="Ex. (000) 000-0000" formControlName="phone" 
+                             />
                             <div *ngIf="submitted && f.phone.errors" class="error">
                                 <div *ngIf="f.phone.errors.required">Phone is required</div>
+                                <div *ngIf="f.phone.errors.mask">Please enter valid phone</div>
                             </div>
                         </div>
                         <div class="f-field-value" *ngIf="!edit">

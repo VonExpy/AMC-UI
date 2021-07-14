@@ -40,10 +40,14 @@ export class RegisterComponent implements OnInit {
   initAccountForm() {
     this.accountForm = this.fb.group({
       firstName: ['', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.pattern('^[a-zA-Z ]*$'),
+        Validators.maxLength(100)
       ])],
       lastName: ['', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.pattern('^[a-zA-Z ]*$'),
+        Validators.maxLength(100)
       ])]
     });
   }
