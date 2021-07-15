@@ -14,7 +14,7 @@
                             <span class="icon">
                                 <img src="../../assets/icon-search.svg" />
                             </span>
-                            <input type="search" placeholder="Search Users" />
+                            <input type="search" placeholder="Search States" />
                         </div>
                     </div>
                     <div class="section-lists">
@@ -50,14 +50,14 @@
             <div class="col-3">
                 <div class="section">
                     <div class="section-title">
-                        <span>Available States</span>
+                        <span>Available Counties</span>
                     </div>
                     <div class="section-search search__container">
                         <div class="search">
                             <span class="icon">
                                 <img src="../../assets/icon-search.svg" />
                             </span>
-                            <input type="search" placeholder="Search Users" />
+                            <input type="search" placeholder="Search Counties" />
                         </div>
                     </div>
                     <div class="section-lists">
@@ -97,14 +97,14 @@
             <div class="col-3">
                 <div class="section">
                     <div class="section-title">
-                        <span>Available States</span>
+                        <span>Available Zip Codes</span>
                     </div>
                     <div class="section-search search__container">
                         <div class="search">
                             <span class="icon">
                                 <img src="../../assets/icon-search.svg" />
                             </span>
-                            <input type="search" placeholder="Search Users" />
+                            <input type="search" placeholder="Search Zip Codes" />
                         </div>
                     </div>
                     <div class="section-lists">
@@ -157,7 +157,7 @@
         </div>
     </div>
     <div class="modal-footer flex-justify-right">
-        <button class="btn btn-secondary-outline">Cancel</button>
+        <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
         <button class="btn ml-2">Add</button>
     </div>
 </div>

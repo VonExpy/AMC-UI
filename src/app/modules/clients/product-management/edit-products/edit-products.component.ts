@@ -10,7 +10,7 @@ import { StaticMasterService } from '../../../shared/services/static-master.serv
 export class EditProductsComponent implements OnInit {
 
   toggle:any = {}
-  constructor(private sharedService: SharedService, public staticService: StaticMasterService) {
+  constructor(public sharedService: SharedService, public staticService: StaticMasterService) {
     this.toggle = this.staticService.toggle('profile')
   }
   data:any = [1,2,3,4,5,6,7,8,9]

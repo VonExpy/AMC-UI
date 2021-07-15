@@ -22,4 +22,8 @@ export class SharedService {
   modal(value: any) {
     this.modalSubject.next(value);
   }
+
+  closeSlider(){
+    this.sideNav({action: 'close'})
+  }
 }

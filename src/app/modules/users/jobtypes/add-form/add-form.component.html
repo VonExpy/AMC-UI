@@ -1,4 +1,4 @@
-<form class="modal modal-container">
+<form class="modal modal-container" [formGroup]="jobtypeForm" (ngSubmit)="onSubmit(jobtypeForm)">
     <div class="modal-title">
         <h4 class="heading">Add Job Type & Fee</h4>
     </div>
@@ -18,11 +18,14 @@
             <div class="row">
                 <div class="col">
                     <div class="f-group">
-                        <label class="required">Jobtype</label>
+                        <label [ngClass]="{required:!f.jobtype.value}">Jobtype</label>
                         <div class="f-field">
                             <ng-select [items]="staticService.jobTypes" bindLabel="name" bindValue="value"
-                                [multiple]="true" placeholder="Select" appendTo="body">
+                                [multiple]="true" placeholder="Select" appendTo="body" formControlName="jobtype">
                             </ng-select>
+                            <div *ngIf="submitted && f.jobtype.errors" class="error">
+                                <div *ngIf="f.jobtype.errors.required">Jobtype is required</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -30,10 +33,10 @@
             <div class="row">
                 <div class="col-4">
                     <div class="f-group">
-                        <label class="required">FEE ($)</label>
+                        <label>FEE ($)</label>
                         <div class="f-field">
                             <input type="text" placeholder="Please Enter" mask="separator.2" prefix="$"
-                                thousandSeparator="," />
+                                thousandSeparator="," formControlName="fee" />
                         </div>
                     </div>
                 </div>
@@ -41,9 +44,9 @@
             <div class="row">
                 <div class="col">
                     <div class="f-group">
-                        <label class="required">Notes</label>
+                        <label>Notes</label>
                         <div class="f-field">
-                            <input type="text" placeholder="Please Enter Your Notes" />
+                            <input type="text" placeholder="Please Enter Your Notes" formControlName="notes" />
                         </div>
                     </div>
                 </div>
@@ -51,7 +54,7 @@
         </div>
     </div>
     <div class="modal-footer flex-justify-right">
-        <button class="btn btn-secondary-outline">Cancel</button>
+        <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
         <button class="btn ml-2">Add</button>
     </div>
 </form>

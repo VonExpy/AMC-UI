@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
       ])],
       street: ['', Validators.required],
       city: ['', Validators.required],
-      county: ['', Validators.required],
+      county: [''],
       state: ['', Validators.required],
       zipcode: ['', Validators.required],
     });

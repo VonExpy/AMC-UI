@@ -73,7 +73,7 @@
         </div>
     </div>
     <div class="modal-footer flex-justify-right">
-        <button class="btn btn-secondary-outline" (click)="closeSlider()">Reset</button>
+        <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Reset</button>
         <button class="btn ml-2" *ngIf="!isEmptyObject(item)" (click)="onSubmit(clientForm)">Add</button>
         <button class="btn ml-2" *ngIf="isEmptyObject(item)" (click)="onSubmit(clientForm)">Update</button>
     </div>

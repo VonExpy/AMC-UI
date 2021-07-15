@@ -38,7 +38,7 @@ export class ClientDetailsComponent implements OnInit {
       fax: ['(345) 435-3454', Validators.required],
       street: ['', Validators.required],
       city: ['', Validators.required],
-      county: ['', Validators.required],
+      county: [''],
       state: ['', Validators.required],
       zipcode: ['', Validators.required],
       appraisalDelEmail: ['mlwojcik@yahoo.com', Validators.compose([

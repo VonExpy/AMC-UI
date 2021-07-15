@@ -10,117 +10,37 @@ import { LoaderService } from '../../../shared/services/loader.service';
   styleUrls: ['./add-form.component.scss']
 })
 export class AddFormComponent implements OnInit {
-
-  constructor(private loaderService: LoaderService, private staticService: StaticMasterService, private sharedService: SharedService, private fb: FormBuilder) {
-    this.toggle = this.staticService.toggle('yesorno')
-  }
-  orgForm!: FormGroup;
+  feeForm!: FormGroup;
   submitted = false;
   edit: any = true;
-  config = {
-    value: true,
-    name: "test",
-    disabled: false,
-    height: 25,
-    width: 75,
-    margin: 2,
-    fontSize: 13,
-    speed: 300,
-    color: {
-      checked: "#1B6E3F",
-      unchecked: "#cccccc"
-    },
-    switchColor: {
-      checked: "#F8F8F8",
-      unchecked: "#F8F8F8"
-    },
-    labels: {
-      unchecked: "",
-      checked: "Active"
-    },
-    checkedLabel: "",
-    uncheckedLabel: "",
-    fontColor: {
-      checked: "#fafafa",
-      unchecked: "#ffffff"
-    }
-  };
-  toggle:any = {}
+  toggle: any = {}
+  constructor(private loaderService: LoaderService, public staticService: StaticMasterService, public sharedService: SharedService, private fb: FormBuilder) {
+    this.toggle = this.staticService.toggle('yesorno')
+  }
+
   ngOnInit(): void {
-    this.initProfileForm();
+    this.initFeeStructureForm();
     this.loaderService.isLoading.next(true);
     setTimeout(() => {
       this.loaderService.isLoading.next(false);
-    }, 3000)
+    }, 1000)
   }
 
   editform() {
     this.edit = !this.edit;
   }
 
-  openSideNav() {
-    // this.sharedService.sideNav({action:'open',component:CoverageComponent});
-  }
+  initFeeStructureForm() {
+    this.feeForm = this.fb.group({
+      jobtype: [null, Validators.required],
+      isActive:[true],
+      appraiserFee:[''],
+      companyFee:['']
 
-  initProfileForm() {
-    this.orgForm = this.fb.group({
-      orgName: ['Vonexpy Softech LLC', Validators.required],
-      email: ['test@gmail.com', Validators.compose([
-        Validators.required,
-        Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
-      ])],
-      fax: ['', Validators.required],
-      ein: ['', Validators.required],
-      phone: ['', Validators.required],
-      street: ['', Validators.required],
-      city: ['', Validators.required],
-      county: ['', Validators.required],
-      state: ['', Validators.required],
-      zipcode: ['', Validators.required],
-      contactName: ['', Validators.required],
-      contactPhone: ['', Validators.required],
-      contactEmail: ['', Validators.compose([
-        Validators.required,
-        Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
-      ])],
-      bankDetails: new FormArray([this.bankDetailsForm()])
     });
   }
 
-  // initialization of bankDetails
-  bankDetailsForm() {
-    return this.fb.group({
-      accountType: ['', Validators.required],
-      bankName: ['', Validators.required],
-      routingNumber: ['', Validators.required],
-      accountNumber: ['', Validators.required]
-    })
-  }
-
-  // Add new form
-  add() {
-    this.t.push(this.bankDetailsForm())
-  }
-
-  delete(i: number) {
-    this.t.removeAt(i)
-  }
-
-  // this.t.removeAt(i);
-
-  //google auto complete address
-  getAddress(address: any) {
-    this.orgForm.patchValue({
-      street: address.street,
-      city: address.city,
-      county: address.county,
-      state: address.state,
-      zipcode: address.zipcode
-    })
-  }
-
-  get f() { return this.orgForm.controls; }
-  get t() { return this.f.bankDetails as FormArray; }
+  get f() { return this.feeForm.controls; }
 
   onSubmit(form: FormGroup) {
     this.submitted = true;
@@ -132,28 +52,4 @@ export class AddFormComponent implements OnInit {
     }
     console.log(form.value, 'form value')
   }
-
-
-
-  // Add Fee Structure Code
-  dropdownSettings = {
-    singleSelection: true,
-    text: "Select Countries",
-    selectAllText: 'Select All',
-    unSelectAllText: 'UnSelect All',
-    enableSearchFilter: true,
-    tagToBody: false
-  };
-  dropdownList = [
-    { "id": 1, "itemName": "India" },
-    { "id": 2, "itemName": "Singapore" },
-    { "id": 3, "itemName": "Australia" },
-    { "id": 4, "itemName": "Canada" },
-    { "id": 5, "itemName": "South Korea" },
-    { "id": 6, "itemName": "Germany" },
-    { "id": 7, "itemName": "France" },
-    { "id": 8, "itemName": "Russia" },
-    { "id": 9, "itemName": "Italy" },
-    { "id": 10, "itemName": "Sweden" }
-  ];
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/modules/shared/services/shared.service';
 
 @Component({
   selector: 'app-update-instructions',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateInstructionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public sharedService:SharedService) { }
 
   ngOnInit(): void {
   }

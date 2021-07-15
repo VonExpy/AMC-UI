@@ -1,4 +1,4 @@
-<form class="modal modal-container" [formGroup]="orgForm">
+<form class="modal modal-container" [formGroup]="feeForm">
     <div class="modal-title">
         <h4 class="heading">Add Fee Structure</h4>
     </div>
@@ -9,17 +9,11 @@
                     <div class="f-group">
                         <label class="required">Fee Structure name</label>
                         <div class="f-field">
-                            <ng-select [items]="dropdownList" 
-                                bindLabel="itemName" 
-                                bindValue="id"
-                                placeholder="Enter Your Fee Structure Name"
-                                [multiple]="true"
-                                appendTo="body"
-                                [maxSelectedItems]="4"
-                                formControlName="county">
-                            </ng-select>
-                            <div *ngIf="submitted && f.orgName.errors" class="error">
-                                <div *ngIf="f.orgName.errors.required">Organisation Name is required</div>
+                            <ng-select [items]="staticService.jobTypes" bindLabel="name" bindValue="value"
+                             placeholder="Select"  formControlName="jobtype">
+                        </ng-select>
+                            <div *ngIf="submitted && f.jobtype.errors" class="error">
+                                <div *ngIf="f.jobtype.errors.required">Fee Structure is required</div>
                             </div>
                         </div>
                     </div>
@@ -32,11 +26,9 @@
                                 [height]="toggle.height" [margin]="toggle.margin"
                                 [labels]="toggle.labels" [color]="toggle.color"
                                 [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                [fontSize]="toggle.fontSize">
+                                [value]="f.isActive.value"
+                                [fontSize]="toggle.fontSize" formControlName="isActive">
                             </ng-toggle>
-                            <div *ngIf="submitted && f.orgName.errors" class="error">
-                                <div *ngIf="f.orgName.errors.required">Organisation Name is required</div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -51,156 +43,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="row no-space">
+                        <tr class="row no-space" *ngFor="let jobtype of staticService.jobTypes">
                             <th class="col-6">
                                 <div class="f-field-value">
-                                    ValueAdd-Exterior
+                                    {{jobtype.name}}
                                 </div>
                             </th>
                             <th class="col-3">
                                 <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                    <input type="text" class="right" placeholder="$0" formControlName="appraiserFee" />
                                 </div>
                             </th>
                             <th class="col-3">
                                 <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                        </tr>
-                        <tr class="row no-space">
-                            <th class="col-6">
-                                <div class="f-field-value">
-                                    ValueAdd-Exterior
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                        </tr>
-                        <tr class="row no-space">
-                            <th class="col-6">
-                                <div class="f-field-value">
-                                    ValueAdd-Exterior
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                        </tr>
-                        <tr class="row no-space">
-                            <th class="col-6">
-                                <div class="f-field-value">
-                                    ValueAdd-Exterior
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                        </tr>
-                        <tr class="row no-space">
-                            <th class="col-6">
-                                <div class="f-field-value">
-                                    ValueAdd-Exterior
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                        </tr>
-                        <tr class="row no-space">
-                            <th class="col-6">
-                                <div class="f-field-value">
-                                    ValueAdd-Exterior
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                        </tr>
-                        <tr class="row no-space">
-                            <th class="col-6">
-                                <div class="f-field-value">
-                                    ValueAdd-Exterior
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                        </tr>
-                        <tr class="row no-space">
-                            <th class="col-6">
-                                <div class="f-field-value">
-                                    ValueAdd-Exterior
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                        </tr>
-                        <tr class="row no-space">
-                            <th class="col-6">
-                                <div class="f-field-value">
-                                    ValueAdd-Exterior
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
-                                </div>
-                            </th>
-                            <th class="col-3">
-                                <div class="f-field">
-                                    <input type="text" class="right" placeholder="$0" formControlName="street" />
+                                    <input type="text" class="right" placeholder="$0" formControlName="companyFee" />
                                 </div>
                             </th>
                         </tr>
@@ -210,7 +66,7 @@
         </div>
     </div>
     <div class="modal-footer flex-justify-right">
-            <button class="btn btn-secondary-outline">Reset</button>
+            <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Reset</button>
             <button class="btn ml-2">Add</button>
     </div>
 </form>

@@ -11,7 +11,7 @@ export class AddFormComponent implements OnInit {
   clientForm!: FormGroup;
   submitted = false;
   item: any = {}
-  constructor(private fb: FormBuilder, private sharedService: SharedService) {
+  constructor(private fb: FormBuilder, public sharedService: SharedService) {
     this.item = this.sharedService.selectedItem
   }
 
@@ -55,10 +55,6 @@ export class AddFormComponent implements OnInit {
 
   isEmptyObject(obj: object) {
     return Object.keys(obj).length;
-  }
-
-  closeSlider(){
-    this.sharedService.sideNav({action: 'close'})
   }
 
 }

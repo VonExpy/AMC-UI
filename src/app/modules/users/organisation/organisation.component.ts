@@ -14,7 +14,7 @@ export class OrganisationComponent implements OnInit {
     { name: 'Current', id: '1' },
     { name: 'Savings', id: '2' }
   ]
-  constructor(private fb: FormBuilder, public staticService: StaticMasterService, private cd:ChangeDetectorRef) { }
+  constructor(private fb: FormBuilder, public staticService: StaticMasterService, private cd: ChangeDetectorRef) { }
   orgForm!: FormGroup;
   submitted = false;
   edit: any = false;
@@ -25,10 +25,13 @@ export class OrganisationComponent implements OnInit {
   editform() {
     this.edit = !this.edit;
   }
-  
+
   initOrgForm() {
     this.orgForm = this.fb.group({
-      orgName: ['Vonexpy Softech LLC', Validators.required],
+      orgName: ['Vonexpy Softech LLC', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z ]*$')
+      ])],
       email: ['test@gmail.com', Validators.compose([
         Validators.required,
         Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
@@ -38,10 +41,13 @@ export class OrganisationComponent implements OnInit {
       phone: ['', Validators.required],
       street: ['', Validators.required],
       city: ['', Validators.required],
-      county: ['', Validators.required],
+      county: [''],
       state: ['', Validators.required],
       zipcode: ['', Validators.required],
-      contactName: ['', Validators.required],
+      contactName: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z ]*$')
+      ])],
       contactPhone: ['', Validators.required],
       contactEmail: ['', Validators.compose([
         Validators.required,
@@ -55,7 +61,10 @@ export class OrganisationComponent implements OnInit {
   bankDetailsForm() {
     return this.fb.group({
       accountType: [null, Validators.required],
-      bankName: ['', Validators.required],
+      bankName: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z ]*$')
+      ])],
       routingNumber: ['', Validators.required],
       accountNumber: ['', Validators.required]
     })
@@ -94,6 +103,7 @@ export class OrganisationComponent implements OnInit {
     if (form.invalid) {
       return;
     }
+    this.edit = false
     console.log(form.value, 'form value')
   }
 

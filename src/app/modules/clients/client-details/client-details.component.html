@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-4">
                     <div class="f-group">
-                        <label>NAME <span class="required">*</span></label>
+                        <label [ngClass]="{required:!f.name.value}">NAME</label>
                         <div class="f-field" *ngIf="edit">
                             <input type="text" placeholder="Enter Name" formControlName="name" />
                             <div *ngIf="submitted && f.name.errors" class="error">
@@ -52,9 +52,10 @@
             <div class="row">
                 <div class="col-4">
                     <div class="f-group">
-                        <label>PHONE <span class="required">*</span></label>
+                        <label [ngClass]="{required:!f.phone.value}">PHONE</label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" mask="(000) 000-0000" placeholder="Enter Phone Number" formControlName="phone" />
+                            <input type="text" mask="(000) 000-0000" placeholder="Enter Phone Number"
+                                formControlName="phone" />
                             <div *ngIf="submitted && f.phone.errors" class="error">
                                 <div *ngIf="f.phone.errors.required">Phone is required</div>
                                 <div *ngIf="f.phone.errors.mask">Please enter valid phone</div>
@@ -67,9 +68,10 @@
                 </div>
                 <div class="col-4">
                     <div class="f-group">
-                        <label>FAX <span class="required">*</span></label>
+                        <label [ngClass]="{required:!f.fax.value}">FAX</label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" mask="(000) 000-0000" placeholder="Enter Fax Number" formControlName="fax" />
+                            <input type="text" mask="(000) 000-0000" placeholder="Enter Fax Number"
+                                formControlName="fax" />
                             <div *ngIf="submitted && f.fax.errors" class="error">
                                 <div *ngIf="f.fax.errors.required">Fax is required</div>
                                 <div *ngIf="f.fax.errors.mask">Please enter valid fax</div>
@@ -88,9 +90,9 @@
             <div class="row">
                 <div class="col-4">
                     <div class="f-group">
-                        <label>ADDRESS <span class="required">*</span></label>
+                        <label [ngClass]="{required:!f.street.value}">ADDRESS</label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Address" formControlName="street" />
+                            <input type="text" placeholder="Address" formControlName="street" [attr.disabled]="true" />
                             <div *ngIf="submitted && f.street.errors" class="error">
                                 <div *ngIf="f.street.errors.required">Address is required</div>
                             </div>
@@ -102,9 +104,9 @@
                 </div>
                 <div class="col-4">
                     <div class="f-group">
-                        <label>CITY <span class="required">*</span></label>
+                        <label [ngClass]="{required:!f.city.value}">CITY </label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="City" formControlName="city" />
+                            <input type="text" placeholder="City" formControlName="city" [attr.disabled]="true" />
                             <div *ngIf="submitted && f.city.errors" class="error">
                                 <div *ngIf="f.city.errors.required">City is required</div>
                             </div>
@@ -116,12 +118,12 @@
                 </div>
                 <div class="col-4">
                     <div class="f-group">
-                        <label>COUNTY <span class="required">*</span></label>
+                        <label>COUNTY </label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="County" formControlName="county" />
-                            <div *ngIf="submitted && f.county.errors" class="error">
+                            <input type="text" placeholder="County" formControlName="county" [attr.disabled]="true" />
+                            <!-- <div *ngIf="submitted && f.county.errors" class="error">
                                 <div *ngIf="f.county.errors.required">County is required</div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="f-field-value" *ngIf="!edit">
                             {{f.county.value}}
@@ -132,9 +134,10 @@
             <div class="row">
                 <div class="col-4">
                     <div class="f-group">
-                        <label>STATE <span class="required">*</span></label>
+                        <label [ngClass]="{required:!f.state.value}">STATE </label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter State" formControlName="state" />
+                            <input type="text" placeholder="Enter State" formControlName="state"
+                                [attr.disabled]="true" />
                             <div *ngIf="submitted && f.state.errors" class="error">
                                 <div *ngIf="f.state.errors.required">State is required</div>
                             </div>
@@ -146,9 +149,10 @@
                 </div>
                 <div class="col-4">
                     <div class="f-group">
-                        <label>ZIP CODE <span class="required">*</span></label>
+                        <label [ngClass]="{required:!f.zipcode.value}">ZIP CODE </label>
                         <div class="f-field" *ngIf="edit">
-                            <input type="text" placeholder="Enter Zip Code" formControlName="zipcode" />
+                            <input type="text" placeholder="Enter Zip Code" formControlName="zipcode"
+                                [attr.disabled]="true" />
                             <div *ngIf="submitted && f.zipcode.errors" class="error">
                                 <div *ngIf="f.zipcode.errors.required">Zip is required</div>
                             </div>
@@ -165,7 +169,8 @@
             <div class="row">
                 <div class="col-4">
                     <div class="f-group">
-                        <label>APPRAISAL DELIVERY EMAIL ADDRESS<span class="required">*</span></label>
+                        <label [ngClass]="{required:!f.appraisalDelEmail.value}">APPRAISAL DELIVERY EMAIL
+                            ADDRESS</label>
                         <div class="f-field" *ngIf="edit">
                             <input type="text" placeholder="Enter Delivery Email Address"
                                 formControlName="appraisalDelEmail" />
@@ -216,7 +221,7 @@
             <div class="row">
                 <div class="col-4">
                     <div class="f-group">
-                        <label>AMC ACCOUNT MANAGER<span class="required">*</span></label>
+                        <label [ngClass]="{required:!f.amcManger.value}">AMC ACCOUNT MANAGER</label>
                         <div class="f-field" *ngIf="edit">
                             <input type="text" placeholder="Select AMC Manager" formControlName="amcManger" />
                             <div *ngIf="submitted && f.amcManger.errors" class="error">
