@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsersModule } from './modules/users/users.module';
+// import { UsersModule } from './modules/users/users.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { SharedService } from './modules/shared/services/shared.service';
 import { LoaderService } from './modules/shared/services/loader.service';
@@ -18,7 +18,7 @@ import { environment } from 'src/environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UsersModule,
+    // UsersModule,
     SharedModule,
     AgmCoreModule.forRoot({
       apiKey: environment.GOOGLE_MAP_API_KEY,

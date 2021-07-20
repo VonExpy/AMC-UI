@@ -8,7 +8,6 @@ import { UsersRoutingModule } from './users-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ProfileComponent } from './profile/profile.component';
 import { OrganisationComponent } from './organisation/organisation.component';
-import { ClientsComponent } from './clients/clients.component';
 import { JobtypesComponent } from './jobtypes/jobtypes.component';
 import { CoverageComponent } from './coverage/coverage.component';
 import { FeeStructureComponent } from './fee-structure/fee-structure.component';
@@ -25,7 +24,6 @@ import { AddJobtypeFormComponent } from './jobtypes/add-form/add-form.component'
     DetailsComponent,
     ProfileComponent,
     OrganisationComponent,
-    ClientsComponent,
     JobtypesComponent,
     CoverageComponent,
     FeeStructureComponent,

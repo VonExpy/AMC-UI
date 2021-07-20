@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientsComponent } from '../shared/components/clients/clients.component';
 import { OrdersComponent } from '../shared/components/orders/orders.component';
-import { ClientsComponent } from './clients/clients.component';
 import { CoverageComponent } from './coverage/coverage.component';
 import { FeeStructureComponent } from './fee-structure/fee-structure.component';
 import { JobtypesComponent } from './jobtypes/jobtypes.component';
