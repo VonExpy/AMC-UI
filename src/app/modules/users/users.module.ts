@@ -6,7 +6,6 @@ import { DetailsComponent } from './details/details.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { UsersRoutingModule } from './users-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { OrdersComponent } from './orders/orders.component';
 import { ProfileComponent } from './profile/profile.component';
 import { OrganisationComponent } from './organisation/organisation.component';
 import { ClientsComponent } from './clients/clients.component';
@@ -15,7 +14,6 @@ import { CoverageComponent } from './coverage/coverage.component';
 import { FeeStructureComponent } from './fee-structure/fee-structure.component';
 import { ProductsVendorsComponent } from './products-vendors/products-vendors.component';
 import { AddFormComponent } from './fee-structure/add-form/add-form.component';
-import { MockServerResultsService } from './orders/paging/mock-server-results-service';
 import { AddZipcodesComponent } from './coverage/add-zipcodes/add-zipcodes.component';
 import { AddProductsComponent } from './products-vendors/add-products/add-products.component';
 import { AddJobtypeFormComponent } from './jobtypes/add-form/add-form.component';
@@ -26,7 +24,6 @@ import { AddJobtypeFormComponent } from './jobtypes/add-form/add-form.component'
     ListComponent,
     DetailsComponent,
     ProfileComponent,
-    OrdersComponent,
     OrganisationComponent,
     ClientsComponent,
     JobtypesComponent,
@@ -51,6 +48,6 @@ import { AddJobtypeFormComponent } from './jobtypes/add-form/add-form.component'
       animationDuration: 300,
     })
   ],
-  providers:[MockServerResultsService]
+  providers:[]
 })
 export class UsersModule { }

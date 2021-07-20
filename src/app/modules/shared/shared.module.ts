@@ -26,6 +26,8 @@ import { QuillModule } from 'ngx-quill'
 import { AccordionDirective } from 'src/app/_helpers/accordion.directive';
 import { PhoneMaskDirective } from 'src/app/_helpers/phone-mask.directive';
 import { NgxMaskModule } from 'ngx-mask'
+import { OrdersComponent } from './components/orders/orders.component';
+import { MockServerResultsService } from './components/orders/paging/mock-server-results-service';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -48,7 +50,8 @@ FullCalendarModule.registerPlugins([
     GlobalSearchComponent,
     QuillEditorComponent,
     AccordionDirective,
-    PhoneMaskDirective
+    PhoneMaskDirective,
+    OrdersComponent
   ],
   imports: [
     CommonModule,
@@ -86,7 +89,9 @@ FullCalendarModule.registerPlugins([
     QuillEditorComponent,
     AccordionDirective,
     PhoneMaskDirective,
-    NgxMaskModule
-  ]
+    NgxMaskModule,
+    OrdersComponent
+  ],
+  providers:[MockServerResultsService]
 })
 export class SharedModule { }

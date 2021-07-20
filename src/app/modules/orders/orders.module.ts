@@ -6,6 +6,7 @@ import { LandingComponent } from './landing/landing.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { PaymentsComponent } from './payments/payments.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     OrdersRoutingModule
   ]
 })
