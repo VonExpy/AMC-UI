@@ -33,6 +33,12 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
+        path: 'vendors',
+        loadChildren: () =>
+          import('../modules/vendors/vendors.module').then((m) => m.VendorsModule),
+        canActivate: [AuthGuard]
+      },
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',

@@ -1,1 +1,56 @@
-<p>details works!</p>
+<div class="user__info">
+    <div class="user__info-detials">
+        <span class="role-bar bg-lender"></span>
+        <div class="profile__img">
+            <span class="pic">
+                <img src="../../../../assets/profile_pic.jpg" />
+            </span>
+            <span class="badge bottom-center"></span>
+        </div>
+        <div class="profile__info__con">
+            <div class="name">Seattle Mortgage Inc</div>
+            <div class="email-role">
+                <span>Lender</span>
+                <span class="divider">.</span>
+                <a class="email" href="mailto: jaunanderson@domainname.com">jaunanderson@domainname.com</a>
+                <span class="copy"></span>
+            </div>
+            <div class="contact">
+                <span class="phone">(999) 999 9999</span>
+                <span class="divider">.</span>
+                <span class="location">3137 Catalina Ranch Road Leander, Williamson County, TX, 78641</span>
+            </div>
+        </div>
+        <div class="profile__events">
+            <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                [height]="toggle.height" [margin]="toggle.margin"
+                [labels]="toggle.labels" [color]="toggle.color"
+                [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                [fontSize]="toggle.fontSize">
+            </ng-toggle>
+        </div>
+    </div>
+    <div class="user__info-section">
+        <div class="tabs__container">
+            <div class="tabs" id="app_tabs" >
+                <ul>
+                    <li class="tab-link" routerLinkActive="active" routerLink="overview">Overview</li>
+                    <li class="tab-link" routerLinkActive="active" routerLink="vendor-details">Vendor Details</li>
+                    <!-- <li class="tab-link" routerLinkActive="active" routerLink="integration-details">Integration Details</li>
+                    <li class="tab-link" routerLinkActive="active" routerLink="appraisers">Appraisers</li>
+                    <li class="tab-link" routerLinkActive="active" routerLink="invoice-payments">Invoice & Payments</li>
+                    <li class="tab-link" routerLinkActive="active" routerLink="clients-employee">Client's Employee</li>
+                    <li class="tab-link" routerLinkActive="active" routerLink="product-management">Product Management</li>
+                    <li class="tab-link" routerLinkActive="active" routerLink="general-instructions">General Intructions</li>
+                    <li class="tab-link" routerLinkActive="active" routerLink="notes-reminders">Notes & Reminders</li>
+                    <li class="tab-link" routerLinkActive="active" routerLink="manage-notifications">Manage Notifications</li> -->
+                </ul>
+            </div>
+            <div class="tab__content">
+                <!-- <div class="tab__content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions"> -->
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+    <app-slider></app-slider>
+</div>
