@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { SharedService } from './modules/shared/services/shared.service';
 import { LoaderService } from './modules/shared/services/loader.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from './modules/shared/services/interceptors/loader-interceptor.service';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from 'src/environments/environment';
+import { JwtInterceptor } from './_helpers/JwtInterceptor';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
 @NgModule({
   declarations: [
     AppComponent
@@ -24,10 +26,13 @@ import { environment } from 'src/environments/environment';
       apiKey: environment.GOOGLE_MAP_API_KEY,
       libraries: ['places', 'drawing']
     }),
+    HttpClientModule
   ],
   providers: [SharedService,
     LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
