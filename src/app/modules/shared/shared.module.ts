@@ -30,6 +30,8 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { MockServerResultsService } from './components/orders/paging/mock-server-results-service';
 import { MockServerClientsService } from './components/clients/paging/mock-server-results-service';
 import { ClientsComponent } from './components/clients/clients.component';
+import { AppraisersComponent } from './components/appraisers/appraisers.component';
+import { MockServerAppraisersService } from './components/appraisers/paging/mock-server-appraisers-service';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -54,7 +56,8 @@ FullCalendarModule.registerPlugins([
     AccordionDirective,
     PhoneMaskDirective,
     OrdersComponent,
-    ClientsComponent
+    ClientsComponent,
+    AppraisersComponent
   ],
   imports: [
     CommonModule,
@@ -94,8 +97,9 @@ FullCalendarModule.registerPlugins([
     PhoneMaskDirective,
     NgxMaskModule,
     OrdersComponent,
-    ClientsComponent
+    ClientsComponent,
+    AppraisersComponent
   ],
-  providers:[MockServerResultsService,MockServerClientsService]
+  providers:[MockServerResultsService,MockServerClientsService,MockServerAppraisersService]
 })
 export class SharedModule { }
