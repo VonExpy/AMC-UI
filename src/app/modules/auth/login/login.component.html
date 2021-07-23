@@ -25,7 +25,7 @@
                     <div class="f-group" *ngIf="stepper">
                         <label [ngClass]="{required:!f.password.value}">Password</label>
                         <div class="f-field has-icon">
-                            <input type="text" placeholder="Enter your Password" formControlName="password" />
+                            <input type="password" placeholder="Enter your Password" formControlName="password" />
                             <div *ngIf="submitted && f.password.errors" class="error">
                                 <div *ngIf="f.password.errors.required">Password is required</div>
                                 <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters

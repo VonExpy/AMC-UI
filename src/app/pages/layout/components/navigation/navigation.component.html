@@ -10,7 +10,8 @@
                     <i>Summary & Activities</i>
                 </span>
             </div>
-            <div class="nav_item" routerLink="/vendors" routerLinkActive="active">
+            <div class="nav_item" routerLink="/vendors" routerLinkActive="active"
+            *ngIf="isAdmin">
                 <span class="nav_item_icon">
                     <img src="../../../../../assets/icon-vendor.png" />
                 </span>
@@ -19,7 +20,8 @@
                     <i>Summary & Activities</i>
                 </span>
             </div>
-            <div class="nav_item" routerLink="/orders" routerLinkActive="active">
+            <div class="nav_item" routerLink="/orders" routerLinkActive="active"
+            *ngIf="isAdmin">
                 <span class="nav_item_icon">
                     <img src="../../../../../assets/icon-orders.png" />
                 </span>
@@ -37,7 +39,8 @@
                     <i>Order Information</i>
                 </span>
             </div>
-            <div class="nav_item" routerLink="/users" routerLinkActive="active">
+            <div class="nav_item" routerLink="/users" routerLinkActive="active"
+            *ngIf="isAdmin">
                 <span class="nav_item_icon">
                     <img src="../../../../../assets/icon-users.png" />
                 </span>

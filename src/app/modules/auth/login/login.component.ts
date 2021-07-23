@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { first } from 'rxjs/operators';
+import { LoaderService } from '../../shared/services/loader.service';
 import { AuthService } from '../services/auth.service';
 
 
@@ -13,13 +16,19 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup
   stepper = false
   submitted = false
+  returnUrl!: string;
 
-  constructor(private fb: FormBuilder, 
-              private router:Router,
-              private auth:AuthService) { }
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private loaderService: LoaderService,
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private auth: AuthService) { }
 
   ngOnInit(): void {
     this.initLoginForm()
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
   }
 
 
@@ -38,6 +47,7 @@ export class LoginComponent implements OnInit {
 
   get f() { return this.loginForm.controls; }
 
+
   onSubmit(form: FormGroup) {
     this.submitted = true;
     if (this.f.email.valid) {
@@ -47,9 +57,17 @@ export class LoginComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    this.auth.isLoggedIn = true
-    this.router.navigate(['dashboard'])
-    console.log(form.value, 'form value')
+    console.log('hit')
+    this.auth.login(this.f.email.value, this.f.password.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          // this.error = error;
+          this.toastr.error(error)
+        });
   }
 
 }
