@@ -23,12 +23,17 @@ export class LoginComponent implements OnInit {
     private loaderService: LoaderService,
     private route: ActivatedRoute,
     private toastr: ToastrService,
-    private auth: AuthService) { }
+    private auth: AuthService) {
+    // redirect to dashboard if already logged in
+    if (this.auth.currentUserValue) {
+      this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit(): void {
     this.initLoginForm()
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
 
