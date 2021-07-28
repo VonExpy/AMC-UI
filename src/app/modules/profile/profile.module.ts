@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LandingComponent } from './landing/landing.component';
-import { ListComponent } from './list/list.component';
-import { DetailsComponent } from './details/details.component';
-import { NgCircleProgressModule } from 'ng-circle-progress';
-import { UsersRoutingModule } from './users-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ProfileRoutingModule } from './profile-routing.module';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { ProfileComponent } from './profile.component';
+
+
 
 @NgModule({
   declarations: [
-    LandingComponent,
-    ListComponent,
-    DetailsComponent
+    ProfileComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    UsersRoutingModule,
+    ProfileRoutingModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,
@@ -25,7 +23,6 @@ import { SharedModule } from '../shared/shared.module';
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
     })
-  ],
-  providers:[]
+  ]
 })
-export class UsersModule { }
+export class ProfileModule { }

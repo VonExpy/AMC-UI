@@ -1,0 +1,94 @@
+@import '../../../assets/scss/mixins'; 
+@import '../../../assets/scss/colors';  
+@import '../../../assets/scss/form';  
+@import '../../../assets/scss/buttons';  
+@import '../../../assets/scss/utilities';  
+@import '../../../assets/scss/badges';  
+
+    .user__info {
+        @include flex-column-stretch;
+        position: relative;
+        width: 100%; 
+        &-detials {
+            .role-bar {
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+            }
+            position: relative;
+            @include flex-row-center;
+            padding: 10px 20px 11px;
+            border-bottom: solid 1px $border-color;
+            .profile__img {
+                .pic {
+                    width: 84px;
+                    height: 84px;
+                    overflow: hidden;
+                    display: block;
+                    border-radius: 100px;
+                    border: solid 1px rgba(0,0,0,.2);
+                    img {
+                        width: 100%;
+                        min-height: 85px;
+                        display: block;
+                    }
+                }
+            }
+            .profile__info__con {
+                flex: 1;
+                padding: 5px 15px;
+                .name {
+                    font-weight: 300;
+                    font-size: 24px;
+                    color: $name;
+                }
+                .email-role {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $orders;
+                    .email {
+                        text-decoration: none;
+                        color: $email;
+                    }
+                }
+                .contact {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $orders;
+                    padding-top: 10px;
+                    span {
+                        display: inline-block;
+                        &.phone {
+                            background: url(../../../assets/icon_phone.svg) no-repeat center left;
+                            background-size: auto 13px;
+                            padding-left: 18px;
+                        }
+                        &.location {
+                            background: url(../../../assets/icon_location.svg) no-repeat center left;
+                            background-size: auto 13px;
+                            padding-left: 15px;
+                        }
+                    }
+                }
+                .divider {
+                    font-size: 24px;
+                    color: $orders;
+                    display: inline-block;
+                    line-height: 1px;
+                    padding: 0px 10px;
+                }
+            }
+        }
+        &-earnings {
+            @include flex-row-center;
+        }
+        &-section {
+            background-color: $white;
+            @include flex-row-stretch;
+            flex: 1;
+            justify-content: stretch;
+            min-height: 0;
+        }
+    }

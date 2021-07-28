@@ -1,0 +1,310 @@
+<div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="staticService.scrollbarOptions">
+    <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
+        <form [formGroup]="orgForm" (ngSubmit)="onSubmit(orgForm)">
+            <div class="title-heading">
+                <h3>Organisation Information</h3>
+                <div class="flex-row-center">
+                    <button class="btn btn-sm btn-secondary-outline" (click)="editform()" *ngIf="edit">Cancel</button>
+                    <button class="btn btn-sm" type="submit" *ngIf="edit">Update</button>
+                    <button class="btn btn-sm" (click)="editform()" *ngIf="!edit">Edit</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.orgName.value}">ORGANISATION NAME</label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Organisation Name" formControlName="orgName" />
+                            <div *ngIf="submitted && f.orgName.errors" class="error">
+                                <div *ngIf="f.orgName.errors.required">Organisation Name is required</div>
+                                <div *ngIf="f.orgName.errors.pattern">Invalid</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.orgName.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.email.value}">EMAIL </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Email" formControlName="email" />
+                            <div *ngIf="submitted && f.email.errors" class="error">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.pattern">Please enter Valid Name</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.email.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.fax.value}">FAX </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Fax Number" formControlName="fax"
+                                mask="(000) 000-0000" />
+                            <div *ngIf="submitted && f.fax.errors" class="error">
+                                <div *ngIf="f.fax.errors.required">Fax is required</div>
+                                <div *ngIf="f.fax.errors.mask">Please enter valid fax</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.fax.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.ein.value}">EIN </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter EIN Number" formControlName="ein" />
+                            <div *ngIf="submitted && f.ein.errors" class="error">
+                                <div *ngIf="f.ein.errors.required">EIN is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.ein.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.phone.value}">PHONE </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Phone Number" formControlName="phone"
+                                mask="(000) 000-0000" />
+                            <div *ngIf="submitted && f.phone.errors" class="error">
+                                <div *ngIf="f.phone.errors.required">Phone is required</div>
+                                <div *ngIf="f.phone.errors.mask">Please enter valid phone</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.phone.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title-heading">
+                <h3>Address</h3>
+            </div>
+            <div class="col-4" *ngIf="edit">
+                <app-auto-complete (setAddress)="getAddress($event)" adressType="geocode">
+                </app-auto-complete>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.street.value}">Address </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Address" formControlName="street" [attr.disabled]="true" />
+                            <div *ngIf="submitted && f.street.errors" class="error">
+                                <div *ngIf="f.street.errors.required">Address is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.street.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.city.value}">City </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="City" formControlName="city" [attr.disabled]="true" />
+                            <div *ngIf="submitted && f.city.errors" class="error">
+                                <div *ngIf="f.city.errors.required">City is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.city.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>County </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="County" formControlName="county" [attr.disabled]="true" />
+                            <!-- <div *ngIf="submitted && f.county.errors" class="error">
+                                <div *ngIf="f.county.errors.required">County is required</div>
+                            </div> -->
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.county.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.state.value}">State </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="state" formControlName="state" [attr.disabled]="true" />
+                            <div *ngIf="submitted && f.state.errors" class="error">
+                                <div *ngIf="f.state.errors.required">State is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.state.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.zipcode.value}">Zipcode </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Zipcode" formControlName="zipcode" [attr.disabled]="true" />
+                            <div *ngIf="submitted && f.zipcode.errors" class="error">
+                                <div *ngIf="f.zipcode.errors.required">Zipcode is required</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.zipcode.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title-heading">
+                <h3>Contact Info</h3>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.contactName.value}">NAME </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Contact Name" formControlName="contactName" />
+                            <div *ngIf="submitted && f.contactName.errors" class="error">
+                                <div *ngIf="f.contactName.errors.required">Contact Name is required</div>
+                                <div *ngIf="f.contactName.errors.pattern">Invalid</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.contactName.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.contactPhone.value}">PHONE </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Contact Phone Number" formControlName="contactPhone"
+                                mask="(000) 000-0000" />
+                            <div *ngIf="submitted && f.contactPhone.errors" class="error">
+                                <div *ngIf="f.contactPhone.errors.required">Contact Phone is required</div>
+                                <div *ngIf="f.contactPhone.errors.mask">Please enter valid phone</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.contactPhone.value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.contactEmail.value}">EMAIL </label>
+                        <div class="f-field" *ngIf="edit">
+                            <input type="text" placeholder="Enter Contact Email" formControlName="contactEmail" />
+                            <div *ngIf="submitted && f.contactEmail.errors" class="error">
+                                <div *ngIf="f.contactEmail.errors.required">Contact Email is required</div>
+                                <div *ngIf="f.contactEmail.errors.pattern">Please enter valid email</div>
+                            </div>
+                        </div>
+                        <div class="f-field-value" *ngIf="!edit">
+                            {{f.contactEmail.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title-heading">
+                <h3>Bank Details</h3>
+                <div class="flex-row-center" *ngIf="edit">
+                    <button class="btn btn-info" (click)="add()" type="button">Add</button>
+                </div>
+            </div>
+            <ng-container formArrayName="bankDetails">
+                <ng-container *ngFor="let bank of t['controls'];let i=index" [formGroupName]="i">
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!bank.value.accountType}">ACCOUNT TYPE </label>
+                                <div class="f-field" *ngIf="edit">
+                                    <ng-select [items]="accountTypes" bindLabel="name" bindValue="id"
+                                        formControlName="accountType" placeholder="Select Account Type" appendTo="body"
+                                        autocomplete="none">
+                                    </ng-select>
+                                    <div *ngIf="submitted && bank.get('accountType')?.errors" class="error">
+                                        <div *ngIf="bank.get('accountType')?.errors?.required">Account Type is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="f-field-value" *ngIf="!edit">
+                                    {{bank.value.accountType}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!bank.value.bankName}">BANK NAME </label>
+                                <div class="f-field" *ngIf="edit">
+                                    <input type="text" placeholder="Enter Bank Name" formControlName="bankName" />
+                                    <div *ngIf="submitted && bank.get('bankName')?.errors" class="error">
+                                        <div *ngIf="bank.get('bankName')?.errors?.required">Bank Name is required</div>
+                                        <div *ngIf="bank.get('bankName')?.errors?.pattern">Invalid</div>
+                                    </div>
+                                </div>
+                                <div class="f-field-value" *ngIf="!edit">
+                                    {{bank.value.bankName}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!bank.value.routingNumber}">ROUTING NUMBER </label>
+                                <div class="f-field" *ngIf="edit">
+                                    <input type="text" placeholder="Enter Routing Number"
+                                        formControlName="routingNumber" />
+                                    <div *ngIf="submitted && bank.get('routingNumber')?.errors" class="error">
+                                        <div *ngIf="bank.get('routingNumber')?.errors?.required">Routing Number is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="f-field-value" *ngIf="!edit">
+                                    {{bank.value.routingNumber}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!bank.value.accountNumber}">ACCOUNT NUMBER </label>
+                                <div class="f-field" *ngIf="edit">
+                                    <input type="text" placeholder="Account Number" formControlName="accountNumber" />
+                                    <div *ngIf="submitted && bank.get('accountNumber')?.errors" class="error">
+                                        <div *ngIf="bank.get('accountNumber')?.errors?.required">Account Number is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="f-field-value" *ngIf="!edit">
+                                    {{bank.value.accountNumber}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1" *ngIf="edit">
+                            <div class="icon" *ngIf="i > 0" (click)="delete(i)">
+                                <img src="../../../../../../assets/icon_delete.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+
+            </ng-container>
+
+        </form>
+    </div>
+</div>

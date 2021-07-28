@@ -16,7 +16,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
-import { FullCalendarModule } from '@fullcalendar/angular'; 
+import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -32,8 +32,18 @@ import { MockServerClientsService } from './components/clients/paging/mock-serve
 import { ClientsComponent } from './components/clients/clients.component';
 import { AppraisersComponent } from './components/appraisers/appraisers.component';
 import { MockServerAppraisersService } from './components/appraisers/paging/mock-server-appraisers-service';
+import { PersonalInfoComponent } from './components/profile/personal-info/personal-info.component';
+import { OrganisationComponent } from './components/profile/organisation/organisation.component';
+import { JobtypesComponent } from './components/profile/jobtypes/jobtypes.component';
+import { CoverageComponent } from './components/profile/coverage/coverage.component';
+import { FeeStructureComponent } from './components/profile/fee-structure/fee-structure.component';
+import { ProductsVendorsComponent } from './components/profile/products-vendors/products-vendors.component';
+import { AddJobtypeFormComponent } from './components/profile/jobtypes/add-form/add-form.component';
+import { AddFormComponent } from './components/profile/fee-structure/add-form/add-form.component';
+import { AddZipcodesComponent } from './components/profile/coverage/add-zipcodes/add-zipcodes.component';
+import { AddProductsComponent } from './components/profile/products-vendors/add-products/add-products.component';
 
-FullCalendarModule.registerPlugins([ 
+FullCalendarModule.registerPlugins([
   interactionPlugin,
   dayGridPlugin,
   timeGridPlugin
@@ -57,7 +67,17 @@ FullCalendarModule.registerPlugins([
     PhoneMaskDirective,
     OrdersComponent,
     ClientsComponent,
-    AppraisersComponent
+    AppraisersComponent,
+    PersonalInfoComponent,
+    OrganisationComponent,
+    JobtypesComponent,
+    CoverageComponent,
+    FeeStructureComponent,
+    ProductsVendorsComponent,
+    AddJobtypeFormComponent,
+    AddFormComponent,
+    AddZipcodesComponent,
+    AddProductsComponent
   ],
   imports: [
     CommonModule,
@@ -98,8 +118,18 @@ FullCalendarModule.registerPlugins([
     NgxMaskModule,
     OrdersComponent,
     ClientsComponent,
-    AppraisersComponent
+    AppraisersComponent,
+    PersonalInfoComponent,
+    OrganisationComponent,
+    JobtypesComponent,
+    CoverageComponent,
+    FeeStructureComponent,
+    ProductsVendorsComponent,
+    AddJobtypeFormComponent,
+    AddFormComponent,
+    AddZipcodesComponent,
+    AddProductsComponent
   ],
-  providers:[MockServerResultsService,MockServerClientsService,MockServerAppraisersService]
+  providers: [MockServerResultsService, MockServerClientsService, MockServerAppraisersService]
 })
 export class SharedModule { }

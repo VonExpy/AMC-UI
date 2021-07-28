@@ -29,6 +29,13 @@ const routes: Routes = [
         data: { roles: [Role.Admin] }
       },
       {
+        path: 'profile',
+        loadChildren: () =>
+          import('../modules/profile/profile.module').then((m) => m.ProfileModule),
+        canActivate: [AuthGuard],
+        data: { roles: [Role.Admin] }
+      },
+      {
         path: 'orders',
         loadChildren: () =>
           import('../modules/orders/orders.module').then((m) => m.OrdersModule),

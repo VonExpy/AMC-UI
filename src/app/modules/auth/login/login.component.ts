@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          this.toastr.success('Success', `Hi ${data.user123}`)
           this.router.navigate([this.returnUrl]);
         },
         error => {
