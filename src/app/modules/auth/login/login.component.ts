@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private auth: AuthService) {
     // redirect to dashboard if already logged in
-    if (this.auth.currentUserValue) {
-      this.router.navigate(['/']);
-    }
+    // if (this.auth.currentUserValue) {
+    //   this.router.navigate(['/']);
+    // }
   }
 
   ngOnInit(): void {
@@ -63,17 +63,18 @@ export class LoginComponent implements OnInit {
       return;
     }
     console.log('hit')
-    this.auth.login(this.f.email.value, this.f.password.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.toastr.success('Success', `Hi ${data.user123}`)
-          this.router.navigate([this.returnUrl]);
-        },
-        error => {
-          // this.error = error;
-          this.toastr.error(error)
-        });
+    this.auth.signIn(this.f.email.value,this.f.password.value,this.returnUrl)
+    // this.auth.login(this.f.email.value, this.f.password.value)
+    //   .pipe(first())
+    //   .subscribe(
+    //     data => {
+    //       this.toastr.success('Success', `Hi ${data.user123}`)
+        
+    //     },
+    //     error => {
+    //       // this.error = error;
+    //       this.toastr.error(error)
+    //     });
   }
 
 }

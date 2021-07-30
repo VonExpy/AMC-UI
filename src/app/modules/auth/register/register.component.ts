@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CognitoUser, CognitoUserAttribute, CognitoUserPool } from 'amazon-cognito-identity-js';
+import { ToastrService } from 'ngx-toastr';
 import { MustMatch } from 'src/app/_helpers/must-match.validator';
 import { PasswordStrengthValidator } from 'src/app/_helpers/password-strength.validators';
+import { environment } from 'src/environments/environment';
+import { LoaderService } from '../../shared/services/loader.service';
 import { StaticMasterService } from '../../shared/services/static-master.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,14 +15,20 @@ import { StaticMasterService } from '../../shared/services/static-master.service
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  registeredUser!: CognitoUser;
   emailForm!: FormGroup
   accountForm!: FormGroup
   detailsForm!: FormGroup
   submitted = false
   formType = 'emailForm'
-  toggle:any = {}
+  toggle: any = {}
   referredByList: { name: string; id: string; }[];
-  constructor(private fb: FormBuilder, private staticService:StaticMasterService) { 
+  constructor(private fb: FormBuilder,
+    private staticService: StaticMasterService,
+    private auth:AuthService,
+    private toastr: ToastrService,
+    private loaderService: LoaderService) {
     this.toggle = this.staticService.toggle('register')
     this.referredByList = this.staticService.referredByList
   }
@@ -73,7 +84,7 @@ export class RegisterComponent implements OnInit {
       ])]
     }, {
       validator: MustMatch('password', 'confirmPassword')
-  });
+    });
   }
 
   onSubmit(form: FormGroup, type: string) {
@@ -91,10 +102,33 @@ export class RegisterComponent implements OnInit {
         this.formType = 'detailsForm'
         break;
       case 'detailsForm':
-        this.formType = 'successPage'
+        this.signUpUser()
         break;
     }
-    console.log(form.value, 'form value')
+    // console.log(form.value, 'form value')
+  }
+
+  signUpUser() {
+    this.loaderService.isLoading.next(true)
+    const attrList: CognitoUserAttribute[] = [];
+    const emailAttribute = {
+      Name: 'email',
+      Value: this.e.email.value
+    };
+    attrList.push(new CognitoUserAttribute(emailAttribute));
+    this.auth.userPool.signUp(this.e.email.value, this.d.password.value, attrList, null!, (err, result: any) => {
+      if (err) {
+        this.toastr.error('Error', 'Something went wrong!')
+        this.loaderService.isLoading.next(false)
+        return;
+      }
+      // this.authDidFail.next(false);
+      this.loaderService.isLoading.next(false)
+      this.registeredUser = result.user;
+      this.formType = 'successPage'
+      // this.toastr.success('Successfully Registered', 'Please check your email for confirmation')
+      // this.router.navigate(['/auth/login'])
+    });
   }
 
   //email form

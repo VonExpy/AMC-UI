@@ -26,28 +26,28 @@ const routes: Routes = [
         loadChildren: () =>
           import('../modules/users/users.module').then((m) => m.UsersModule),
         canActivate: [AuthGuard],
-        data: { roles: [Role.Admin] }
+        // data: { roles: [Role.Admin] }
       },
       {
         path: 'profile',
         loadChildren: () =>
           import('../modules/profile/profile.module').then((m) => m.ProfileModule),
         canActivate: [AuthGuard],
-        data: { roles: [Role.Admin] }
+        // data: { roles: [Role.Admin] }
       },
       {
         path: 'orders',
         loadChildren: () =>
           import('../modules/orders/orders.module').then((m) => m.OrdersModule),
         canActivate: [AuthGuard],
-        data: { roles: [Role.Admin] }
+        // data: { roles: [Role.Admin] }
       },
       {
         path: 'vendors',
         loadChildren: () =>
           import('../modules/vendors/vendors.module').then((m) => m.VendorsModule),
         canActivate: [AuthGuard],
-        data: { roles: [Role.Admin] }
+        // data: { roles: [Role.Admin] }
       },
       {
         path: 'accounts',

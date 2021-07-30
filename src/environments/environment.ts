@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   GOOGLE_MAP_API_KEY:'AIzaSyDAksYW6K71mqLMfTK1AtH7id-FyL5VvUc',
-  apiUrl:'http://localhost:4000'
+  apiUrl:'http://localhost:4000',
+  UserPoolId: 'us-east-2_K9n3qE3Uq',
+  ClientId: '3kef0a1ddf6sfuebrnscdj7bsi'
 };
 
 /*

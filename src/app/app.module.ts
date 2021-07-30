@@ -35,8 +35,8 @@ import { fakeBackendProvider } from './_helpers/fake-backend';
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    fakeBackendProvider
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    // fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })
