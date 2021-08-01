@@ -1,0 +1,48 @@
+@import 'colors';
+@import 'mixins';
+.accordion {
+    &-heading {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $accordion-heading-bg;
+        text-align: left;
+        padding: .67rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s linear;
+        box-sizing: border-box;
+        margin-bottom: 5px;
+        .heading {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: $accordion-heading-text;
+            text-transform: capitalize;
+        }
+        .actions {
+            .icon {
+                background: url(../icon_arrow_down.svg) no-repeat center center;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+        }
+        &.is-open {
+            background-color: $accordion-heading-bg-active;
+            .icon {
+                background: url(../icon_arrow_up.svg) no-repeat center center !important;
+            }
+        }
+    }
+}
+  
+  .accordion-content {
+    background-color: $accordion-content;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
+  }
+  
