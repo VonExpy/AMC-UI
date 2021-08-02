@@ -6,6 +6,7 @@ import { User } from 'src/app/_models/user';
 import { environment } from 'src/environments/environment';
 import { Role } from 'src/app/_models/role';
 import { Router } from '@angular/router';
+import { Auth } from 'aws-amplify';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   isLoggedIn = true
@@ -32,6 +33,41 @@ export class AuthService {
         }
         return user;
       }));
+  }
+
+  registrationFlow(user: any) {
+    return Auth.signUp({
+      username: user.email.toLowerCase(),
+      password: user.password,
+      attributes: {
+        given_name: user.firstName,
+        family_name: user.lastName,
+        email: user.email,
+        phone_number: '+1' + user.phoneNumber,
+        middle_name: user.middleName,
+        name: user.firstName + ', ' + user.lastName,
+        'custom:license_number': user.licenseNumber,
+        'custom:referred_by': user.referredBy || '<none>',
+        'custom:agree_tos': Date.now().toString(),
+        'custom:sign_up_usr_type': 'AD',
+        // address: '105 Main St. New York, NY 10001'
+        /* additional attrs that can be used
+          birthdate: '',
+          gender: '',
+          locale: '',
+          nickname: '',
+          picture: '',
+          preferred_username: '',
+          profile: '',
+          zoneinfo: ''
+          updated_at: ''
+          website: ''
+        */
+      },
+      clientMetadata: {
+        'license': user.licenseNumber
+      }
+    });
   }
 
   logout() {

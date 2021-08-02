@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "amcui1e82f11f": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

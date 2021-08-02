@@ -14,7 +14,10 @@ import { JwtInterceptor } from './_helpers/JwtInterceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { fakeBackendProvider } from './_helpers/fake-backend';
+// import { fakeBackendProvider } from './_helpers/fake-backend';
+
+/* import AmplifyUIAngularModule  */
+import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 @NgModule({
   declarations: [
     AppComponent
@@ -29,14 +32,16 @@ import { fakeBackendProvider } from './_helpers/fake-backend';
       apiKey: environment.GOOGLE_MAP_API_KEY,
       libraries: ['places', 'drawing']
     }),
-    HttpClientModule
+    HttpClientModule,
+    /* configure app with AmplifyUIAngularModule */
+    AmplifyUIAngularModule
   ],
   providers: [SharedService,
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    fakeBackendProvider
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    // fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

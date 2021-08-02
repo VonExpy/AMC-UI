@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from 'src/app/_helpers/must-match.validator';
 import { PasswordStrengthValidator } from 'src/app/_helpers/password-strength.validators';
 import { StaticMasterService } from '../../shared/services/static-master.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,8 @@ export class RegisterComponent implements OnInit {
   formType = 'emailForm'
   toggle:any = {}
   referredByList: { name: string; id: string; }[];
-  constructor(private fb: FormBuilder, private staticService:StaticMasterService) { 
+  constructor(private fb: FormBuilder, private staticService:StaticMasterService,
+    private auth:AuthService) { 
     this.toggle = this.staticService.toggle('register')
     this.referredByList = this.staticService.referredByList
   }
@@ -76,7 +78,7 @@ export class RegisterComponent implements OnInit {
   });
   }
 
-  onSubmit(form: FormGroup, type: string) {
+  async onSubmit(form: FormGroup, type: string) {
     this.submitted = true;
     // stop here if form is invalid
     if (form.invalid) {
@@ -91,6 +93,7 @@ export class RegisterComponent implements OnInit {
         this.formType = 'detailsForm'
         break;
       case 'detailsForm':
+        const registrationSubscr = await this.auth.registrationFlow(this.detailsForm.value);
         this.formType = 'successPage'
         break;
     }
