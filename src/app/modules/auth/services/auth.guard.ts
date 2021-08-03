@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Auth } from 'aws-amplify';
 import { Observable } from 'rxjs';
+import { LoaderService } from '../../shared/services/loader.service';
 import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
     constructor(
         private router: Router,
-        private authenticationService: AuthService
+        private authenticationService: AuthService,
+        private loaderService:LoaderService
     ) { }
 
     // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -34,6 +36,7 @@ export class AuthGuard implements CanActivate {
             // this.auth.setUserLoggedIn(true);
             console.log(user,'user auth guard')
             this.authenticationService.currentUserSubject.next(user.attributes);
+            this.loaderService.isLoading.next(false)
             return true;
         }).catch(err => {
             this.router.navigate(['/auth/login'], {

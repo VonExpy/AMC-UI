@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private auth: AuthService) {
     // redirect to dashboard if already logged in
-    // if (this.auth.currentUserValue) {
+    // console.log(this.auth.currentUserAttributes,'curent user value')
+    // if (this.auth.currentUserAttributes) {
     //   this.router.navigate(['/']);
     // }
   }
@@ -66,7 +67,6 @@ export class LoginComponent implements OnInit {
       const currentUser = await this.auth.signIn(this.f.email.value, this.f.password.value)
       this.toastr.success('Login Successful', `Hi ${currentUser.attributes.name}`)
       this.router.navigate([this.returnUrl]);
-      this.loaderService.isLoading.next(false)
     } catch (e) {
       this.toastr.error(e.message)
       this.loaderService.isLoading.next(false)
