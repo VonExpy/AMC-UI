@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Auth } from 'aws-amplify';
 import { ToastrService } from 'ngx-toastr';
-import { first } from 'rxjs/operators';
+// import { first } from 'rxjs/operators';
 import { LoaderService } from '../../shared/services/loader.service';
 import { AuthService } from '../services/auth.service';
 
@@ -25,9 +26,9 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private auth: AuthService) {
     // redirect to dashboard if already logged in
-    if (this.auth.currentUserValue) {
-      this.router.navigate(['/']);
-    }
+    // if (this.auth.currentUserValue) {
+    //   this.router.navigate(['/']);
+    // }
   }
 
   ngOnInit(): void {
@@ -50,10 +51,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get f() { return this.loginForm.controls; }
-
-
-  onSubmit(form: FormGroup) {
+  async onSubmit(form: FormGroup) {
     this.submitted = true;
     if (this.f.email.valid) {
       this.stepper = true
@@ -63,17 +61,18 @@ export class LoginComponent implements OnInit {
       return;
     }
     console.log('hit')
-    this.auth.login(this.f.email.value, this.f.password.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.toastr.success('Success', `Hi ${data.user123}`)
-          this.router.navigate([this.returnUrl]);
-        },
-        error => {
-          // this.error = error;
-          this.toastr.error(error)
-        });
+    try {
+      this.loaderService.isLoading.next(true)
+      const currentUser = await this.auth.signIn(this.f.email.value, this.f.password.value)
+      this.toastr.success('Login Successful', `Hi ${currentUser.attributes.name}`)
+      this.router.navigate([this.returnUrl]);
+      this.loaderService.isLoading.next(false)
+    } catch (e) {
+      this.toastr.error(e.message)
+      this.loaderService.isLoading.next(false)
+    }
   }
+
+  get f() { return this.loginForm.controls; }
 
 }

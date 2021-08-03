@@ -1,6 +1,6 @@
 {
   "auth": {
-    "amcui1e82f11f": {
+    "amcuifaa97da6": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

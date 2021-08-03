@@ -12,6 +12,10 @@
             <h2 class="heading"><span>Hey! {{a.firstName.value}}</span></h2>
             <span>Let us know more about you</span>
         </ng-container>
+        <ng-container *ngSwitchCase="'confirmUser'">
+            <h2 class="heading"><span>Confirm Sign up</span></h2>
+            <!-- <span>Your account has been created successfully</span> -->
+        </ng-container>
         <ng-container *ngSwitchCase="'successPage'">
             <h2 class="heading"><span>Congratulations {{a.firstName.value}}!</span></h2>
             <span>Your account has been created successfully</span>
@@ -49,9 +53,22 @@
                             <div class="f-group">
                                 <label [ngClass]="{required:!a.firstName.value}">FIRST NAME</label>
                                 <div class="f-field">
-                                    <input type="text" placeholder="Enter your firs name" formControlName="firstName" />
+                                    <input type="text" placeholder="Enter your first name" formControlName="firstName" />
                                     <div *ngIf="submitted && a.firstName.errors" class="error">
                                         <div *ngIf="a.firstName.errors.required">first name is required</div>
+                                        <div *ngIf="a.firstName.errors.pattern">Invalid</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>MIDDLE NAME</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter your middle name" formControlName="middleName" />
+                                    <div *ngIf="submitted && a.firstName.errors" class="error">
                                         <div *ngIf="a.firstName.errors.pattern">Invalid</div>
                                     </div>
                                 </div>
@@ -157,6 +174,43 @@
                     </div>
                 </form>
             </ng-container>
+            <ng-container *ngSwitchCase="'confirmUser'">
+                <form [formGroup]="confirmUserForm" (ngSubmit)="confirmUser(confirmUserForm)">
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!c.email.value}">YOUR EMAIL ID (USER ID)</label>
+                                <div class="f-field has-icon">
+                                    <input type="text" placeholder="Enter your Email ID" formControlName="email" />
+                                    <div *ngIf="submitted && c.email.errors" class="error">
+                                        <div *ngIf="c.email.errors.required">User ID is required</div>
+                                        <div *ngIf="c.email.errors.pattern">Please enter valid email</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!c.code.value}">Confirmation Code</label>
+                                <div class="f-field has-icon">
+                                    <input type="text" placeholder="Enter your code" formControlName="code" />
+                                    <div *ngIf="submitted && c.code.errors" class="error">
+                                        <div *ngIf="c.code.errors.required">Confirmation is required</div>
+                                        <div *ngIf="c.code.errors.pattern">Invalid</div>
+                                    </div>
+                                    <button class="btn btn-gradient has-icon only-icon">
+                                        <span class="icon">
+                                            <img src="../../../../assets/icon_login_arrow.svg" />
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </ng-container>
         </div>
     </ng-container>
 
@@ -197,6 +251,12 @@
                     </button>
                 </div>
             </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'confirmUser'">
+            <div class="text">
+                Lost your code?
+            </div>
+            <a href="javascript:;" (click)="resend()" class="link">Resend</a>
         </ng-container>
         <ng-container *ngSwitchCase="'successPage'">
             <button class="btn mt-5 btn-gradient has-icon" routerLink="/auth/login">

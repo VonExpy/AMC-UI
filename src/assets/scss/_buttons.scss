@@ -52,6 +52,11 @@
         border: solid 1px $secondary;
         color: $secondary;
     } 
+    &-black-outline {
+        background-color: transparent;
+        border: solid 1px $black;
+        color: $black; 
+    }
     &-gradient {
         background: transparent linear-gradient(105deg, #167EAF 0%, #6D9874 100%) 0% 0% no-repeat padding-box;
         color: $white;

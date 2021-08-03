@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Auth } from 'aws-amplify';
+import { ToastrService } from 'ngx-toastr';
 import { MustMatch } from 'src/app/_helpers/must-match.validator';
 import { PasswordStrengthValidator } from 'src/app/_helpers/password-strength.validators';
+import { LoaderService } from '../../shared/services/loader.service';
 import { StaticMasterService } from '../../shared/services/static-master.service';
 import { AuthService } from '../services/auth.service';
 
@@ -14,12 +17,15 @@ export class RegisterComponent implements OnInit {
   emailForm!: FormGroup
   accountForm!: FormGroup
   detailsForm!: FormGroup
+  confirmUserForm!: FormGroup
   submitted = false
   formType = 'emailForm'
-  toggle:any = {}
+  toggle: any = {}
   referredByList: { name: string; id: string; }[];
-  constructor(private fb: FormBuilder, private staticService:StaticMasterService,
-    private auth:AuthService) { 
+  constructor(private fb: FormBuilder, private staticService: StaticMasterService,
+    private loaderService: LoaderService,
+    private toastr: ToastrService,
+    private auth: AuthService) {
     this.toggle = this.staticService.toggle('register')
     this.referredByList = this.staticService.referredByList
   }
@@ -28,6 +34,7 @@ export class RegisterComponent implements OnInit {
     this.initEmailForm()
     this.initAccountForm()
     this.initDetailsForm()
+    this.initConfirmUserForm()
   }
 
   initEmailForm() {
@@ -49,6 +56,23 @@ export class RegisterComponent implements OnInit {
       lastName: ['', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z ]*$'),
+        Validators.maxLength(100)
+      ])],
+      middleName: ['', Validators.compose([
+        Validators.pattern('^[a-zA-Z ]*$'),
+        Validators.maxLength(100)
+      ])],
+    });
+  }
+
+  initConfirmUserForm() {
+    this.confirmUserForm = this.fb.group({
+      email: [{ value: '', disabled: true }, Validators.compose([
+        Validators.required,
+        Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
+      ])],
+      code: ['', Validators.compose([
+        Validators.required,
         Validators.maxLength(100)
       ])]
     });
@@ -75,9 +99,10 @@ export class RegisterComponent implements OnInit {
       ])]
     }, {
       validator: MustMatch('password', 'confirmPassword')
-  });
+    });
   }
 
+  //form validation and stepper
   async onSubmit(form: FormGroup, type: string) {
     this.submitted = true;
     // stop here if form is invalid
@@ -93,11 +118,57 @@ export class RegisterComponent implements OnInit {
         this.formType = 'detailsForm'
         break;
       case 'detailsForm':
-        const registrationSubscr = await this.auth.registrationFlow(this.detailsForm.value);
-        this.formType = 'successPage'
+        this.signUpUser()
         break;
     }
-    console.log(form.value, 'form value')
+  }
+
+  //create user
+  async signUpUser() {
+    try {
+      this.loaderService.isLoading.next(true)
+      await this.auth.registrationFlow(this.accountForm.value, this.detailsForm.value, this.e.email.value);
+      this.loaderService.isLoading.next(false)
+      this.formType = 'confirmUser'
+      this.c.email.patchValue(this.e.email.value)
+    } catch (err) {
+      this.toastr.error(err.message)
+      this.loaderService.isLoading.next(false)
+      if (err.code == 'UsernameExistsException') {
+        return this.resend()
+      }
+    }
+  }
+
+  //confirm user signup
+  async confirmUser(form: FormGroup) {
+    if (form.invalid) {
+      return;
+    }
+    try {
+      this.loaderService.isLoading.next(true)
+      await Auth.confirmSignUp(this.e.email.value, this.c.code.value);
+      this.loaderService.isLoading.next(false)
+      this.formType = 'successPage'
+    } catch (err) {
+      this.toastr.error(err.message)
+      this.loaderService.isLoading.next(false)
+    }
+  }
+
+  //resend confirmation code
+  async resend() {
+    try {
+      this.loaderService.isLoading.next(true)
+      await Auth.resendSignUp(this.e.email.value);
+      this.toastr.success('Please check your email')
+      this.formType = 'confirmUser'
+      this.c.email.patchValue(this.e.email.value)
+      this.loaderService.isLoading.next(false)
+    } catch (err) {
+      this.toastr.error(err.message)
+      this.loaderService.isLoading.next(false)
+    }
   }
 
   //email form
@@ -108,5 +179,8 @@ export class RegisterComponent implements OnInit {
 
   //details form
   get d() { return this.detailsForm.controls; }
+
+  //confirm user form
+  get c() { return this.confirmUserForm.controls; }
 
 }
