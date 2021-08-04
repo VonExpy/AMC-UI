@@ -200,4 +200,15 @@ export class StaticMasterService {
     }
 
   }
+
+  getRole(userType:string){
+    switch(userType) {
+      case 'AD':
+        return 'Chief Appraiser'
+      case 'BO':
+        return 'Business Owner'
+       default :
+       return '' 
+    }
+  }
 }

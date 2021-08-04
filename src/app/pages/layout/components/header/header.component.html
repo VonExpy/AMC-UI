@@ -244,8 +244,8 @@
                 <div class="section profile" [ngClass]="{'active': action == 'profile' }"
                 (mouseout)="action = ''" (mouseover)="action = 'profile'">
                     <div class="profile__details">
-                        <span class="name">Veera Arun Sameer John</span>
-                        <span class="role">Business Owner</span>
+                        <span class="name">{{auth.currentUserValue?.name}}</span>
+                        <span class="role">{{currentUserRole}}</span>
                     </div>
                     <div class="profile__pic">
                         <span class="pic">

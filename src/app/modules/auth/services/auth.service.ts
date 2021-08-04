@@ -44,6 +44,14 @@ export class AuthService {
     return Auth.signIn(email,password)
   }
 
+  forgotPassword(email:string){
+    return Auth.forgotPassword(email)
+  }
+
+  forgotPasswordSubmit(email:string,code:string,newPassword:string){
+    return Auth.forgotPasswordSubmit(email,code,newPassword)
+  }
+
   // login(username: string, password: string) {
   //   return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username, password })
   //     .pipe(map(user => {
@@ -71,7 +79,7 @@ export class AuthService {
         'custom:license_number': user.licenseNumber,
         'custom:referred_by': user.referredBy || '<none>',
         'custom:agree_tos': Date.now().toString(),
-        'custom:sign_up_usr_type': 'AD',
+        'custom:user_type': 'AD',
         // address: '105 Main St. New York, NY 10001'
         /* additional attrs that can be used
           birthdate: '',
