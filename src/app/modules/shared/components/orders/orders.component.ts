@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ColumnMode } from '@swimlane/ngx-datatable';
+import { Router } from '@angular/router';
+import { ColumnMode, SelectionType } from '@swimlane/ngx-datatable';
 import { MockServerResultsService } from './paging/mock-server-results-service';
 import { orderModal } from './paging/model/order.modal';
 import { Page } from './paging/model/page';
- 
+
 interface PageInfo {
   offset: number;
   pageSize: number;
@@ -24,12 +25,14 @@ export class OrdersComponent implements OnInit {
   ColumnMode = ColumnMode;
 
   isLoading = 0;
+  SelectionType = SelectionType;
 
-  constructor(private serverResultsService: MockServerResultsService) {
+  constructor(private serverResultsService: MockServerResultsService,
+    private router: Router) {
     this.pageNumber = 0;
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
   }
 
@@ -60,7 +63,7 @@ export class OrdersComponent implements OnInit {
     this.isLoading++;
 
     this.serverResultsService.getResults(page).subscribe(pagedData => {
-      console.log(pagedData,'pagedata')
+      console.log(pagedData, 'pagedata')
       // Update total count
       this.totalElements = pagedData.page.totalElements;
 
@@ -86,5 +89,10 @@ export class OrdersComponent implements OnInit {
       // Decrement the counter of pending API calls
       this.isLoading--;
     });
+  }
+
+  onSelect(event: any) {
+    console.log('hit')
+    this.router.navigate(['/orders/view/order-summary'])
   }
 }
