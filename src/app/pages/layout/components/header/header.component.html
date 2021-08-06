@@ -276,17 +276,17 @@
                                 </div>
                                 <div class="details">
                                     <div class="text name">
-                                        <strong>Veera Arun Sameer</strong>
+                                        <strong>{{auth.currentUserValue?.name}}</strong>
                                     </div>
                                     <div class="assigned">
-                                        Business Owner
+                                        {{currentUserRole}}
                                     </div>
                                 </div>
                             </div>
                             <div class="list-item">
                                 <div class="details">
                                     <div class="assigned">
-                                        <span class="link">johnsmith@domainname.com</span>
+                                        <span class="link">{{auth.currentUserValue?.email}}</span>
                                     </div>
                                 </div>
                                 <div class="time-status">
