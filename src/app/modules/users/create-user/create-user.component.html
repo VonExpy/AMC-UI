@@ -1,0 +1,49 @@
+<form class="modal modal-container" [formGroup]="jobtypeForm" (ngSubmit)="onSubmit(jobtypeForm)">
+    <div class="modal-title">
+        <h4 class="heading">Create User</h4>
+    </div>
+    <div class="modal-body" malihu-scrollbar>
+        <div class="px-8 py-8">
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!f.jobtype.value}">USER TYPE</label>
+                        <div class="f-field">
+                            <ng-select [items]="staticService.jobTypes" bindLabel="name" bindValue="value"
+                                [multiple]="true" placeholder="Select" appendTo="body" formControlName="jobtype">
+                            </ng-select>
+                            <div *ngIf="submitted && f.jobtype.errors" class="error">
+                                <div *ngIf="f.jobtype.errors.required">Jobtype is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label>FEE ($)</label>
+                        <div class="f-field">
+                            <input type="text" placeholder="Please Enter" mask="separator.2" prefix="$"
+                                thousandSeparator="," formControlName="fee" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="f-group">
+                        <label>Notes</label>
+                        <div class="f-field">
+                            <input type="text" placeholder="Please Enter Your Notes" formControlName="notes" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer flex-justify-right">
+        <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
+        <button class="btn ml-2">Add</button>
+    </div>
+</form>

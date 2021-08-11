@@ -201,6 +201,15 @@ export class StaticMasterService {
 
   }
 
+  getUsersByRole(userType:string){
+    switch(userType) {
+      case 'AD':
+        return ['ChiefAppraiser','AppraiserAdmin','AppraiserUser','AppraiserTrainee']
+       default :
+       return []
+    }
+  }
+
   getRole(userType:string){
     switch(userType) {
       case 'AD':

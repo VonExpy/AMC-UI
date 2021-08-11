@@ -6,12 +6,14 @@ import { DetailsComponent } from './details/details.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { UsersRoutingModule } from './users-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 @NgModule({
   declarations: [
     LandingComponent,
     ListComponent,
-    DetailsComponent
+    DetailsComponent,
+    CreateUserComponent
   ],
   imports: [
     CommonModule,
