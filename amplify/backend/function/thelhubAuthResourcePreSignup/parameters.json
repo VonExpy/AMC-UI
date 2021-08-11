@@ -1,0 +1,4 @@
+{
+  "modules": "email-filter-blacklist",
+  "resourceName": "thelhubAuthResourcePreSignup"
+}

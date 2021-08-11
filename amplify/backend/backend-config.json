@@ -6,5 +6,12 @@
       "dependsOn": [],
       "customAuth": false
     }
+  },
+  "function": {
+    "thelhubAuthResourcePreSignup": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
   }
 }
