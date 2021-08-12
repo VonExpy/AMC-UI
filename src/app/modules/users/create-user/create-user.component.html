@@ -1,49 +1,554 @@
-<form class="modal modal-container" [formGroup]="jobtypeForm" (ngSubmit)="onSubmit(jobtypeForm)">
-    <div class="modal-title">
-        <h4 class="heading">Create User</h4>
-    </div>
-    <div class="modal-body" malihu-scrollbar>
-        <div class="px-8 py-8">
-            <div class="row">
-                <div class="col-4">
-                    <div class="f-group">
-                        <label [ngClass]="{required:!f.jobtype.value}">USER TYPE</label>
-                        <div class="f-field">
-                            <ng-select [items]="staticService.jobTypes" bindLabel="name" bindValue="value"
-                                [multiple]="true" placeholder="Select" appendTo="body" formControlName="jobtype">
-                            </ng-select>
-                            <div *ngIf="submitted && f.jobtype.errors" class="error">
-                                <div *ngIf="f.jobtype.errors.required">Jobtype is required</div>
+<ng-container [ngSwitch]="formType">
+    <form [formGroup]="personalDetailsForm" class="modal modal-container"
+        (ngSubmit)="onSubmit(personalDetailsForm,'personalDetailsForm')" *ngSwitchCase="'personalDetailsForm'">
+        <div class="modal-title">
+            <h4 class="heading">Create User/Personal Info</h4>
+        </div>
+        <div class="modal-body" malihu-scrollbar>
+            <div class="px-8 py-8">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!userType}">USER TYPE</label>
+                            <div class="f-field">
+                                <ng-select [items]="userTypes" bindLabel="value" bindValue="name" placeholder="Select"
+                                    [(ngModel)]="userType" [ngModelOptions]="{standalone: true}"
+                                    (change)="onUserTypeChange($event.name)">
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!f.firstName.value}">FIRST NAME</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter your first name" formControlName="firstName" />
+                                <div *ngIf="submitted && f.firstName.errors" class="error">
+                                    <div *ngIf="f.firstName.errors.required">first name is required</div>
+                                    <div *ngIf="f.firstName.errors.pattern">Invalid</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>MIDDLE NAME</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter your middle name" formControlName="middleName" />
+                                <div *ngIf="submitted && f.firstName.errors" class="error">
+                                    <div *ngIf="f.firstName.errors.pattern">Invalid</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!f.lastName.value}">LAST NAME</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter your last name" formControlName="lastName" />
+                                <div *ngIf="submitted && f.lastName.errors" class="error">
+                                    <div *ngIf="f.lastName.errors.required">last name is required</div>
+                                    <div *ngIf="f.lastName.errors.pattern">Invalid</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!f.phone.value}">PHONE</label>
+                            <div class="f-field">
+                                <input type="text" mask="(000) 000-0000" placeholder="Ex. (000) 000-0000"
+                                    formControlName="phone" />
+                                <div *ngIf="submitted && f.phone.errors" class="error">
+                                    <div *ngIf="f.phone.errors.required">Phone is required</div>
+                                    <div *ngIf="f.phone.errors.mask">Please enter valid phone</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>ALT PHONE</label>
+                            <div class="f-field">
+                                <input type="text" mask="(000) 000-0000" placeholder="Ex. (000) 000-0000"
+                                    formControlName="altPhone" />
+                                <div *ngIf="submitted && f.altPhone.errors" class="error">
+                                    <div *ngIf="f.altPhone.errors.mask">Please enter valid phone</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!f.email.value}">Email</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="ex. test@test.com" formControlName="email" />
+                                <div *ngIf="submitted && f.email.errors" class="error">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.pattern">Please enter Valid Name</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="userType == 'chiefAppraiser' || userType == 'appraiserUser'">
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>CERTIFICATION</label>
+                                <div class="f-field">
+                                    <ng-select [items]="[]" bindLabel="value" bindValue="name" placeholder="Select"
+                                        formControlName="certification">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!f.appraiserType.value}">APPRAISER TYPE</label>
+                                <div class="f-field">
+                                    <ng-select [items]="appraiserTypes" bindLabel="type" bindValue="id" placeholder="Select"
+                                        formControlName="appraiserType">
+                                    </ng-select>
+                                    <div *ngIf="submitted && f.appraiserType.errors" class="error">
+                                        <div *ngIf="f.appraiserType.errors.required">Appraiser Type is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!f.licenseNumber.value}">LICENSE NUMBER</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter your license number"
+                                        formControlName="licenseNumber" />
+                                    <div *ngIf="submitted && f.licenseNumber.errors" class="error">
+                                        <div *ngIf="f.licenseNumber.errors.required">License Number is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!f.expiryDate.value}">EXPIRY DATE</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Select expiry date" formControlName="expiryDate" />
+                                    <div *ngIf="submitted && f.expiryDate.errors" class="error">
+                                        <div *ngIf="f.expiryDate.errors.required">Expiry Date is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>SSN/TAX</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter your ssn/tax" formControlName="ssn" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>STATE</label>
+                                <div class="f-field">
+                                    <ng-select [items]="[]" bindLabel="value" bindValue="name" placeholder="Select"
+                                        formControlName="credentialState">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="title-heading flex-justify-start">
+                    <h3>Mailing Address</h3>
+                    <div class="flex-row-center ml-5">
+                        <ng-toggle [width]="toggle.width" [height]="toggle.height" [margin]="toggle.margin"
+                            [labels]="toggle.labels" [color]="toggle.color" [switchColor]="toggle.switchColor"
+                            [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                        </ng-toggle>
+                        <small class="label ml-3">Use Company/Assignment Address</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <app-auto-complete (setAddress)="getAddress($event,'personal')" adressType="geocode">
+                        </app-auto-complete>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!f.street.value}">Address</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Address" formControlName="street"
+                                    [attr.disabled]="true" />
+                                <div *ngIf="submitted && f.street.errors" class="error">
+                                    <div *ngIf="f.street.errors.required">Address is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!f.city.value}">City</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="City" formControlName="city" [attr.disabled]="true" />
+                                <div *ngIf="submitted && f.city.errors" class="error">
+                                    <div *ngIf="f.city.errors.required">City is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>County</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="County" formControlName="county"
+                                    [attr.disabled]="true" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!f.state.value}">State</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="state" formControlName="state" [attr.disabled]="true" />
+                                <div *ngIf="submitted && f.state.errors" class="error">
+                                    <div *ngIf="f.state.errors.required">State is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!f.zipcode.value}">Zipcode</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Zipcode" formControlName="zipcode"
+                                    [attr.disabled]="true">
+                                <div *ngIf="submitted && f.zipcode.errors" class="error">
+                                    <div *ngIf="f.zipcode.errors.required">Zipcode is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>FEE ($)</label>
-                        <div class="f-field">
-                            <input type="text" placeholder="Please Enter" mask="separator.2" prefix="$"
-                                thousandSeparator="," formControlName="fee" />
+        </div>
+        <div class="modal-footer flex-justify-right">
+            <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
+            <button class="btn ml-2" type="submit">Next</button>
+        </div>
+    </form>
+    <form [formGroup]="companyDetailsForm" class="modal modal-container"
+        (ngSubmit)="onSubmit(companyDetailsForm,'companyDetailsForm')" *ngSwitchCase="'companyDetailsForm'">
+        <div class="modal-title">
+            <h4 class="heading">Create User/Company Details</h4>
+        </div>
+        <div class="modal-body" malihu-scrollbar>
+            <div class="px-8 py-8">
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>NAME</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter your company name"
+                                    formControlName="companyName" />
+                                <div *ngIf="submitted && c.companyName.errors" class="error">
+                                    <div *ngIf="c.companyName.errors.pattern">Invalid</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>PHONE</label>
+                            <div class="f-field">
+                                <input type="text" mask="(000) 000-0000" placeholder="Ex. (000) 000-0000"
+                                    formControlName="companyPhone" />
+                                <div *ngIf="submitted && c.companyPhone.errors" class="error">
+                                    <div *ngIf="c.companyPhone.errors.mask">Please enter valid phone</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>Email</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="ex. test@test.com" formControlName="companyEmail" />
+                                <div *ngIf="submitted && c.companyEmail.errors" class="error">
+                                    <div *ngIf="c.companyEmail.errors.pattern">Please enter Valid email</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="f-group">
-                        <label>Notes</label>
-                        <div class="f-field">
-                            <input type="text" placeholder="Please Enter Your Notes" formControlName="notes" />
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>FAX</label>
+                            <div class="f-field">
+                                <input type="text" mask="(000) 000-0000" placeholder="Ex. (000) 000-0000"
+                                    formControlName="fax" />
+                                <div *ngIf="submitted && c.fax.errors" class="error">
+                                    <div *ngIf="c.fax.errors.mask">Please enter valid fax</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title-heading flex-justify-start">
+                    <h3>Address for Assignments</h3>
+                    <div class="flex-row-center ml-5">
+                        <ng-toggle [width]="toggle.width" [height]="toggle.height" [margin]="toggle.margin"
+                            [labels]="toggle.labels" [color]="toggle.color" [switchColor]="toggle.switchColor"
+                            [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                        </ng-toggle>
+                        <small class="label ml-3">Use Company/Assignment Address</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <app-auto-complete (setAddress)="getAddress($event,'company')" adressType="geocode">
+                        </app-auto-complete>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!c.companyStreet.value}">Address</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Address" formControlName="companyStreet"
+                                    [attr.disabled]="true" />
+                                <div *ngIf="submitted && c.companyStreet.errors" class="error">
+                                    <div *ngIf="c.companyStreet.errors.required">Address is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!c.companyCity.value}">City</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="City" formControlName="companyCity"
+                                    [attr.disabled]="true" />
+                                <div *ngIf="submitted && c.companyCity.errors" class="error">
+                                    <div *ngIf="c.companyCity.errors.required">City is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>County</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="County" formControlName="companyCounty"
+                                    [attr.disabled]="true" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!c.companyState.value}">State</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="state" formControlName="companyState"
+                                    [attr.disabled]="true" />
+                                <div *ngIf="submitted && c.companyState.errors" class="error">
+                                    <div *ngIf="c.companyState.errors.required">State is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label [ngClass]="{required:!c.companyZipcode.value}">Zipcode</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Zipcode" formControlName="companyZipcode"
+                                    [attr.disabled]="true">
+                                <div *ngIf="submitted && c.companyZipcode.errors" class="error">
+                                    <div *ngIf="c.companyZipcode.errors.required">Zipcode is required</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal-footer flex-justify-right">
-        <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
-        <button class="btn ml-2">Add</button>
-    </div>
-</form>
+        <div class="modal-footer flex-justify-right">
+            <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
+            <button class="btn ml-2" type="button" (click)="gotoPrevious()">Previous</button>
+            <button class="btn ml-2" type="submit">Next</button>
+        </div>
+
+
+        <!-- <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!f.street.value}">Address</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Address" formControlName="street"
+                                        [attr.disabled]="true" />
+                                    <div *ngIf="submitted && f.street.errors" class="error">
+                                        <div *ngIf="f.street.errors.required">Address is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!f.city.value}">City</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="City" formControlName="city"
+                                        [attr.disabled]="true" />
+                                    <div *ngIf="submitted && f.city.errors" class="error">
+                                        <div *ngIf="f.city.errors.required">City is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>County</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="County" formControlName="county"
+                                        [attr.disabled]="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!f.state.value}">State</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="state" formControlName="state"
+                                        [attr.disabled]="true" />
+                                    <div *ngIf="submitted && f.state.errors" class="error">
+                                        <div *ngIf="f.state.errors.required">State is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!f.zipcode.value}">Zipcode</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Zipcode" formControlName="zipcode"
+                                        [attr.disabled]="true">
+                                    <div *ngIf="submitted && f.zipcode.errors" class="error">
+                                        <div *ngIf="f.zipcode.errors.required">Zipcode is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+    </form>
+    <form [formGroup]="insuranceForm" class="modal modal-container" (ngSubmit)="onSubmit(insuranceForm,'insuranceForm')"
+        *ngSwitchCase="'insuranceForm'">
+        <div class="modal-title">
+            <h4 class="heading">Create User/E&O Insurance</h4>
+        </div>
+        <div class="modal-body" malihu-scrollbar>
+            <div class="px-8 py-8">
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>INSURANCE COMPANY</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter your insurance company"
+                                    formControlName="insuranceCompany" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>E&O PER CLAIM AMOUNT</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="0.00" mask="separator.2" prefix="$"
+                                    thousandSeparator="," formControlName="eoClaimAmount" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>E&O PER AGGREGATE AMOUNT</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="0.00" mask="separator.2" prefix="$"
+                                    thousandSeparator="," formControlName="eoAggrAmount" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>E&O EXPIRATION</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Please Select" mask="separator.2" prefix="$"
+                                    thousandSeparator="," formControlName="eoExpDate" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer flex-justify-right">
+            <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
+            <button class="btn ml-2" type="button" (click)="gotoPrevious()">Previous</button>
+            <button class="btn ml-2" type="submit">Review</button>
+        </div>
+    </form>
+    <form class="modal modal-container" *ngSwitchCase="'reviewForm'">
+        <div class="modal-title">
+            <h4 class="heading">Create User/Review</h4>
+        </div>
+        <div class="modal-body" malihu-scrollbar>
+            <div class="px-8 py-8">
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>First Name</label>
+                            <div class="f-field-value">
+                                {{f.firstName.value}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>Middle Name</label>
+                            <div class="f-field-value">
+                                {{f.middleName.value}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>Last Name</label>
+                            <div class="f-field-value">
+                                {{f.lastName.value}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer flex-justify-right">
+            <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
+            <button class="btn ml-2" type="button" (click)="gotoPrevious()">Previous</button>
+            <button class="btn ml-2">Submit</button>
+        </div>
+    </form>
+
+</ng-container>

@@ -10,9 +10,9 @@ export class StaticMasterService {
     scrollButtons: { enable: false }
   };
   jobTypes = [
-    { "name": "ValueAdd-Exterior", value: 1, index:1 },
-    { "name": "ValueAdd-Interior", value: 30, index:2 },
-    { "name": "1004P - Interior", value: 31, index:3 },
+    { "name": "ValueAdd-Exterior", value: 1, index: 1 },
+    { "name": "ValueAdd-Interior", value: 30, index: 2 },
+    { "name": "1004P - Interior", value: 31, index: 3 },
     { "name": "1004P - Exterior", value: 32 },
     { "name": "1074 FHA W/1007/216", value: 2 },
     { "name": "1075 Condo Exterior", value: 3 },
@@ -66,7 +66,7 @@ export class StaticMasterService {
     { "name": "1073 Condo", value: 54 },
     { "name": "Trip Fee", value: 55 },
     { "name": "USDA - RURAL DEVELOPMENT REPORT", value: 56 }
-];
+  ];
   referredByList = [
     { name: 'Colleague', id: 'Colleague' },
     { name: 'Search Engine', id: 'Search_Engine' },
@@ -111,63 +111,63 @@ export class StaticMasterService {
           }
         };
       case 'fee':
-          return {
-            value: true,
-            name: "test",
-            disabled: false,
-            height: 24,
-            width: 55,
-            margin: 1,
-            fontSize: 12,
-            speed: 300,
-            color: {
-              checked: "#1B6E3F",
-              unchecked: "#A4BBC1"
-            },
-            switchColor: {
-              checked: "#F8F8F8",
-              unchecked: "#F8F8F8"
-            },
-            labels: {
-              unchecked: "No",
-              checked: "Yes"
-            },
-            checkedLabel: "",
-            uncheckedLabel: "",
-            fontColor: {
-              checked: "#fafafa",
-              unchecked: "#ffffff"
-            }
-          };
+        return {
+          value: true,
+          name: "test",
+          disabled: false,
+          height: 24,
+          width: 55,
+          margin: 1,
+          fontSize: 12,
+          speed: 300,
+          color: {
+            checked: "#1B6E3F",
+            unchecked: "#A4BBC1"
+          },
+          switchColor: {
+            checked: "#F8F8F8",
+            unchecked: "#F8F8F8"
+          },
+          labels: {
+            unchecked: "No",
+            checked: "Yes"
+          },
+          checkedLabel: "",
+          uncheckedLabel: "",
+          fontColor: {
+            checked: "#fafafa",
+            unchecked: "#ffffff"
+          }
+        };
       case 'yesorno':
-            return {
-              value: true,
-              name: "test",
-              disabled: false,
-              height: 24,
-              width: 55,
-              margin: 1,
-              fontSize: 12,
-              speed: 300,
-              color: {
-                checked: "#1B6E3F",
-                unchecked: "#A4BBC1"
-              },
-              switchColor: {
-                checked: "#F8F8F8",
-                unchecked: "#F8F8F8"
-              },
-              labels: {
-                unchecked: "No",
-                checked: "Yes"
-              },
-              checkedLabel: "",
-              uncheckedLabel: "",
-              fontColor: {
-                checked: "#fafafa",
-                unchecked: "#ffffff"
-              }
-            };
+        return {
+          value: true,
+          name: "test",
+          disabled: false,
+          height: 24,
+          width: 55,
+          margin: 1,
+          fontSize: 12,
+          speed: 300,
+          color: {
+            checked: "#1B6E3F",
+            unchecked: "#A4BBC1"
+          },
+          switchColor: {
+            checked: "#F8F8F8",
+            unchecked: "#F8F8F8"
+          },
+          labels: {
+            unchecked: "No",
+            checked: "Yes"
+          },
+          checkedLabel: "",
+          uncheckedLabel: "",
+          fontColor: {
+            checked: "#fafafa",
+            unchecked: "#ffffff"
+          }
+        };
       default:
         return {
           value: true,
@@ -201,23 +201,36 @@ export class StaticMasterService {
 
   }
 
-  getUsersByRole(userType:string){
-    switch(userType) {
+  getUsersByRole(userType: string) {
+    switch (userType) {
       case 'AD':
-        return ['ChiefAppraiser','AppraiserAdmin','AppraiserUser','AppraiserTrainee']
-       default :
-       return []
+        return [
+          { name: 'chiefAppraiser', value: 'Chief Appraiser' },
+          { name: 'appraiserAdmin', value: 'Appraiser Admin' },
+          { name: 'appraiserUser', value: 'Appraiser User' },
+          { name: 'appraiserTrainee', value: 'Appraiser Trainee' }
+        ]
+      default:
+        return []
     }
   }
 
-  getRole(userType:string){
-    switch(userType) {
+  getRole(userType: string) {
+    switch (userType) {
       case 'AD':
         return 'Chief Appraiser'
       case 'BO':
         return 'Business Owner'
-       default :
-       return '' 
+      default:
+        return ''
     }
   }
+
+  getAppraiserTypes() {
+    return [
+        { type: 'Licensed', id: '1' },
+        { type: 'Certified General', id: '2' },
+        { type: 'Certified Residential', id: '3' }
+    ]
+}
 }
