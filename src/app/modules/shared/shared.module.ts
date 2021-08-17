@@ -42,6 +42,8 @@ import { AddJobtypeFormComponent } from './components/profile/jobtypes/add-form/
 import { AddFormComponent } from './components/profile/fee-structure/add-form/add-form.component';
 import { AddZipcodesComponent } from './components/profile/coverage/add-zipcodes/add-zipcodes.component';
 import { AddProductsComponent } from './components/profile/products-vendors/add-products/add-products.component';
+import { CapitalSpacePipe } from 'src/app/_helpers/capitalSpace.pipe';
+import { PhonePipe } from 'src/app/_helpers/phone.pipe';
 
 FullCalendarModule.registerPlugins([
   interactionPlugin,
@@ -77,7 +79,9 @@ FullCalendarModule.registerPlugins([
     AddJobtypeFormComponent,
     AddFormComponent,
     AddZipcodesComponent,
-    AddProductsComponent
+    AddProductsComponent,
+    CapitalSpacePipe,
+    PhonePipe
   ],
   imports: [
     CommonModule,
@@ -128,7 +132,9 @@ FullCalendarModule.registerPlugins([
     AddJobtypeFormComponent,
     AddFormComponent,
     AddZipcodesComponent,
-    AddProductsComponent
+    AddProductsComponent,
+    CapitalSpacePipe,
+    PhonePipe
   ],
   providers: [MockServerResultsService, MockServerClientsService, MockServerAppraisersService]
 })

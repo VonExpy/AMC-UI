@@ -16,14 +16,18 @@ export class CreateUserComponent implements OnInit {
   submitted = false;
   toggle: any = {}
   userTypes: { name: string; value: string; }[];
-  userType = 'chiefAppraiser'
+  userType = 'ChiefAppraiser'
   appraiserTypes: { type: string; id: string; }[];
+  states: { value: string; id: number; name: string; }[];
+  certifications: { name: string; id: string; }[];
   constructor(public staticService: StaticMasterService, private fb: FormBuilder,
     public sharedService: SharedService,
     private cd: ChangeDetectorRef) {
     this.toggle = this.staticService.toggle('profile')
     this.userTypes = this.staticService.getUsersByRole('AD')
     this.appraiserTypes = this.staticService.getAppraiserTypes();
+    this.states = this.staticService.getStates();
+		this.certifications = this.staticService.getCertifications();
   }
 
   ngOnInit(): void {
@@ -35,7 +39,7 @@ export class CreateUserComponent implements OnInit {
 
   initPersonalDetailsForm() {
     this.personalDetailsForm = this.fb.group({
-      role: ['chiefAppraiser', Validators.compose([
+      role: ['ChiefAppraiser', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z ]*$'),
         Validators.maxLength(100)
@@ -124,7 +128,7 @@ export class CreateUserComponent implements OnInit {
   //on role change
   onUserTypeChange(role: string) {
     this.f.role.patchValue(role)
-    if (role == 'chiefAppraiser' || role == 'appraiserUser') {
+    if (role == 'ChiefAppraiser' || role == 'AppraiserUser') {
       this.licensedUser()
     } else {
       this.removeControls()
@@ -154,16 +158,16 @@ export class CreateUserComponent implements OnInit {
     this.cd.detectChanges()
   }
 
-  gotoPrevious() {
-
+  gotoPrevious(formType:string) {
+     this.formType = formType
   }
 
   get f() { return this.personalDetailsForm.controls; }
   get c() { return this.companyDetailsForm.controls; }
+  get e() { return this.insuranceForm.controls; }
 
   //form validation and stepper
   async onSubmit(form: FormGroup, type: string) {
-    console.log(type, 'personalDetailsForm')
     this.submitted = true;
     // stop here if form is invalid
     if (form.invalid) {
@@ -172,11 +176,11 @@ export class CreateUserComponent implements OnInit {
     this.submitted = false
     switch (type) {
       case 'personalDetailsForm':
-        console.log('hit', 'hit', type)
         this.formType = 'companyDetailsForm'
         break;
       case 'companyDetailsForm':
-        this.formType = this.userType == 'chiefAppraiser' || this.userType == 'appraiserUser' ?
+        this.formType = 
+           this.userType == 'ChiefAppraiser' || this.userType == 'AppraiserUser' ?
           'insuranceForm' : 'reviewForm'
         break;
       case 'insuranceForm':
@@ -187,5 +191,7 @@ export class CreateUserComponent implements OnInit {
       //   break;
     }
   }
+
+
 
 }

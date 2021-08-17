@@ -205,10 +205,10 @@ export class StaticMasterService {
     switch (userType) {
       case 'AD':
         return [
-          { name: 'chiefAppraiser', value: 'Chief Appraiser' },
-          { name: 'appraiserAdmin', value: 'Appraiser Admin' },
-          { name: 'appraiserUser', value: 'Appraiser User' },
-          { name: 'appraiserTrainee', value: 'Appraiser Trainee' }
+          { name: 'ChiefAppraiser', value: 'Chief Appraiser' },
+          { name: 'AppraiserAdmin', value: 'Appraiser Admin' },
+          { name: 'AppraiserUser', value: 'Appraiser User' },
+          { name: 'AppraiserTrainee', value: 'Appraiser Trainee' }
         ]
       default:
         return []
@@ -221,6 +221,8 @@ export class StaticMasterService {
         return 'Chief Appraiser'
       case 'BO':
         return 'Business Owner'
+        case 'BORROWER':
+          return 'BORROWER'
       default:
         return ''
     }
@@ -228,9 +230,77 @@ export class StaticMasterService {
 
   getAppraiserTypes() {
     return [
-        { type: 'Licensed', id: '1' },
-        { type: 'Certified General', id: '2' },
-        { type: 'Certified Residential', id: '3' }
+      { type: 'Licensed', id: '1' },
+      { type: 'Certified General', id: '2' },
+      { type: 'Certified Residential', id: '3' }
     ]
-}
+  }
+
+  getCertifications() {
+    return [
+      { name: 'FHA', id: '1' }, { name: 'VA', id: '2' }
+    ]
+  }
+  getStates() {
+    const states = [
+      { value: "AL", id: 1, name: "Alabama" },
+      { value: "NE", id: 2, name: "Nebraska" },
+      { value: "NV", id: 3, name: "Nevada" },
+      { value: "NH", id: 4, name: "New Hampshire" },
+      { value: "NJ", id: 5, name: "New Jersey" },
+      { value: "NM", id: 6, name: "New Mexico" },
+      { value: "NY", id: 7, name: "New York" },
+      { value: "NC", id: 8, name: "North Carolina" },
+      { value: "ND", id: 9, name: "North Dakota" },
+      { value: "OH", id: 10, name: "Ohio" },
+      { value: "OK", id: 11, name: "Oklahoma" },
+      { value: "OR", id: 12, name: "Oregon" },
+      { value: "MP", id: 13, name: "Northern Marianas" },
+      { value: "PA", id: 14, name: "Pennsylvania" },
+      { value: "RI", id: 15, name: "Rhode Island" },
+      { value: "SC", id: 16, name: "South Carolina" },
+      { value: "SD", id: 17, name: "South Dakota" },
+      { value: "TN", id: 18, name: "Tennessee" },
+      { value: "TX", id: 19, name: "Texas" },
+      { value: "UT", id: 20, name: "Utah" },
+      { value: "VT", id: 21, name: "Vermont" },
+      { value: "VA", id: 22, name: "Virginia" },
+      { value: "VI", id: 23, name: "Virgin Islands" },
+      { value: "WA", id: 24, name: "Washington" },
+      { value: "WV", id: 25, name: "West Virginia" },
+      { value: "PR", id: 26, name: "Puerto Rico" },
+      { value: "MT", id: 27, name: "Montana" },
+      { value: "MO", id: 28, name: "Missouri" },
+      { value: "MS", id: 29, name: "Mississippi" },
+      { value: "AK", id: 30, name: "Alaska" },
+      { value: "AS", id: 31, name: "American Samoa" },
+      { value: "AZ", id: 32, name: "Arizona" },
+      { value: "AR", id: 33, name: "Arkansas" },
+      { value: "CA", id: 34, name: "California" },
+      { value: "CO", id: 35, name: "Colorado" },
+      { value: "CT", id: 36, name: "Connecticut" },
+      { value: "DC", id: 37, name: "District of Columbia" },
+      { value: "DE", id: 38, name: "Delaware" },
+      { value: "FL", id: 39, name: "Florida" },
+      { value: "GA", id: 40, name: "Georgia" },
+      { value: "GU", id: 41, name: "Guam" },
+      { value: "HI", id: 42, name: "Hawaii" },
+      { value: "ID", id: 43, name: "Idaho" },
+      { value: "IL", id: 44, name: "Illinois" },
+      { value: "IN", id: 45, name: "Indiana" },
+      { value: "IA", id: 46, name: "Iowa" },
+      { value: "KS", id: 47, name: "Kansas" },
+      { value: "KY", id: 48, name: "Kentucky" },
+      { value: "LA", id: 49, name: "Louisiana" },
+      { value: "ME", id: 50, name: "Maine" },
+      { value: "MD", id: 51, name: "Maryland" },
+      { value: "MA", id: 52, name: "Massachusetts" },
+      { value: "MI", id: 53, name: "Michigan" },
+      { value: "MN", id: 54, name: "Minnesota" },
+      { value: "WI", id: 55, name: "Wisconsin" },
+      { value: "WY", id: 56, name: "Wyoming" }
+    ]
+    states.sort((a, b) => a.value.localeCompare(b.value));
+    return states;
+  }
 }

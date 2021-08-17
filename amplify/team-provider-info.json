@@ -18,7 +18,7 @@
       "function": {
         "thelhubAuthResourcePreSignup": {
           "deploymentBucketName": "amplify-amcui-dev-05802-deployment",
-          "s3Key": "amplify-builds/thelhubAuthResourcePreSignup-4d5a49356a33784f5338-build.zip"
+          "s3Key": "amplify-builds/thelhubAuthResourcePreSignup-4e775a5047714f534d53-build.zip"
         }
       }
     }

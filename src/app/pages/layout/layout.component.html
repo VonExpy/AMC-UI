@@ -1,9 +1,19 @@
-<div class="amc__app">
-    <app-header></app-header>
-    <app-navigation></app-navigation>
-    <div class="amc__content">
-        <div class="container">
+<ng-container [ngSwitch]="currentUserRole">
+    <ng-container *ngSwitchDefault>
+        <div class="amc__app">
+            <app-header></app-header>
+            <app-navigation></app-navigation>
+            <div class="amc__content">
+                <div class="container">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <!-- promissory ui -->
+    <ng-container *ngSwitchCase="'BORROWER'">
+        <div class="promissory">
             <router-outlet></router-outlet>
         </div>
-    </div>
-</div>
+    </ng-container>
+</ng-container>

@@ -47,6 +47,11 @@
         border: solid 1px $secondary;
         color: $white;
     } 
+    &-success {
+        background-color: $success;
+        border: solid 1px $success;
+        color: $white;
+    } 
     &-secondary-outline {
         background-color: transparent;
         border: solid 1px $secondary;

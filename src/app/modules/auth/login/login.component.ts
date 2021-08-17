@@ -61,11 +61,14 @@ export class LoginComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    console.log('hit')
+
     try {
       this.loaderService.isLoading.next(true)
       const currentUser = await this.auth.signIn(this.f.email.value, this.f.password.value)
       this.toastr.success('Login Successful', `Hi ${currentUser.attributes.name}`)
+      if(currentUser.attributes['custom:user_type'] == 'BORROWER'){
+        return this.router.navigate(['/promissory']);
+      }
       this.router.navigate([this.returnUrl]);
     } catch (e) {
       this.toastr.error(e.message)

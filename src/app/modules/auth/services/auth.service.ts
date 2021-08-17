@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -8,6 +8,7 @@ import { Role } from 'src/app/_models/role';
 import { Router } from '@angular/router';
 import { Auth } from 'aws-amplify';
 import { LoaderService } from '../../shared/services/loader.service';
+import { DOCUMENT } from '@angular/common';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   public loggedIn!: BehaviorSubject<boolean>;
@@ -16,6 +17,7 @@ export class AuthService {
   // public currentUser: Observable<User>;
 
   constructor(private http: HttpClient, private router: Router,
+    @Inject(DOCUMENT) private _document: Document,
     private loaderService: LoaderService) {
     this.loggedIn = new BehaviorSubject<boolean>(false);
     // this.currentUser = this.currentUserSubject.asObservable();
@@ -79,7 +81,7 @@ export class AuthService {
         'custom:license_number': user.licenseNumber,
         'custom:referred_by': user.referredBy || '<none>',
         'custom:agree_tos': Date.now().toString(),
-        'custom:user_type': 'AD',
+        'custom:user_type': 'BORROWER',
         // address: '105 Main St. New York, NY 10001'
         /* additional attrs that can be used
           birthdate: '',
@@ -115,10 +117,19 @@ export class AuthService {
       await Auth.signOut();
       this.currentUserSubject.next(null)
       this.loaderService.isLoading.next(false)
-      this.router.navigate(['/auth/login']);
+      //refresh
+      this.router.navigate(['/auth/login'])
+      // window.location.reload()
+      	
+      this._document.defaultView?.location.reload();
     } catch (error) {
       console.log('error signing out: ', error);
       this.loaderService.isLoading.next(false)
     }
   }
+
+  // async reload(url: string): Promise<boolean> {
+  //   await this.router.navigateByUrl('/dashboard', { skipLocationChange: true });
+  //   return this.router.navigate([url]);
+  // }
 }

@@ -9,8 +9,6 @@ import { FooterComponent } from './layout/components/footer/footer.component';
 import { HomeComponent } from './layout/components/home/home.component';
 import { AboutComponent } from './layout/components/about/about.component';
 
-
-
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -19,11 +17,11 @@ import { AboutComponent } from './layout/components/about/about.component';
     ContactComponent,
     FooterComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
   ]
 })
 export class LayoutModule { }

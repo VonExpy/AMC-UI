@@ -1,0 +1,397 @@
+<main>
+    <div class="promissory_slider" *ngIf="customOptions">
+        <owl-carousel-o [options]="customOptions" #owlCar>
+            <ng-template carouselSlide id="1">
+                <div (click)="owlCar.to('1')">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-center"><img src="../../../../assets/promissory/img_s1.png"></div>
+                            <h3>What type of home loan are<br>you looking for?</h3>
+                            <div class="cat_btn d-flex justify-content-center flex-wrap">
+                                <label (click)="owlCar.to('2')">
+                                    <input type="radio" name="loan" />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img src="../../../../assets/promissory/icon_purchase.png"></span>
+                                            Purchase
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label (click)="owlCar.to('2')">
+                                    <input type="radio" name="loan" />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img src="../../../../assets/promissory/icon_refinance.png"></span>
+                                            Refinance
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label (click)="owlCar.to('2')">
+                                    <input type="radio" name="loan" />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img
+                                                    src="../../../../assets/promissory/icon_homeequity.png"></span>
+                                            Home Equity
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label (click)="owlCar.to('2')">
+                                    <input type="radio" name="loan" />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img
+                                                    src="../../../../assets/promissory/icon_reversemortgage.png"></span>
+                                            Reverse Mortgage
+                                        </p>
+                                    </div>
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide id="2">
+
+                <div (click)="owlCar.to('2')">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-center"><img src="../../../../assets/promissory/img_s1.png"></div>
+                            <h3>How will this property<br>be used?</h3>
+                            <div class="cat_btn d-flex justify-content-center flex-wrap">
+                                <label (click)="owlCar.to('3')">
+                                    <input type="radio" name="home" />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img src="../../../../assets/promissory/icon_purchase.png"></span>
+                                            Primary Home
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label (click)="owlCar.to('3')">
+                                    <input type="radio" name="home" />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img src="../../../../assets/promissory/icon_refinance.png"></span>
+                                            Secondary Home
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label (click)="owlCar.to('3')">
+                                    <input type="radio" name="home" />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img
+                                                    src="../../../../assets/promissory/icon_homeequity.png"></span>
+                                            Rental Property
+                                        </p>
+                                    </div>
+                                </label>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide id="3">
+                <div (click)="owlCar.to('3')">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-center"><img src="../../../../assets/promissory/img_s1.png"></div>
+                            <h3>What type of home loan are<br>you looking for?</h3>
+                            <div class="cat_btn d-flex justify-content-center flex-wrap">
+                                <label class="btn-block" (click)="owlCar.to('4')">
+                                    <input type="radio" name="pay" />
+                                    <div class="front-end box-fill d-flex align-items-center justify-content-center">
+                                        <p>
+                                            Lower my monthly payment
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label class="btn-block" (click)="owlCar.to('4')">
+                                    <input type="radio" name="pay" />
+                                    <div class="front-end box-fill d-flex align-items-center justify-content-center">
+                                        <p>
+                                            Pay off my mortgage faster
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label class="btn-block" (click)="owlCar.to('4')">
+                                    <input type="radio" name="pay" />
+                                    <div class="front-end box-fill d-flex align-items-center justify-content-center">
+                                        <p>
+                                            Take cash out of home
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label class="btn-block" (click)="owlCar.to('4')">
+                                    <input type="radio" name="pay" />
+                                    <div class="front-end box-fill d-flex align-items-center justify-content-center">
+                                        <p>
+                                            Change my ARM loan to Fixed
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label class="btn-block" (click)="owlCar.to('4')">
+                                    <input type="radio" name="pay" />
+                                    <div class="front-end box-fill d-flex align-items-center justify-content-center">
+                                        <p>
+                                            Browse current mortgage rates
+                                        </p>
+                                    </div>
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide id="4">
+                <div (click)="owlCar.to('4')">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-center"><img src="../../../../assets/promissory/img_s1.png"></div>
+                            <h3>ZIP code of the property</h3>
+                            <div class="cat_btn d-flex justify-content-center flex-wrap">
+                                <div class="form-group my-4">
+                                    <input type="tel" class="form-control" id="exampleInputZip"
+                                        aria-describedby="zipResult" placeholder="Enter ZIP Code" inputmode="numeric"
+                                        pattern="[0-9]{5}" maxlength="5">
+                                    <small id="zipResult" class="form-text text-center">Leander, TX</small>
+                                </div>
+
+                                <div class="col-8 my-4">
+                                    <button type="submit" class="btn btn-block btn-primary"
+                                        (click)="owlCar.to('5')">Continue</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide id="5">
+                <div (click)="owlCar.to('5')">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-center"><img src="../../../../assets/promissory/img_s1.png"></div>
+                            <h3>What is the remaining 1st mortgage balance?</h3>
+                            <div class="cat_btn d-flex justify-content-center flex-wrap">
+                                <div class="form-group my-4 col-12">
+                                    <div class="range-slider">
+                                        <span class="range-slider__value">{{rangeEvent}}</span>
+                                        <input class="range-slider__range" type="range" value="100" min="0" max="500"
+                                            (input)="onRangeChange($event)">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-8 my-4">
+                                    <button type="submit" class="btn btn-block btn-primary"
+                                        (click)="owlCar.to('6')">Continue</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide id="6">
+                <div (click)="owlCar.to('6')">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-center"><img src="../../../../assets/promissory/img_s1.png"></div>
+                            <h3>Do you have a second mortgage?</h3>
+                            <div class="cat_btn d-flex justify-content-center flex-wrap">
+                                <label (click)="owlCar.to('7')">
+                                    <input type="radio" name="radio" />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img src="../../../../assets/promissory/yes.png"
+                                                    style="width: 32px !important;"></span>
+                                            Yes
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label (click)="owlCar.to('7')">
+                                    <input type="radio" name="radio" />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img src="../../../../assets/promissory/no.png"
+                                                    style="width: 32px !important;"></span>
+                                            No
+                                        </p>
+                                    </div>
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide id="7">
+                <div (click)="owlCar.to('7')">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-center"><img src="../../../../assets/promissory/img_s1.png"></div>
+                            <h3>Estimate your credit score</h3>
+                            <div class="cat_btn d-flex justify-content-center flex-wrap">
+                                <label (click)="owlCar.to('8')">
+                                    <input type="radio" name="radio" checked />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img src="../../../../assets/promissory/icon_cs_4.png"
+                                                    style="width: 32px !important;"></span>
+                                            Excellent<br><span>(>= 720)</span>
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label (click)="owlCar.to('8')">
+                                    <input type="radio" name="radio" checked />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img src="../../../../assets/promissory/icon_cs_3.png"
+                                                    style="width: 32px !important;"></span>
+                                            Good<br><span>(680 - 719)</span>
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <label (click)="owlCar.to('8')">
+                                    <input type="radio" name="radio" checked />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img src="../../../../assets/promissory/icon_cs_2.png"
+                                                    style="width: 32px !important;"></span>
+                                            Fair<br><span>(640-679)</span>
+                                        </p>
+                                    </div>
+                                </label>
+
+
+                                <label (click)="owlCar.to('8')">
+                                    <input type="radio" name="radio" checked />
+                                    <div class="front-end box d-flex align-items-center justify-content-center">
+                                        <p>
+                                            <span><img src="../../../../assets/promissory/icon_cs_1.png"
+                                                    style="width: 32px !important;"></span>
+                                            Poor<br><span>(&#60;=639)</span>
+                                        </p>
+                                    </div>
+                                </label>
+
+                                <div class="col-12 mt-5">
+                                    <span class="btn-block mb-2">Don’t know your credit score?</span>
+                                    <a href="javascript:;">Get it free.</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide id="8">
+                <div (click)="owlCar.to('8')">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-center"><img src="../../../../assets/promissory/img_s1.png"></div>
+                            <h3>When were you born?</h3>
+                            <div class="cat_btn d-flex justify-content-center flex-wrap">
+                                <div class="form-row dpicker">
+                                    <div class="form-group col-md-4">
+                                        <select id="inputState" class="form-control">
+                                            <option selected>Month</option>
+                                            <option>Jan</option>
+                                            <option>Feb</option>
+                                            <option>Mar</option>
+                                            <option>Apr</option>
+                                            <option>May</option>
+                                            <option>Jun</option>
+                                            <option>Jul</option>
+                                            <option>Aug</option>
+                                            <option>Sep</option>
+                                            <option>Oct</option>
+                                            <option>Nov</option>
+                                            <option>Dec</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="text" class="form-control" id="inputZip">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <select id="inputState" class="form-control">
+                                            <option selected>Year</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                        </select>
+                                    </div>
+                                    <small id="zipResult" class="form-text text-center btn-block">Leander, TX</small>
+                                </div>
+
+                                <div class="col-8 my-4">
+                                    <button type="submit" class="btn btn-block btn-primary"
+                                        (click)="owlCar.to('9')">Continue</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide id="9">
+                <div>
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-center"><img src="../../../../assets/promissory/img_s1.png"></div>
+                            <h3>What is your current street address?</h3>
+                            <div class="cat_btn d-flex justify-content-center flex-wrap">
+                                <form class="col-10 mt-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="Street Address">
+                                        <small id="zipResult" class="form-text text-center btn-block text-danger">Error
+                                            Message</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="ZIP Code">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>City</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 my-4">
+                                        <button type="submit" class="btn btn-block btn-primary">Continue</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+</main>

@@ -95,13 +95,14 @@
                         </div>
                     </div>
                 </div>
-                <ng-container *ngIf="userType == 'chiefAppraiser' || userType == 'appraiserUser'">
+                <ng-container *ngIf="userType == 'ChiefAppraiser' || userType == 'AppraiserUser'">
                     <div class="row">
                         <div class="col">
                             <div class="f-group">
                                 <label>CERTIFICATION</label>
                                 <div class="f-field">
-                                    <ng-select [items]="[]" bindLabel="value" bindValue="name" placeholder="Select"
+                                    <ng-select [items]="certifications" bindLabel="name"
+                                    bindValue="id" placeholder="Select"
                                         formControlName="certification">
                                     </ng-select>
                                 </div>
@@ -111,8 +112,8 @@
                             <div class="f-group">
                                 <label [ngClass]="{required:!f.appraiserType.value}">APPRAISER TYPE</label>
                                 <div class="f-field">
-                                    <ng-select [items]="appraiserTypes" bindLabel="type" bindValue="id" placeholder="Select"
-                                        formControlName="appraiserType">
+                                    <ng-select [items]="appraiserTypes" bindLabel="type" bindValue="id"
+                                        placeholder="Select" formControlName="appraiserType">
                                     </ng-select>
                                     <div *ngIf="submitted && f.appraiserType.errors" class="error">
                                         <div *ngIf="f.appraiserType.errors.required">Appraiser Type is required
@@ -159,7 +160,8 @@
                             <div class="f-group">
                                 <label>STATE</label>
                                 <div class="f-field">
-                                    <ng-select [items]="[]" bindLabel="value" bindValue="name" placeholder="Select"
+                                    <ng-select [items]="states" bindLabel="value"
+                                    bindValue="value" placeholder="Select"
                                         formControlName="credentialState">
                                     </ng-select>
                                 </div>
@@ -172,6 +174,7 @@
                     <div class="flex-row-center ml-5">
                         <ng-toggle [width]="toggle.width" [height]="toggle.height" [margin]="toggle.margin"
                             [labels]="toggle.labels" [color]="toggle.color" [switchColor]="toggle.switchColor"
+                            [value]="false"
                             [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
                         </ng-toggle>
                         <small class="label ml-3">Use Company/Assignment Address</small>
@@ -257,6 +260,16 @@
         <div class="modal-body" malihu-scrollbar>
             <div class="px-8 py-8">
                 <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>USER TYPE</label>
+                            <div class="f-field-value">
+                                {{userType | capitalSpace}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col">
                         <div class="f-group">
                             <label>NAME</label>
@@ -312,7 +325,7 @@
                     <div class="flex-row-center ml-5">
                         <ng-toggle [width]="toggle.width" [height]="toggle.height" [margin]="toggle.margin"
                             [labels]="toggle.labels" [color]="toggle.color" [switchColor]="toggle.switchColor"
-                            [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                            [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize" [value]="false">
                         </ng-toggle>
                         <small class="label ml-3">Use Company/Assignment Address</small>
                     </div>
@@ -388,8 +401,11 @@
         </div>
         <div class="modal-footer flex-justify-right">
             <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
-            <button class="btn ml-2" type="button" (click)="gotoPrevious()">Previous</button>
-            <button class="btn ml-2" type="submit">Next</button>
+            <button class="btn ml-2" type="button" (click)="gotoPrevious('personalDetailsForm')">Previous</button>
+            <button class="btn ml-2" type="submit">
+                {{ userType == 'ChiefAppraiser' || userType == 'AppraiserUser' ?
+                'next' : 'review'}}
+            </button>
         </div>
 
 
@@ -463,6 +479,16 @@
         <div class="modal-body" malihu-scrollbar>
             <div class="px-8 py-8">
                 <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>USER TYPE</label>
+                            <div class="f-field-value">
+                                {{userType | capitalSpace}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col">
                         <div class="f-group">
                             <label>INSURANCE COMPANY</label>
@@ -496,8 +522,7 @@
                         <div class="f-group">
                             <label>E&O EXPIRATION</label>
                             <div class="f-field">
-                                <input type="text" placeholder="Please Select" mask="separator.2" prefix="$"
-                                    thousandSeparator="," formControlName="eoExpDate" />
+                                <input type="text" placeholder="Select" formControlName="eoExpDate" />
                             </div>
                         </div>
                     </div>
@@ -506,7 +531,7 @@
         </div>
         <div class="modal-footer flex-justify-right">
             <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
-            <button class="btn ml-2" type="button" (click)="gotoPrevious()">Previous</button>
+            <button class="btn ml-2" type="button" (click)="gotoPrevious('companyDetailsForm')">Previous</button>
             <button class="btn ml-2" type="submit">Review</button>
         </div>
     </form>
@@ -517,9 +542,22 @@
         <div class="modal-body" malihu-scrollbar>
             <div class="px-8 py-8">
                 <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>USER TYPE</label>
+                            <div class="f-field-value">
+                                {{userType | capitalSpace}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title-heading">
+                    <h3>Personal Details</h3>
+                </div>
+                <div class="row">
                     <div class="col">
                         <div class="f-group">
-                            <label>First Name</label>
+                            <label>FIRST NAME</label>
                             <div class="f-field-value">
                                 {{f.firstName.value}}
                             </div>
@@ -527,7 +565,7 @@
                     </div>
                     <div class="col">
                         <div class="f-group">
-                            <label>Middle Name</label>
+                            <label>MIDDLE NAME</label>
                             <div class="f-field-value">
                                 {{f.middleName.value}}
                             </div>
@@ -535,20 +573,276 @@
                     </div>
                     <div class="col">
                         <div class="f-group">
-                            <label>Last Name</label>
+                            <label>LAST NAME</label>
                             <div class="f-field-value">
                                 {{f.lastName.value}}
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>PHONE</label>
+                            <div class="f-field-value">
+                                {{f.phone.value | phonePipe}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>ALT PHONE</label>
+                            <div class="f-field-value">
+                                {{f.altPhone.value | phonePipe}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>EMAIL</label>
+                            <div class="f-field-value">
+                                {{f.email.value}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="userType == 'ChiefAppraiser' || userType == 'AppraiserUser'">
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>CERTIFICATION</label>
+                                <div class="f-field-value">
+                                    {{f.certification.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>APPRAISER TYPE</label>
+                                <div class="f-field-value">
+                                    {{f.appraiserType.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>LICENSE NUMBER</label>
+                                <div class="f-field-value">
+                                    {{f.licenseNumber.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>EXPIRY DATE</label>
+                                <div class="f-field-value">
+                                    {{f.expiryDate.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>SSN/TAX</label>
+                                <div class="f-field-value">
+                                    {{f.ssn.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>STATE</label>
+                                <div class="f-field-value">
+                                    {{f.credentialState.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="title-heading">
+                    <h3>Mailing Address</h3>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>ADDRESS</label>
+                            <div class="f-field-value">
+                                {{f.street.value}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>CITY</label>
+                            <div class="f-field-value">
+                                {{f.city.value}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>COUNTY</label>
+                            <div class="f-field-value">
+                                {{f.county.value}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>STATE</label>
+                            <div class="f-field-value">
+                                {{f.state.value}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>ZIPCODE</label>
+                            <div class="f-field-value">
+                                {{f.zipcode.value}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title-heading">
+                    <h3>Company Details</h3>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>NAME</label>
+                            <div class="f-field-value">
+                                {{c.companyName.value}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>PHONE</label>
+                            <div class="f-field-value">
+                                {{c.companyPhone.value | phonePipe}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>EMAIL</label>
+                            <div class="f-field-value">
+                                {{c.companyEmail.value}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>FAX</label>
+                            <div class="f-field-value">
+                                {{c.fax.value}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title-heading">
+                    <h3>Address for Assignments</h3>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>ADDRESS</label>
+                            <div class="f-field-value">
+                                {{c.companyStreet.value}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>CITY</label>
+                            <div class="f-field-value">
+                                {{c.companyCity.value}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>COUNTY</label>
+                            <div class="f-field-value">
+                                {{c.companyCounty.value}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>STATE</label>
+                            <div class="f-field-value">
+                                {{c.companyState.value}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="f-group">
+                            <label>ZIPCODE</label>
+                            <div class="f-field-value">
+                                {{c.companyZipcode.value}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="userType == 'ChiefAppraiser' || userType == 'AppraiserUser'">
+                    <div class="title-heading">
+                        <h3>E&O Insurance</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>INSURANCE COMPANY</label>
+                                <div class="f-field-value">
+                                    {{e.insuranceCompany.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>E&O PER CLAIM AMOUNT</label>
+                                <div class="f-field-value">
+                                    {{e.eoClaimAmount.value | currency}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>E&O PER AGGREGATE AMOUNT</label>
+                                <div class="f-field-value">
+                                    {{e.eoAggrAmount.value | currency}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>E&O EXPIRATION</label>
+                                <div class="f-field-value">
+                                    {{e.eoExpDate.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
             </div>
         </div>
         <div class="modal-footer flex-justify-right">
             <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
-            <button class="btn ml-2" type="button" (click)="gotoPrevious()">Previous</button>
-            <button class="btn ml-2">Submit</button>
+            <button class="btn ml-2" type="button" (click)="gotoPrevious(
+                userType == 'ChiefAppraiser' || userType == 'AppraiserUser' ?
+                'insuranceForm' : 'companyDetailsForm'
+            )">Previous</button>
+            <button class="btn ml-2 btn-success">Submit</button>
         </div>
     </form>
-
 </ng-container>

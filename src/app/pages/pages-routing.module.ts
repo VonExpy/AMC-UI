@@ -16,6 +16,12 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
+        path: 'promissory',
+        loadChildren: () =>
+          import('../modules/promissory/promissory.module').then((m) => m.PromissoryModule),
+        canActivate: [AuthGuard]
+      },
+      {
         path: 'clients',
         loadChildren: () =>
           import('../modules/clients/clients.module').then((m) => m.ClientsModule),

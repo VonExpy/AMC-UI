@@ -61,7 +61,7 @@ exports.handler = (event, context, callback) => {
               }
             } catch (e) {
               console.log('Error occured: ', JSON.stringify(e, null, 2));
-              callback(new Error("No results Found"), event);
+              callback(new Error("Please verify appraiser details"), event);
             }
           });
         };
