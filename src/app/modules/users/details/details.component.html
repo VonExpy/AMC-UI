@@ -26,9 +26,10 @@
         <div class="profile__events">
             <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
                 [height]="toggle.height" [margin]="toggle.margin"
-                [labels]="toggle.labels" [color]="toggle.color"
+                [labels]="toggle.labels" [color]="toggle.color" 
+                [(ngModel)]="isActive"
                 [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                [fontSize]="toggle.fontSize">
+                [fontSize]="toggle.fontSize" (change)="onChange($event)">
             </ng-toggle>
         </div>
     </div>

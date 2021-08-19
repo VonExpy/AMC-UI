@@ -6,6 +6,7 @@ import { PromissoryHeaderComponent } from './promissory-header/promissory-header
 import { PromissoryFooterComponent } from './promissory-footer/promissory-footer.component';
 import { PromissoryRoutingModule } from './promissory-routing.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   imports: [
     CommonModule,
     CarouselModule,
-    PromissoryRoutingModule
+    PromissoryRoutingModule,
+    SharedModule
   ]
 })
 export class PromissoryModule { }

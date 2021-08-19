@@ -122,7 +122,7 @@
         </div>
     </div>
     <div class="users" id="users__container">
-        <div class="users__con">
+        <div class="users__con" #sideToggle>
             <div class="search__container">
                 <div class="search">
                     <span class="icon">
@@ -240,8 +240,8 @@
                 </div>
             </div>
         </div>
-        <div class="user__con">
-            <app-details></app-details>
+        <div class="user__con"  #mainToggle>
+            <app-details (onToggle)="toggle($event)"></app-details>
         </div>
     </div>
 </div>

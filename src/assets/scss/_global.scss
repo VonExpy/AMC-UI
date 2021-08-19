@@ -47,6 +47,13 @@ body {
     }
 }
 
+// textarea:not(:placeholder-shown),select:not(:placeholder-shown),input:not(:placeholder-shown) {
+// 	background: #fff !important;
+// }
+// textarea:placeholder-shown,input:placeholder-shown,select:placeholder-shown {
+// 	background: #E1F0FF !important;
+// }
+
 .more-actions {
     white-space: nowrap;
     display: inline-block;

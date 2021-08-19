@@ -52,10 +52,15 @@
                 'Reset'
                 : 'Sign Up'}}</a>
         </div>
-        <button class="btn btn-black-outline" style="position: absolute; right: 2%" *ngIf="stepper"
-            (click)="stepper = false">
-            Back
-        </button>
+        <div style="position: absolute; right: 2%">
+            <button class="btn btn-black-outline" *ngIf="stepper" (click)="stepper = false">
+                Back
+            </button>
+            <button class="btn btn-primary btn-sm" *ngIf="!stepper" [routerLink]="'/promissory'">
+                Promissory
+            </button>
+        </div>
+
     </div>
 
 </div>

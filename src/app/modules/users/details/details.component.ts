@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { StaticMasterService } from '../../shared/services/static-master.service';
 @Component({
   selector: 'app-details',
@@ -8,6 +8,8 @@ import { StaticMasterService } from '../../shared/services/static-master.service
 export class DetailsComponent implements OnInit {
   edit: any = false;
   toggle:any = {}
+  @Output() onToggle = new EventEmitter<any>()
+  isActive:boolean = false
   constructor(private staticService: StaticMasterService) { 
     this.toggle = this.staticService.toggle('user')
   }
@@ -21,6 +23,10 @@ export class DetailsComponent implements OnInit {
   
   public scrollbarOptions = {
     axis: "X",
+  }
+
+  onChange(event:any){
+    this.onToggle.emit(event.target.checked)
   }
 
 }

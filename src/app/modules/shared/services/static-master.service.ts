@@ -83,7 +83,6 @@ export class StaticMasterService {
     switch (type) {
       case 'user':
         return {
-          value: true,
           name: "test",
           disabled: false,
           height: 25,
@@ -100,8 +99,8 @@ export class StaticMasterService {
             unchecked: "#F8F8F8"
           },
           labels: {
-            unchecked: "",
-            checked: "Active"
+            unchecked: "Off",
+            checked: "On"
           },
           checkedLabel: "",
           uncheckedLabel: "",

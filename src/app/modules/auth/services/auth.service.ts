@@ -81,7 +81,7 @@ export class AuthService {
         'custom:license_number': user.licenseNumber,
         'custom:referred_by': user.referredBy || '<none>',
         'custom:agree_tos': Date.now().toString(),
-        'custom:user_type': 'BORROWER',
+        'custom:user_type': 'AD',
         // address: '105 Main St. New York, NY 10001'
         /* additional attrs that can be used
           birthdate: '',
@@ -119,9 +119,7 @@ export class AuthService {
       this.loaderService.isLoading.next(false)
       //refresh
       this.router.navigate(['/auth/login'])
-      // window.location.reload()
-      	
-      this._document.defaultView?.location.reload();
+      // this._document.defaultView?.location.reload();
     } catch (error) {
       console.log('error signing out: ', error);
       this.loaderService.isLoading.next(false)
