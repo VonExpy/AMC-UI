@@ -74,8 +74,8 @@
                             <div class="cat_btn d-flex justify-content-center flex-wrap">
                                 <div class="form-group my-4">
                                     <input type="tel" class="form-control" id="exampleInputZip"
-                                        aria-describedby="zipResult" placeholder="Enter ZIP Code" 
-                                        mask="00000" (input)="callGeoAPI(postCode.value)" #postCode>
+                                        aria-describedby="zipResult" placeholder="Enter ZIP Code" mask="00000"
+                                        (input)="callGeoAPI(postCode.value)" #postCode>
                                     <small id="zipResult" class="form-text text-center">{{model?.zipAddress}}</small>
                                 </div>
 
@@ -123,7 +123,7 @@
                             <h3>Do you have a second mortgage?</h3>
                             <div class="cat_btn d-flex justify-content-center flex-wrap">
                                 <label (click)="owlCar.to('7')">
-                                    <input type="radio" name="radio" />
+                                    <input type="radio" name="secondMortgage" />
                                     <div class="front-end box d-flex align-items-center justify-content-center">
                                         <p>
                                             <span><img src="../../../../assets/promissory/yes.png"
@@ -134,7 +134,7 @@
                                 </label>
 
                                 <label (click)="owlCar.to('7')">
-                                    <input type="radio" name="radio" />
+                                    <input type="radio" name="secondMortgage" />
                                     <div class="front-end box d-flex align-items-center justify-content-center">
                                         <p>
                                             <span><img src="../../../../assets/promissory/no.png"
@@ -157,7 +157,7 @@
                             <h3>Estimate your credit score</h3>
                             <div class="cat_btn d-flex justify-content-center flex-wrap">
                                 <label (click)="owlCar.to('8')">
-                                    <input type="radio" name="radio" checked />
+                                    <input type="radio" name="creditScore" />
                                     <div class="front-end box d-flex align-items-center justify-content-center">
                                         <p>
                                             <span><img src="../../../../assets/promissory/icon_cs_4.png"
@@ -168,7 +168,7 @@
                                 </label>
 
                                 <label (click)="owlCar.to('8')">
-                                    <input type="radio" name="radio" checked />
+                                    <input type="radio" name="creditScore" />
                                     <div class="front-end box d-flex align-items-center justify-content-center">
                                         <p>
                                             <span><img src="../../../../assets/promissory/icon_cs_3.png"
@@ -179,7 +179,7 @@
                                 </label>
 
                                 <label (click)="owlCar.to('8')">
-                                    <input type="radio" name="radio" checked />
+                                    <input type="radio" name="creditScore" />
                                     <div class="front-end box d-flex align-items-center justify-content-center">
                                         <p>
                                             <span><img src="../../../../assets/promissory/icon_cs_2.png"
@@ -191,7 +191,7 @@
 
 
                                 <label (click)="owlCar.to('8')">
-                                    <input type="radio" name="radio" checked />
+                                    <input type="radio" name="creditScore" />
                                     <div class="front-end box d-flex align-items-center justify-content-center">
                                         <p>
                                             <span><img src="../../../../assets/promissory/icon_cs_1.png"
@@ -242,7 +242,8 @@
                                     <div class="form-group col-md-3">
                                         <input type="text" class="form-control" mask="0000" placeholder="Year">
                                     </div>
-                                    <small id="zipResult" class="form-text text-center btn-block">{{model?.zipAddress}}</small>
+                                    <small id="zipResult"
+                                        class="form-text text-center btn-block">{{model?.zipAddress}}</small>
                                 </div>
 
                                 <div class="col-8 my-4">
@@ -267,20 +268,20 @@
                                         <app-auto-complete (setAddress)="getAddress($event)" adressType="geocode">
                                         </app-auto-complete>
                                     </div>
-                              
+
                                     <div class="form-group">
-                                        <input type="text" class="form-control"
-                                            placeholder="Street Address" [(ngModel)]="model.street" name="street">
+                                        <input type="text" class="form-control" placeholder="Street Address"
+                                            [(ngModel)]="model.street" name="street">
                                         <!-- <small id="zipResult" class="form-text text-center btn-block text-danger">Error
                                             Message</small> -->
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control"
-                                            placeholder="ZIP Code" [(ngModel)]="model.zipcode" name="zipcode">
+                                        <input type="text" class="form-control" placeholder="ZIP Code"
+                                            [(ngModel)]="model.zipcode" name="zipcode">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control"
-                                        placeholder="ZIP Code" [(ngModel)]="model.city" name="city">
+                                        <input type="text" class="form-control" placeholder="City"
+                                            [(ngModel)]="model.city" name="city">
                                     </div>
                                     <div class="col-12 my-4">
                                         <button type="submit" class="btn btn-block btn-primary">Continue</button>

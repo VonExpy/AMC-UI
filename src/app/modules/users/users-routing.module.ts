@@ -8,12 +8,12 @@ import { JobtypesComponent } from '../shared/components/profile/jobtypes/jobtype
 import { OrganisationComponent } from '../shared/components/profile/organisation/organisation.component';
 import { PersonalInfoComponent } from '../shared/components/profile/personal-info/personal-info.component';
 import { ProductsVendorsComponent } from '../shared/components/profile/products-vendors/products-vendors.component';
-import { LandingComponent } from './landing/landing.component';
+import { UsersComponent } from './users.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LandingComponent,
+    component: UsersComponent,
     children: [
         {
           path: 'profile',

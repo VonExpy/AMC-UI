@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { StaticMasterService } from '../../shared/services/static-master.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { StaticMasterService } from '../../shared/services/static-master.service
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
+  @ViewChild('sideToggle', { static: false }) sideToggle!: ElementRef
+  @ViewChild('mainToggle', { static: false }) mainToggle!: ElementRef
   data: any = [1];
   constructor(public staticService:StaticMasterService) { }
 
@@ -17,5 +19,10 @@ export class LandingComponent implements OnInit {
   showstatistics() {
     this.statistics = !this.statistics;
   };
+
+  toggle(toggle:boolean){
+    this.sideToggle.nativeElement.style.maxWidth = toggle ? '0' : '400px';
+    this.mainToggle.nativeElement.style.width = toggle ? '100%' : 'calc(100% - 400px)';
+ }
 
 }

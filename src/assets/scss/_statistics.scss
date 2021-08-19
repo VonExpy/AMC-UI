@@ -1,10 +1,3 @@
-@import '../../../../assets/scss/mixins'; 
-@import '../../../../assets/scss/colors'; 
-@import '../../../../assets/scss/buttons'; 
-@import '../../../../assets/scss/badges'; 
-@import '../../../../assets/scss/chips'; 
-@import '../../../../assets/scss/search'; 
-
 .statistics {
     background-color: $bg-content;
     @include flex-row-stretch;
@@ -178,7 +171,7 @@
                     background: #F4F6F7;
                 }
                 &_avatar {
-                    flex: 1;
+                    // flex: 1;
                     margin-right: 12px;
                     position: relative;
                     .pic {
@@ -231,7 +224,6 @@
                             color: $name;
                             @include text-overflow;
                             flex: 1;
-                            padding-right: 8px;
                         }
                         .email {
                             font-size: 13px;
@@ -239,8 +231,7 @@
                             text-decoration: none;
                             @include text-overflow;
                             flex: 1;
-                            padding-right: 8px;
-                            // max-width: 70%;
+                            max-width: 70%;
                         }
                         .address {
                             padding: 5px 0;
@@ -286,6 +277,7 @@
         @include flex-row-stretch;
         justify-content: stretch;
         width: calc(100% - 400px);
+        transition: 0.3s;
         > * {
             @include flex-row-stretch;
             justify-content: stretch;
