@@ -13,6 +13,9 @@ export class PaymentsComponent implements OnInit {
     { status: 'New', due: '$ 270.00', invoiceNumber: '12345679', amountDue: 899 },
     { status: 'New', due: '$ 260.00', invoiceNumber: '12385679', amountDue: 489 },
     { status: 'New', due: '$ 250.00', invoiceNumber: '12348979', amountDue: 898 },
+    { status: 'New', due: '$ 270.00', invoiceNumber: '12345679', amountDue: 899 },
+    { status: 'New', due: '$ 260.00', invoiceNumber: '12385679', amountDue: 489 },
+    { status: 'New', due: '$ 250.00', invoiceNumber: '12348979', amountDue: 898 },
   ]
   options = [{ label: 'Invoice', value: false }, { label: 'Paper Check', value: false }, { label: 'Credit Card', value: true }]
   toggle: any = {}

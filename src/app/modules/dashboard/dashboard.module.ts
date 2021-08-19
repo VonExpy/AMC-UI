@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { LandingComponent } from './landing/landing.component';
@@ -20,8 +19,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
-    DashboardRoutingModule,
-    MalihuScrollbarModule.forRoot()
+    DashboardRoutingModule
   ]
 })
 export class DashboardModule { }

@@ -4,11 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class StaticMasterService {
-  public scrollbarOptions = {
-    theme: 'dark-3',
-    autoHideScrollbar: true,
-    scrollButtons: { enable: false }
-  };
   jobTypes = [
     { "name": "ValueAdd-Exterior", value: 1, index: 1 },
     { "name": "ValueAdd-Interior", value: 30, index: 2 },

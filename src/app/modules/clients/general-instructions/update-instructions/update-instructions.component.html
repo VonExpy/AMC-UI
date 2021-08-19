@@ -2,10 +2,12 @@
     <div class="modal-title">
         <h4 class="heading">General Instructions</h4>
     </div>
-    <div class="modal-body" malihu-scrollbar>
+    <div class="modal-body">
+        <perfect-scrollbar>
         <div class="px-8 py-8">
           <app-quill-editor></app-quill-editor>
         </div>
+        </perfect-scrollbar>
     </div>
     <div class="modal-footer flex-justify-right">
         <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>

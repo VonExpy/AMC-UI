@@ -153,8 +153,8 @@
                 </div>
             </div>
             <div class="users__con__lists">
-                <div class="users__list" id="users__list" malihu-scrollbar
-                [scrollbarOptions]="staticService.scrollbarOptions">
+                <perfect-scrollbar>
+                <div class="users__list" id="users__list">
                     <div class="user_item active">
                         <div class="user_item_avatar">
                             <span class="pic"><img src="../../../../assets/profile_pic.jpg" /></span>
@@ -238,6 +238,7 @@
                     </div>
                     <!-- <app-list *ngFor="let item of data"></app-list> -->
                 </div>
+                </perfect-scrollbar>
             </div>
         </div>
         <div class="user__con" #mainToggle>

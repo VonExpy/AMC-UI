@@ -1,37 +1,44 @@
-<div class="custom_scroll" malihu-scrollbar [scrollbarOptions]="staticService.scrollbarOptions">
-    <div class="px-5 py-1">
-        <div class="title-heading flex-justify-right mb-2">
-            <div class="flex-row-center">
-                <button class="btn btn-sm" type="button" (click)="openModal()">Open Modal</button>
-                <button class="btn btn-sm" type="button" (click)="openSideNav()">Add</button>
+<perfect-scrollbar>
+    <div class="custom_scroll">
+        <div class="px-5 py-1">
+            <div class="title-heading flex-justify-right mb-2">
+                <div class="flex-row-center">
+                    <button class="btn btn-sm" type="button" (click)="openModal()">Open Modal</button>
+                    <button class="btn btn-sm" type="button" (click)="openSideNav()">Add</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <table class="noindent">
-                    <thead>
-                        <tr>
-                            <th align="left">Fee Structure Name</th>
-                            <th align="left">Active</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let d of data">
-                            <td>Default</td>
-                            <td><ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color" [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize"></ng-toggle></td>
-                            <td class="actions">
-                                <span class="icons">
-                                    <img src="../../../../../../assets/icon_edit.svg" />
-                                </span>
-                                <span class="icons">
-                                    <img src="../../../../../../assets/icon_delete.svg" />
-                                </span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="col">
+                    <table class="noindent">
+                        <thead>
+                            <tr>
+                                <th align="left">Fee Structure Name</th>
+                                <th align="left">Active</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let d of data">
+                                <td>Default</td>
+                                <td>
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize"></ng-toggle>
+                                </td>
+                                <td class="actions">
+                                    <span class="icons">
+                                        <img src="../../../../../../assets/icon_edit.svg" />
+                                    </span>
+                                    <span class="icons">
+                                        <img src="../../../../../../assets/icon_delete.svg" />
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</perfect-scrollbar>

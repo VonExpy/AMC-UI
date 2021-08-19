@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { StaticMasterService } from '../../shared/services/static-master.service';
 @Component({
   selector: 'app-details',
@@ -6,6 +7,7 @@ import { StaticMasterService } from '../../shared/services/static-master.service
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  public config: PerfectScrollbarConfigInterface = {};
   edit: any = false;
   toggle:any = {}
   @Output() onToggle = new EventEmitter<any>()
@@ -18,11 +20,6 @@ export class DetailsComponent implements OnInit {
     this.edit = !this.edit;
   }
   ngOnInit(): void {
-  }
-
-  
-  public scrollbarOptions = {
-    axis: "X",
   }
 
   onChange(event:any){

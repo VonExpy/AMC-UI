@@ -15,7 +15,6 @@ import { DoughnutChartComponent } from './components/charts/doughnut-chart/dough
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
-import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -44,6 +43,13 @@ import { AddZipcodesComponent } from './components/profile/coverage/add-zipcodes
 import { AddProductsComponent } from './components/profile/products-vendors/add-products/add-products.component';
 import { CapitalSpacePipe } from 'src/app/_helpers/capitalSpace.pipe';
 import { PhonePipe } from 'src/app/_helpers/phone.pipe';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 FullCalendarModule.registerPlugins([
   interactionPlugin,
@@ -93,10 +99,10 @@ FullCalendarModule.registerPlugins([
     NgxDatatableModule,
     ChartsModule,
     RoundProgressModule,
-    MalihuScrollbarModule.forRoot(),
     FullCalendarModule,
     QuillModule.forRoot(),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    PerfectScrollbarModule
   ],
   exports: [
     NgToggleModule,
@@ -113,7 +119,6 @@ FullCalendarModule.registerPlugins([
     NgSelectModule,
     FormsModule,
     RoundProgressModule,
-    MalihuScrollbarModule,
     FullCalendarModule,
     GlobalSearchComponent,
     QuillEditorComponent,
@@ -134,8 +139,17 @@ FullCalendarModule.registerPlugins([
     AddZipcodesComponent,
     AddProductsComponent,
     CapitalSpacePipe,
-    PhonePipe
+    PhonePipe,
+    PerfectScrollbarModule
   ],
-  providers: [MockServerResultsService, MockServerClientsService, MockServerAppraisersService]
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
+    MockServerResultsService, 
+    MockServerClientsService, 
+    MockServerAppraisersService
+  ]
 })
 export class SharedModule { }

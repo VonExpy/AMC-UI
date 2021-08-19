@@ -1,6 +1,6 @@
 <app-status-nav></app-status-nav>
 <div class="tabs__container">
-    <div class="tabs" id="app_tabs" malihu-scrollbar>
+    <div class="tabs" id="app_tabs">
         <ul>
             <li class="tab-link" routerLinkActive="active" routerLink="order-summary">ORDER SUMMARY</li>
             <li class="tab-link" routerLinkActive="active" routerLink="inspection">INSPECTION</li>
@@ -9,7 +9,6 @@
         </ul>
     </div>
     <div class="tab__content">
-        <!-- <div class="tab__content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions"> -->
         <router-outlet></router-outlet>
     </div>
 </div>

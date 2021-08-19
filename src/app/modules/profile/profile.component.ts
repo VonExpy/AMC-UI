@@ -20,9 +20,4 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  public scrollbarOptions = {
-    axis: "X",
-  }
-
-
 }
