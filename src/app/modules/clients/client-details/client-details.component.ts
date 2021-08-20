@@ -1,5 +1,7 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PerfectScrollbarComponent } from 'ngx-perfect-scrollbar';
+import { SharedService } from '../../shared/services/shared.service';
 import { StaticMasterService } from '../../shared/services/static-master.service';
 
 @Component({
@@ -8,11 +10,15 @@ import { StaticMasterService } from '../../shared/services/static-master.service
   styleUrls: ['./client-details.component.scss']
 })
 export class ClientDetailsComponent implements OnInit {
+  @ViewChild(PerfectScrollbarComponent) componentRef?: PerfectScrollbarComponent;
   clientForm!: FormGroup;
   submitted = false;
   edit: any = false;
   toggle: any = {}
-  constructor(private fb: FormBuilder, public staticService: StaticMasterService, private cd:ChangeDetectorRef) {
+  constructor(private fb: FormBuilder, public staticService: StaticMasterService, 
+    private cd:ChangeDetectorRef,
+    private sharedService:SharedService,
+    private el:ElementRef) {
     this.toggle = this.staticService.toggle('profile')
   }
 
@@ -77,10 +83,12 @@ export class ClientDetailsComponent implements OnInit {
     console.log('hit')
     // stop here if form is invalid
     if (form.invalid) {
-      return;
+      return this.sharedService.scrollToFirstInvalidControl(this.el,this.componentRef);
     }
     console.log(form.value, 'form value')
   }
+
+
 
 
 }

@@ -1,223 +1,225 @@
-<div class="custom_scroll">
-    <div class="form px-5 py-1">
-        <div class="title-heading">
-            <h3>Setup Email Notification</h3>
-            <div class="flex-row-center">
-                <button class="btn btn-sm" (click)="openSideNav()">Edit</button>
+<perfect-scrollbar>
+    <div class="custom_scroll">
+        <div class="form px-5 py-1">
+            <div class="title-heading">
+                <h3>Setup Email Notification</h3>
+                <div class="flex-row-center">
+                    <button class="btn btn-sm" (click)="openSideNav()">Edit</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th class="txt-primary text-center">No notification</th>
-                            <th class="txt-primary text-center">Only orders assigned to me</th>
-                            <th class="txt-primary text-center">All orders in my company</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Admin Notes</td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>“New Order” Status Update</td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>“Hold” Status Update</td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>“Cancelled” Status Update</td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>“Bid” Status Update</td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>“Assigned” Status Update</td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                            <td class="text-center">
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="col-12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="txt-primary text-center">No notification</th>
+                                <th class="txt-primary text-center">Only orders assigned to me</th>
+                                <th class="txt-primary text-center">All orders in my company</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Admin Notes</td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>“New Order” Status Update</td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>“Hold” Status Update</td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>“Cancelled” Status Update</td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>“Bid” Status Update</td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>“Assigned” Status Update</td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                                <td class="text-center">
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="title-heading mt-6 mb-2">
-            <h3>Activity Related Emails</h3>
-        </div>
-        <div class="row text-content">
-            <div class="col-6">
-                <h4>When To Email</h4>
-                <p>
-                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                        [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                        [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                        [fontSize]="toggle.fontSize">
-                    </ng-toggle> <span class="ml-3">You have new notifications</span>
-                </p>
-                <p>
-                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                        [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                        [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                        [fontSize]="toggle.fontSize">
-                    </ng-toggle> <span class="ml-3">You have new notifications</span>
-                </p>
-                <p>
-                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                        [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                        [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                        [fontSize]="toggle.fontSize">
-                    </ng-toggle> <span class="ml-3">You have new notifications</span>
-                </p>
+            <div class="title-heading mt-6 mb-2">
+                <h3>Activity Related Emails</h3>
             </div>
-            <div class="col-6">
-                <h4>When To Escalate Emails</h4>
-                <p>
-                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                        [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                        [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                        [fontSize]="toggle.fontSize">
-                    </ng-toggle> <span class="ml-3">You have new notifications</span>
-                </p>
-                <p>
-                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                        [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                        [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                        [fontSize]="toggle.fontSize">
-                    </ng-toggle> <span class="ml-3">You have new notifications</span>
-                </p>
-                <p>
-                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                        [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                        [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                        [fontSize]="toggle.fontSize">
-                    </ng-toggle> <span class="ml-3">You have new notifications</span>
-                </p>
+            <div class="row text-content">
+                <div class="col-6">
+                    <h4>When To Email</h4>
+                    <p>
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                            [fontSize]="toggle.fontSize">
+                        </ng-toggle> <span class="ml-3">You have new notifications</span>
+                    </p>
+                    <p>
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                            [fontSize]="toggle.fontSize">
+                        </ng-toggle> <span class="ml-3">You have new notifications</span>
+                    </p>
+                    <p>
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                            [fontSize]="toggle.fontSize">
+                        </ng-toggle> <span class="ml-3">You have new notifications</span>
+                    </p>
+                </div>
+                <div class="col-6">
+                    <h4>When To Escalate Emails</h4>
+                    <p>
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                            [fontSize]="toggle.fontSize">
+                        </ng-toggle> <span class="ml-3">You have new notifications</span>
+                    </p>
+                    <p>
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                            [fontSize]="toggle.fontSize">
+                        </ng-toggle> <span class="ml-3">You have new notifications</span>
+                    </p>
+                    <p>
+                        <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
+                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                            [fontSize]="toggle.fontSize">
+                        </ng-toggle> <span class="ml-3">You have new notifications</span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</perfect-scrollbar>

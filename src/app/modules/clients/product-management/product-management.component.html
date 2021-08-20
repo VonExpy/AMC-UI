@@ -1,38 +1,41 @@
-<div class="custom_scroll">
-    <div class="form px-5 py-1">
-        <div class="title-heading">
-            <h3>Products & Instructions</h3>
-            <div class="flex-row-center">
-                <button class="btn btn-sm" (click)="openSideNav()">Edit</button>
+<perfect-scrollbar>
+    <div class="custom_scroll">
+        <div class="form px-5 py-1">
+            <div class="title-heading">
+                <h3>Products & Instructions</h3>
+                <div class="flex-row-center">
+                    <button class="btn btn-sm" (click)="openSideNav()">Edit</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <table class="noindent">
-                    <thead>
-                        <tr>
-                            <th align="left">SERVICE</th>
-                            <th>INSTRUCTIONS</th>
-                            <th></th>
-                            <th>OPT IN/OUT</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let d of data">
-                            <td>{{d.name}}</td>
-                            <td>{{d.instruction}}</td>
-                            <td><span class="icon"><img width="16px" src="../../../../assets/icon_edit.svg" /></span></td>
-                            <td>
-                                <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width" [height]="toggle.height"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [value]="d.opt" [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="col">
+                    <table class="noindent">
+                        <thead>
+                            <tr>
+                                <th align="left">SERVICE</th>
+                                <th>INSTRUCTIONS</th>
+                                <th></th>
+                                <th>OPT IN/OUT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let d of data">
+                                <td>{{d.name}}</td>
+                                <td>{{d.instruction}}</td>
+                                <td><span class="icon"><img width="16px"
+                                            src="../../../../assets/icon_edit.svg" /></span></td>
+                                <td>
+                                    <ng-toggle [disabled]="toggle.disabled" [width]="toggle.width"
+                                        [height]="toggle.height" [margin]="toggle.margin" [labels]="toggle.labels"
+                                        [color]="toggle.color" [value]="d.opt" [switchColor]="toggle.switchColor"
+                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                    </ng-toggle>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</perfect-scrollbar>

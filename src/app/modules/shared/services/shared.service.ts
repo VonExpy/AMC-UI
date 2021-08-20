@@ -8,7 +8,7 @@ export class SharedService {
   //side nav
   private customSubject = new Subject<any>();
   customObservable = this.customSubject.asObservable();
-  selectedItem:any
+  selectedItem: any
 
   //modal popup
   private modalSubject = new Subject<any>();
@@ -23,7 +23,16 @@ export class SharedService {
     this.modalSubject.next(value);
   }
 
-  closeSlider(){
-    this.sideNav({action: 'close'})
+  closeSlider() {
+    this.sideNav({ action: 'close' })
+  }
+
+  scrollToFirstInvalidControl(ele: any, componentRef: any) {
+    const firstInvalidControl: HTMLElement = ele.nativeElement.querySelector(
+      "form .ng-invalid"
+    );
+    if (componentRef && componentRef.directiveRef) {
+      componentRef.directiveRef.scrollToElement(firstInvalidControl, 0, 1000);
+    }
   }
 }

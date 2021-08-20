@@ -1,5 +1,7 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PerfectScrollbarComponent } from 'ngx-perfect-scrollbar';
+import { SharedService } from '../../../services/shared.service';
 import { StaticMasterService } from '../../../services/static-master.service';
 
 @Component({
@@ -8,11 +10,16 @@ import { StaticMasterService } from '../../../services/static-master.service';
   styleUrls: ['./organisation.component.scss']
 })
 export class OrganisationComponent implements OnInit {
+  @ViewChild(PerfectScrollbarComponent) componentRef?: PerfectScrollbarComponent;
   accountTypes = [
     { name: 'Current', id: '1' },
     { name: 'Savings', id: '2' }
   ]
-  constructor(private fb: FormBuilder, public staticService: StaticMasterService, private cd: ChangeDetectorRef) { }
+  constructor(private fb: FormBuilder,
+    public staticService: StaticMasterService,
+    private cd: ChangeDetectorRef,
+    private sharedService: SharedService,
+    private el: ElementRef) { }
   orgForm!: FormGroup;
   submitted = false;
   edit: any = false;
@@ -99,7 +106,7 @@ export class OrganisationComponent implements OnInit {
     console.log('hit')
     // stop here if form is invalid
     if (form.invalid) {
-      return;
+      return this.sharedService.scrollToFirstInvalidControl(this.el, this.componentRef);
     }
     this.edit = false
     console.log(form.value, 'form value')

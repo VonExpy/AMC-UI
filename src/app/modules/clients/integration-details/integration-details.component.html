@@ -1,113 +1,118 @@
-<div class="custom_scroll">
-    <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
-        <form [formGroup]="integrationForm" (ngSubmit)="onSubmit(integrationForm)">
-            <div class="title-heading">
-                <h3>UCDP Details</h3>
-                <div class="flex-row-center">
-                    <button class="btn btn-sm btn-secondary-outline" (click)="editform()" *ngIf="edit">Cancel</button>
-                    <button class="btn btn-sm" type="submit" *ngIf="edit">Update</button>
-                    <button class="btn btn-sm" (click)="editform()" *ngIf="!edit">Edit</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>UCDP ENABLED</label>
-                        <ng-toggle [disabled]="!edit" [width]="toggle.width" [height]="toggle.height"
-                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                            [value]="integrationForm.value.isUCDP" [fontSize]="toggle.fontSize"
-                            formControlName="isUCDP">
-                        </ng-toggle>
+<perfect-scrollbar>
+    <div class="custom_scroll">
+        <div class="form px-5 py-1" [ngClass]="edit ? '':'readonly'">
+            <form [formGroup]="integrationForm" (ngSubmit)="onSubmit(integrationForm)">
+                <div class="title-heading">
+                    <h3>UCDP Details</h3>
+                    <div class="flex-row-center">
+                        <button class="btn btn-sm btn-secondary-outline" (click)="editform()"
+                            *ngIf="edit">Cancel</button>
+                        <button class="btn btn-sm" type="submit" *ngIf="edit">Update</button>
+                        <button class="btn btn-sm" (click)="editform()" *ngIf="!edit">Edit</button>
                     </div>
                 </div>
-            </div>
-            <ng-container *ngIf="integrationForm.value.isUCDP">
                 <div class="row">
                     <div class="col-4">
                         <div class="f-group">
-                            <label>UCDP BUSINESS UNIT NUMBER</label>
-                            <div class="f-field" *ngIf="edit">
-                                <input type="text" placeholder="Enter UCDP Business Unit Number"
-                                    formControlName="ucdpBusinessNumber" />
-                            </div>
-                            <div class="f-field-value" *ngIf="!edit">
-                                {{f.ucdpBusinessNumber.value}}
-                            </div>
+                            <label>UCDP ENABLED</label>
+                            <ng-toggle [disabled]="!edit" [width]="toggle.width" [height]="toggle.height"
+                                [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                                [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                                [value]="integrationForm.value.isUCDP" [fontSize]="toggle.fontSize"
+                                formControlName="isUCDP">
+                            </ng-toggle>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="f-group">
-                            <label>FRE IDENTIFICATION NUMBER</label>
-                            <div class="f-field" *ngIf="edit">
-                                <input type="text" placeholder="Enter FRE Identification Number"
-                                    formControlName="freIdNumber" />
-                            </div>
-                            <div class="f-field-value" *ngIf="!edit">
-                                {{f.freIdNumber.value}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="f-group">
-                            <label>FNM SELLER NUMBER</label>
-                            <div class="f-field" *ngIf="edit">
-                                <input type="text" placeholder="Enter FNM Seller Number"
-                                    formControlName="fnmSellerNumber" />
-                                <div *ngIf="submitted && f.fnmSellerNumber.errors" class="error">
-                                    <div *ngIf="f.fnmSellerNumber.errors.required">FNM Seller Number is required</div>
+                </div>
+                <ng-container *ngIf="integrationForm.value.isUCDP">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>UCDP BUSINESS UNIT NUMBER</label>
+                                <div class="f-field" *ngIf="edit">
+                                    <input type="text" placeholder="Enter UCDP Business Unit Number"
+                                        formControlName="ucdpBusinessNumber" />
+                                </div>
+                                <div class="f-field-value" *ngIf="!edit">
+                                    {{f.ucdpBusinessNumber.value}}
                                 </div>
                             </div>
-                            <div class="f-field-value" *ngIf="!edit">
-                                {{f.fnmSellerNumber.value}}
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>FRE IDENTIFICATION NUMBER</label>
+                                <div class="f-field" *ngIf="edit">
+                                    <input type="text" placeholder="Enter FRE Identification Number"
+                                        formControlName="freIdNumber" />
+                                </div>
+                                <div class="f-field-value" *ngIf="!edit">
+                                    {{f.freIdNumber.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>FNM SELLER NUMBER</label>
+                                <div class="f-field" *ngIf="edit">
+                                    <input type="text" placeholder="Enter FNM Seller Number"
+                                        formControlName="fnmSellerNumber" />
+                                    <div *ngIf="submitted && f.fnmSellerNumber.errors" class="error">
+                                        <div *ngIf="f.fnmSellerNumber.errors.required">FNM Seller Number is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="f-field-value" *ngIf="!edit">
+                                    {{f.fnmSellerNumber.value}}
+                                </div>
                             </div>
                         </div>
                     </div>
+                </ng-container>
+                <div class="title-heading">
+                    <h3>EAD DETAILS</h3>
                 </div>
-            </ng-container>
-            <div class="title-heading">
-                <h3>EAD DETAILS</h3>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="f-group">
-                        <label>EAD ENABLED</label>
-                        <ng-toggle [disabled]="!edit" [width]="toggle.width" [height]="toggle.height"
-                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                            [fontSize]="toggle.fontSize" [value]="integrationForm.value.isEAD" formControlName="isEAD">
-                        </ng-toggle>
-                    </div>
-                </div>
-            </div>
-            <ng-container *ngIf="integrationForm.value.isEAD">
                 <div class="row">
                     <div class="col-4">
                         <div class="f-group">
-                            <label>EAD BUSINESS UNIT NUMBER</label>
-                            <div class="f-field" *ngIf="edit">
-                                <input type="text" placeholder="Enter EAD Business Unit Number"
-                                    formControlName="eadpBusinessNumber" />
-                            </div>
-                            <div class="f-field-value" *ngIf="!edit">
-                                {{f.eadpBusinessNumber.value}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="f-group">
-                            <label>FHA IDENTIFICATION NUMBER</label>
-                            <div class="f-field" *ngIf="edit">
-                                <input type="text" placeholder="Enter FHA Identification Number"
-                                    formControlName="fhaIdNumber" />
-                            </div>
-                            <div class="f-field-value" *ngIf="!edit">
-                                {{f.fhaIdNumber.value}}
-                            </div>
+                            <label>EAD ENABLED</label>
+                            <ng-toggle [disabled]="!edit" [width]="toggle.width" [height]="toggle.height"
+                                [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                                [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                                [fontSize]="toggle.fontSize" [value]="integrationForm.value.isEAD"
+                                formControlName="isEAD">
+                            </ng-toggle>
                         </div>
                     </div>
                 </div>
-            </ng-container>
-        </form>
+                <ng-container *ngIf="integrationForm.value.isEAD">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>EAD BUSINESS UNIT NUMBER</label>
+                                <div class="f-field" *ngIf="edit">
+                                    <input type="text" placeholder="Enter EAD Business Unit Number"
+                                        formControlName="eadpBusinessNumber" />
+                                </div>
+                                <div class="f-field-value" *ngIf="!edit">
+                                    {{f.eadpBusinessNumber.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>FHA IDENTIFICATION NUMBER</label>
+                                <div class="f-field" *ngIf="edit">
+                                    <input type="text" placeholder="Enter FHA Identification Number"
+                                        formControlName="fhaIdNumber" />
+                                </div>
+                                <div class="f-field-value" *ngIf="!edit">
+                                    {{f.fhaIdNumber.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </form>
+        </div>
     </div>
-</div>
+</perfect-scrollbar>
