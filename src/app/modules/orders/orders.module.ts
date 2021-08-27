@@ -27,6 +27,7 @@ import { PreviewComponent } from './order-view/preview/preview.component';
 import { StatusesComponent } from './landing/statuses/statuses.component';
 import { OrdersNavComponent } from './landing/orders-nav/orders-nav.component';
 import { OrdersTableComponent } from './landing/orders-table/orders-table.component';
+import { CreateOrderComponent } from './create-order/create-order.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { OrdersTableComponent } from './landing/orders-table/orders-table.compon
     StatusesComponent,
     OrdersNavComponent,
     OrdersTableComponent,
+    CreateOrderComponent
   ],
   imports: [
     CommonModule,

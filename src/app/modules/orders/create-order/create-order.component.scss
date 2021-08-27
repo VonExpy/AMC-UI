@@ -1,0 +1,114 @@
+
+@import '../../../../assets/scss/grid';
+@import '../../../../assets/scss/colors';
+@import '../../../../assets/scss/chips';
+@import '../../../../assets/scss/utilities';
+@import '../../../../assets/scss/form';  
+
+.app__content {
+     padding: 0;
+     background: #F9F9F9;
+ }
+ .scroll__container {
+     display: flex;
+     height: 100%;
+     box-sizing: border-box;
+     .dashboard__content {
+        display: flex;
+        .left__content {
+            width: 100%;
+            flex: 1;
+            padding: 0px 1rem 0px 1.4rem;
+        }
+        .right__content {
+            max-width: 360px;
+            width: 360px;
+            padding: 1.5rem 1.5rem;
+        }
+     }
+     .tab__content {
+        padding: 1rem 0;
+        .card {
+            &-title {
+                padding: 8px 10px;
+                border-bottom: 0;
+                margin-bottom: 10px;
+                .value {
+                    font-size: 13px;
+                    font-weight: 500;
+                    letter-spacing: .25px;
+                    color: $secondary;
+                    text-transform: uppercase;
+                }
+            }
+            &-body {
+                padding: 4px 10px 15px;
+                border-bottom: solid 1px $border-color;
+                .date {
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: $danger;
+                    padding-bottom: 4px;
+                }
+                .sonumber {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: $secondary;
+                }
+            }
+            &-footer {
+                padding: 8px 10px;
+                .address {
+                    color: $secondary;
+                    font-size: 11px;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+ }
+
+ .wizard .col-2{
+     padding-right: 0 !important;
+ }
+ .wizard-list{
+    background: #F1F3F5 0% 0% no-repeat padding-box;
+ }
+ .wizard-list ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+ }
+
+ .wizard-list ul li{
+   padding: 20px;
+   color: #0E526C;
+   font: normal normal normal 16px/20px Ubuntu;
+   font-weight: 500;
+
+}
+
+.wizard-list ul .active{
+    background-color: #fff;
+    color: #4594E0;
+ }
+
+ .wizard-list ul li svg{
+    color: #4594E0;
+    margin-right: 5px;
+ }
+
+ .wizard-list ul li:hover{
+    background-color: #fff;
+    color: #4594E0;
+ }
+
+ .wizard-content{
+    box-shadow: 0px 0px 6px #00000033;
+    background-color: #fff;
+ }
+
+ agm-map {
+    height: 300px;
+  }
+

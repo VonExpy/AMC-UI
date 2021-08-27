@@ -8,7 +8,6 @@ import { SharedService } from './modules/shared/services/shared.service';
 import { LoaderService } from './modules/shared/services/loader.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from './modules/shared/services/interceptors/loader-interceptor.service';
-import { AgmCoreModule } from '@agm/core';
 import { environment } from 'src/environments/environment';
 import { JwtInterceptor } from './_helpers/JwtInterceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
@@ -28,10 +27,6 @@ import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     SharedModule,
-    AgmCoreModule.forRoot({
-      apiKey: environment.GOOGLE_MAP_API_KEY,
-      libraries: ['places', 'drawing']
-    }),
     HttpClientModule,
     /* configure app with AmplifyUIAngularModule */
     AmplifyUIAngularModule

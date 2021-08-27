@@ -1,0 +1,223 @@
+<div class="app__content">
+    <div class="scroll__container pt-2">
+        <perfect-scrollbar>
+            <div class="dashboard__content">
+                <div class="left__content">
+                    <div class="card mt-4">
+                        <div class="card-title flex flex-justify-between">
+                            <h3>Create Order</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="wizard">
+                                <div class="wizard-list">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <ul>
+                                                <li [ngClass]="{active:formType == 'addressForm'}"
+                                                    (click)="formType='addressForm'">Property Address</li>
+                                                <li [ngClass]="{active:formType == 'orderForm'}"
+                                                    (click)="formType='orderForm'">Order Information</li>
+                                                <li [ngClass]="{active:formType == 'instructionsForm'}"
+                                                    (click)="formType='instructionsForm'">Instructions</li>
+                                                <li [ngClass]="{active:formType == 'documentsForm'}"
+                                                    (click)="formType='documentsForm'">Documents</li>
+                                                <li [ngClass]="{active:formType == 'reviewForm'}"
+                                                    (click)="formType='reviewForm'">Review & Submit</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-10 wizard-content">
+                                            <ng-container [ngSwitch]="formType">
+                                                <div class="px-8 py-8">
+                                                    <div class="row" *ngSwitchCase="'addressForm'">
+                                                        <div class="col-8">
+                                                            <form [formGroup]="addressForm"
+                                                                (ngSubmit)="onSubmit(addressForm,'addressForm')">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <app-auto-complete
+                                                                            (setAddress)="getAddress($event)"
+                                                                            adressType="geocode">
+                                                                        </app-auto-complete>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <div class="f-group">
+                                                                            <label
+                                                                                [ngClass]="{required:!c.street.value}">Address</label>
+                                                                            <div class="f-field">
+                                                                                <input type="text" placeholder="Address"
+                                                                                    formControlName="street"
+                                                                                    [attr.disabled]="true" />
+                                                                                <div *ngIf="submitted && c.street.errors"
+                                                                                    class="error">
+                                                                                    <div
+                                                                                        *ngIf="c.street.errors.required">
+                                                                                        Address is required</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="f-group">
+                                                                            <label
+                                                                                [ngClass]="{required:!c.city.value}">City</label>
+                                                                            <div class="f-field">
+                                                                                <input type="text" placeholder="City"
+                                                                                    formControlName="city"
+                                                                                    [attr.disabled]="true" />
+                                                                                <div *ngIf="submitted && c.city.errors"
+                                                                                    class="error">
+                                                                                    <div *ngIf="c.city.errors.required">
+                                                                                        City is required</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="f-group">
+                                                                            <label>County</label>
+                                                                            <div class="f-field">
+                                                                                <input type="text" placeholder="County"
+                                                                                    formControlName="county"
+                                                                                    [attr.disabled]="true" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-4">
+                                                                        <div class="f-group">
+                                                                            <label
+                                                                                [ngClass]="{required:!c.state.value}">State</label>
+                                                                            <div class="f-field">
+                                                                                <input type="text" placeholder="state"
+                                                                                    formControlName="state"
+                                                                                    [attr.disabled]="true" />
+                                                                                <div *ngIf="submitted && c.state.errors"
+                                                                                    class="error">
+                                                                                    <div
+                                                                                        *ngIf="c.state.errors.required">
+                                                                                        State is required</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-4">
+                                                                        <div class="f-group">
+                                                                            <label
+                                                                                [ngClass]="{required:!c.zipcode.value}">Zipcode</label>
+                                                                            <div class="f-field">
+                                                                                <input type="text" placeholder="Zipcode"
+                                                                                    formControlName="zipcode"
+                                                                                    [attr.disabled]="true">
+                                                                                <div *ngIf="submitted && c.zipcode.errors"
+                                                                                    class="error">
+                                                                                    <div
+                                                                                        *ngIf="c.zipcode.errors.required">
+                                                                                        Zipcode is required</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <agm-map #AgmMap [latitude]="c.lat.value"
+                                                                        [longitude]="c.lng.value">
+                                                                        <agm-marker [latitude]="c.lat.value"
+                                                                            [longitude]="c.lng.value">
+                                                                        </agm-marker>
+                                                                    </agm-map>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <ng-container *ngSwitchCase="'orderForm'">
+                                                        Order Information
+                                                    </ng-container>
+                                                    <ng-container *ngSwitchCase="'instructionsForm'">
+                                                        Instructions
+                                                    </ng-container>
+                                                    <ng-container *ngSwitchCase="'documentsForm'">
+                                                        Documents
+                                                    </ng-container>
+                                                    <ng-container *ngSwitchCase="'reviewForm'">
+                                                        Review & Submit
+                                                    </ng-container>
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </perfect-scrollbar>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="tab__content">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="card">
+                                            <div class="card-title flex flex-justify-between">
+                                                Dates
+                                                <div class="value">
+                                                    <ng-toggle [width]="toggle.width" [height]="toggle.height"
+                                                        [value]="true" [margin]="toggle.margin" [labels]="toggle.labels"
+                                                        [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                                        [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                                                    </ng-toggle>
+                                                    <small class="label ml-3">Rush Order</small>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="f-group">
+                                                            <label class="required">Order Date</label>
+                                                            <div class="f-field">
+                                                                <input type="text" placeholder="Order Date" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="f-group">
+                                                            <label class="required">Due Date</label>
+                                                            <div class="f-field">
+                                                                <input type="text" placeholder="Due Date" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="f-group">
+                                                            <label class="required">Appraiser Due Date</label>
+                                                            <div class="f-field">
+                                                                <input type="text" placeholder="Due Date" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->

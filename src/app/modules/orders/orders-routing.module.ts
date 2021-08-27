@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateOrderComponent } from './create-order/create-order.component';
 import { LandingComponent } from './landing/landing.component';
 import { ComparablesComponent } from './order-view/comparables/comparables.component';
 import { InspectionComponent } from './order-view/inspection/inspection.component';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: '',
     component: LandingComponent,
+  },
+  {
+    path:'create-order',
+    component:CreateOrderComponent
   },
   {
     path: 'view',

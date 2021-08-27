@@ -46,6 +46,8 @@ import { PhonePipe } from 'src/app/_helpers/phone.pipe';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from 'src/environments/environment';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -102,7 +104,11 @@ FullCalendarModule.registerPlugins([
     FullCalendarModule,
     QuillModule.forRoot(),
     NgxMaskModule.forRoot(),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.GOOGLE_MAP_API_KEY,
+      libraries: ['places', 'drawing']
+    }),
   ],
   exports: [
     NgToggleModule,
@@ -140,7 +146,8 @@ FullCalendarModule.registerPlugins([
     AddProductsComponent,
     CapitalSpacePipe,
     PhonePipe,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    AgmCoreModule
   ],
   providers: [
     {
