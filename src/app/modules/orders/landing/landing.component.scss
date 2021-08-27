@@ -1,0 +1,122 @@
+@import "../../../../assets/scss/mixins";
+@import "../../../../assets/scss/colors";
+@import "../../../../assets/scss/buttons";
+@import "../../../../assets/scss/badges";
+@import "../../../../assets/scss/chips";
+@import "../../../../assets/scss/search";
+@import "../../../../assets/scss/statistics";
+
+.btn {
+    width: 180px;
+}
+.action_order_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 12px 15px 12px;
+    border-bottom: solid 1px #c5c4ca;
+    height: 10%;
+}
+
+.order_detail_filter {
+    width: 40%;
+}
+.order_detail_count {
+    width: 100%;
+}
+.search__container {
+    justify-content: flex-start;
+    border-bottom: solid 1px #c5c4ca;
+    .search {
+        border-radius: initial;
+        background: rgb(246 248 249 / 18%);
+        border-top-right-radius: 99px;
+        border-bottom-right-radius: 99px;
+        border: 1px solid #dfdddd;
+        width: 24%;
+    }
+}
+
+.filter__container {
+    padding: 1.5%;
+    justify-content: flex-end;
+    border-bottom: solid 1px #c5c4ca;    
+}
+
+.order_count_container {
+    padding: 4px;
+    &:hover,
+    &.active {
+        background: #e6e7e7;
+    }
+    .order_due {
+        margin: 0% 10%;
+
+        cursor: pointer;
+        .duetodaycount,.duetomcount,.dueovercount,.rushcount {
+            font-size: xx-large;
+            font-weight: 500;
+            margin-right: 6px;
+        }
+    }
+}
+
+.dueText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.S_con {
+    padding: 10px;
+    width: 12%;
+    border-top-left-radius: 99px;
+    border-bottom-left-radius: 99px;
+    border-color: #d2dddd;
+    background-color: #eee;
+}
+
+.ordstatus {
+    &-item {
+        border-radius: 18px;
+        background: #ffffff;
+        box-shadow: 0px 0px 0px rgb(0 0 0 / 12%);
+        margin: 0% 7%;
+        cursor: pointer;
+        &:hover,
+        &.active {
+            background: #f4f6f7;
+        }
+    }
+    &-items {
+        .ordstatus-item {
+            margin-bottom: 0px;
+            .status {
+                font-size: 13px;
+                padding: 10px;
+                text-align: right;
+            }
+            .details {
+                padding: 10px 10px;
+                font-size: 12px;
+                flex: 1;
+                color: $widget-secondary;
+                font-weight: 500;
+                &.primary {
+                    color: $widget-primary;
+                }
+                strong {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+.sort__by select,.filter__text {   
+    font-size: 14px;
+    
+}

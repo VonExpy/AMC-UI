@@ -285,3 +285,29 @@
         }
     }
 }
+
+#orders__container {
+    @include flex-row-stretch;
+    flex: auto;
+    justify-content: stretch;
+    overflow: hidden;
+    .orders__con {
+        @include flex-column-stretch;
+        max-width: 270px;
+        width: 100%; 
+        box-shadow: 0px 0px 8px rgb(0 0 0 / 18%);
+        position: relative;
+        z-index: 2;
+        overflow-x: hidden; 
+        transition: 0.3s;
+    }
+    .order__con {
+        @include flex-column-stretch;
+        width: 100%; 
+        box-shadow: 0px 0px 1px rgb(0 0 0 / 18%);
+        position: relative;
+        z-index: 2;
+        overflow-x: hidden; 
+        transition: 0.3s;
+    }
+}

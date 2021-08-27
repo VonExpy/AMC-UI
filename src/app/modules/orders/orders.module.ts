@@ -24,6 +24,9 @@ import { ClientDetailsComponent } from './order-view/order-summary/client-detail
 import { InspectionComponent } from './order-view/inspection/inspection.component';
 import { ComparablesComponent } from './order-view/comparables/comparables.component';
 import { PreviewComponent } from './order-view/preview/preview.component';
+import { StatusesComponent } from './landing/statuses/statuses.component';
+import { OrdersNavComponent } from './landing/orders-nav/orders-nav.component';
+import { OrdersTableComponent } from './landing/orders-table/orders-table.component';
 
 
 @NgModule({
@@ -48,6 +51,9 @@ import { PreviewComponent } from './order-view/preview/preview.component';
     InspectionComponent,
     ComparablesComponent,
     PreviewComponent,
+    StatusesComponent,
+    OrdersNavComponent,
+    OrdersTableComponent,
   ],
   imports: [
     CommonModule,
