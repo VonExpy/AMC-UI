@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-8">
+        <form *ngIf="control" [formGroup]="control">
+            <div class="row">
+                <div class="col-6">
+                    <app-auto-complete (setAddress)="getAddress($event)" adressType="geocode">
+                    </app-auto-complete>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!c.street.value}">Address</label>
+                        <div class="f-field">
+                            <input type="text" placeholder="Address" formControlName="street" [attr.disabled]="true" />
+                            <div *ngIf="control.touched && c.street.errors" class="error">
+                                <div *ngIf="c.street.errors.required">
+                                    Address is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!c.city.value}">City</label>
+                        <div class="f-field">
+                            <input type="text" placeholder="City" formControlName="city" [attr.disabled]="true" />
+                            <div *ngIf="control.touched && c.city.errors" class="error">
+                                <div *ngIf="c.city.errors.required">
+                                    City is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="f-group">
+                        <label>County</label>
+                        <div class="f-field">
+                            <input type="text" placeholder="County" formControlName="county" [attr.disabled]="true" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!c.state.value}">State</label>
+                        <div class="f-field">
+                            <input type="text" placeholder="state" formControlName="state" [attr.disabled]="true" />
+                            <div *ngIf="control.touched && c.state.errors" class="error">
+                                <div *ngIf="c.state.errors.required">
+                                    State is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="f-group">
+                        <label [ngClass]="{required:!c.zipcode.value}">Zipcode</label>
+                        <div class="f-field">
+                            <input type="text" placeholder="Zipcode" formControlName="zipcode" [attr.disabled]="true">
+                            <div *ngIf="control.touched && c.zipcode.errors" class="error">
+                                <div *ngIf="c.zipcode.errors.required">
+                                    Zipcode is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-4">
+        <div class="row">
+            <div class="col">
+                <agm-map #AgmMap [latitude]="c.lat.value" [zoom]=17 [longitude]="c.lng.value">
+                    <agm-marker [latitude]="c.lat.value" [longitude]="c.lng.value">
+                        <agm-info-window [isOpen]="c.street.value" [latitude]="c.lat.value" [longitude]="c.lng.value">
+                            <strong>{{c.street.value}}</strong><br>
+                            <small>{{c.city.value}}, {{c.state.value}},{{c.zipcode.value}}</small>
+                        </agm-info-window>
+                    </agm-marker>
+                </agm-map>
+            </div>
+        </div>
+    </div>
+</div>

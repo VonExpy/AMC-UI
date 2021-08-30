@@ -28,6 +28,11 @@ import { StatusesComponent } from './landing/statuses/statuses.component';
 import { OrdersNavComponent } from './landing/orders-nav/orders-nav.component';
 import { OrdersTableComponent } from './landing/orders-table/orders-table.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
+import { AddressFormComponent } from './create-order/address-form/address-form.component';
+import { OrderFormComponent } from './create-order/order-form/order-form.component';
+import { InstructionsFormComponent } from './create-order/instructions-form/instructions-form.component';
+import { DocumentsFormComponent } from './create-order/documents-form/documents-form.component';
+import { ReviewFormComponent } from './create-order/review-form/review-form.component';
 
 
 @NgModule({
@@ -55,7 +60,12 @@ import { CreateOrderComponent } from './create-order/create-order.component';
     StatusesComponent,
     OrdersNavComponent,
     OrdersTableComponent,
-    CreateOrderComponent
+    CreateOrderComponent,
+    AddressFormComponent,
+    OrderFormComponent,
+    InstructionsFormComponent,
+    DocumentsFormComponent,
+    ReviewFormComponent
   ],
   imports: [
     CommonModule,

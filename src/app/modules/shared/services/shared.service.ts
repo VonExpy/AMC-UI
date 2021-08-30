@@ -31,7 +31,9 @@ export class SharedService {
     const firstInvalidControl: HTMLElement = ele.nativeElement.querySelector(
       "form .ng-invalid"
     );
+    console.log(firstInvalidControl,'firstInvalidControl')
     if (componentRef && componentRef.directiveRef) {
+      console.log('hit')
       componentRef.directiveRef.scrollToElement(firstInvalidControl, 0, 1000);
     }
   }

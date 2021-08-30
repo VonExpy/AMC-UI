@@ -85,8 +85,19 @@
    color: #0E526C;
    font: normal normal normal 16px/20px Ubuntu;
    font-weight: 500;
+   cursor: pointer;
 
+//    background: url(../../../../assets/icon_location.svg);
+//    background-size: auto 13px;
+//    padding-left: 15px;
 }
+
+// li{
+ 
+//     background: url(../../../../assets/icon_location.svg) no-repeat center left;
+//     background-size: auto 13px;
+//     padding-left: 15px;
+//  }
 
 .wizard-list ul .active{
     background-color: #fff;

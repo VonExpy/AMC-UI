@@ -1,0 +1,95 @@
+<div class="ps" style="position: relative; max-height: 300px;" [perfectScrollbar]="config">
+    <form [formGroup]="control" *ngIf="control">
+        <div class="title-heading">
+            <h3>Client Details</h3>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label class="required">CLIENT NAME</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Organisation Name" formControlName="clientName" />
+                                <div *ngIf="control.touched && f.clientName.errors" class="error">
+                                    <div *ngIf="f.clientName.errors.required">Client Name is required</div>
+                                    <div *ngIf="f.clientName.errors.pattern">Invalid</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label class="required">DEFAULT CLIENT EMAIL </label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Email" formControlName="clientEmail" />
+                                <div *ngIf="control.touched && f.clientEmail.errors" class="error">
+                                    <div *ngIf="f.clientEmail.errors.pattern">Please enter valid email</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="tab__content">
+                    <div class="card px-5 py-1">
+                        <div class="card-title flex flex-justify-between">
+                            Dates
+                            <div class="value">
+                                <ng-toggle [width]="toggle.width" [height]="toggle.height" [value]="true"
+                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                                    [fontSize]="toggle.fontSize">
+                                </ng-toggle>
+                                <small class="label ml-3">Rush Order</small>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="f-group">
+                                        <label class="required">Order Date</label>
+                                        <div class="f-field">
+                                            <input type="text" placeholder="Order Date" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="f-group">
+                                        <label class="required">Due Date</label>
+                                        <div class="f-field">
+                                            <input type="text" placeholder="Due Date" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="f-group">
+                                        <label class="required">Appraiser Due Date</label>
+                                        <div class="f-field">
+                                            <input type="text" placeholder="Due Date" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <div class="title-heading">
+                    <h3>Address</h3>
+                </div> -->
+        <!-- <div class="col-4" *ngIf="edit">
+                    <app-auto-complete (setAddress)="getAddress($event)" adressType="geocode">
+                    </app-auto-complete>
+                </div> -->
+    </form>
+</div>
