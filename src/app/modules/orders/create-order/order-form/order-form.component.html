@@ -10,7 +10,7 @@
                         <div class="f-group">
                             <label class="required">CLIENT NAME</label>
                             <div class="f-field">
-                                <input type="text" placeholder="Enter Organisation Name" formControlName="clientName" />
+                                <input type="text" placeholder="Client Name" formControlName="clientName" />
                                 <div *ngIf="control.touched && f.clientName.errors" class="error">
                                     <div *ngIf="f.clientName.errors.required">Client Name is required</div>
                                     <div *ngIf="f.clientName.errors.pattern">Invalid</div>
@@ -30,66 +30,542 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="tab__content">
-                    <div class="card px-5 py-1">
-                        <div class="card-title flex flex-justify-between">
-                            Dates
-                            <div class="value">
-                                <ng-toggle [width]="toggle.width" [height]="toggle.height" [value]="true"
-                                    [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
-                                    [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
-                                    [fontSize]="toggle.fontSize">
-                                </ng-toggle>
-                                <small class="label ml-3">Rush Order</small>
+                <div class="row">
+                    <div class="col">
+                        <div class="title-heading">
+                            <h3>Lender Details</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <input type="radio" id="lender" value="lender" name="lender"
+                                formControlName="lenderType" >
+                                  <label for="lender">Lender</label>
+                            </div>
+                            <div class="col">
+                                <input type="radio" id="lenderOnReport" value="lenderOnReport" name="lender"
+                                formControlName="lenderType" >
+                                  <label for="lenderOnReport">Lender On Report</label>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="f-group">
-                                        <label class="required">Order Date</label>
-                                        <div class="f-field">
-                                            <input type="text" placeholder="Order Date" />
-                                        </div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="col">
+                        <div class="value">
+                            <ng-toggle [width]="toggle.width" [height]="toggle.height" [value]="false"
+                                [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                                [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                                [fontSize]="toggle.fontSize">
+                            </ng-toggle>
+                            <small class="label ml-3">Use the same details as lender</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-5">
+                    <div class="col">
+                        <app-auto-complete (setAddress)="getAddress($event)" adressType="geocode">
+                        </app-auto-complete>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>LENDER NAME</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Lender Name" formControlName="lenderName" />
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="f-group">
-                                        <label class="required">Due Date</label>
-                                        <div class="f-field">
-                                            <input type="text" placeholder="Due Date" />
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>Address</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Address" formControlName="street" [attr.disabled]="true" />
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="f-group">
-                                        <label class="required">Appraiser Due Date</label>
-                                        <div class="f-field">
-                                            <input type="text" placeholder="Due Date" />
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>City</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="City" formControlName="city" [attr.disabled]="true" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>County</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="County" formControlName="county" [attr.disabled]="true" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label >State</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="state" formControlName="state" [attr.disabled]="true" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>Zipcode</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Zipcode" formControlName="zipcode" [attr.disabled]="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="title-heading">
+                            <h3>Borrower Details</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>BORROWER NAME</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Borrower Name" formControlName="borrowerName" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>BORROWER PHONE </label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Borrower Phone" formControlName="borrowerPhone" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="f-group">
+                            <label>BORROWER EMAIL</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Borrower Email" formControlName="borrowerEmail" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="title-heading">
+                            <h3>Co-Borrower Details</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>CO-BORROWER NAME</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Co-Borrower Name" formControlName="coBorrowerName" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>CO-BORROWER PHONE </label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Co-Borrower Phone" formControlName="coBorrowerPhone" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="f-group">
+                            <label>CO-BORROWER EMAIL</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Co-Borrower Email" formControlName="coBorrowerEmail" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="title-heading">
+                            <h3>Property Details</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-4">
+                                  <label>Occupancy Type</label>
+                            </div>
+                            <div class="col">
+                                <input type="radio" id="owner" value="owner" name="occupancy">
+                                  <label for="owner">Owner</label>
+                            </div>
+                            <div class="col">
+                                <input type="radio" id="tenant" value="tenant" name="occupancy">
+                                  <label for="tenant">Tenant</label>
+                            </div>
+                            <div class="col">
+                                <input type="radio" id="vacant" value="vacant" name="occupancy">
+                                  <label for="vacant">Vacant</label>
+                            </div>
+                        </div>
+                    </div>
+                   </div>
+                   <div class="row pt-5">
+                       <div class="col">
+                        <div class="f-group">
+                            <label>Job Type</label>
+                            <div class="f-field">
+                                <ng-select [items]="staticsService.jobTypes" bindLabel="name" bindValue="value"
+                                appendTo="body"
+                                 placeholder="Select"  formControlName="jobtype" [multiple]="true">
+                            </ng-select>
+                            </div>
+                        </div>
+                       </div>
+     
+                   </div>
+                   <div class="row">
+                    <div class="col">
+                        <div class="title-heading">
+                            <h3>Assignment Details</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>ASSIGNMENT TYPE</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Select" formControlName="assignmentType" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>PROPERTY TYPE</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Select" formControlName="propertyType" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>PURCHASE PRICE</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Purchase Price" formControlName="purchasePrice" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>FHA FILE NUMBER</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter FHA File Number" formControlName="fhaFileNumber" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="title-heading">
+                            <h3>Loan Details</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>LOAN TYPE</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Select" formControlName="loanType" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>LOAN NUMBER</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Loan Number" formControlName="loanNumber" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="f-group">
+                            <label>CURRENT FILE#</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Current File" formControlName="currentFile" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="f-group">
+                            <label>CASE</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Case" formControlName="case" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="f-group">
+                            <label>LEGAL</label>
+                            <div class="f-field">
+                                <input type="text" placeholder="Enter Legal" formControlName="legal" />
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+            <div class="col-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="tab__content">
+                            <div class="card px-5 py-1">
+                                <div class="card-title flex flex-justify-between">
+                                    Dates
+                                    <div class="value">
+                                        <ng-toggle [width]="toggle.width" [height]="toggle.height" [value]="true"
+                                            [margin]="toggle.margin" [labels]="toggle.labels" [color]="toggle.color"
+                                            [switchColor]="toggle.switchColor" [fontColor]="toggle.fontColor"
+                                            [fontSize]="toggle.fontSize">
+                                        </ng-toggle>
+                                        <small class="label ml-3">Rush Order</small>
+                                    </div>
+                                </div>
+                                <div class="card-body pt-2">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label class="required">Order Date</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Order Date" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label class="required">Due Date</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Due Date" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label class="required">Appraiser Due Date</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Due Date" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col">
+                        <div class="tab__content">
+                            <div class="card px-5 py-1">
+                                <div class="card-title flex flex-justify-between">
+                                    Fees
+                                </div>
+                                <div class="card-body pt-2">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label>CLIENT FEE</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Enter Client Fee" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label>TECHNICAL FEE</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Enter Technical Fee" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label>APPRAISER FEE</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Enter Appraiser Fee" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label>COMPANY FEE</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Enter Company Fee" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col">
+                        <div class="tab__content">
+                            <div class="card px-5 py-1">
+                                <div class="card-title flex flex-justify-between">
+                                    Payment
+                                </div>
+                                <div class="card-body pt-2">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label class="required">APPRAISER</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Select" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label>INSPECTOR</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Enter Inspector" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label class="required">COMPLEXITY TYPE</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Select" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col">
+                        <div class="tab__content">
+                            <div class="card px-5 py-1">
+                                <div class="card-title flex flex-justify-between">
+                                    Invoice
+                                </div>
+                                <div class="card-body pt-2">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label>INSPECTOR</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Enter Inspector" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label class="required">COMPLEXITY TYPE</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Select" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+ 
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col">
+                        <div class="tab__content">
+                            <div class="card px-5 py-1">
+                                <div class="card-title flex flex-justify-between">
+                                    Contact Informationx
+                                </div>
+                                <div class="card-body pt-2">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label>Best Person To Contact</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Select" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label class="required">Owner</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Enter Owner" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="f-group">
+                                                <label class="required">Owner Phone</label>
+                                                <div class="f-field">
+                                                    <input type="text" placeholder="Enter Phone" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 
-        <!-- <div class="title-heading">
-                    <h3>Address</h3>
-                </div> -->
-        <!-- <div class="col-4" *ngIf="edit">
-                    <app-auto-complete (setAddress)="getAddress($event)" adressType="geocode">
-                    </app-auto-complete>
-                </div> -->
+ 
     </form>
 </div>

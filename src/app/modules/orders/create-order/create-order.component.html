@@ -52,7 +52,7 @@
                                                         </div>
                                                     </ng-container>
                                                     <ng-container *ngSwitchCase="'instructionsForm'">
-                                                        <app-instructions-form></app-instructions-form>
+                                                        <app-instructions-form [control]="orderForm.get('instructionsForm')"></app-instructions-form>
                                                         <div class="row">
                                                             <div class="col flex-justify-right mt-5">
                                                                 <button class="btn btn-secondary-outline"

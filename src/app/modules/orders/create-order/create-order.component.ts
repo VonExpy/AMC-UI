@@ -1,9 +1,7 @@
-import { AgmMap, MapsAPILoader } from '@agm/core';
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PerfectScrollbarComponent, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarComponent } from 'ngx-perfect-scrollbar';
 import { SharedService } from '../../shared/services/shared.service';
-import { StaticMasterService } from '../../shared/services/static-master.service';
 
 @Component({
   selector: 'app-create-order',
@@ -13,11 +11,11 @@ import { StaticMasterService } from '../../shared/services/static-master.service
 })
 export class CreateOrderComponent implements OnInit {
   @ViewChild(PerfectScrollbarComponent) componentRef?: PerfectScrollbarComponent;
-  formType = 'orderForm'
+  formType = 'addressForm'
   orderForm: any
   constructor(
-    private sharedService:SharedService,
-    private el:ElementRef,
+    private sharedService: SharedService,
+    private el: ElementRef,
     private fb: FormBuilder) {
   }
 
@@ -49,24 +47,36 @@ export class CreateOrderComponent implements OnInit {
   orderInfoForm() {
     return this.fb.group({
       clientName: ['', Validators.required],
-      clientEmail: ['',Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")],
-      // county: [''],
-      // state: ['', Validators.required],
-      // zipcode: ['', Validators.required],
-      // lat: ['', Validators.required],
-      // lng: ['', Validators.required]
+      clientEmail: ['', Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")],
+      lenderType: [''],
+      lenderName: [''],
+      street: [''],
+      city: [''],
+      county: [''],
+      state: [''],
+      zipcode: [''],
+      borrowerName: [''],
+      borrowerPhone: [''],
+      borrowerEmail: ['', Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")],
+      coBorrowerName: [''],
+      coBorrowerPhone: [''],
+      coBorrowerEmail: ['', Validators.pattern("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")],
+      jobtype: [''],
+      assignmentType: [''],
+      propertyType: [''],
+      purchasePrice: [''],
+      fhaFileNumber: [''],
+      loanType: [''],
+      loanNumber: [''],
+      currentFile: [''],
+      case: [''],
+      legal: ['']
     })
   }
 
   instructionsFrom() {
     return this.fb.group({
-      street: ['', Validators.required],
-      city: ['', Validators.required],
-      county: [''],
-      state: ['', Validators.required],
-      zipcode: ['', Validators.required],
-      lat: ['', Validators.required],
-      lng: ['', Validators.required]
+      instructions: ['']
     })
   }
 
@@ -87,7 +97,7 @@ export class CreateOrderComponent implements OnInit {
     // // stop here if form is invalid
     if (form.invalid) {
       form.markAllAsTouched()
-      return this.sharedService.scrollToFirstInvalidControl(this.el, this.componentRef); 
+      return this.sharedService.scrollToFirstInvalidControl(this.el, this.componentRef);
     }
     switch (type) {
       case 'addressForm':

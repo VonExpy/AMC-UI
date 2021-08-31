@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 @Component({
   selector: 'app-instructions-form',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./instructions-form.component.scss']
 })
 export class InstructionsFormComponent implements OnInit {
-
+  @Input() control: any
+  public config: PerfectScrollbarConfigInterface = {};
   constructor() { }
 
   ngOnInit(): void {

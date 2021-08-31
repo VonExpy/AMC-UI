@@ -1,1 +1,5 @@
-<p>instructions-form works!</p>
+<div class="ps" style="position: relative; max-height: 300px;" [perfectScrollbar]="config">
+    <form [formGroup]="control" *ngIf="control">
+        <app-quill-editor></app-quill-editor>
+    </form>
+</div>
