@@ -209,6 +209,19 @@ export class StaticMasterService {
     }
   }
 
+  getType() {
+    return [
+        { name: 'AMC', id: 'AMC' },
+        { name: 'Lender', id: 'Lender' },
+        { name: 'Attorney', id: 'Attorney' },
+        { name: 'Broker', id: 'Broker' },
+        { name: 'Bank', id: 'Bank' },
+        { name: 'Credit Union', id: 'CreditUnion' },
+        { name: 'Servicer', id: 'Servicer' },
+        { name: 'Other', id: 'Other' }
+    ]
+}
+
   getRole(userType: string) {
     switch (userType) {
       case 'AD':

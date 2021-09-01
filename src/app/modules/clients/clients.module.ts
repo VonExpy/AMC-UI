@@ -23,6 +23,7 @@ import { NotesRemainderComponent } from './notes-remainder/notes-remainder.compo
 import { AddNotesRemindersComponent } from './notes-remainder/add-notes-reminders/add-notes-reminders.component';
 import { ManageNotificationsComponent } from './manage-notifications/manage-notifications.component';
 import { EditNotificationsComponent } from './manage-notifications/edit-notifications/edit-notifications.component';
+import { CreateClientComponent } from './create-client/create-client.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { EditNotificationsComponent } from './manage-notifications/edit-notifica
     NotesRemainderComponent,
     AddNotesRemindersComponent,
     ManageNotificationsComponent,
-    EditNotificationsComponent
+    EditNotificationsComponent,
+    CreateClientComponent
   ],
   imports: [
     CommonModule,

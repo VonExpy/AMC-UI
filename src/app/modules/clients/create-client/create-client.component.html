@@ -1,0 +1,509 @@
+<ng-container [ngSwitch]="formType">
+    <form [formGroup]="basicInfoForm" class="modal modal-container" (ngSubmit)="onSubmit(basicInfoForm,'basicInfoForm')"
+        *ngSwitchCase="'basicInfoForm'">
+        <div class="modal-title">
+            <h4 class="heading">Create Client/Basic Info</h4>
+        </div>
+        <div class="modal-body">
+            <perfect-scrollbar>
+                <div class="px-8 py-8">
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!f.name.value}">NAME</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter name" formControlName="name" />
+                                    <div *ngIf="submitted && f.name.errors" class="error">
+                                        <div *ngIf="f.name.errors.required">name is required</div>
+                                        <div *ngIf="f.name.errors.pattern">Invalid</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label [ngClass]="{required:!f.acronym.value}">ACRONYM</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter acronym" formControlName="acronym" />
+                                    <div *ngIf="submitted && f.acronym.errors" class="error">
+                                        <div *ngIf="f.acronym.errors.required">acronym is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>TYPE</label>
+                                <div class="f-field">
+                                    <ng-select [items]="types"  bindLabel="name" bindValue="name"
+                                    placeholder="Select Type"  formControlName="type" appendTo="body">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>PHONE</label>
+                                <div class="f-field">
+                                    <input type="text" mask="(000) 000-0000" placeholder="Ex. (000) 000-0000"
+                                        formControlName="phone" />
+                                    <div *ngIf="submitted && f.phone.errors" class="error">
+                                        <div *ngIf="f.phone.errors.mask">Please enter valid phone</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>Email</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="ex. test@test.com" formControlName="email" />
+                                    <div *ngIf="submitted && f.email.errors" class="error">
+                                        <div *ngIf="f.email.errors.pattern">Please enter Valid email</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>FAX</label>
+                                <div class="f-field">
+                                    <input type="text" mask="(000) 000-0000" placeholder="Ex. (000) 000-0000"
+                                        formControlName="fax" />
+                                    <div *ngIf="submitted && f.fax.errors" class="error">
+                                        <div *ngIf="f.fax.errors.mask">Please enter valid fax</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>WEBSITE</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter website" formControlName="website" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>LICENSE</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter license" formControlName="license" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>EXPIRY DATE</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Select" formControlName="expiryDate" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            <app-auto-complete (setAddress)="getAddress($event,'basic')" adressType="geocode">
+                            </app-auto-complete>
+                        </div>
+                        <div class="col-7">
+                            <ng-toggle [width]="toggle.width" [height]="toggle.height" [margin]="toggle.margin"
+                                [labels]="toggle.labels" [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                [value]="false" [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                            </ng-toggle>
+                            <small class="label ml-3">Use the same details to Lender/Lender On Report</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>Address</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Address" formControlName="street"
+                                        [attr.disabled]="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>City</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="City" formControlName="city"
+                                        [attr.disabled]="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>County</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="County" formControlName="county"
+                                        [attr.disabled]="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>State</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="state" formControlName="state"
+                                        [attr.disabled]="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>Zipcode</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Zipcode" formControlName="zipcode"
+                                        [attr.disabled]="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </perfect-scrollbar>
+        </div>
+        <div class="modal-footer flex-justify-right">
+            <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
+            <button class="btn ml-2" type="submit">Next</button>
+        </div>
+    </form>
+    <form [formGroup]="contactInfoForm" class="modal modal-container"
+        (ngSubmit)="onSubmit(contactInfoForm,'contactInfoForm')" *ngSwitchCase="'contactInfoForm'">
+        <div class="modal-title">
+            <h4 class="heading">Create Client/Contact Info</h4>
+        </div>
+        <div class="modal-body">
+            <perfect-scrollbar>
+                <div class="px-8 py-8">
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>NAME</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter your contact name"
+                                        formControlName="contactName" />
+                                    <div *ngIf="submitted && c.contactName.errors" class="error">
+                                        <div *ngIf="c.contactName.errors.pattern">Invalid</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>PHONE</label>
+                                <div class="f-field">
+                                    <input type="text" mask="(000) 000-0000" placeholder="Ex. (000) 000-0000"
+                                        formControlName="contactPhone" />
+                                    <div *ngIf="submitted && c.contactPhone.errors" class="error">
+                                        <div *ngIf="c.contactPhone.errors.mask">Please enter valid phone</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>Email</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="ex. test@test.com" formControlName="contactEmail" />
+                                    <div *ngIf="submitted && c.contactEmail.errors" class="error">
+                                        <div *ngIf="c.contactEmail.errors.pattern">Please enter Valid email</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>PORTAL URL</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter portal url" formControlName="portalUrl" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>USER ID</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Enter user id" formControlName="userId" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>PASSWORD</label>
+                                <div class="f-field">
+                                    <input type="password" placeholder="Enter password" formControlName="password" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>TIER</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Select" formControlName="tier" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <app-auto-complete (setAddress)="getAddress($event,'contact')" adressType="geocode">
+                            </app-auto-complete>
+                        </div>
+                        <div class="col-6">
+                            <ng-toggle [width]="toggle.width" [height]="toggle.height" [margin]="toggle.margin"
+                                [labels]="toggle.labels" [color]="toggle.color" [switchColor]="toggle.switchColor"
+                                [value]="false" [fontColor]="toggle.fontColor" [fontSize]="toggle.fontSize">
+                            </ng-toggle>
+                            <small class="label ml-3">Use the same address as mailing</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>Address</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Address" formControlName="contactStreet"
+                                        [attr.disabled]="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>City</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="City" formControlName="contactCity"
+                                        [attr.disabled]="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>County</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="County" formControlName="contactCounty"
+                                        [attr.disabled]="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>State</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="state" formControlName="contactState"
+                                        [attr.disabled]="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>Zipcode</label>
+                                <div class="f-field">
+                                    <input type="text" placeholder="Zipcode" formControlName="contactZipcode"
+                                        [attr.disabled]="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </perfect-scrollbar>
+        </div>
+        <div class="modal-footer flex-justify-right">
+            <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
+            <button class="btn ml-2" type="button" (click)="gotoPrevious('basicInfoForm')">Previous</button>
+            <button class="btn ml-2" type="submit">Review</button>
+        </div>
+    </form>
+    <form class="modal modal-container" *ngSwitchCase="'reviewForm'">
+        <div class="modal-title">
+            <h4 class="heading">Create User/Completed</h4>
+        </div>
+        <div class="modal-body">
+            <perfect-scrollbar>
+                <div class="px-8 py-8">
+                    <div class="title-heading">
+                        <h3>Basic Information</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>NAME</label>
+                                <div class="f-field-value">
+                                    {{f.name.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>ACRONYM</label>
+                                <div class="f-field-value">
+                                    {{f.acronym.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>EMAIL</label>
+                                <div class="f-field-value">
+                                    {{f.email.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>PHONE</label>
+                                <div class="f-field-value">
+                                    {{f.phone.value | phonePipe}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-heading">
+                        <h3>Mailing Address</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>ADDRESS</label>
+                                <div class="f-field-value">
+                                    {{f.street.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>CITY</label>
+                                <div class="f-field-value">
+                                    {{f.city.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>COUNTY</label>
+                                <div class="f-field-value">
+                                    {{f.county.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>STATE</label>
+                                <div class="f-field-value">
+                                    {{f.state.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>ZIPCODE</label>
+                                <div class="f-field-value">
+                                    {{f.zipcode.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-heading">
+                        <h3>Contact Information</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>NAME</label>
+                                <div class="f-field-value">
+                                    {{c.contactName.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>PHONE</label>
+                                <div class="f-field-value">
+                                    {{c.contactPhone.value | phonePipe}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>EMAIL</label>
+                                <div class="f-field-value">
+                                    {{c.contactEmail.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-heading">
+                        <h3>Address for Assignments</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>ADDRESS</label>
+                                <div class="f-field-value">
+                                    {{c.contactStreet.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>CITY</label>
+                                <div class="f-field-value">
+                                    {{c.contactCity.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>COUNTY</label>
+                                <div class="f-field-value">
+                                    {{c.contactCounty.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>STATE</label>
+                                <div class="f-field-value">
+                                    {{c.contactState.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>ZIPCODE</label>
+                                <div class="f-field-value">
+                                    {{c.contactZipcode.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </perfect-scrollbar>
+        </div>
+        <div class="modal-footer flex-justify-right">
+            <button class="btn btn-secondary-outline" (click)="sharedService.closeSlider()">Cancel</button>
+            <button class="btn ml-2" type="button" (click)="gotoPrevious('contactInfoForm')">Previous</button>
+            <button class="btn ml-2 btn-success">Submit</button>
+        </div>
+    </form>
+</ng-container>
