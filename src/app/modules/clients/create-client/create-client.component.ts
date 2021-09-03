@@ -16,23 +16,19 @@ export class CreateClientComponent implements OnInit {
   insuranceForm!: FormGroup;
   submitted = false;
   toggle: any = {}
-  userTypes: { name: string; value: string; }[];
   userType = 'ChiefAppraiser'
   appraiserTypes: { type: string; id: string; }[];
-  states: { value: string; id: number; name: string; }[];
-  certifications: { name: string; id: string; }[];
   @ViewChild(PerfectScrollbarComponent) componentRef?: PerfectScrollbarComponent;
   types: { name: string; id: string; }[];
+  tiers: { id: number; value: number; }[];
   constructor(public staticService: StaticMasterService, private fb: FormBuilder,
     public sharedService: SharedService,
     private el: ElementRef,
     private cd: ChangeDetectorRef) {
     this.toggle = this.staticService.toggle('profile')
-    this.userTypes = this.staticService.getUsersByRole('AD')
     this.types = this.staticService.getType();
     this.appraiserTypes = this.staticService.getAppraiserTypes();
-    this.states = this.staticService.getStates();
-    this.certifications = this.staticService.getCertifications();
+    this.tiers = this.staticService.getTier();
   }
 
   ngOnInit(): void {
@@ -94,7 +90,7 @@ export class CreateClientComponent implements OnInit {
       portalUrl:[''],
       userId:[''],
       password:[''],
-      tier:[''],
+      tier:[null],
       contactStreet: [''],
       contactCity: [''],
       contactCounty: [''],

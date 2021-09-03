@@ -252,7 +252,9 @@
                             <div class="f-group">
                                 <label>TIER</label>
                                 <div class="f-field">
-                                    <input type="text" placeholder="Select" formControlName="tier" />
+                                    <ng-select [items]="tiers"  bindLabel="value" bindValue="id"
+                                    placeholder="Select Type"  formControlName="tier" appendTo="body">
+                                    </ng-select>
                                 </div>
                             </div>
                         </div>
@@ -357,9 +359,9 @@
                         </div>
                         <div class="col">
                             <div class="f-group">
-                                <label>EMAIL</label>
+                                <label>TYPE</label>
                                 <div class="f-field-value">
-                                    {{f.email.value}}
+                                    {{f.type.value}}
                                 </div>
                             </div>
                         </div>
@@ -373,9 +375,48 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>EMAIL</label>
+                                <div class="f-field-value">
+                                    {{f.email.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>FAX</label>
+                                <div class="f-field-value">
+                                    {{f.fax.value | phonePipe}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="title-heading">
-                        <h3>Mailing Address</h3>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>WEBSITE</label>
+                                <div class="f-field-value">
+                                    {{f.website.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>LICENSE</label>
+                                <div class="f-field-value">
+                                    {{f.license.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>EXPIRY DATE</label>
+                                <div class="f-field-value">
+                                    {{f.expiryDate.value}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col">
@@ -450,8 +491,41 @@
                             </div>
                         </div>
                     </div>
-                    <div class="title-heading">
-                        <h3>Address for Assignments</h3>
+                    <div class="row">
+                        <div class="col">
+                            <div class="f-group">
+                                <label>PORTAL URL</label>
+                                <div class="f-field-value">
+                                    {{c.portalUrl.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>USER ID</label>
+                                <div class="f-field-value">
+                                    {{c.userId.value}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="f-group">
+                                <label>PASSWORD</label>
+                                <div class="f-field-value">
+                                    {{c.password.value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="f-group">
+                                <label>TIER</label>
+                                <div class="f-field-value">
+                                    {{c.tier.value}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col">
