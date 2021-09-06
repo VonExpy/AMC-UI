@@ -1,12 +1,18 @@
-<div class="app__content">
-    <div id="orders__container" class="orders">
-        <div class="orders__con">
-           <app-statuses></app-statuses>
-        </div>
-        <div class="order__con">
-          <app-orders-nav></app-orders-nav>
-         <app-orders-table></app-orders-table>
-        </div>
-
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-gradient has-icon left" [routerLink]="'/orders/create-order'">Create Order</button>
+         <!-- <app-statuses></app-statuses> -->
+    </div>
+    <div class="col-9">
+        <app-orders-nav></app-orders-nav>
     </div>
 </div>
+<div class="row">
+    <div class="col-3">
+         <app-statuses></app-statuses>
+    </div>
+    <div class="col-9">
+        <app-orders-table></app-orders-table>
+    </div>
+</div>
+
