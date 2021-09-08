@@ -8,11 +8,6 @@ const routes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'promissory',
-    loadChildren: () =>
-      import('./modules/promissory/promissory.module').then((m) => m.PromissoryModule),
-  },
-  {
     path: '',
     // canActivate: [AuthGuard],
     loadChildren: () =>
