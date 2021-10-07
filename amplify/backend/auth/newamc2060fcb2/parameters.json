@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "amcuifaa97da6_identitypool_faa97da6",
+    "identityPoolName": "newamc2060fcb2_identitypool_2060fcb2",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "amcuifaa97da6",
-    "userPoolName": "amcuifaa97da6_userpool_faa97da6",
+    "resourceNameTruncated": "newamc2060fcb2",
+    "userPoolName": "newamc2060fcb2_userpool_2060fcb2",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,13 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "usernameAttributes": [
-        "email"
-    ],
-    "userpoolClientLambdaRole": "amcuiffaa97da6_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "newamc2060fcb2_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "faa97da6",
-    "resourceName": "amcuifaa97da6",
+    "sharedId": "2060fcb2",
+    "resourceName": "newamc2060fcb2",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [

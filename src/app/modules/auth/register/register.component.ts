@@ -131,7 +131,7 @@ export class RegisterComponent implements OnInit {
       this.loaderService.isLoading.next(false)
       this.formType = 'confirmUser'
       this.c.email.patchValue(this.e.email.value)
-    } catch (err) {
+    } catch (err:any) {
       this.toastr.error(err.message)
       this.loaderService.isLoading.next(false)
       if (err.code == 'UsernameExistsException') {
@@ -150,7 +150,7 @@ export class RegisterComponent implements OnInit {
       await Auth.confirmSignUp(this.e.email.value, this.c.code.value);
       this.loaderService.isLoading.next(false)
       this.formType = 'successPage'
-    } catch (err) {
+    } catch (err:any) {
       this.toastr.error(err.message)
       this.loaderService.isLoading.next(false)
     }
@@ -165,7 +165,7 @@ export class RegisterComponent implements OnInit {
       this.formType = 'confirmUser'
       this.c.email.patchValue(this.e.email.value)
       this.loaderService.isLoading.next(false)
-    } catch (err) {
+    } catch (err:any) {
       this.toastr.error(err.message)
       this.loaderService.isLoading.next(false)
     }

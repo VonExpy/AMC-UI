@@ -1,26 +1,32 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-amcui-dev-05802-authRole",
-      "UnauthRoleArn": "arn:aws:iam::518051388251:role/amplify-amcui-dev-05802-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::518051388251:role/amplify-amcui-dev-05802-authRole",
-      "Region": "us-west-2",
-      "DeploymentBucketName": "amplify-amcui-dev-05802-deployment",
-      "UnauthRoleName": "amplify-amcui-dev-05802-unauthRole",
-      "StackName": "amplify-amcui-dev-05802",
-      "StackId": "arn:aws:cloudformation:us-west-2:518051388251:stack/amplify-amcui-dev-05802/c444b250-f3c7-11eb-a83f-028a7f03527f",
-      "AmplifyAppId": "d31w6i50739u5d"
-    },
-    "categories": {
-      "auth": {
-        "amcuifaa97da6": {}
-      },
-      "function": {
-        "thelhubAuthResourcePreSignup": {
-          "deploymentBucketName": "amplify-amcui-dev-05802-deployment",
-          "s3Key": "amplify-builds/thelhubAuthResourcePreSignup-4e775a5047714f534d53-build.zip"
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-newamc-dev-30522-authRole",
+            "UnauthRoleArn": "arn:aws:iam::518051388251:role/amplify-newamc-dev-30522-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::518051388251:role/amplify-newamc-dev-30522-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-newamc-dev-30522-deployment",
+            "UnauthRoleName": "amplify-newamc-dev-30522-unauthRole",
+            "StackName": "amplify-newamc-dev-30522",
+            "StackId": "arn:aws:cloudformation:us-west-2:518051388251:stack/amplify-newamc-dev-30522/190261e0-2756-11ec-9932-0a842ba78b03",
+            "AmplifyAppId": "d1cq2oxlclompq"
+        },
+        "categories": {
+            "auth": {
+                "newamc2060fcb2": {}
+            },
+            "function": {
+                "thelhubAuthResourcePreSignup": {
+                    "deploymentBucketName": "amplify-newamc-dev-30522-deployment",
+                    "s3Key": "amplify-builds/thelhubAuthResourcePreSignup-4e775a5047714f534d53-build.zip"
+                }
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d1cq2oxlclompq",
+                    "type": "manual"
+                }
+            }
         }
-      }
     }
-  }
 }
