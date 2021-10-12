@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { ColumnMode, SelectionType } from '@swimlane/ngx-datatable';
 import companyData from "src/assets/data/orders.json";
 
@@ -16,23 +17,37 @@ export class OrdersTableComponent {
 
   ColumnMode = ColumnMode;
 
-  constructor() {
-      this.rows = companyData;
+  constructor(private router: Router) {
+    this.rows = companyData;
   }
 
-  onPage(event:any) {
+  onPage(event: any) {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
       console.log('paged!', event);
     }, 100);
   }
 
-  toggleExpandRow(row:any) {
+  toggleExpandRow(row: any) {
     console.log('Toggled Expand Row!', row);
     this.table.rowDetail.toggleExpandRow(row);
   }
 
-  onDetailToggle(event:any) {
+  onDetailToggle(event: any) {
     console.log('Detail Toggled', event);
   }
+
+  onActivate(event: any) {
+    if (event.type === 'checkbox') {
+      //Stop event propagation and let onSelect() work
+      console.log('Checkbox Selected', event);
+      event.event.stopPropagation();
+    } else if (event.type === 'click') {
+      //Do somethings when you click on row cell other than checkbox
+      console.log('Row Clicked', event.row); /// <--- object is in the event row variable
+      this.router.navigate(['/orders/view/order-summary'])
+    }
+  }
+
 }
+
