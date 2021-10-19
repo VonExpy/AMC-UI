@@ -6,8 +6,8 @@
 @import 'colors';
 @import 'reset';
 @import 'buttons';  
-@import 'grid';
 @import 'utilities';
+@import 'grid';
 
 .app__content {
     @include flex-column-stretch;

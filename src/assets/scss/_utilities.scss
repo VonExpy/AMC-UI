@@ -60,6 +60,9 @@
 .text-right {
     text-align: right;
 }
+.text-left {
+    text-align: left;
+}
 .text-center {
     text-align: center !important;
 }
@@ -100,4 +103,7 @@ $opacitylevels: (75, 50, 25, 10, 5);
 }
 .brd-r {
     border-right: solid 1px $border-color;
+}
+.no-border {
+    border: none !important;
 }

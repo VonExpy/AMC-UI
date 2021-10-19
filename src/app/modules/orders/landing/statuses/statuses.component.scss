@@ -1,0 +1,20 @@
+@import '../../../../../assets/scss/mixins'; 
+@import '../../../../../assets/scss/colors'; 
+
+.widget-item{
+    margin-bottom: 8px;
+    border-radius: 16px;
+    box-shadow: none;
+    cursor: pointer;
+    .status, .details {
+        padding: 8px 15px;
+    }
+    .status {
+        font-weight: 500;
+        letter-spacing: .5px;
+        padding-left: 0;
+    }
+    &.active, &:hover {
+        @include rgba-background($widget-secondary, .2);
+    }
+}

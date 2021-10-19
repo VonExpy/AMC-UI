@@ -1,0 +1,51 @@
+@import '../../../../../assets/scss/mixins'; 
+@import '../../../../../assets/scss/colors'; 
+
+.search {
+    padding-left: 0px;
+    border: solid 1px $search-border;
+    background-color: $white;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    .sort__by {
+        background-color: $search-bg;
+        min-height: 38px;
+        display: flex;
+        align-items: center;
+        border-right: solid 1px $search-border;
+        padding: 0px 6px;
+        margin-right: 8px;
+        select {
+            background-color: $search-bg;
+            font-size: 13px;
+        }
+    }
+}
+.orders__statistics {
+    display: flex;
+    align-items: center;
+    .stats {
+        min-width: 100px;
+        display: flex;
+        align-items: center;
+        padding: 5px 8px;
+        border-radius: 5px;
+        margin: 0px 2px;
+        &.active {
+            @include rgba-background($widget-secondary, .2);
+        }
+        .count {
+            font-size: 1.6rem;
+        }
+        .label {
+            font-size: 0.7267rem;
+            word-spacing: 30px;
+            max-width: 70px;
+            line-height: 1;
+            vertical-align: middle;
+            padding-left: 4px;
+            font-weight: 500;
+        }
+    }
+}

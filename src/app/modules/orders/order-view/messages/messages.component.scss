@@ -1,0 +1,78 @@
+@import "../../../../../assets/scss/colors";
+@import "../../../../../assets/scss/utilities";
+@import "../../../../../assets/scss/mixins";
+
+#messages {
+  .messages {
+    height: 180px;
+    padding-bottom: 6px;
+    .message {
+      padding: 8px 15px 6px;
+      margin: 2px 0;
+      color: #3c4965;
+      .message-holder {
+        @include rgba-background(#a4bbc1, 0.3);
+        font-size: 13px;
+        line-height: 1.1;
+        border-radius: 5px 5px 0 5px;
+        padding: 10px;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          border-color: rgba(#a4bbc1, 0.3) rgba(#a4bbc1, 0.3) transparent
+            transparent;
+          right: 0;
+          top: 100%;
+          border-style: solid;
+          border-width: 5px;
+        }
+      }
+      .message-by {
+        font-weight: 300;
+        font-size: 12px;
+        text-align: right;
+        padding: 4px 8px 0px 5px;
+        span {
+          margin-left: 8px;
+        }
+      }
+      &.received {
+        .message-holder {
+          @include rgba-background(#4594e0, 0.3);
+          border-radius: 5px 5px 5px 0;
+          &::after {
+            border-color: rgba(#4594e0, 0.3) transparent transparent
+              rgba(#4594e0, 0.3);
+            left: 0;
+            right: auto;
+            top: 100%;
+            border-style: solid;
+            border-width: 5px;
+          }
+        }
+        .message-by {
+          text-align: left;
+          padding: 4px 5px 0px 8px;
+        }
+      }
+    }
+  }
+  .message-input {
+    padding: 4px 15px 20px;
+    display: flex;
+    align-items: center;
+    textarea {
+      height: 60px;
+      border: solid 2px rgba(#4594e0, 0.3);
+      border-radius: 5px;
+      margin-right: 5px;
+      width: 100%;
+    }
+    button {
+      img {
+        width: 26px;
+      }
+    }
+  }
+}

@@ -1,52 +1,87 @@
-<app-status-nav></app-status-nav>
-
-<div class="row">
-    <div class="col-9">
+<div class="app__content">
+  <div class="scroll__container">
+    <perfect-scrollbar>
+      <div class="p-6">
+        <div class="mb-6">
+          <app-status-nav></app-status-nav>
+        </div>
         <div class="row">
-            <div class="col-12">
-                <div class="row">
-                    <div class="col">
-                        <app-appraiser-due></app-appraiser-due>
-                    </div>
-                    <div class="col">
-                        <app-lender></app-lender>
-                    </div>
+          <div class="col-9">
+            <div class="mb-6">
+              <div class="row">
+                <div class="col">
+                  <app-appraiser-due></app-appraiser-due>
                 </div>
-            </div>
-            <div class="col-12">
-                <div class="tabs__container">
-                    <div class="tabs" id="app_tabs">
-                        <ul>
-                            <li class="tab-link" routerLinkActive="active" routerLink="order-summary">ORDER SUMMARY</li>
-                            <li class="tab-link" routerLinkActive="active" routerLink="inspection">INSPECTION</li>
-                            <li class="tab-link" routerLinkActive="active" routerLink="comparables">COMPS</li>
-                            <li class="tab-link" routerLinkActive="active" routerLink="preview">PREVIEW</li>
-                        </ul>
-                    </div>
-                    <div class="tab__content">
-                        <router-outlet></router-outlet>
-                    </div>
+                <div class="col">
+                  <app-lender></app-lender>
                 </div>
+              </div>
             </div>
-            <div class="col-12">
-                <app-quill-editor></app-quill-editor>
+            <div class="mb-6">
+              <div class="tabs__container">
+                <div class="tabs" id="app_tabs">
+                  <ul>
+                    <li
+                      class="tab-link"
+                      routerLinkActive="active"
+                      routerLink="order-summary"
+                    >
+                      ORDER SUMMARY
+                    </li>
+                    <li
+                      class="tab-link"
+                      routerLinkActive="active"
+                      routerLink="inspection"
+                    >
+                      INSPECTION
+                    </li>
+                    <li
+                      class="tab-link"
+                      routerLinkActive="active"
+                      routerLink="comparables"
+                    >
+                      COMPS
+                    </li>
+                    <li
+                      class="tab-link"
+                      routerLinkActive="active"
+                      routerLink="preview"
+                    >
+                      PREVIEW
+                    </li>
+                  </ul>
+                </div>
+                <div class="tab__content">
+                  <router-outlet></router-outlet>
+                </div>
+              </div>
             </div>
+            <div class="mb-0">
+              <app-instructions></app-instructions>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="mb-6">
+              <app-order-appraisers></app-order-appraisers>
+            </div>
+            <div class="mb-6">
+              <app-fee-costs></app-fee-costs>
+            </div>
+            <div class="mb-6 mb-6">
+              <app-documents></app-documents>
+            </div>
+            <div class="mb-6 mb-6">
+              <app-messages></app-messages>
+            </div>
+            <div class="mb-6">
+              <app-activity-feed></app-activity-feed>
+            </div>
+          </div>
         </div>
-    </div>
-        <div class="col-3">
-            <div class="row">
-                <div class="col-12">
-                    <app-order-appraisers></app-order-appraisers>
-                </div>
-                <div class="col-12">
-                    <app-fee-costs></app-fee-costs>
-                </div>
-                <div class="col-12">
-                    <app-documents></app-documents>
-                </div>
-                <div class="col-12">
-                   <app-activity-feed></app-activity-feed>
-                </div>
-            </div>
+        <div class="row">
+          <div class="col-9"></div>
         </div>
+      </div>
+    </perfect-scrollbar>
+  </div>
 </div>

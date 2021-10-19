@@ -1,109 +1,142 @@
-@import 'colors';
+@import "colors";
 
 .btn {
-    padding: 8px 24px;
-    border-radius: 18px;
-    min-height: 32px;
-    display: flex;
-    flex-direction: row;
-    border: none;
-    align-items: center;
-    justify-content: center;
-    margin: 0px 1px;
-    // line-height: 1;
-    cursor: pointer;
-    background-color: $btn-default;
-    color: $btn-text-default;
-    letter-spacing: .5px;
-    min-width: 80px;
+  padding: 8px 24px;
+  border-radius: 18px;
+  min-height: 32px;
+  display: flex;
+  flex-direction: row;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 1px;
+  // line-height: 1;
+  cursor: pointer;
+  background-color: $btn-default;
+  color: $btn-text-default;
+  letter-spacing: 0.5px;
+  min-width: 80px;
+  text-align: center;
+  &-block {
+    width: 100%;
+  }
+  &-inline {
+    display: inline;
+  }
+  &-sm {
+    padding: 6px 15px;
+    min-height: 24px;
+    font-size: 12px;
+    min-width: 30px;
+    padding: 8px 20px;
+    min-height: 24px;
+    font-size: 12px;
+  }
+  &-xsm {
+    padding: 6px 12px;
+    min-height: 24px;
+    font-size: 12px;
+    min-width: 30px;
+  }
+  &-transparent {
+    background-color: transparent;
+    color: $white;
+    border: solid 1px transparent;
+    &-outline {
+      background-color: transparent;
+      border: solid 1px transparent;
+      color: transparent;
+    }
+  }
+  &-danger {
+    background-color: $danger;
+    color: $white;
+    border: solid 1px $danger;
+    &-outline {
+      background-color: transparent;
+      border: solid 1px $danger;
+      color: $danger;
+    }
+  }
+  &-primary {
+    background-color: $primary;
+    color: $white;
+    border: solid 1px $primary;
+    &-outline {
+      background-color: transparent;
+      border: solid 1px $primary;
+      color: $primary;
+    }
+  }
+  &-secondary {
+    background-color: $secondary;
+    border: solid 1px $secondary;
+    color: $white;
+  }
+  &-success {
+    background-color: $success;
+    border: solid 1px $success;
+    color: $white;
+  }
+  &-secondary-outline {
+    background-color: transparent;
+    border: solid 1px $secondary;
+    color: $secondary;
+  }
+  &-black-outline {
+    background-color: transparent;
+    border: solid 1px $black;
+    color: $black;
+  }
+  &-gradient {
+    background: transparent linear-gradient(105deg, #167eaf 0%, #6d9874 100%) 0%
+      0% no-repeat padding-box;
+    color: $white;
+    padding: 5px 15px 5px 15px;
+  }
+  &.has-icon {
+    // padding-left: 5px;
+    span {
+      vertical-align: middle;
+      display: inline-block;
+      margin-left: 6px;
+      &.left {
+        margin-right: 6px;
+      }
+      img {
+        display: block;
+      }
+    }
+    &.right {
+      padding-right: 5px;
+    }
+    &.left {
+      padding-left: 5px;
+      span {
+        margin-right: 6px;
+      }
+    }
+  }
+  &.only-icon {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    padding: 6px 5px 5px;
+    line-height: 32px;
     text-align: center;
-    &-sm {
-        padding: 8px 20px;
-        min-height: 24px;
-        font-size: 12px;
+    max-height: 30px;
+    min-height: 30px;
+    margin: 0px 0px 2px 2px;
+    text-align: center;
+    > * {
+      margin: 0 !important;
+      display: inline-block;
     }
-    &-transparent {
-        background-color: transparent;
-        color: $white;
-        border: solid 1px transparent;
-        &-outline {
-            background-color: transparent;
-            border: solid 1px transparent;
-            color: transparent;
-        } 
-    } 
-    &-primary {
-        background-color: $primary;
-        color: $white;
-        border: solid 1px $primary;
-        &-outline {
-            background-color: transparent;
-            border: solid 1px $primary;
-            color: $primary;
-        } 
-    } 
-    &-secondary {
-        background-color: $secondary;
-        border: solid 1px $secondary;
-        color: $white;
-    } 
-    &-success {
-        background-color: $success;
-        border: solid 1px $success;
-        color: $white;
-    } 
-    &-secondary-outline {
-        background-color: transparent;
-        border: solid 1px $secondary;
-        color: $secondary;
-    } 
-    &-black-outline {
-        background-color: transparent;
-        border: solid 1px $black;
-        color: $black; 
-    }
-    &-gradient {
-        background: transparent linear-gradient(105deg, #167EAF 0%, #6D9874 100%) 0% 0% no-repeat padding-box;
-        color: $white;
-        padding: 5px 15px 5px 15px;
-    }
-    &.has-icon {
-        // padding-left: 5px;
-        span {
-            vertical-align: middle;
-            display: inline-block;
-            margin-left: 6px;
-            &.left {
-                margin-right: 6px;
-            }
-            img {
-                display: block;
-            }
-        }
-        &.right {
-            padding-right: 5px;
-        }
-        &.left {
-            padding-left: 5px;
-            span {
-                margin-right: 6px;
-            }
-        }
-    }
-    &.only-icon {
-        width: 30px;
-        height: 30px;
-        min-width: 30px;
-        padding: 6px 5px 5px;
-        line-height: 32px;
-        text-align: center;
-        max-height: 30px;
-        min-height: 30px;
-        margin: 0px 0px 2px 2px;
-        text-align: center;
-        > * {
-            margin: 0 !important;
-            display: inline-block;
-        }
-    }
+  }
+  &.text-left {
+    justify-content: flex-start;
+  }
+  &.text-right {
+    justify-content: flex-end;
+  }
 }

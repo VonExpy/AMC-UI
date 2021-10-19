@@ -1,0 +1,32 @@
+@import "./../../../../../assets/scss/colors";
+
+#activities {
+  height: 350px;
+  .activity {
+    border-bottom: solid 2px $border-color;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    h3 {
+      color: $secondary;
+      font-size: 15px;
+      margin: 0;
+      padding: 0;
+      font-weight: 500;
+      line-height: 1;
+    }
+    .content {
+      p {
+        color: $primary;
+        padding: 0 0 5px;
+        font-size: 13px;
+      }
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0 8px;
+      color: $secondary;
+      font-size: 12px;
+    }
+  }
+}

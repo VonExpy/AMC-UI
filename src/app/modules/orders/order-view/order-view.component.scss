@@ -1,0 +1,52 @@
+@import "../../../../assets/scss/grid";
+@import "../../../../assets/scss/colors";
+@import "../../../../assets/scss/chips";
+@import "../../../../assets/scss/utilities";
+
+.app__content {
+  padding: 0;
+  background: $bg-content;
+}
+.scroll__container {
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+  .dashboard__content {
+    display: flex;
+  }
+}
+.tabs__container {
+  background-color: transparent;
+  #app_tabs {
+    background-color: transparent;
+    &::after {
+      display: none;
+    }
+    ul {
+      background-color: transparent;
+      li {
+        margin-right: 5px;
+        background-color: transparent;
+        &.active {
+          background-color: $white;
+          border-color: rgba($form-heading-border, 0.5);
+          border-style: solid;
+          border-width: 1px 1px 0px;
+          &:first-child {
+            border-radius: 5px 0px 0px;
+          }
+        }
+      }
+    }
+  }
+  .tab__content {
+    margin-top: -1px;
+    background-color: $white;
+    border-color: rgba($form-heading-border, 0.5);
+    border-style: solid;
+    border-width: 1px 1px 1px;
+    border-radius: 0px 0px 5px 5px;
+    min-height: 200px;
+    padding: 20px;
+  }
+}
