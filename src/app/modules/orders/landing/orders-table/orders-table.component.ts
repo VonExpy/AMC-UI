@@ -28,8 +28,9 @@ export class OrdersTableComponent {
     }, 100);
   }
 
-  toggleExpandRow(row: any) {
+  toggleExpandRow(row: any,event:any) {
     console.log('Toggled Expand Row!', row);
+    event.stopPropagation();
     this.table.rowDetail.toggleExpandRow(row);
   }
 
@@ -38,6 +39,7 @@ export class OrdersTableComponent {
   }
 
   onActivate(event: any) {
+    console.log(event.type)
     if (event.type === 'checkbox') {
       //Stop event propagation and let onSelect() work
       console.log('Checkbox Selected', event);
