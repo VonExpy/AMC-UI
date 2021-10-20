@@ -1,6 +1,6 @@
 {
   "auth": {
-    "newamc2060fcb2": {
+    "newamcddc4ce8b": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
