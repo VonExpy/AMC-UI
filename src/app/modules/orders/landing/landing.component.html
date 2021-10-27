@@ -1,27 +1,30 @@
 <div class="app__content flex-column-stretch">
-    <div class="row no-space brd-b">
-        <div class="col-2 brd-r">
-            <div class="actions py-4 px-4">
-                <button class="btn btn-gradient btn-block text-left has-icon left" [routerLink]="'/orders/create-order'">
-                    <span class="icon">
-                        <img src="../../../assets/icon_add.svg" />
-                    </span>
-                    Create Order
-                </button>
-            </div>
-            <!-- <button class="btn btn-gradient has-icon left" >Create Order</button> -->
-            <!-- <app-statuses></app-statuses> -->
-        </div>
-        <div class="col-10">
-            <app-orders-nav></app-orders-nav>
-        </div>
+  <div class="row no-space brd-b">
+    <div class="col-2 brd-r">
+      <div class="actions py-4 px-4">
+        <button
+          class="btn btn-gradient btn-block text-left has-icon left"
+          [routerLink]="'/orders/create-order'"
+        >
+          <span class="icon">
+            <img src="../../../assets/icon_add.svg" />
+          </span>
+          Create Order
+        </button>
+      </div>
+      <!-- <button class="btn btn-gradient has-icon left" >Create Order</button> -->
+      <!-- <app-statuses></app-statuses> -->
     </div>
-    <div class="row no-space flex-min-height">
-        <div class="col-2 flex flex-column-stretch">
-            <app-statuses class="flex-full-height"></app-statuses>
-        </div>
-        <div class="col-10 flex flex-column-stretch">
-            <app-orders-table class="flex-full-height"></app-orders-table>
-        </div>
+    <div class="col-10">
+      <app-orders-nav></app-orders-nav>
     </div>
+  </div>
+  <div class="row no-space flex-min-height">
+    <div class="col-2 flex flex-column-stretch brd-r">
+      <app-statuses class="flex-full-height"></app-statuses>
+    </div>
+    <div class="col-10 flex flex-column-stretch">
+      <app-orders-table class="flex-min-height"></app-orders-table>
+    </div>
+  </div>
 </div>

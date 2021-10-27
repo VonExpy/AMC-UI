@@ -495,7 +495,7 @@ body {
     }
     h3 {
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       color: $primary;
       line-height: 32px;
     }
@@ -541,4 +541,34 @@ strong {
   b {
     font-weight: 500;
   }
+}
+
+.label-value {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 4px 6px;
+  strong {
+    font-weight: 600;
+  }
+  .label {
+    font-size: 0.867rem;
+    color: $secondary;
+    font-weight: 500;
+  }
+  .value {
+    font-size: 0.9267rem;
+    color: $primary;
+  }
+  a {
+    color: $extras;
+    text-decoration: none;
+  }
+}
+
+hr {
+  height: 2px;
+  background-color: $secondary;
+  border: none;
+  opacity: 0.4;
 }

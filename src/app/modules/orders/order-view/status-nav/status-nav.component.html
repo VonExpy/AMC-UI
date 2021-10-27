@@ -1,3 +1,83 @@
 <div class="card card-small">
-  <div class="card-body" id="status"></div>
+  <div class="card-body flex flex-row-stretch" id="status">
+    <div class="back__button px-5 py-4 brd-r flex flex-row-center">
+      <button class="btn btn-sm icon-only">
+        <img src="../../../../../assets/icon-notification.svg" />
+      </button>
+    </div>
+    <div class="status__info brd-r px-5 py-4">
+      <label>STATUS</label>
+      <select>
+        <option>In Progress</option>
+      </select>
+    </div>
+    <div class="order__details">
+      <div class="order__info">
+        <div class="icon">
+          <img src="../../../../../assets/icon_mail.svg" />
+        </div>
+        <div class="info">
+          <label>FILE NUMBER</label>
+          <span>21-7-440</span>
+        </div>
+      </div>
+      <div class="order__info">
+        <div class="info">
+          <label>TYPE</label>
+          <span>1004P-Interior</span>
+        </div>
+      </div>
+      <div class="order__info brd-l">
+        <div class="info">
+          <label>ORDERED ON</label>
+          <span>08 Jul 2021</span>
+        </div>
+      </div>
+      <div class="order__info">
+        <div class="info">
+          <label>DUE ON <span class="info-icon">i</span></label>
+          <span>20 Jul 2021</span>
+        </div>
+      </div>
+      <div class="order__info brd-l">
+        <div class="info">
+          <label>AMOUNT</label>
+          <span>$159</span>
+        </div>
+      </div>
+      <div class="order__info">
+        <div class="info">
+          <label>DUE AMOUNT</label>
+          <span>$159</span>
+        </div>
+      </div>
+    </div>
+    <div class="order__export">
+      <div class="order__rush brd-l">
+        <label>MAKE RUSH ORDER</label>
+        <ng-toggle
+          [disabled]="toggle.disabled"
+          [width]="toggle.width"
+          [height]="toggle.height"
+          [margin]="toggle.margin"
+          [labels]="toggle.labels"
+          [color]="toggle.color"
+          [(ngModel)]="isActive"
+          [switchColor]="toggle.switchColor"
+          [fontColor]="toggle.fontColor"
+          [fontSize]="toggle.fontSize"
+        >
+        </ng-toggle>
+      </div>
+      <button class="btn btn-sm icon-only">
+        <img src="../../../../../assets/icon-notification.svg" />
+      </button>
+      <button class="btn btn-sm icon-only">
+        <img src="../../../../../assets/icon-messanger.svg" />
+      </button>
+      <button class="btn btn-sm icon-only">
+        <img src="../../../../../assets/icon-question.svg" />
+      </button>
+    </div>
+  </div>
 </div>

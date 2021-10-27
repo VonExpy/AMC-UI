@@ -27,6 +27,8 @@
       li {
         margin-right: 5px;
         background-color: transparent;
+        font-size: 1.1267rem;
+        padding: 1.2rem 1.2rem;
         &.active {
           background-color: $white;
           border-color: rgba($form-heading-border, 0.5);
