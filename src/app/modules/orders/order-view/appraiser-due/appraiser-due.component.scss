@@ -1,7 +1,9 @@
+@import "../../../../../assets/scss/grid";
 @import "../../../../../assets/scss/colors";
+@import "../../../../../assets/scss/utilities";
 .progress_bar_con {
   width: 190px;
-  max-width: 190px;
+  max-width: 190px !important;
   padding: 15px 20px !important;
   box-sizing: border-box;
   .progress_details {
@@ -33,5 +35,26 @@
     right: 0;
     text-align: center;
     color: $secondary;
+  }
+}
+
+.progress_bar_details {
+  padding: 25px 15px 15px 0 !important;
+}
+.label-value {
+  padding: 4px 0px;
+  &.location {
+    padding-bottom: 10px;
+    margin-top: 10px;
+  }
+  .label {
+    font-size: 0.8267rem;
+  }
+  .value {
+    font-size: 0.8267rem;
+  }
+  strong {
+    font-size: 0.867rem;
+    font-weight: bold;
   }
 }
