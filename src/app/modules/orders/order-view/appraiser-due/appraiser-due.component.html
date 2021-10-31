@@ -1,3 +1,31 @@
 <div class="card card-small">
-  <div class="card-body" id="lender"></div>
+  <div class="card-body" id="lender">
+    <div class="row no-space">
+      <div class="col progress_bar_con">
+        <div class="progress_bar">
+          <round-progress
+            [current]="169"
+            [max]="250"
+            [color]="'#75BC80'"
+            [background]="'#ccd3df'"
+            [radius]="75"
+            [stroke]="8"
+            [semicircle]="false"
+            [rounded]="true"
+            [clockwise]="true"
+            [responsive]="false"
+            [duration]="800"
+            [animation]="'easeInOutQuart'"
+            [animationDelay]="0"
+          >
+          </round-progress>
+          <span class="count">30%</span>
+        </div>
+        <div class="progress_details">
+          <div class="label">APPRAISER DUE ON</div>
+          <div class="value">15 Aug 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

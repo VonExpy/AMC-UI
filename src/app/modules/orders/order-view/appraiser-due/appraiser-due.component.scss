@@ -1,0 +1,37 @@
+@import "../../../../../assets/scss/colors";
+.progress_bar_con {
+  width: 190px;
+  max-width: 190px;
+  padding: 15px 20px !important;
+  box-sizing: border-box;
+  .progress_details {
+    padding-top: 15px;
+    text-align: center;
+    .label {
+      text-transform: uppercase;
+      font-size: 1rem;
+      padding-bottom: 2px;
+    }
+    .value {
+      font-weight: 500;
+      color: $success;
+      font-size: 1.4rem;
+    }
+  }
+}
+.progress_bar {
+  width: 150px;
+  position: relative;
+  padding: 4px 0 0;
+  min-height: 150px;
+  .count {
+    top: calc(50% - 14px);
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 400;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: $secondary;
+  }
+}

@@ -3,10 +3,10 @@
   padding: 10px 0;
 }
 .label-value {
-  padding: 6px 12px;
+  padding: 8px 12px;
   &.location {
     padding-bottom: 10px;
-    margin-top: 6px;
+    margin-top: 10px;
   }
   .label {
     font-size: 0.8267rem;
@@ -23,6 +23,7 @@
       font-size: 0.867rem;
       font-style: normal;
       font-weight: 500;
+      line-height: 1.4;
     }
     .icon {
       padding: 6px 16px 0 4px;
