@@ -1,0 +1,60 @@
+@import "../../../../../assets/scss/colors";
+@import "../../../../../assets/scss/variables";
+@import "../../../../../assets/scss/utilities";
+.appraiser_profile {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  .pic {
+    width: 44px;
+    height: 44px;
+    border: solid 2px #a4bbc1;
+    border-radius: 100px;
+    overflow: hidden;
+    display: block;
+    margin-right: 8px;
+    img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+    }
+  }
+  .info {
+    line-height: 1;
+    .name {
+      color: $secondary;
+      font-size: 0.967rem;
+      font-weight: 500;
+      display: block;
+    }
+    .type {
+      color: $primary;
+      font-size: 0.7267rem;
+    }
+  }
+}
+.label-value {
+  padding: 12px;
+  &.location {
+    padding-bottom: 18px;
+  }
+  .label {
+    font-size: 0.8267rem;
+  }
+  .value {
+    display: flex;
+    address {
+      font-weight: normal;
+      color: $primary;
+      font-size: 0.867rem;
+      font-style: normal;
+      font-weight: 500;
+    }
+    .icon {
+      padding: 6px 0 0 12px;
+      img {
+        height: 24px;
+      }
+    }
+  }
+}
