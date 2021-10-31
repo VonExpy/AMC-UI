@@ -1,0 +1,68 @@
+@import "../../../../../assets/scss/tables";
+@import "../../../../../assets/scss/utilities";
+@import "../../../../../assets/scss/grid";
+@import "../../../../../assets/scss/colors";
+
+.costs {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  .cost {
+    min-width: 50%;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    label {
+      display: block;
+      text-transform: uppercase;
+      font-size: 0.767rem;
+      color: $secondary;
+      font-weight: 500;
+      padding-bottom: 6px;
+    }
+    span {
+      display: block;
+      font-weight: 500;
+    }
+  }
+}
+.invoice__table {
+  padding: 0px 15px;
+  h4 {
+    margin: 0;
+    font-size: 0.7867rem;
+    padding: 0;
+    color: $heading;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  table {
+    tr {
+      th,
+      td {
+        font-size: 0.8267rem;
+        padding: 6px 5px;
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+    .generate__report {
+      td {
+        padding: 24px 0;
+      }
+      img {
+        display: inline-block;
+        margin-bottom: 8px;
+        height: 24px;
+      }
+      span {
+        display: block;
+        font-size: 0.7267rem;
+      }
+    }
+  }
+}

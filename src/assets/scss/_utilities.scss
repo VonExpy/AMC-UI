@@ -1,109 +1,105 @@
-@import 'mixins';
-@import 'colors';
+@import "mixins";
+@import "colors";
 
 // Flex common classses
 .flex-row-center {
-    @include flex-row-center;
+  @include flex-row-center;
 }
 .flex-row-stretch {
-    @include flex-row-stretch;
-    > div {
-        flex: auto;
-    }
+  @include flex-row-stretch;
+  > div {
+    flex: auto;
+  }
 }
 .flex-column-center {
-    @include flex-column-center;
+  @include flex-column-center;
 }
 .flex-column-stretch {
-    @include flex-column-stretch;
-    height: 100%;
-    > div {
-        flex: auto;
-        &.flex1 {
-            flex: 1;
-        }
+  @include flex-column-stretch;
+  height: 100%;
+  > div {
+    flex: auto;
+    &.flex1 {
+      flex: 1;
     }
+  }
 }
 .flex-justify-right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .flex {
-    display: flex;
-    &-column {
-        flex-direction: column
-    }
-    &-justify-between {
-        justify-content: space-between
-    }
-    &-justify-evenly {
-        justify-content: space-evenly
-    }
-    &-justify-start {
-        justify-content: flex-start
-    }
-    &-justify-end {
-        justify-content: flex-end
-    }
+  display: flex;
+  &-column {
+    flex-direction: column;
+  }
+  &-justify-between {
+    justify-content: space-between;
+  }
+  &-justify-evenly {
+    justify-content: space-evenly;
+  }
+  &-justify-start {
+    justify-content: flex-start;
+  }
+  &-justify-end {
+    justify-content: flex-end;
+  }
 }
-
-
-
-
 
 // text classes
 .text-truncate {
-    @include text-overflow;
+  @include text-overflow;
 }
 .text-right {
-    text-align: right;
+  text-align: right !important;
 }
 .text-left {
-    text-align: left;
+  text-align: left !important;
 }
 .text-center {
-    text-align: center !important;
+  text-align: center !important;
 }
 .text-justify {
-    text-align: justify;
+  text-align: justify;
 }
 
 // Roles/Status Colors / Backgrounds / Opacity
 $opacitylevels: (75, 50, 25, 10, 5);
 @each $name, $color in $status-colors {
-    .txt-#{$name} {
-        color: $color;
+  .txt-#{$name} {
+    color: $color;
+  }
+  .bg-#{$name} {
+    background: $color;
+  }
+  @each $level in $opacitylevels {
+    .bg-#{$name}-#{$level} {
+      @include rgba-background($color, $level / 100);
     }
-    .bg-#{$name} {
-        background: $color;
-    }
-    @each $level in $opacitylevels {
-        .bg-#{$name}-#{$level} {
-            @include rgba-background($color, $level / 100);
-        }
-    }
+  }
 }
 @each $name, $color in $chips {
-    .bg-#{$name} {
-        background: $color;
-    }
+  .bg-#{$name} {
+    background: $color;
+  }
 }
 
 //* Borders *//
 .brd-b {
-    border-bottom: solid 1px $border-color;
+  border-bottom: solid 1px $border-color;
 }
 .brd-t {
-    border-top: solid 1px $border-color;
+  border-top: solid 1px $border-color;
 }
 .brd-l {
-    border-left: solid 1px $border-color;
+  border-left: solid 1px $border-color;
 }
 .brd-r {
-    border-right: solid 1px $border-color;
+  border-right: solid 1px $border-color;
 }
 .no-border {
-    border: none !important;
+  border: none !important;
 }

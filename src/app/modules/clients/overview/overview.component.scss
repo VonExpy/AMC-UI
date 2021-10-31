@@ -1,88 +1,88 @@
-@import '../../../../assets/scss/grid';
-@import '../../../../assets/scss/colors';
-@import '../../../../assets/scss/chips';
-@import '../../../../assets/scss/utilities';
+@import "../../../../assets/scss/grid";
+@import "../../../../assets/scss/colors";
+@import "../../../../assets/scss/chips";
+@import "../../../../assets/scss/utilities";
 
 h2 {
-    font-size: 24px;
-    font-weight: 300;
-    color: #304950;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
+  font-size: 24px;
+  font-weight: 300;
+  color: $heading;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 .overview {
-    border-radius: 6px;
-    border: solid 1px $border-color;
-    padding:10px 0;
-    .orders-statistics {
-        margin-bottom: 8px;
+  border-radius: 6px;
+  border: solid 1px $border-color;
+  padding: 10px 0;
+  .orders-statistics {
+    margin-bottom: 8px;
+  }
+  .cards-holder {
+    border-radius: 8px;
+    padding: 25px 1.2rem 15px;
+    border-top: solid 1px $border-color;
+    .card {
+      box-shadow: none;
+      border: solid 1px $border-color;
     }
-    .cards-holder {
-        border-radius: 8px;
-        padding: 25px 1.2rem 15px;
-        border-top: solid 1px $border-color;
-        .card {
-            box-shadow: none;
-            border: solid 1px $border-color;
-        }
-    }
+  }
 }
 .company__invoice {
-    padding: 1rem;
-    h5 {
-        margin: 0 0 6px;
-        padding: 0;
-        font-size: 14px;
-        color: $primary;
-        font-weight: 500;
+  padding: 1rem;
+  h5 {
+    margin: 0 0 6px;
+    padding: 0;
+    font-size: 14px;
+    color: $primary;
+    font-weight: 500;
+  }
+  .invoice-options {
+    padding: 5px 0 0;
+    .invoice-option {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      small {
+        font-size: 0.867rem;
+      }
+      .text {
+        font-size: 0.867rem;
+      }
     }
-    .invoice-options {
-        padding: 5px 0 0;
-        .invoice-option {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            small {
-                font-size: .867rem;
-            }
-            .text {
-                font-size: .867rem;
-            }
-        }
-    }
-    .name {
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
+  }
+  .name {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
 }
 
 .card {
-    &-title {
-        padding: 8px 10px;
-        border-bottom: 0;
-        // margin-bottom: 10px;
-        .value {
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: .25px;
-            color: $secondary;
-            text-transform: uppercase;
-        }
+  &-title {
+    padding: 8px 10px;
+    border-bottom: 0;
+    // margin-bottom: 10px;
+    .value {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.25px;
+      color: $secondary;
+      text-transform: uppercase;
     }
-    &-body {
-        padding: 4px 10px 10px;
-        .date {
-            font-size: 20px;
-            font-weight: 500;
-            color: $danger;
-            padding-bottom: 4px;
-        }
-        .sonumber {
-            font-size: 16px;
-            font-weight: 500;
-            color: $secondary;
-        }
+  }
+  &-body {
+    padding: 4px 10px 10px;
+    .date {
+      font-size: 20px;
+      font-weight: 500;
+      color: $danger;
+      padding-bottom: 4px;
     }
+    .sonumber {
+      font-size: 16px;
+      font-weight: 500;
+      color: $secondary;
+    }
+  }
 }

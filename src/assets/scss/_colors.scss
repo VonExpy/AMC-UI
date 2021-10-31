@@ -1,144 +1,135 @@
-$primary:           #004A6E;
-$secondary:         #6A8991;
-$extras:            #00A1ED;
-$info:              #96FFA8;
-$danger:            #FF304C;
-$success:             #41AD7D;
-$white:             #ffffff;
-$black:             #000000;
-$bg-content:        #f9f9f9;
-$divider:           #A4BBC1;
-$border-color:      #c2dce2;
+$primary: #004a6e;
+$secondary: #6a8991;
+$extras: #00a1ed;
+$info: #96ffa8;
+$danger: #ff304c;
+$success: #41ad7d;
+$white: #ffffff;
+$black: #000000;
+$bg-content: #f9f9f9;
+$divider: #a4bbc1;
+$border-color: #c2dce2;
 
+$heading: #304950;
 
 // Buttons
 
-$btn-default:            #00A1ED;
-$btn-text-default:       #ffffff;
-
-
+$btn-default: #00a1ed;
+$btn-text-default: #ffffff;
 
 // Menu Colors ()
-$menu-bg:             rgb(242 242 242 / 90%);
-$menu-links:        #004A6E;
-$menu-border-left:  #708890;
+$menu-bg: rgb(242 242 242 / 90%);
+$menu-links: #004a6e;
+$menu-border-left: #708890;
 $menu-border-right: #ffffff;
-$menu-active:       #248875;
-$menu-bgactive:     #f9f9f9;
-$menu-brdactive:    #61A75F;
-
+$menu-active: #248875;
+$menu-bgactive: #f9f9f9;
+$menu-brdactive: #61a75f;
 
 // Extra Badge Colora ()
-$badge-primary:     #248875;
-
+$badge-primary: #248875;
 
 // Form Fields
 
-$formfield:         #fafafa;
-$formfield-dark:    #232323;
-$form-border:       rgb(106 137 145 / 50%);
-$form-heading:      #248875;
-$form-heading-border:rgb(106 137 145 / 50%);
-$form-label:        #6A8991;
+$formfield: #fafafa;
+$formfield-dark: #232323;
+$form-border: rgb(106 137 145 / 50%);
+$form-heading: #248875;
+$form-heading-border: rgb(106 137 145 / 50%);
+$form-label: #6a8991;
 
 // User Module Colors
-$name:              #11282E;
-$email:             #00A1ED;
-$orders:            #6A8991;
-$orders-closed:     #45AA56;
-$orders-open:       #1E7DAF;
+$name: #11282e;
+$email: #00a1ed;
+$orders: #6a8991;
+$orders-closed: #45aa56;
+$orders-open: #1e7daf;
 // $email:             #1E7DAF;
 
 // User Status ()
-$online:            #67DD6C;
-$offline:           #C6C6C6;
-$away:              #11282E;
-$busy:              #11282E;
-
+$online: #67dd6c;
+$offline: #c6c6c6;
+$away: #11282e;
+$busy: #11282e;
 
 // Chips/Roles
 $chips: (
-    account-manager:  #80AC8F,
-    business-owner:   #6E99CB,
-    admin:            #9A7BBE,
-    lender:            #80AC8F,
-    agent:            #80AC8F,
-    inreview:         #AF7C1C,
-    assigned:         #A977AA,
-    accepted:         #45AA56,
-    default:          #A4BBC126,
+  account-manager: #80ac8f,
+  business-owner: #6e99cb,
+  admin: #9a7bbe,
+  lender: #80ac8f,
+  agent: #80ac8f,
+  inreview: #af7c1c,
+  assigned: #a977aa,
+  accepted: #45aa56,
+  default: #a4bbc126,
 );
 
 // Orders/Status
 $status-colors: (
-    primary:      #52A5D9,
-    secondary:    #248875,
-    warning:      #D09D2B,
-    success:      #41AD7D,
-    danger:       #D88383,
-    dark:         #232323,
-    white:        #ffffff,
-    extras:      #00A1ED
+  primary: #52a5d9,
+  secondary: #248875,
+  warning: #d09d2b,
+  success: #41ad7d,
+  danger: #d88383,
+  dark: #232323,
+  white: #ffffff,
+  extras: #00a1ed,
 );
 
 // Modal
-$modal-heading:     #248875;
-$modal-border:        rgb(106 137 145 / 50%);
+$modal-heading: #248875;
+$modal-border: rgb(106 137 145 / 50%);
 
 // Tabs
 
-$tabs-container:    #ffffff;
-$tabs:             rgb(189 203 206 / 20%);
-$tab-link:         #BDCBCE;
-$tab-active:       #ffffff;
-$tab-content:      #ffffff;
-
+$tabs-container: #ffffff;
+$tabs: rgb(189 203 206 / 20%);
+$tab-link: #bdcbce;
+$tab-active: #ffffff;
+$tab-content: #ffffff;
 
 // Login
-$bg-login:          #ffffff;
-$tagline-1:         #74D2FF;
-$tagline-2:         #96FFA8;
-$tagline-3:         #74D2FF;
-$login-heading:     #248875;
-$login-link:        #248875; 
-
+$bg-login: #ffffff;
+$tagline-1: #74d2ff;
+$tagline-2: #96ffa8;
+$tagline-3: #74d2ff;
+$login-heading: #248875;
+$login-link: #248875;
 
 // Header List Boxes
-$list-heading:        #2C3D41;
-$list-divider:          rgb(106 137 145 / 20%);
-$list-icon:             rgb(164 187 193 / 20%);
-$list-unread:          #00A1ED;
-$list-text:         #030303;
-$list-online:         #67DD6C;
-$list-offline:         #ff0000;
-$list-away:         #bbc700;
+$list-heading: #2c3d41;
+$list-divider: rgb(106 137 145 / 20%);
+$list-icon: rgb(164 187 193 / 20%);
+$list-unread: #00a1ed;
+$list-text: #030303;
+$list-online: #67dd6c;
+$list-offline: #ff0000;
+$list-away: #bbc700;
 // $heading:           #2C3D41;
 
-
 // Tables
-$table-head: #6A8991;
-$table-cell: #293F45;
-$table-border:rgb(106 137 145 / 50%);
-
+$table-head: #6a8991;
+$table-cell: #293f45;
+$table-border: rgb(106 137 145 / 50%);
 
 // Widget Headings
-$widget-primary: #0A62AC;
-$widget-secondary: #6A8991;
-$widget-active: #45AA56;
-
+$widget-primary: #0a62ac;
+$widget-secondary: #6a8991;
+$widget-active: #45aa56;
 
 // Widget Headings
 $accordion: #ffffff;
 $accordion-heading-bg: rgb(164 187 193 / 20%);
 $accordion-heading-bg-active: rgb(164 187 193 / 50%);
 $accordion-heading-text: #000000;
-$accordion-arrow: #6A8991;
+$accordion-arrow: #6a8991;
 $accordion-content: #ffffff;
 
 // Extras
-$more-actions:           #A4BBC1;
+$more-actions: #a4bbc1;
 
-// Search Box 
+// Search Box
 
-$search-border:         #E0E5E4;
-$search-bg:             #F6F8F9;
+$search-border: #e0e5e4;
+$search-bg: #f6f8f9;
