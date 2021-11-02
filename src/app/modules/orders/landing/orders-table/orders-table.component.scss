@@ -5,15 +5,51 @@
 @import "../../../../../assets/scss/datatable";
 
 .custom_scroll {
-  padding: 5px 15px;
+  padding: 2px 0px 2px 5px;
   box-sizing: border-box;
 }
 ::ng-deep {
-  .ngx-datatable .datatable-body .datatable-body-row {
+  .ngx-datatable {
+    box-shadow: none !important;
+    .datatable-header,
+    .datatable-body {
+      padding-left: 5px;
+    }
+    .datatable-header {
+      border-bottom: none !important;
+      display: flex !important;
+      align-items: center;
+      .datatable-header-cell {
+        padding-top: 0.3rem !important;
+        padding-bottom: 0.3rem !important;
+      }
+    }
+  }
+  .datatable-row-wrapper {
+  }
+  .ngx-datatable .datatable-body-row {
     outline: none;
+  }
+  .ngx-datatable .datatable-body .datatable-body-row {
+    align-items: center;
+    &:hover {
+      background: #fff !important;
+    }
+  }
+  .ngx-datatable .datatable-body .datatable-body-row > div {
+    max-height: 50px;
     box-shadow: 0 0 5px rgb(0 0 0 / 20%);
-    padding: 5px;
-    margin: 8px;
+    background: #fff;
     border-radius: 5px;
+    max-width: calc(100% - 12px);
+    &:hover {
+      background-color: #eee;
+      transition-property: background;
+      transition-duration: 0.3s;
+      transition-timing-function: linear;
+    }
+  }
+  .datatable-body-cell {
+    height: auto !important;
   }
 }
