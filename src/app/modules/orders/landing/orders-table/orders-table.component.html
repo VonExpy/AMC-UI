@@ -4,9 +4,10 @@
     class="material expandable"
     [columnMode]="ColumnMode.force"
     [headerHeight]="30"
-    [footerHeight]="50"
-    [rowHeight]="70"
+    [footerHeight]="0"
+    [rowHeight]="58"
     [scrollbarV]="true"
+    [scrollbarH]="false"
     [rows]="rows"
     (page)="onPage($event)"
     [selectionType]="SelectionType.checkbox"
@@ -24,7 +25,7 @@
         ngx-datatable-row-detail-template
       >
         <div style="padding-left: 35px">
-          <div><strong>Address</strong></div>
+          <div>Address</div>
           <div>{{ row.address }}</div>
         </div>
       </ng-template>
@@ -41,22 +42,22 @@
         let-row="row"
         ngx-datatable-cell-template
       >
-        <strong>{{ rowIndex }}</strong>
+        {{ rowIndex }}
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="Client" [width]="100">
+    <ngx-datatable-column name="Client">
       <ng-template let-row="row" ngx-datatable-cell-template>
-        <strong>{{ row.client }}</strong>
+        {{ row.client }}
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="Status" [width]="100">
+    <ngx-datatable-column name="Status">
       <ng-template let-row="row" ngx-datatable-cell-template>
-        <strong>{{ row.status }}</strong>
+        {{ row.status }}
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="Jobtype" [width]="200">
+    <ngx-datatable-column name="Jobtype">
       <ng-template let-row="row" ngx-datatable-cell-template>
-        <strong>{{ row.jobtype }}</strong>
+        {{ row.jobtype }}
       </ng-template>
     </ngx-datatable-column>
     <ngx-datatable-column
