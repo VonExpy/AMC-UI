@@ -15,7 +15,7 @@
   >
     <!-- Row Detail Template -->
     <ngx-datatable-row-detail
-      [rowHeight]="100"
+      [rowHeight]="266"
       #myDetailRow
       (toggle)="onDetailToggle($event)"
     >
@@ -24,16 +24,179 @@
         let-expanded="expanded"
         ngx-datatable-row-detail-template
       >
-        <div style="padding-left: 35px">
-          <div>Address</div>
-          <div>{{ row.address }}</div>
+        <div class="row no-space row__detail">
+          <div class="col-7">
+            <div class="card card-small">
+              <div class="card-body" id="lender">
+                <div class="row no-space">
+                  <div class="col progress_bar_con">
+                    <div class="progress_bar">
+                      <round-progress
+                        [current]="169"
+                        [max]="250"
+                        [color]="'#75BC80'"
+                        [background]="'#ccd3df'"
+                        [radius]="66"
+                        [stroke]="6"
+                        [semicircle]="false"
+                        [rounded]="true"
+                        [clockwise]="true"
+                        [responsive]="false"
+                        [duration]="800"
+                        [animation]="'easeInOutQuart'"
+                        [animationDelay]="0"
+                      >
+                      </round-progress>
+                      <span class="count">30%</span>
+                    </div>
+                    <div class="progress_details">
+                      <div class="label">APPRAISER DUE ON</div>
+                      <div class="value">15 Aug 2021</div>
+                    </div>
+                  </div>
+                  <div class="col progress_bar_details">
+                    <div class="label-value">
+                      <div class="label">LAST COMPLETED</div>
+                      <div class="value text-right">
+                        <strong>Order Accepted</strong>
+                      </div>
+                    </div>
+                    <div class="label-value">
+                      <div class="label">COMPLETED ON</div>
+                      <div class="value text-right">
+                        <span>08 Jul 2021</span>
+                      </div>
+                    </div>
+                    <div class="label-value pb-3 mt-2 mb-3">
+                      <div class="label">ASSIGNED TO</div>
+                      <div class="value text-right">
+                        <strong>John Smith</strong>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="label-value mt-4">
+                      <div class="label">LAST COMPLETED</div>
+                      <div class="value text-right">
+                        <strong>Order Accepted</strong>
+                      </div>
+                    </div>
+                    <div class="label-value">
+                      <div class="label">COMPLETED ON</div>
+                      <div class="value text-right">
+                        <span>08 Jul 2021</span>
+                      </div>
+                    </div>
+                    <div class="label-value mt-4">
+                      <div class="label">ASSIGNED TO</div>
+                      <div class="value text-right">
+                        <strong>John Smith</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="card mb-4 ml-4 card-small">
+              <div class="card-body flex flex-row-stretch" id="status">
+                <div class="order__export flex flex-justify-between">
+                  <div class="order__rush">
+                    <label>MAKE RUSH ORDER</label>
+                    <ng-toggle
+                      [disabled]="toggle.disabled"
+                      [width]="toggle.width"
+                      [height]="toggle.height"
+                      [margin]="toggle.margin"
+                      [labels]="toggle.labels"
+                      [color]="toggle.color"
+                      [(ngModel)]="isActive"
+                      [switchColor]="toggle.switchColor"
+                      [fontColor]="toggle.fontColor"
+                      [fontSize]="toggle.fontSize"
+                    >
+                    </ng-toggle>
+                  </div>
+                  <div class="flex flex-justify-right">
+                    <button class="btn btn-sm icon-only">
+                      <img src="../../../../../assets/icon-notification.svg" />
+                    </button>
+                    <button class="btn btn-sm icon-only">
+                      <img src="../../../../../assets/icon-messanger.svg" />
+                    </button>
+                    <button class="btn btn-sm icon-only">
+                      <img src="../../../../../assets/icon-question.svg" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-4 ml-4 card-small" id="fee__costs">
+              <div class="card-title no-border">
+                <h3>
+                  FEES / COSTS
+                  <button class="btn btn-danger btn-inline btn-xsm">Due</button>
+                </h3>
+                <div class="actions">
+                  <div class="generate__report">
+                    <img src="../../../../../assets/icon_edit.svg" />
+                    <span class="txt-extras">Generate PDF Invoice</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body" id="fee-costs">
+                <div class="costs">
+                  <div class="cost">
+                    <label>Client</label>
+                    <span class="txt-success">$159</span>
+                  </div>
+                  <div class="cost">
+                    <label>Technical</label>
+                    <span class="txt-success">$159</span>
+                  </div>
+                  <div class="cost">
+                    <label>APPRAISER</label>
+                    <span class="txt-success">$159</span>
+                  </div>
+                  <div class="cost">
+                    <label>Company</label>
+                    <span class="txt-danger">$-159</span>
+                  </div>
+                  <div class="cost">
+                    <label>Due</label>
+                    <span class="txt-danger">$159</span>
+                  </div>
+                  <div class="cost">
+                    <span class="icon">
+                      <img src="../../../../../assets/icon_edit.svg" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card ml-4 card-small" id="appraisers">
+              <div class="card-body">
+                <div class="appraiser_profile">
+                  <div class="title">Appraisers</div>
+                  <div class="pic">
+                    <img src="../../../../assets/profile_pic.jpg" />
+                  </div>
+                  <div class="pic">
+                    <img src="../../../../assets/profile_pic.jpg" />
+                  </div>
+                  <div class="info">
+                    <span class="name txt-extras">Lindsay Aagenes</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </ng-template>
     </ngx-datatable-row-detail>
     <!-- Column Templates -->
     <ngx-datatable-column
-      name="Index"
-      [width]="80"
+      [width]="100"
       [checkboxable]="true"
       [headerCheckboxable]="true"
     >
@@ -45,19 +208,59 @@
         {{ rowIndex }}
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="Client">
+    <ngx-datatable-column name="File#" [width]="100">
       <ng-template let-row="row" ngx-datatable-cell-template>
-        {{ row.client }}
+        File#
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="Status">
+    <ngx-datatable-column name="Address">
       <ng-template let-row="row" ngx-datatable-cell-template>
-        {{ row.status }}
+        Address
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Loan#" [width]="100">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        Loan#
       </ng-template>
     </ngx-datatable-column>
     <ngx-datatable-column name="Jobtype">
       <ng-template let-row="row" ngx-datatable-cell-template>
         {{ row.jobtype }}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Due Date" [width]="100">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        Due Date
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Appraiser Due Date">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        Appraiser Due Date
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Appraiser">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        Appraiser
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Created" [width]="100">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        Created
+      </ng-template>
+    </ngx-datatable-column>
+    <!-- <ngx-datatable-column name="File">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        File
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Client">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{ row.client }}
+      </ng-template>
+    </ngx-datatable-column> -->
+    <ngx-datatable-column name="Status" [width]="100">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{ row.status }}
       </ng-template>
     </ngx-datatable-column>
     <ngx-datatable-column
