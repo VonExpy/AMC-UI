@@ -1,3 +1,23 @@
+<div class="flex flex-justify-right brd-b table__options">
+  <div class="order__export flex flex-justify-between">
+    <div class="order__rush">
+      <label>MAKE RUSH ORDER</label>
+      <ng-toggle
+        [disabled]="toggle.disabled"
+        [width]="toggle.width"
+        [height]="toggle.height"
+        [margin]="toggle.margin"
+        [labels]="toggle.labels"
+        [color]="toggle.color"
+        [(ngModel)]="isActive"
+        [switchColor]="toggle.switchColor"
+        [fontColor]="toggle.fontColor"
+        [fontSize]="toggle.fontSize"
+      >
+      </ng-toggle>
+    </div>
+  </div>
+</div>
 <div class="custom_scroll">
   <ngx-datatable
     #myTable
@@ -233,12 +253,12 @@
         Due Date
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="Appraiser Due Date">
+    <ngx-datatable-column name="Appraiser Due Date" [width]="200">
       <ng-template let-row="row" ngx-datatable-cell-template>
         Appraiser Due Date
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="Appraiser">
+    <ngx-datatable-column name="Appraiser" [width]="100">
       <ng-template let-row="row" ngx-datatable-cell-template>
         Appraiser
       </ng-template>
@@ -258,9 +278,15 @@
         {{ row.client }}
       </ng-template>
     </ngx-datatable-column> -->
-    <ngx-datatable-column name="Status" [width]="100">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        {{ row.status }}
+    <ngx-datatable-column name="Status" [width]="130" class="row__status">
+      <ng-template
+        let-row="row"
+        ngx-datatable-cell-template
+        class="row__status"
+      >
+        <span class="status {{ row.status | lowercase }}">{{
+          row.status
+        }}</span>
       </ng-template>
     </ngx-datatable-column>
     <ngx-datatable-column
