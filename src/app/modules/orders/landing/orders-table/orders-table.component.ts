@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ColumnMode, SelectionType } from '@swimlane/ngx-datatable';
 import companyData from 'src/assets/data/orders.json';
@@ -12,8 +12,8 @@ import { StaticMasterService } from '../../../shared/services/static-master.serv
   templateUrl: './orders-table.component.html',
   styleUrls: ['./orders-table.component.scss'],
 })
-export class OrdersTableComponent {
-  @ViewChild('myTable') table: any;
+export class OrdersTableComponent implements AfterViewInit {
+  @ViewChild('myTable', { static: true }) table: any;
   SelectionType = SelectionType;
   rows: any[] = [];
   expanded: any = {};
@@ -30,6 +30,11 @@ export class OrdersTableComponent {
   ) {
     this.toggle = this.staticService.toggle('');
     this.rows = companyData;
+
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => { this.table.rowDetail.toggleExpandRow(this.rows[0]); }, 0);
   }
 
   onPage(event: any) {
