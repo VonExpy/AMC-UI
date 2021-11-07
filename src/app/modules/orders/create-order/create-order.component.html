@@ -1,98 +1,208 @@
 <!-- <div class="custom_scroll"> -->
-<perfect-scrollbar>
-    <div class="app__content">
-        <div class="pt-2">
-            <div class="dashboard__content">
-                <div class="left__content">
-                    <div class="">
-                        <div class="card-title flex flex-justify-between">
-                            <h3>Create Order</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="wizard">
-                                <div class="wizard-list">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <ul>
-                                                <li class="list-icon" [ngClass]="{active:formType == 'addressForm'}"
-                                                    (click)="formType='addressForm'">Property Address</li>
-                                                <li [ngClass]="{active:formType == 'orderForm'}"
-                                                    (click)="formType='orderForm'">Order Information</li>
-                                                <li [ngClass]="{active:formType == 'instructionsForm'}"
-                                                    (click)="formType='instructionsForm'">Instructions</li>
-                                                <li [ngClass]="{active:formType == 'documentsForm'}"
-                                                    (click)="formType='documentsForm'">Documents</li>
-                                                <li [ngClass]="{active:formType == 'reviewForm'}"
-                                                    (click)="formType='reviewForm'">Review & Submit</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-10 wizard-content">
-                                            <ng-container [ngSwitch]="formType">
-                                                <div class="px-8 py-8">
-                                                    <ng-container *ngSwitchCase="'addressForm'">
-                                                        <app-address-form [control]="orderForm.get('addressForm')">
-                                                        </app-address-form>
-                                                        <div class="row">
-                                                            <div class="col flex-justify-right mt-5">
-                                                                <button class="btn ml-2" type="submit"
-                                                                    (click)="onSubmit(orderForm.get('addressForm'),'addressForm')">Next</button>
-                                                            </div>
-                                                        </div>
-                                                    </ng-container>
-                                                    <ng-container *ngSwitchCase="'orderForm'">
-                                                            <app-order-form [control]="orderForm.get('orderInfo')">
-                                                            </app-order-form>
-                                                        <div class="row">
-                                                            <div class="col flex-justify-right mt-5">
-                                                                <button class="btn btn-secondary-outline"
-                                                                    (click)="formType='addressForm'">Previous</button>
-                                                                <button class="btn ml-2" type="submit"
-                                                                    (click)="onSubmit(orderForm.get('orderInfo'),'orderInfo')">Next</button>
-                                                            </div>
-                                                        </div>
-                                                    </ng-container>
-                                                    <ng-container *ngSwitchCase="'instructionsForm'">
-                                                        <app-instructions-form [control]="orderForm.get('instructionsForm')"></app-instructions-form>
-                                                        <div class="row">
-                                                            <div class="col flex-justify-right mt-5">
-                                                                <button class="btn btn-secondary-outline"
-                                                                    (click)="formType='orderForm'">Previous</button>
-                                                                <button class="btn ml-2" type="submit"
-                                                                    (click)="onSubmit(orderForm.get('instructionsForm'),'instructionsForm')">Next</button>
-                                                            </div>
-                                                        </div>
-                                                    </ng-container>
-                                                    <ng-container *ngSwitchCase="'documentsForm'">
-                                                        <app-documents-form></app-documents-form>
-                                                        <div class="row">
-                                                            <div class="col flex-justify-right mt-5">
-                                                                <button class="btn btn-secondary-outline"
-                                                                    (click)="formType='instructionsForm'">Previous</button>
-                                                                <button class="btn ml-2" type="submit"
-                                                                    (click)="onSubmit(orderForm.get('documentsForm'),'documentsForm')">Next</button>
-                                                            </div>
-                                                        </div>
-                                                    </ng-container>
-                                                    <ng-container *ngSwitchCase="'reviewForm'">
-                                                        <app-review-form></app-review-form>
-                                                        <div class="col flex-justify-right mt-5">
-                                                            <button class="btn btn-secondary-outline"
-                                                                (click)="formType='documentsForm'">Previous</button>
-                                                            <button class="btn ml-2" type="submit">Submit</button>
-                                                        </div>
-                                                    </ng-container>
-                                                </div>
-                                            </ng-container>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- <perfect-scrollbar> -->
+<div class="app__content">
+  <div class="modal modal-container">
+    <div class="modal-title">
+      <h4 class="heading">Create Order</h4>
     </div>
-</perfect-scrollbar>
+    <div class="modal-body flex">
+      <div class="row no-space flex-min-height">
+        <div class="col-2 flex flex-column-stretch wizard-list">
+          <perfect-scrollbar>
+            <ul>
+              <li
+                [ngClass]="{ active: formType == 'addressForm' }"
+                (click)="formType = 'addressForm'"
+              >
+                <span class="icon">
+                  <img src="../../../../assets/icon_location.svg" />
+                </span>
+                <span>Property Address</span>
+              </li>
+              <li
+                [ngClass]="{ active: formType == 'orderForm' }"
+                (click)="formType = 'orderForm'"
+              >
+                <span class="icon">
+                  <img src="../../../../assets/icon_location.svg" />
+                </span>
+                <span>Order Information</span>
+              </li>
+              <li
+                [ngClass]="{ active: formType == 'instructionsForm' }"
+                (click)="formType = 'instructionsForm'"
+              >
+                <span class="icon">
+                  <img src="../../../../assets/icon_location.svg" />
+                </span>
+                <span>Instructions</span>
+              </li>
+              <li
+                [ngClass]="{ active: formType == 'documentsForm' }"
+                (click)="formType = 'documentsForm'"
+              >
+                <span class="icon">
+                  <img src="../../../../assets/icon_location.svg" />
+                </span>
+                <span>Documents</span>
+              </li>
+              <li
+                [ngClass]="{ active: formType == 'reviewForm' }"
+                (click)="formType = 'reviewForm'"
+              >
+                <span class="icon">
+                  <img src="../../../../assets/icon_location.svg" />
+                </span>
+                <span>Review & Submit</span>
+              </li>
+            </ul>
+          </perfect-scrollbar>
+        </div>
+        <div class="col-10 flex flex-column-stretch wizard-content">
+          <!-- <perfect-scrollbar> -->
+          <ng-container [ngSwitch]="formType">
+            <div class="flex flex-column-stretch">
+              <ng-container *ngSwitchCase="'addressForm'">
+                <div class="flex form__container">
+                  <perfect-scrollbar>
+                    <div class="p-4">
+                      <app-address-form [control]="orderForm.get('addressForm')">
+                    </app-address-form>
+                    </div>
+                  </perfect-scrollbar>
+                </div>
+                <div class="flex flex-justify-right px-5 py-3 brd-t">
+                  <button
+                    class="btn"
+                    type="submit"
+                    (click)="
+                      onSubmit(orderForm.get('addressForm'), 'addressForm')
+                    "
+                  >
+                    Next
+                  </button>
+                </div>
+              </ng-container>
+              <ng-container *ngSwitchCase="'orderForm'">
+                <div class="flex form__container">
+                  <perfect-scrollbar>
+                    <div class="p-4">
+                      <app-order-form [control]="orderForm.get('orderInfo')">
+                    </app-order-form>
+                    </div>
+                  </perfect-scrollbar>
+                </div>
+                <div class="flex flex-justify-right px-5 py-3 brd-t"> 
+                  <button
+                    class="btn btn-secondary-outline"
+                    (click)="formType = 'addressForm'"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    class="btn ml-2"
+                    type="submit"
+                    (click)="onSubmit(orderForm.get('orderInfo'), 'orderInfo')"
+                  >Next</button>
+                </div>
+              </ng-container>
+              <ng-container *ngSwitchCase="'instructionsForm'">
+                <div class="flex form__container">
+                  <perfect-scrollbar>
+                    <div class="p-4">
+                      <app-instructions-form
+                  [control]="orderForm.get('instructionsForm')"
+                ></app-instructions-form>
+                    </div>
+                  </perfect-scrollbar>
+                </div>
+                <div class="flex flex-justify-right px-5 py-3 brd-t"> 
+                  <button
+                      class="btn btn-secondary-outline"
+                      (click)="formType = 'orderForm'"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      class="btn ml-2"
+                      type="submit"
+                      (click)="
+                        onSubmit(
+                          orderForm.get('instructionsForm'),
+                          'instructionsForm'
+                        )
+                      "
+                    >
+                      Next
+                    </button>
+                </div>
+              </ng-container>
+              <ng-container *ngSwitchCase="'documentsForm'">
+                <div class="flex form__container">
+                  <perfect-scrollbar>
+                <div class="p-4">
+                  <app-documents-form></app-documents-form>
+                </div>
+                  </perfect-scrollbar>
+                </div>
+                <div class="flex flex-justify-right px-5 py-3 brd-t">
+                  <button
+                      class="btn btn-secondary-outline"
+                      (click)="formType = 'instructionsForm'"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      class="btn ml-2"
+                      type="submit"
+                      (click)="
+                        onSubmit(
+                          orderForm.get('documentsForm'),
+                          'documentsForm'
+                        )
+                      "
+                    >
+                      Next
+                    </button>
+                </div>
+                
+              </ng-container>
+              <ng-container *ngSwitchCase="'reviewForm'">
+                <div class="flex form__container">
+                  <perfect-scrollbar>
+                    
+                <div class="p-4"><app-review-form></app-review-form></div>
+                  </perfect-scrollbar>
+                </div>
+                <div class="flex flex-justify-right px-5 py-3 brd-t">
+                  <button
+                    class="btn btn-secondary-outline"
+                    (click)="formType = 'documentsForm'"
+                  >
+                    Previous
+                  </button>
+                  <button class="btn ml-2" type="submit">Submit</button>
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
+          <!-- </perfect-scrollbar> -->
+        </div>
+      </div>
+    </div>
+    <!-- <div class="dashboard__content">
+      <div class="left__content">
+        <div class="card">
+          <div class="card-body">
+            <div class="wizard">
+              <div class="wizard-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+<!-- </perfect-scrollbar> -->
 
 <!-- </div> -->

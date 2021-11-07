@@ -9,7 +9,7 @@ body {
   position: relative;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: auto;
   font-family: "Ubuntu", Arial, Helvetica, sans-serif;
   background: rgb(0, 74, 110);
   background: -moz-linear-gradient(
@@ -57,6 +57,9 @@ body {
   }
   .custom_scroll {
     height: 100%;
+  }
+  .amc__app {
+    min-width: 1200px;
   }
 }
 

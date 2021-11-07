@@ -1,125 +1,75 @@
+@import "../../../../assets/scss/grid";
+@import "../../../../assets/scss/chips";
+@import "../../../../assets/scss/form";
 
-@import '../../../../assets/scss/grid';
-@import '../../../../assets/scss/colors';
-@import '../../../../assets/scss/chips';
-@import '../../../../assets/scss/utilities';
-@import '../../../../assets/scss/form';  
+@import "../../../../assets/scss/mixins";
+@import "../../../../assets/scss/colors";
+@import "../../../../assets/scss/modal";
+@import "../../../../assets/scss/tables";
+@import "../../../../assets/scss/utilities";
 
-.app__content {
-     padding: 0;
-     background: #F9F9F9;
- }
- .scroll__container {
-     display: flex;
-     height: 100%;
-     box-sizing: border-box;
-     .dashboard__content {
-        display: flex;
-        .left__content {
-            width: 100%;
-            flex: 1;
-            padding: 0px 1rem 0px 1.4rem;
+.wizard-list {
+  background: $tabs;
+  ul {
+    list-style: none;
+    margin: 5px 0;
+    padding: 0;
+    li {
+      padding: 18px 20px;
+      margin: 1px 0;
+      color: $secondary;
+      font-size: 0.8767rem;
+      font-weight: 400;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      .icon {
+        margin-right: 8px;
+        img {
+          height: 16px;
         }
-        .right__content {
-            max-width: 360px;
-            width: 360px;
-            padding: 1.5rem 1.5rem;
-        }
-     }
-     .tab__content {
-        padding: 1rem 0;
-        .card {
-            &-title {
-                padding: 8px 10px;
-                border-bottom: 0;
-                margin-bottom: 10px;
-                .value {
-                    font-size: 13px;
-                    font-weight: 500;
-                    letter-spacing: .25px;
-                    color: $secondary;
-                    text-transform: uppercase;
-                }
-            }
-            &-body {
-                padding: 4px 10px 15px;
-                border-bottom: solid 1px $border-color;
-                .date {
-                    font-size: 20px;
-                    font-weight: 500;
-                    color: $danger;
-                    padding-bottom: 4px;
-                }
-                .sonumber {
-                    font-size: 16px;
-                    font-weight: 500;
-                    color: $secondary;
-                }
-            }
-            &-footer {
-                padding: 8px 10px;
-                .address {
-                    color: $secondary;
-                    font-size: 11px;
-                    line-height: 1;
-                }
-            }
-        }
+      }
+      &.active,
+      &:hover {
+        background-color: $white;
+        color: $extras;
+      }
     }
- }
-
- .wizard .col-2{
-     padding-right: 0 !important;
- }
- .wizard-list{
-    background: #F1F3F5 0% 0% no-repeat padding-box;
- }
- .wizard-list ul{
-  list-style: none;
-  margin: 0;
-  padding: 0;
- }
-
- .wizard-list ul li{
-   padding: 20px;
-   color: #0E526C;
-   font: normal normal normal 16px/20px Ubuntu;
-   font-weight: 500;
-   cursor: pointer;
-
-//    background: url(../../../../assets/icon_location.svg);
-//    background-size: auto 13px;
-//    padding-left: 15px;
+  }
 }
+.form__container {
+  flex: auto;
+  min-height: 0;
+  height: 100%;
+}
+// .wizard-list
+// .wizard-list ul
 
 // li{
- 
+
 //     background: url(../../../../assets/icon_location.svg) no-repeat center left;
 //     background-size: auto 13px;
 //     padding-left: 15px;
 //  }
 
-.wizard-list ul .active{
-    background-color: #fff;
-    color: #4594E0;
- }
+// .wizard-list ul
 
- .wizard-list ul li svg{
-    color: #4594E0;
-    margin-right: 5px;
- }
+// .wizard-list ul li svg {
+//   color: #4594e0;
+//   margin-right: 5px;
+// }
 
- .wizard-list ul li:hover{
-    background-color: #fff;
-    color: #4594E0;
- }
+// .wizard-list ul li:hover {
+//   background-color: #fff;
+//   color: #4594e0;
+// }
 
- .wizard-content{
-    box-shadow: 0px 0px 6px #00000033;
-    background-color: #fff;
- }
+.wizard-content {
+  box-shadow: 0px 5px 6px rgba(#000000, 0.2);
+  background-color: #fff;
+  position: relative;
+}
 
- agm-map {
-    height: 300px;
-  }
-
+agm-map {
+  height: 300px;
+}
