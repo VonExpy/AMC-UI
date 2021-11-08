@@ -37,6 +37,7 @@
     .datatable-header,
     .datatable-body {
       padding-left: 5px;
+      box-sizing: border-box;
     }
     .datatable-header {
       border-bottom: none !important;
@@ -84,6 +85,12 @@
       }
     }
     .datatable-icon-right {
+      font-size: 22px;
+      line-height: 20px;
+      display: inline-block;
+      padding: 6px 0 0;
+    }
+    .datatable-icon-down {
       font-size: 22px;
       line-height: 20px;
       display: inline-block;
