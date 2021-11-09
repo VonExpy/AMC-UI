@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppraisersComponent } from '../shared/components/appraisers/appraisers.component';
+import { AscSearchComponent } from './asc-search/asc-search.component';
+import { CustomListComponent } from './custom-list/custom-list.component';
 import { LandingComponent } from './landing/landing.component';
 import { OverviewComponent } from './overview/overview.component';
 import { VendorDetailsComponent } from './vendor-details/vendor-details.component';
+import { VendorsListComponent } from './vendors-list/vendors-list.component';
 
 
 const routes: Routes = [
@@ -11,6 +14,18 @@ const routes: Routes = [
     path: '',
     component: LandingComponent,
     children: [
+      {
+        path: 'vendors-list',
+        component: VendorsListComponent,
+      },
+      {
+        path: 'custom-list',
+        component: CustomListComponent,
+      },
+      {
+        path: 'asc-search',
+        component: AscSearchComponent,
+      },
       {
         path: 'overview',
         component: OverviewComponent,
@@ -25,7 +40,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'overview',
+        redirectTo: 'vendors-list',
         pathMatch: 'full',
       },
     ],
