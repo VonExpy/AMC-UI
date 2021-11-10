@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import { MockServerAppraisersService } from './paging/mock-server-appraisers-service';
-import { orderModal } from './paging/model/order.modal';
+import { AppraiserModal } from './paging/model/appraisers.modal';
 import { Page } from './paging/model/page';
 
 interface PageInfo {
@@ -20,7 +20,7 @@ export class AppraisersComponent implements OnInit {
 
   totalElements!: number;
   pageNumber: number;
-  rows!: orderModal[];
+  rows!: AppraiserModal[];
   cache: any = {};
 
   ColumnMode = ColumnMode;
@@ -69,7 +69,7 @@ export class AppraisersComponent implements OnInit {
       // Create array to store data if missing
       // The array should have the correct number of with "holes" for missing data
       if (!this.rows) {
-        this.rows = new Array<orderModal>(this.totalElements || 0);
+        this.rows = new Array<AppraiserModal>(this.totalElements || 0);
       }
 
       // Calc starting row offset

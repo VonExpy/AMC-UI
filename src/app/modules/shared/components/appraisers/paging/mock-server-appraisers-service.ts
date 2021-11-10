@@ -3,8 +3,8 @@ import { Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { PagedData } from './model/paged-data';
 import { Page } from './model/page';
-import companyData from "src/assets/data/orders.json";
-import { orderModal } from './model/order.modal';
+import appraiserJson from "src/assets/data/appraisers.json";
+import { AppraiserModal } from './model/appraisers.modal';
 /**
  * A server used to mock a paged data result from a server
  */
@@ -15,27 +15,27 @@ export class MockServerAppraisersService {
    * @param page The selected page
    * @returns {any} An observable containing the employee data
    */
-  public getResults(page: Page): Observable<PagedData<orderModal>> {
+  public getResults(page: Page): Observable<PagedData<AppraiserModal>> {
     console.log(page,'page')
-    return of(companyData)
+    return of(appraiserJson)
       .pipe(map(d => this.getPagedData(page)))
       .pipe(delay(1000 * Math.random()));
   }
 
   /**
-   * Package companyData into a PagedData object based on the selected Page
-   * @param page The page data used to get the selected data from companyData
+   * Package appraiserJson into a PagedData object based on the selected Page
+   * @param page The page data used to get the selected data from appraiserJson
    * @returns {PagedData<CorporateEmployee>} An array of the selected data and page
    */
-  private getPagedData(page: Page): PagedData<orderModal> {
-    const pagedData = new PagedData<orderModal>();
-    page.totalElements = companyData.length;
+  private getPagedData(page: Page): PagedData<AppraiserModal> {
+    const pagedData = new PagedData<AppraiserModal>();
+    page.totalElements = appraiserJson.length;
     page.totalPages = page.totalElements / page.size;
     const start = page.pageNumber * page.size;
     const end = Math.min(start + page.size, page.totalElements);
     for (let i = start; i < end; i++) {
-      const jsonObj = companyData[i];
-      const employee = new orderModal(jsonObj.file, jsonObj.address, jsonObj.jobtype, jsonObj.dueDate, jsonObj.client, jsonObj.status);
+      const jsonObj = appraiserJson[i];
+      const employee = new AppraiserModal(jsonObj.name, jsonObj.company, jsonObj.email, jsonObj.phone, jsonObj.type, jsonObj.license,jsonObj.licenseNumber,jsonObj.regDate,jsonObj.status);
       pagedData.data.push(employee);
     }
     pagedData.page = page;

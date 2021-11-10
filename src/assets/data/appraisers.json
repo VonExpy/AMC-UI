@@ -1,0 +1,35 @@
+[
+    {
+      "name": "Lindsay Aagenes",
+      "company": "Bankers Appraisal Company",
+      "email": "santhoshca@yopmail.com",
+      "phone": "(444) 466-4646",
+      "type":"Chief Appraiser",
+      "license":"MN-Certified Residential",
+      "licenseNumber":"40626351",
+      "regDate":"07/09/2021",
+      "status":"Active"
+    },
+    {
+        "name": "Charles Aamodt",
+        "company": "Bankers Appraisal Company",
+        "email": "santhoshca1@yopmail.com",
+        "phone": "(555) 454-5454",
+        "type":"Chief Appraiser",
+        "license":"CA-Certified General",
+        "licenseNumber":"AG015570",
+        "regDate":"06/10/2021",
+        "status":"Active"
+      },
+      {
+        "name": "Wade McNeill",
+        "company": "Wade McNeill",
+        "email": "wdemc89@yopmail.com",
+        "phone": "(512) 619-0270",
+        "type":"Chief Appraiser",
+        "license":"CA-Certified General",
+        "licenseNumber":"1338269",
+        "regDate":"06/15/2021",
+        "status":"Inactive"
+      }
+  ]
