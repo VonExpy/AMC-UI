@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r dotenv/config index.js",
+    "start": "node index.js",
     "build": "cd ./client && npm run build",
-    "dev": "nodemon -r dotenv/config index.js"
+    "dev": "nodemon index.js"
   },
   "author": "santhosh kolli",
   "license": "ISC",
