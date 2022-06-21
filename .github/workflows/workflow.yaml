@@ -33,7 +33,7 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
     - name: Generate deployment package
-      run: zip -r deploy.zip . -x '*.git*'
+      run: zip -r deploy.zip Dockerrun.aws.json
     
     - name: Get timestamp
       uses: gerred/actions/current-time@master
