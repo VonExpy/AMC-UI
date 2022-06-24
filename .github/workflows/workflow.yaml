@@ -64,6 +64,6 @@ jobs:
         aws_secret_key: ${{ secrets.AMC_AWS_SECRET_ACCESS_KEY }}
         application_name: amcpanel
         environment_name: amcpanel-dev
-        version_label: "amcpanel-${{ jobs.build.steps.format-time.outputs.replaced }}"
+        version_label: "amcpanel-${{ build.steps.format-time.outputs.replaced }}"
         region: us-east-1
         deployment_package: deploy.zip
