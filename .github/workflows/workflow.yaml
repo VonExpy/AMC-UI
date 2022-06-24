@@ -54,6 +54,9 @@ jobs:
     needs: build 
     steps:  
 
+    - name: Checkout source code
+      uses: actions/checkout@v2
+
     - name: Generate deployment package
       run: zip -r deploy.zip Dockerrun.aws.json
 
@@ -67,3 +70,15 @@ jobs:
         version_label: "amcpanel-${{ job.build.steps.format-time.outputs.replaced }}"
         region: us-east-1
         deployment_package: deploy.zip
+  
+  test:    
+    runs-on: ubuntu-latest
+    needs: dev
+    steps:
+      - run: echo 'This is TEST environment'
+
+  prod:    
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - run: echo 'This is PROD environment'
